@@ -1,0 +1,28 @@
+<!-- 商品清单 -->
+<table id="cart_main" class="cart-main" width="100%">
+  <caption><{t}>商品清单<{/t}></caption>
+  <colgroup>
+    <col class="col-2">
+    <col class="col-3">
+    <col class="col-4">
+    <col class="col-5">
+    <col class="col-6">
+    <col class="col-7">
+  </colgroup>
+  <thead>
+    <tr>
+      <th><{t}>商品<{/t}></th>
+      <th><{t}>销售价<{/t}></th>
+      <th><{t}>数量<{/t}></th>
+      <th><{t}>优惠金额<{/t}></th>
+      <th><{t}>积分<{/t}></th>
+      <th><{t}>小计<{/t}></th>
+    </tr>
+  </thead>
+  <!-- 购物车条目 -->
+  <{if $item_section}>
+      <{foreach from=$item_section item=section}>
+        <{include file=$section.file app=$section.app}>
+      <{/foreach}>
+  <{/if}>
+</table>

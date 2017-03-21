@@ -1,0 +1,41 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的评论 -->
+  <div id="member_aftersales" class="member-aftersales">
+    <div class="member-tabs">
+      <a href="<{link app=aftersales ctl=site_member act=afterlist}>" class="active"><em><{t}>申请退换货<{/t}></em></a>
+      <a href="<{link app=aftersales ctl=site_member act=afterrec}>"><em>退换货记录</em></a>
+    </div>
+    <div class="member-mod member-aftersales-list">
+      <table class="member-grid">
+        <thead>
+          <tr>
+            <th><{t}>订单号<{/t}></th>
+            <th><{t}>商品名称<{/t}></th>
+            <th><{t}>总金额<{/t}></th>
+            <th><{t}>操作<{/t}></th>
+          </tr>
+        </thead>
+        <tbody class="first">
+          <{if $orders}>
+          <{foreach from=$orders item=item name=name}>
+          <tr class="<{if $smarty.foreach.name.iteration == 1 }>first<{/if}>">
+            <td class="order"><{$item.order_id}><br /><{$item.createtime|cdate:FDATE_STIME}></td>
+            <td class="goods-items"><{foreach from=$item.goods_items item=item_goods name=name1}>
+              <a href="<{$item_goods.product.link_url}>"><img width="30px;" src="<{$item_goods.product.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$item_goods.product.name}>&nbsp;<{$item_goods.product.attr}>">
+              <{$item_goods.product.name}>&nbsp;<label class="price"><{$item_goods.product.price|cur_odr:$item.currency:false:true}>*<{$item_goods.product.quantity}></label></a><br />
+            <{/foreach}>
+            </td>
+            <td class="price"><{$item.total_amount|cur_odr:$item.currency:false:true}></td>
+            <td class="actions"><a href="<{link app=aftersales ctl=site_member act=add arg0=$item.order_id}>"><{t}>申请售后服务<{/t}></a></td>
+          </tr>
+          <{/foreach}>
+          <{else}>
+          <tr class="first"><td colspan="5" class="no-information"><{t}>暂无售后服务订单<{/t}></td></tr>
+          <{/if}>
+        </tbody>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+</div>

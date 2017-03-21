@@ -1,0 +1,19 @@
+<app>
+    <name>分词索引</name>
+    <description>分词+索引</description>
+
+    <author>
+        <name>shopex开发团队</name>
+        <email>dev@shopex.cn</email>
+        <url>http://www.shopex.cn</url>
+    </author>
+
+    <version>0.2</version>
+    <license>shopex license</license>
+
+	<depends>
+		<app>base</app>
+		<app>desktop</app>
+	</depends>
+
+</app>

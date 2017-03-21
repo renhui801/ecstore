@@ -1,0 +1,296 @@
+<style type="text/css">
+    /*clear*/
+    .group-buy .fixbox{float:left;width:100%;overflow:hidden;}
+    .group-buy,
+    .group-price-list,
+    .group-buy-box{*zoom:1;}
+    .group-buy:after,
+    .group-info:after,
+    .group-price-list:after,
+    .group-buy-box:after {display: block;content: "\0020";font-size:0;line-height:0;height:0;clear:both;overflow: hidden; }
+    /*clear end*/
+
+    .group-name             {display:block;font-size:16px;line-height:30px;}
+    .group-product-pic      {border:4px solid #FF6600;float:right;width:400px;height:260px;text-align:center;overflow:hidden;background-color:#FFFFFF;}
+    .group-coming-soon-pic img,  
+    .group-product-pic img  {max-width:400px;max-height:260px;}
+    .group-coming-soon-pic      {border:4px solid #BCD469;float:right;width:400px;height:260px;text-align:center;overflow:hidden;background-color:#FFFFFF;}
+    .group-info             {margin-right:408px;}
+    .group-buy-box          {background-color:#FF6600;padding:20px 10px 20px 20px;border-radius:5px 0px 0px 5px;-webkit-border-radius:5px 0px 0px 5px;-moz-border-radius:5px 0px 0px 5px;box-shadow:1px 1px 2px #333;-webkit-box-shadow:1px 1px 2px #333;-moz-box-shadow:1px 1px 2px #333;position:relative;z-index:1;_zoom:1;}
+    .group-buy-box.coming-soon {background-color:#BCD469;}
+    .group-price            {color:#FFFFFF;font-size:28px;font-weight:bold;line-height:33px;float:left;}
+    .group-button           {float:right;line-height:33px;font-size:20px;}
+    .group-button .button   {display:block;width:100px;line-height:33px;height:33px;margin:0 auto;text-align:center;text-decoration:none;background-color:#EFEFEF;_float:left;}
+    .group-price-box        {background-color:#FFF1B9;margin-left:15px;padding:10px;border-radius:0px 0px 0px 5px;-webkit-border-radius:0px 0px 0px 5px;-moz-border-radius:0px 0px 0px 5px;}
+    .group-list-price,
+    .group-discount,
+    .group-save             {float:left;text-align:center;width:33%;}
+    .group-list-price .value{text-decoration:line-through;}
+    .group-price-box .value,
+    .group-price-box .key   {display:block;line-height:1.5em;height:1.5em;overflow:hidden;}
+
+    .group-quantity-box     {margin:20px 0px 20px 15px;text-align:center;font-size:14px;}
+    .group-quantity         {color:#FF6600;font-size:16px;}
+    .group-time-box         {margin-left:15px;text-align:center;}
+    .group-time-box .day,
+    .group-time-box .hour,
+    .group-time-box .minute,
+    .group-time-box .second {font-size:20px;font-weight:bold;}
+
+    /*if group-price width + group-button width > group-buy-box width*/
+    .group-block-buy                     {padding:10px 20px;}
+    .group-block-buy .group-price        {display:block;float:none;text-align:center;width:100%;overflow:hidden;}
+    .group-block-buy .group-button       {display:block;float:none;text-align:center;}
+
+    /*width 550*/
+    .group-w550 .group-price-box    {padding:0 10px;}
+    .group-w550 .group-list-price,
+    .group-w550 .group-discount,
+    .group-w550 .group-save         {float:none;width:100%;text-align:left;border-bottom:1px solid #CCCCCC;line-height:2em;height:2em;}
+    .group-w550 .group-save         {border:none;}
+    .group-w550 .value,
+    .group-w550 .key                {display:inline;}
+    .group-w550 .group-status       {display:block;}
+    .group-w550 .group-quantity-box {margin:10px 0px 10px 15px;}
+    .group-w550 .group-price        {font-size:20px;}
+</style>
+<div class="group-buy" id="group_<{$widgets_id}>">
+    <input type="hidden" class="start-time" value="<{$data.goodsdemo.start_time}>"/>
+    <input type="hidden" class="end-time" value="<{$data.goodsdemo.end_time}>"/>
+    <a class="group-name" href="<{$data.goodsdemo.goodsLink}>">
+        <{if $data.goodsdemo.nice}>
+        <{$data.goodsdemo.nice}>
+        <{else}>
+        <{$data.goodsdemo.goodsName}>
+        <{/if}>
+    </a>
+    <div class="group-pic-box group-product-pic">
+        <{if $data.goodsdemo.pic}>
+        
+        <img src="<{$data.goodsdemo.pic|storager:'s'}>" lazyload="<{$data.goodsdemo.pic}>" class="img-lazyload" alt="<{if $data.goodsdemo.nice}><{$data.goodsdemo.nice}><{else}><{$goodsdemo.goodsName}><{/if}>" />
+        <{else}>
+        <img src="images/transparent.gif" class="img-lazyload" lazyload="<{$data.goodsdemo.goodsPicM}>" alt="<{if $data.goodsdemo.nice}><{$data.goodsdemo.nice}><{else}><{$data.goodsdemo.goodsName}><{/if}>"  />
+        <{/if}>
+    </div>
+    <div class="group-info">
+        <div class="fixbox">
+            <div class="group-buy-box">
+                <div class="group-price box-item">
+                    <span><{$data.goodsdemo.groupprice|cur}></span>
+                </div>
+                <div class="fixIE6"></div>
+                <div class="group-button box-item">
+                    <a href="<{$data.goodsdemo.goodsLink}>" class="button">
+                        <span class="group-state">
+                            参团
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="group-price-box">
+                <ul class="group-price-list">
+                    <li class="group-list-price">
+                    <span class="key">原价</span>
+                    <span class="value"><{$data.goodsdemo.goodsSalePrice|cur}></span>
+                    </li>
+                    <li class="group-discount">
+                    <span class="key">折扣</span>
+                    <span class="value"><{$data.goodsdemo.sales}></span>
+                    </li>
+                    <li class="group-save">
+                    <span class="key">节省</span>
+                    <span class="value"><{$data.goodsdemo.goodsSalePrice-$data.goodsdemo.groupprice|cur}></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="group-quantity-box">
+            </div>
+            <div class="group-time-box">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function(){
+        /*AutoSize*/
+        var AutoSize = window['AutoSize'] || new Class({
+            initialize: function(elements, hw) {
+                this.elements = $$(elements);
+                this.doAuto(hw);
+            },
+            doAuto: function(hw) {
+                if (!hw) {
+                    hw = 'height';
+                }
+                var max = 0,
+                prop = (!Browser.ie6 ? 'min-': '') + hw, //ie6 ftl
+                offset = 'offset' + hw.capitalize();
+                this.elements.each(function(element, i) {
+                    var calc = element[offset];
+                    if (calc > max) {
+                        max = calc;
+                    }
+                }, this);
+                this.elements.each(function(element, i) {
+                    element.setStyle(prop, max - (element[offset] - element.getStyle(hw).toInt()));
+                });
+                return max;
+            }
+        });
+
+        /*check inline box*/
+        var InlineCheck = window['InlineCheck'] || function(elements,callback){
+            elements = $$(elements);
+            var y = 0;
+            var result = true;
+            var columns = 0;
+            for(var i = 0 ;i<elements.length;i++){
+                var tmpY = elements[i].getPosition().y;
+                if(y != 0 && y != tmpY){
+                    result = false;
+                    break;
+                }
+                columns = columns + 1;
+                y =tmpY;
+            }
+            if(typeOf(callback) == 'function'){
+                callback(result,columns);
+                }else{
+                return result;
+            };
+        };
+
+        /*check box height*/
+        var HeightCheck = window['HeightCheck'] || function(elements,callback){
+            elements = $$(elements);
+            var height = 0;
+            var result = true;
+            for(var i = 0;i<elements.length;i++){
+                var tmpH = elements[i].getHeight;
+                if(height != 0 && height != tmpH){
+                    result = false;
+                    break;
+                }
+                height = tmpH;
+            }
+            if(typeOf(callback) == 'function'){
+                callback(result);
+                }else{
+                return result;
+            };
+        };
+        var group = $('group_<{$widgets_id}>');
+        if(!group){
+            return;
+        }
+        var groupBuy = group.getElement('.group-buy-box');
+        var groupState = group.getElement('.group-state'); //活动状态文字
+        var groupPic = group.getElement('.group-pic-box');//商品图片
+        var timeStart =new Date((group.getElement('.start-time').value)*1000);
+        var timeEnd =new Date((group.getElement('.end-time').value)*1000);
+        var groupTime = group.getElement('.group-time-box');//倒计时区域
+        var quantityBox = group.getElement('.group-quantity-box');
+        InlineCheck('#group_<{$widgets_id}> .group-buy-box .box-item',function(res){
+            if(!res){
+                groupBuy.addClass('group-block-buy');
+            }
+        });
+        if(group.getElement('.group-info').getSize().x<= 145){
+           group.addClass('group-w550');
+        }
+        new DataLazyLoad({
+            lazyDataType:'img',
+            img:'lazyload',
+            after:function(pic){
+                if(Browser.ie6){
+                    pic.zoomImg(400,260);
+                }
+            }
+        });
+        var activeState = function(timeNow,inventory){
+            var state = 1;
+            timeNow = timeNow.getTime();
+            var compareStart = timeStart.getTime();
+            var compareEnd = timeEnd.getTime();
+            if(compareStart > timeNow){
+                state = 1;
+            }else if(compareEnd < timeNow){
+                state = 3;
+            }else if(compareStart < timeNow && compareEnd > timeNow && inventory == 0){
+                state = 4;
+            }else if(compareStart < timeNow && compareEnd > timeNow &&  inventory != 0){
+                state = 2;
+            };
+            return state;
+        }//确定当前活动状态
+        var changeState = function(state,timeNow){
+            switch(state){
+                case 1:
+                groupPic.className = 'group-pic-box group-coming-soon-pic';
+                groupBuy.className = 'group-buy-box coming-soon';
+                groupState.innerHTML = '即将开始';
+                var inner = '<div class="title">离团购开始还有</div><div class="time"><span><span class="day">0</span>天</span><span><span class="hour">0</span>时</span><span><span class="minute">0</span>分</span><span><span class="second">0</span>秒</span></div>';
+                groupTime.set('html',inner);
+                var timeDom = {
+                    day: group.getElement('.day'),
+                    second: group.getElement('.second'),
+                    minute:group.getElement('.minute'),
+                    hour:group.getElement('.hour')
+                };//显示倒计时的dom
+                try{
+                    var count = new timeCount();
+                    count.init(timeStart,timeNow,timeDom,function(){
+                        changeState(2);
+                    });
+                }catch(e){};
+                quantityBox.set('html','<span class="group-status">团购即将开始，敬请期待</span>');
+                break
+                case 2:
+                groupPic.className = 'group-pic-box group-product-pic';
+                groupBuy.className = 'group-buy-box';
+                groupState.innerHTML = '查看';
+                var inner = '<div class="title">剩余时间</div><div class="time"><span><span class="day">0</span>天</span><span><span class="hour">0</span>时</span><span><span class="minute">0</span>分</span><span><span class="second">0</span>秒</span></div>';
+                groupTime.set('html',inner);
+                var timeDom = {
+                    day: group.getElement('.day'),
+                    second: group.getElement('.second'),
+                    minute:group.getElement('.minute'),
+                    hour:group.getElement('.hour')
+                };//显示倒计时的dom
+                try{
+                    var count = new timeCount();
+                    count.init(timeEnd,timeNow,timeDom,function(){
+                        changeState(3);
+                    });
+                }catch(e){};
+                quantityBox.set('html','<span class="group-status">团购进行中，</span><span class="group-quantity"><{$data.goodsdemo.quantity}></span>人已经下单');
+                break
+                case 3:
+                groupPic.className = 'group-pic-box group-product-pic';
+                groupBuy.className = 'group-buy-box';
+                groupState.innerHTML = '结束';
+                var inner = '<div class="title">时间到，团购结束</div>';
+                groupTime.set('html',inner);
+                quantityBox.set('html','<span class="group-status">团购已成功，</span><span class="group-quantity"><{$data.goodsdemo.quantity}></span>人已经下单');
+                break
+                case 4:
+                groupPic.className = 'group-pic-box group-product-pic';
+                groupBuy.className = 'group-buy-box';
+                groupState.innerHTML = '售完';
+                var inner = '<div class="title">商品已卖光，团购结束</div>';
+                groupTime.set('html',inner);
+                quantityBox.set('html','<span class="group-quantity"><{$data.goodsdemo.quantity}></span>人已经下单');
+                break
+            }
+        }//根据状态改变显示
+        new Request({
+                url : '<{$data.request_widget_data}>',
+                onComplete:function(re){
+                    timeNow=new Date(re*1000);
+                    re = JSON.decode(re);
+                    var timeNow=new Date(re.timeNow*1000);//当前时间
+                    changeState(activeState(timeNow,re.inventory),timeNow);
+                }
+        }).send('goods_id=<{$data.goodsdemo.goodsId}>&act_id=<{$data.goodsdemo.act_id}>');
+    })();
+</script>

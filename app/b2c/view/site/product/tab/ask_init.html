@@ -1,0 +1,19 @@
+<div class="mod">
+  <div class="mod-title"><h2><{t}>商品咨询<{/t}></h2></div>
+  <{include file='site/product/tab/ask/init.html'}>
+  <script>
+    new Tabs('consult_content_init',{
+      eventType: 'click',
+      stopEvent: true,
+      onSwitch: function(e){
+        var a = this.triggers[e.currentIndex].getElement('a');
+        var content = this.panels[e.currentIndex];
+        if(!content.getFirst()) content.load(a.href,{data:''});
+        var parent = this.container.getParent();
+        if(parent.getElement('.active-handle')) {
+            closeReply(this.container.getParent().getElement('.action-close-reply'));
+        }
+      }
+    });
+  </script>
+</div>

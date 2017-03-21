@@ -1,0 +1,32 @@
+
+<div class="home-login box" id="loginBar_<{$widgets_id}>">
+    <div class="login">
+        <a href="<{link app=b2c ctl=wap_passport act=login}>" class="btn orange">
+            登录
+        </a>
+    </div>
+    <div class="reg">
+        <a href="<{link app=b2c ctl=wap_passport act=signup}>" class="btn">
+            注册
+        </a>
+    </div>
+</div>
+
+<div id="memberBar_<{$widgets_id}>" class="home-logon" style="display:none">
+    <span class="left">您好，<span id="uname_<{$widgets_id}>"></span>！</span><a href="<{link app=b2c ctl=wap_passport act=logout}>"> 退出 </a>
+</div>
+
+<script>
+    var e = $.fn.cookie('UNAME')?$.fn.cookie('UNAME'):'';
+    if(e){
+        $("#uname_<{$widgets_id}>").text(decodeURIComponent(e));
+        $("#memberBar_<{$widgets_id}>").show();
+        if($("#loginBar_<{$widgets_id}>"))
+        $("#loginBar_<{$widgets_id}>").hide();
+    }
+    else{
+        $("#loginBar_<{$widgets_id}>").show();
+        if($("#memberBar_<{$widgets_id}>"))
+        $("#memberBar_<{$widgets_id}>").hide();
+    }
+</script>

@@ -1,0 +1,87 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <div class="a-name">
+            付款成功
+        </div>
+    </div>
+    </header>
+    <div class="section">
+        <div class="msg">
+            <div class="checkout-success">
+                已经付款成功！
+            </div>
+        </div>
+    </div>
+    <!--付款完成显示 end-->
+    <div class="section">
+        <table width="100%" class="d-table">
+            <col width="100"/>
+            <col width=""/>
+            <tr>
+                <td class="k">
+                    订单号：
+                </td>
+                <td class="v">
+                    <{$order.order_id}>
+                </td>
+            </tr>
+            <{if $order.payed !='0' && $order.cur_money != '0'}>
+            <tr>
+                <td class="k">已付金额：</td>
+                <td class="v">
+                    <span class="price">
+                        <{$order.payed|cur:$order.currency}>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">应付金额：</td>
+                <td class="v">
+                    <span class="price">
+                        <{$order.cur_money|cur:$order.currency}>
+                    </span>
+                </td>
+            </tr>
+            <{/if}>
+            <tr>
+                <td class="k">订单商品数量：</td>
+                <td class="v">
+                    <{$order.quantity}>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">收货信息：</td>
+                <td class="v">
+                    收货人:<{$order.ship_name}><br />
+                    收货地区:<{$order.ship_area|ship_area}><br />
+                    详细地址:<{$order.ship_addr}><br />
+                    <{if $order.ship_mobile}>手机:<{$order.ship_mobile}><br /><{/if}>
+                    <{if $order.ship_tel}>电话:<{$order.ship_tel}><br /><{/if}>
+                    <{if $order.ship_zip}>邮编：<{$order.ship_zip}><br /><{/if}>
+                    配送时间:<{$order.ship_time}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <div class="d-line c-fix">
+            <div class="l-k">您还可以：</div>
+            <div class="l-v">
+                <a href="<{link app=b2c ctl=wap_member act=orderdetail arg0=$order.order_id}>">
+                    查看订单
+                    <i class="arr right"></i>
+                </a>
+                &nbsp;&nbsp;
+                <a href="<{link app='wap' ctl='default' act='index'}>">
+                    继续购物
+                    <i class="arr right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function(){
+    })();
+</script>

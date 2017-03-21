@@ -1,0 +1,20 @@
+<form class="tableform" method="post" action="index.php?app=b2c&ctl=admin_member_messenger&act=saveSmsSign" id='messenger-email-form' >
+  <{t}>短信签名<{/t}> :
+  【 <{input type="text" name="sign" value=$sign vtype="required"}> 】
+  <br>
+  <br>
+  <hr>
+  <div class="notice">
+    <{t}>
+    说明：<br>
+    1、签名的中括号不必填写，发送短信会自动带上中括号签名<br>
+    2、签名必填<br>
+    3、签名（包括中括号）会占用短信字数，建议使用简短字符<br>
+    4、签名不能包含测试、test、成对的[]、{}、及天猫、tmall、淘宝、taobao,、1号店、易迅、京东、亚马逊等知名电商企业<br>
+    <{/t}>
+  </div>
+  <div class="table-action">
+    <{button label=$___b2c="保存"|t:'b2c' type="submit"}>
+  </div>
+</form>
+

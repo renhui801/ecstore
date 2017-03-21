@@ -1,0 +1,82 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            <{if $addr_id}>编辑收货地址<{else}>添加收货地址<{/if}>
+        </div>
+        <div class="a-right">
+        </div>
+    </div>
+    </header>
+    <div class="address-form">
+        <form action='<{link app=b2c ctl="wap_member" act="save_rec"}>' class="form" method="post" data-type="ajax">
+            <input type="hidden" name="addr_id" value="<{$addr_id}>">
+            <div class="c-g" style="height:auto">
+                <label class="c-l">地区</label>
+                <div class="c">
+                    <{input app=ectools type="region" id="addr" platform="iswap" name='area' vtype=$area value=$area callback="selectArea" required="required"}>
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">收货地址</label>
+                <div class="c">
+                    <input type="hidden" class="text" name="addr_area" />
+                    <input type="text" class="text" name="addr" value="<{$addr}>" required="required" data-caution="收获地址不能为空" />
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">邮编</label>
+                <div class="c">
+                    <input type="text" class="text" name="zip" value="<{$zipcode}>" />
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">收货人姓名</label>
+                <div class="c">
+                    <input type="text" class="text" name="name" value="<{$name}>" required="required" data-caution="收货人姓名不能为空" />
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">手机</label>
+                <div class="c">
+                    <input type="text" class="text" name="mobile" value="<{$phone.mobile}>" vtype="mobile" data-caution="手机不能为空" />
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">固定电话</label>
+                <div class="c">
+                    <input type="text" class="text" name="tel" value="<{$phone.telephone}>" vtype="tel" />
+                </div>
+            </div>
+            <div class="c-g-c">
+                <input type="checkbox" name="def_addr" value="1" id="def_addr_check" <{if $default eq "1"}>checked=checked<{/if}>/>
+                <label for="def_addr_check">设为默认收货地址</label>
+            </div>
+            <div class="btn-bar">
+                <button type="submit" class="btn" rel="_request">保存地址</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+$(function(){
+    selectArea = function(sels) {
+        var selected = [];
+        $.each(sels,function(){
+            if($(this).css('display') != 'none'){
+               var text = this.selectedOptions[0].text;
+               if(['<{t}>北京<{/t}>','<{t}>天津<{/t}>','<{t}>上海<{/t}>','<{t}>重庆<{/t}>'].indexOf(text)>-1)return;
+               selected.push(text);
+            }
+        });
+        var selectedV = selected.join('');
+        if(!$('#addr').attr('value').match(selectedV)) $('#addr').attr('value',selectedV);
+    };
+})
+</script>

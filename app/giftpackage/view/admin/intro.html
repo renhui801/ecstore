@@ -1,0 +1,35 @@
+<h3>礼包设置</h3>
+<div class="tableform">
+    <div class="division">
+        <div class="division">
+         <table border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <th>礼包图片：</th>
+                 <td>
+                        <div class="dft_image">
+            <span class="lnk"><{input type="image" name="giftpackage[image]" value="{$giftpackage.image}"}></span>
+                </div>
+             </td>
+             </tr>
+             <tr>
+                 <th>礼包排序：</th>
+                 <td><input type="TEXT" name="giftpackage[order]" class="inputstyle" value="<{$giftpackage.order}>" size="4" vtype="digits"></INPUT></td>
+              </tr>
+			  <tr>
+			      <th>礼包说明：</th>
+				  <td>
+					  <div class="division division-skin">
+						<{input type="html" name="giftpackage[intro]" class="" value=$giftpackage.intro includeBase=true}>
+					  </div>
+				  </td>
+			  </tr>
+
+        </table>
+        </div>
+    </div>
+    
+</div>
+<script>
+
+
+</script>

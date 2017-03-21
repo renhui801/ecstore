@@ -1,0 +1,9 @@
+<site>
+    
+    <module controller='site_cart' >
+        <name>group</name>
+        <title>团购</title>
+        <disable>false</disable>
+    </module>
+    
+</site>

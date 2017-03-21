@@ -1,0 +1,107 @@
+<div  id="flash" class="tableform">
+<div class="division widgetconfig">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="20%"><{t app="cps"}>Flash宽度：<{/t}></th>
+    <td width="30%" ><{input name="width" style="width:50px" value=$setting.width|default:'100' required="true" type="digits"}></td>
+    <th width="20%" ><{t app="cps"}>Flash高度：<{/t}></th>
+    <td width="30%" ><{input name="height" style="width:50px" value=$setting.height|default:'100' required="true" type="digits"}></td>
+  </tr>
+
+  <tr>
+      <th width="20%" ><{t app="cps"}>过渡颜色：<{/t}></th>
+    <td width="30%" ><{input type="color" name="color" value=$setting.color|default:'default' }></td>
+    <th width="20%" ><{t app="cps"}>过渡时间：<{/t}></th>
+    <td width="30%" ><{input name="duration" style="width:50px" value=$setting.duration|default:'2' required="true" type="digits"}><{t app="cps"}>秒<{/t}></td>
+  </tr>
+</table>
+</div>
+</div>
+
+<div class="tableform">
+<!--<span class="sysiconBtn addorder" onclick="addFlash();">添加图片</span>-->
+<{button label=$___cps="添加图片"|t:'cps' app="desktop" icon="btn_add.gif" class="addimage"}>
+
+  <div id="listArea" class="division">
+	<{if $setting.flash}>
+
+    <{foreach from=$setting.flash item=data key=key}>
+	 <div id="flash_<{$key}>" class="pic_items">
+	  <table width="100%" cellpadding="0" cellspacing="0">
+	  <tr>
+		<th><{t app="cps"}>图片地址：<{/t}></th>
+		<td>
+		<input type="hidden" name="flash[<{$key}>][i]" value="<{$key}>">
+		<input name="flash[<{$key}>][pic]" class="imgsrc"  value="<{$data.pic}>"><input type="button" value="<{t app="cps"}>上传图片<{/t}>" class="uploadbtn">
+
+		<th><{t app="cps"}>链接地址：<{/t}></th><td><input type="input" name="flash[<{$key}>][url]" value="<{$data.link|default:$data.url}>" />
+		<span onclick="$(this).getParent('.pic_items').destroy()"><{img src="delecate.gif"  style="cursor:pointer;" }></span>
+		</td>
+		</tr>
+	  </table>
+		<input type=hidden name="flash[<{$key}>][i]" value="<{$key}>">
+
+	  </div>
+
+
+	  <{/foreach}>
+	  <{else}>
+	  <div id="flash_<{$key}>" class="pic_items">
+
+  <table width="100%" cellpadding="0" cellspacing="0">
+
+  <tr id="flash_0" >
+    <th width="2%"><{t app="cps"}>图片地址：<{/t}></th>
+    <td><input type=hidden name=flash[0][i] value="<{$keyd}>">
+	<input name='flash[0][pic]' class="imgsrc"  value="<{$data.url}>"><input type=button value="<{t app="cps"}>上传图片<{/t}>" class="uploadbtn">
+	</td>
+    <th><{t app="cps"}>链接地址：<{/t}></th>
+    <td><input type="text" name="flash[0][url]" value="<{$setting.url.0}>">
+	<span onclick="$(this).getParent('.pic_items').destroy()"><{img src="delecate.gif"  style="cursor:pointer;" }></span></td>
+  </tr>
+
+  </table>
+  </div>
+      <{/if}>
+  </div>
+
+</div>
+
+<script>
+
+
+
+	var tag_type='div',tag_class='pic_items';
+
+	document.getElement(".addimage").addEvent('click',function(e){
+
+			var i=new Date().getTime();
+
+			var tpl='\
+				 <table width="100%" cellpadding="0" cellspacing="0">\
+					<tr><th width="2%"><{t app="cps"}>图片地址:<{/t}></th>\
+					  <td><input type=hidden name=flash['+i+'][i] value="'+i+'"><input name="flash['+i+'][pic]" class="imgsrc"><input type=button value="<{t app="cps"}>上传图片<{/t}>" class="uploadbtn" id="flash['+i+']"></td>\
+					  <th><{t app="cps"}>链接地址:<{/t}></th>\
+					 <td><input name=flash['+i+'][url]><span onclick="$(this).getParent(\'.pic_items\').destroy()">\
+					 <{img src="delecate.gif" style="cursor:pointer;" alt=$___cps="删除"|t:'cps' title=$___cps="删除"|t:'cps'}></span></td></tr>\
+				  <table>';
+
+			$('listArea').adopt(new Element(tag_type,{'html':tpl,'class':tag_class}));
+
+			$('flash['+i+']').addEvent('click',function(e){bindevent(this)});
+	});
+
+
+	$$("#listArea .uploadbtn").addEvent('click',function(e){bindevent(this)});
+
+	function bindevent(el){
+		var target=$(el).getParent(tag_type).getElement('.imgsrc');
+		var url='index.php?app=desktop&act=alertpages&goto='+encodeURIComponent("index.php?app=image&ctl=admin_manage&act=image_broswer&type=big");
+		return new imgDialog(url,{onCallback:function(image_id,image_src){
+				target.value=image_src;
+		}})
+	}
+
+
+
+</script>

@@ -1,0 +1,36 @@
+<form action="<{link app=b2c ctl=site_passport act=post_login}>" method="post">
+  <ul>
+    <li class="form-item">
+      <label for="" class="form-label">登录帐号：</label><span class="form-act"><{input type="text" class="action-account-check" name="uname" id="" value="{$loginName}" placeholder="用户名/邮箱地址/手机号" vtype="required" data-caution="请填写登录帐号" autofocus="autofocus"}></span></li>
+    <li class="form-item"><label for="" class="form-label">密码：</label><span class="form-act"><{input type="password" name="password" id="" placeholder="填写密码" vtype="required" data-caution="请填写密码"}></span></li>
+    <li class="form-item action-verifycode <{if !$show_varycode}>hide<{/if}>">
+      <label for="" class="form-label"><{t}>验证码<{/t}>：</label>
+      <span class="form-act">
+        <{input type="vcode" name="verifycode" class="verify-input" placeholder="填写验证码" data-caution="请正确填写验证码" key='b2c'}>
+      </span>
+    </li>
+    <li class="form-item action-need-verify" style="display:none;">
+      <label for="" class="form-label"><{t}>验证码：<{/t}></label>
+      <span class="form-act">
+        <{input type="text" name="mobileVcode" id="" placeholder="填写验证码" class="verify-input"}> <a href="<{link app=b2c ctl=site_passport act=send_vcode_sms}>" class="btn btn-caution action-get-verifycode"><span><span>获取短信验证码</span></span></a>
+      </span>
+    </li>
+    <li class="form-item">
+      <label for="" class="form-label"></label>
+      <span class="form-act">
+        <input type="checkbox" name="is_remember" id="for_remember" class="x-check action-remember-account"<{if $site_b2c_remember != '0'}> checked="checked"<{/if}>>
+        <label for="for_remember" class="form-sub-label">记住帐号</label>
+        <input type="checkbox" name="site_autologin" id="for_auto_signin" class="x-check action-auto-signin">
+        <label for="for_auto_signin" class="form-sub-label">两周内自动登录</label>
+      </span>
+    </li>
+    <li class="form-item-normal">
+      <label for="" class="form-label"></label>
+      <span class="form-act">
+        <{assign var='label' value='登　录'}>
+        <{button type="submit" class="btn-major btn-big" label=$__b2c=$label|t:'b2c' rel="_request"}>
+        <a href="<{link app=b2c ctl=site_passport act=lost}>"<{if $mini_passport==1}> target="_top"<{/if}>>忘记密码？</a>
+      </span>
+    </li>
+  </ul>
+</form>

@@ -1,0 +1,155 @@
+<div id="main" class="clearfix">
+  <{assign var=num value=$goodsBasicInfo|count}>
+  <div class="page-content">
+    <div id="goods_compare" class="goods-compare">
+      <table class="compare-table">
+        <col class="col-1" nowrap>
+        <{foreach from=$goodsBasicInfo item=goods}>
+        <col class="col-2" style="width: <{0.94 / $num * 100}>%">
+        <{/foreach}>
+        <tbody>
+          <tr>
+            <th>基本信息</th>
+            <{foreach from=$goodsBasicInfo item=goods}>
+            <th></th>
+            <{/foreach}>
+          </tr>
+          <tr>
+            <td>商品</td>
+            <{foreach from=$goodsBasicInfo item=goods}>
+            <td>
+              <div class="goods-item">
+                <div class="goods-pic"><a href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>"><img src="<{$goods.image_default_id|storager:'m'}>" alt="<{$goods.name}>"></a></div>
+                <div class="goods-info">
+                  <h3 class="goods-name"><{$goods.name}><{if $goods.spec_info}>(<{$goods.spec_info}>)<{/if}></h3>
+                  <div class="goods-buy">
+                    <input type="hidden" name="goods[num]" value="1">
+                    <input type="hidden" name="goods[goods_id]" value="<{$goods.goods_id}>">
+                    <input type="hidden" name="goods[product_id]" value="<{$goods.product_id}>">
+                    <{if $goods.store <= 0 }>
+                    <{button type="button" class="btn-caution action-notify" label="到货通知"}>
+                    <{else}>
+                    <{if $env.conf.b2c.site.buy.target == '2'}>
+                    <{assign var='buytarget' value='_blank_cart'}>
+                    <{elseif $env.conf.b2c.site.buy.target == '3'}>
+                    <{assign var='buytarget' value='_dialog_minicart'}>
+                    <{/if}>
+                    <a class="btn btn-major action-addtocart" href="<{link app=b2c ctl=site_cart act=add arg0=goods arg1=$goods.goods_id arg2=$goods.product_id arg3=1}>"<{if $buytarget}> target="<{$buytarget}>"<{/if}>><span><span>加入购物车</span></span></a>
+                    <{/if}>
+                    <a class="btn btn-simple" href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>" target="_blank"><span><span>查看详细</span></span></a>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <{/foreach}>
+          </tr>
+          <tr>
+            <td>价格</td>
+            <{foreach from=$goodsPrice item=price}>
+            <td class="price"><{$price.price|cur_odr}></td>
+            <{/foreach}>
+          </tr>
+          <tr>
+            <td>品牌</td>
+            <{foreach from=$goodsBrind item=brand_id}>
+            <td><{$brand[$brand_id.brand_id]|default:'-'}></td>
+            <{/foreach}>
+          </tr>
+          <{if $goodsWeight}>
+          <tr>
+            <td>重量</td>
+            <{foreach from=$goodsWeight item=weight}>
+            <td><{$weight.weight|default:"-"}><{if $weight.weight}><{t}>克<{/t}><{/if}></td>
+            <{/foreach}>
+          </tr>
+          <{/if}>
+          <{if $point_status == 'on'}>
+          <tr>
+            <td>商品评分</td>
+            <{foreach from=$goodsPoint item=point}>
+            <{if $point.point_num > 0}>
+            <td>
+              <em class="stars stars-<{$point.goods_point.avg_num*10}>">
+                <span class="below"><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i></span><span class="above"><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i></span>
+              </em>
+              <a href="<{link app=b2c ctl=site_product arg0=$point.product_id}>#product_comment"><b><{$point.point_num}></b><{t}>条评论<{/t}></a>
+            </td>
+            <{else}>
+            <td>暂无评论</td>
+            <{/if}>
+            <{/foreach}>
+          </tr>
+          <{/if}>
+          <tr>
+            <th> 扩展属性</th>
+            <{foreach from=$goodsProps item=props}>
+            <th></th>
+            <{/foreach}>
+          </tr>
+          <{foreach from=$goodsType item=props name=name}>
+          <tr>
+            <td class="row-<{$smarty.foreach.name.iteration+5}>"><{$props.name}></td>
+            <{foreach from=$goodsProps item=item}>
+            <td ><{$item.props[$props.goods_p].value|default:'-'}></td>
+            <{/foreach}>
+          </tr>
+          <{/foreach}>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="product_notify" class="product-notify" style="display:none;">
+  <p class="desc"><{t}>该货品暂时缺货，请在下面输入您的邮箱地址或手机号码，当我们有现货供应时，我们会发送邮件通知您！<{/t}></p>
+  <form class="form" method="post" action="<{link app=b2c ctl=site_product act=toNotify}>">
+    <input type="hidden" name="item[0][goods_id]" value="">
+    <input type="hidden" name="item[0][product_id]" value="">
+    <ul>
+      <li class="form-item">
+        <label for="email" class="form-label"><{t}>邮箱地址<{/t}>：</label>
+        <span class="form-act">
+          <{input type="text" name="email" id="" size="30" vtype="required&&email"}>
+        </span>
+      </li>
+      <li class="form-item">
+        <label for="cellphone" class="form-label"><{t}>手机号码<{/t}>：</label>
+        <span class="form-act">
+          <{input type="text" name="cellphone" id="" size="30" vtype="required"}>
+        </span>
+      </li>
+      <li class="form-item form-item-last">
+        <label class="form-label"></label>
+        <span class="form-act">
+          <{button type="submit" class="btn-caution" label=$___b2c="提交"|t:'b2c' rel="_request"}>
+        </span>
+      </li>
+    </ul>
+  </form>
+</div>
+<script>
+$$('.action-notify').addEvent('click', function(e){
+    var parent = this.getParent('.goods-item');
+    var dialog = new Dialog($('product_notify').wrapped(), {
+        title:'到货通知',
+        width: 400,
+        modal: {
+            'class': 'cover'
+        },
+        onLoad: function(){
+            var dialog = this;
+            var content = this.content;
+            content.getElement('input[name="item[0][goods_id]"]').value = parent.getElement('input[name="goods[goods_id]"]').value;
+            content.getElement('input[name="item[0][product_id]"]').value = parent.getElement('input[name="goods[product_id]"]').value;
+            content.getElement('[rel=_request]').store('_ajax_config',{onSuccess:function(rs){
+                if(rs && rs[0]) {
+                    if(rs[0]['true']) {
+                        content.getElement('.product-notify').innerHTML = '<div class="success">联系方式已经成功提交，到货后会立刻通知您。</div>';
+                        dialog.hide.delay(3000, dialog);
+                    }
+                }
+            }});
+        }
+    });
+});
+</script>

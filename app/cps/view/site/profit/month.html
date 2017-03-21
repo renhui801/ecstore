@@ -1,0 +1,101 @@
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span><a href="<{link app='cps' ctl='site_welcome' act='profitIndex'}>">佣金报表</a></span>&gt;<span class="bold">收益月报表查询</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="m2_left">
+<ul id="m2left_nav">
+    <li><a href="<{link app='cps' ctl='site_welcome' act='profitSearch'}>">实时业绩查询</a></li>
+    <li><a href="<{link app='cps' ctl='site_welcome' act='orderSearch'}>">查询订单详情</a></li>
+    <li class="curr bg_color1"><a href="<{link app='cps' ctl='site_welcome' act='incomeSearch'}>">收益月报表查询</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="m2_right">
+<div class="yj_search">
+<form action="<{link app='cps' ctl='site_welcome' act='incomeSearch'}>" method="get">
+<table width="99%" border="0" align="left">
+    <tbody>
+        <tr style="height:23px;">
+            <td width="9%" valign="middle" style="height:23px;">输入年份：</td>
+            <td width="22%" valign="middle" style="height:23px;"><select name="year" id="year" class="logintext1"><{$years}></select></td>
+            <td width="9%" valign="middle" style="height:23px;">输入月份：</td>
+            <td width="22%" valign="middle" style="height:23px;"><select name="month" id="month" class="logintext1"><{$months}></select></td>
+            <td width="38%" valign="middle" style="height:23px;"><label></label> <label> <input type="submit" value="搜索" class="but_bglan"> </label></td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<div class="clear"></div>
+</div>
+<!--yj_search-->
+<{if $total}>
+<div class="yj_xiangqing bor_color1">
+<table width="100%" border="0" align="center" cellspacing="0">
+    <tbody>
+        <tr class="bg_color1">
+            <th>总订单量</th>
+            <th>总订单金额</th>
+            <th>佣金总额</th>
+        </tr>
+        <tr>
+            <td height="30" align="center"><{$total.order_sum}></td>
+            <td height="30" align="center"><{$total.cost_sum}>元</td>
+            <td height="30" align="center">
+            <p class="text_red"><{$total.money_sum}>元</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="clear"></div>
+</div>
+<{/if}>
+<!--yj_xiangqing-->
+<{if $total.order_sum>0}>
+<div class="yj_xiangqing">
+<table width="100%" border="0" cellspacing="0" class="tab1">
+    <tbody>
+       <col class="td1"/>
+        <col class="td2" />
+        <col class="td3" />
+        <col class="td4" />
+        <col class="td5" />
+       <tr class="bg_color1">
+            <th>订单号</th>
+            <th>下单时间</th>
+            <th>来源</th>
+            <th>订单金额</th>
+            <th>佣金</th>
+        </tr>
+        <{foreach from=$list item=val}>
+        <tr>
+           <td class="tab-td1"><{$val.order_id}></td>
+            <td class="tab-td2"><{$val.addtime}></td>
+            <td class="tab-td3"><span><{$val.refer_url}></span></td>
+            <td class="tab-td4"><{$val.order_cost}>元</td>
+            <td class="tab-td5"><p class="text_red"><{$val.money}>元</p></td>
+        </tr>
+        <{/foreach}>
+    </tbody>
+</table>
+<div class="clear"></div>
+</div>
+<{elseif $isSearch}>
+<div class="yj_xiangqing bor_color1">
+<div>暂无查到相关记录</div>
+<div class="clear"></div>
+</div>
+<{/if}>
+<!--yj_xiangqing-->
+<div class="yema"><{pagers data=$pager}></div>
+<!--yema-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<!--mc_2box--></div>
+<div class="clear"></div>
+<script>
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

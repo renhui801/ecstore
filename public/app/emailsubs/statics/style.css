@@ -1,0 +1,23 @@
+.widget-box-app{width:310px; padding:20px;min-height:120px; height:auto!important; height:120px; margin:0px auto;color:#333333;border:1px #ccc solid;text-shadow:#fff 1px 1px 0;
+background-image: -moz-linear-gradient(top, #fff, #eee); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #eee)); /* Saf4+, Chrome */
+background:url(./bg.jpg) repeat-x bottom #fff; /* IE*/}
+.poping-box{ position:relative; zoom:1; z-index:99999;}
+.widget-box-app h1{ font-size:18px; font-weight:normal; padding:0 0 10px 0; border-bottom:1px #ccc solid; margin-bottom:10px; font-family:"Microsoft YaHei",Arial, Helvetica, sans-serif;}
+.widget-box-app h2{ font-size:22px; color:#333333; font-weight:normal;text-shadow:#fff 1px 1px 0; text-align:center; padding:0 0 20px 0;}
+.widget-box-app h2 i{background:url(./greenn.png) no-repeat left center; padding-left:40px; }
+.btn-space{ text-align:center;}
+input.btn-red{height:30px;line-height:30px;border:1px #6f1306 solid;text-align:center; font-size:14px; font-weight:bold; color:#fff; cursor:pointer; letter-spacing:2px; background:#df384c;
+background-image: -moz-linear-gradient(top, #df384c, #960f1d); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #df384c), color-stop(1, #960f1d)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#df384c', endColorstr='#960f1d', GradientType='0'); /* IE*/}
+input.commit{width:72px;}
+span.close{ width:29px; height:29px; display:block; background:url(./close.gif) no-repeat left top; position:absolute; top:-10px; right:-10px;}
+span.close a{ width:29px; height:29px; display:block;text-indent:-999px; overflow:hidden;}
+
+
+
+
+
+
+

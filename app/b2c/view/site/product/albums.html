@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title><{$goods_name_show}></title>
+<{if defined("DEBUG_CSS") && DEBUG_CSS}>
+<{css src="base.css" app="b2c"}>
+<{css src="theme.css" app="b2c"}>
+<{else}>
+<{css src="basic.min.css" app="b2c" pdir="css_mini"}>
+<{/if}>
+<{$extends_header}>
+<{lang_script src="lang.js" app="b2c"}>
+<{*lang_css src="lang.css" app="b2c" pdir="css_mini"*}>
+<{if defined("DEBUG_JS") && DEBUG_JS}>
+<{script src="mootools.js" app="site"}>
+<{script src="moomore.js" app="site"}>
+<{script src="jstools.js" app="site"}>
+<{script src="shoptools.js" app="b2c"}>
+<{else}>
+<{script src="moo.min.js" app="site" pdir="js_mini"}>
+<{script src="shop.min.js" app="b2c" pdir="js_mini"}>
+<{/if}>
+</head>
+<body>
+<div id="main" class="clearfix">
+  <div class="albums-left" id="albums_side">
+    <div class="albums-pic-list" id="albums_pic_list">
+      <span class="next icon disable">a</span>
+      <div class="albums-scroll">
+        <ul>
+          <{foreach from=$image_file key=key item=item}>
+          <li class="albums-pic-item">
+            <span class="ar"></span>
+            <div class="albums-pic">
+              <img src="<{$item.image_id|default:$image_default_id|storager:'s'}>" alt="<{$goods_name_show}>" data-big-pic="<{$item.image_id|default:$image_default_id|storager:'l'}>"/>
+            </div>
+          </li>
+          <{/foreach}>
+        </ul>
+      </div>
+      <span class="previous icon disable">b</span>
+    </div>
+  </div>
+  <div class="albums-right clearfix">
+    <div class="albums-main" id="albums_main">
+      <div class="albums-product-title">
+        <h1><{$goods_name_show}></h1>
+        <p><a href="javascript:window.close();" class="btn btn-caution"><span><span>返回商品详情购买</span></span></a></p>
+      </div>
+      <div class="albums-main-pic">
+        <img src="" alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    var albumsPicList      = $('albums_pic_list');
+    var picList            = albumsPicList.getElement('ul');
+    var albumsPic          = $$('.albums-pic-item');
+    var mainPicBox         = $$('.albums-main-pic')[0];
+    var albumsLeft         = $('albums_side');
+    var albumsMain         = $('albums_main');
+    var title              = albumsMain.getElement('.albums-product-title');
+    var goNext             = albumsPicList.getElement('.next');
+    var goPrevious         = albumsPicList.getElement('.previous');
+    var scrollTimeOut      = null;
+    var activePic          = null;
+    var maxTop             = 0;
+    var scrollTop          = 0;
+    var albumsScrollHeight = 0;
+
+    //为缩略图绑定事件，点击显示大图，大图url存放再data-big-pic属性当中
+    $$('.albums-pic-item').addEvents({
+        'mouseover':function(e){
+            this.addClass('hover');
+        },
+        'mouseout':function(e){
+            this.removeClass('hover');
+        },
+        'click':function(e){
+            this.removeClass('hover');
+            if(activePic != this){
+                this.addClass('active');
+                var bigPicSrc = this.getElement('img').get('data-big-pic');
+                albumsMain.getElement('img').set('src',bigPicSrc);
+                if(activePic != null){
+                    activePic.removeClass('active');
+                }
+                activePic = this;
+            }
+        }
+    });
+    //默认显示第一张图片
+    albumsPic[0].fireEvent('click');
+
+    //为窗口绑定事件，当文档首次加载和窗口进行缩放时，要重新调整左边栏高度，与主图片大小
+    function setSize() {
+        var winSize = window.getSize();
+        albumsScrollHeight = winSize.y - albumsPicList.getPatch().y - goNext.getSize().y - goPrevious.getSize().y;
+        maxTop = picList.getSize().y - albumsScrollHeight;
+        if(maxTop <= 0){
+            goPrevious.addClass('disable');
+            goNext.addClass('disable');
+            scrollTop = 0;
+            picList.setStyle('top',scrollTop)
+        }else{
+            goNext.removeClass('disable');
+        }
+        albumsLeft.setStyle('height',winSize.y);
+        albumsPicList.getElement('.albums-scroll').setStyle('height',albumsScrollHeight);
+        mainPicBox.setStyles({
+            'height':winSize.y - title.getSize().y - 10,
+            'overflow-y':'auto'
+        });
+    }
+    window.addEvents({
+        'domready': this.setSize,
+        'resize':function(e){
+            this.setSize.delay(200);
+        }
+    });
+    
+    //向下翻页
+    goNext.addEvents({
+        'mousedown':function(e){
+            var self = this;
+            if(picList.getSize().y > albumsScrollHeight){
+                scrollTimeOut = setInterval(function(){
+                    if(0 - scrollTop < maxTop){
+                        goPrevious.removeClass('disable');
+                        picList.setStyle('top',scrollTop)
+                        scrollTop = scrollTop - 5;
+                    }else{
+                        goNext.addClass('disable');
+                        picList.setStyle('top',0 - maxTop)
+                        scrollTop = 0 - maxTop;
+                    }
+                },20);
+            }
+        },
+        'mouseup':function(e){
+            scrollTimeOut = clearInterval(scrollTimeOut);
+        }
+    });
+
+    //向上翻页
+    goPrevious.addEvents({
+        'mousedown':function(e){
+            if(picList.getSize().y > albumsScrollHeight){
+                scrollTimeOut = setInterval(function(){
+                    if(scrollTop < 0){
+                        goNext.removeClass('disable');
+                        picList.setStyle('top',scrollTop)
+                        scrollTop = scrollTop + 5;
+                    }else{
+                        goPrevious.addClass('disable');
+                        picList.setStyle('top',0)
+                        scrollTop = 0;
+                    }
+                },20);
+            }
+        },
+        'mouseup':function(e){
+            scrollTimeOut = clearInterval(scrollTimeOut);
+        }
+    });
+</script>
+</body>
+</html>

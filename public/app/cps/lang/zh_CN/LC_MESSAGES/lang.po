@@ -1,0 +1,959 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/bank.php:35
+msgid "银行配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/bank.php:38
+msgid "添加联盟商银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/info.php:36
+msgid "添加文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/thirdparty.php:24
+msgid "全部"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/thirdparty.php:25
+msgid "亿起发"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/thirdparty.php:45
+msgid "第三方CPS订单列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/usermonthprofit.php:42
+msgid "确认发放"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/usermonthprofit.php:43
+msgid "确定发放佣金？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/userorderprofit.php:34
+msgid "推广订单列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:42
+msgid "密码长度不能小于4"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:47
+msgid "密码长度不能大于20"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:53
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:151
+msgid "输入的密码不一致"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:98
+msgid "联盟商列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:100
+msgid "添加联盟商"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:103
+msgid "通过"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:104
+msgid "确定通过所选联盟商？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:107
+msgid "拒绝"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/admin/users.php:108
+msgid "确定拒绝所选联盟商？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/info.php:33
+msgid "访问出错"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/info.php:104
+msgid "文章未发布！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/info.php:107
+msgid "访问出错！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:60
+msgid "验证码错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:73
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:246
+msgid "申请的账号被拒绝，请查看联盟协议"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:81
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:255
+msgid "登录成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:84
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:241
+msgid "登录失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:87
+msgid "用户名或密码错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:126
+msgid "用户名包含非法字符"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:131
+msgid "验证码填写错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:136
+msgid "同意联盟协议后才能注册"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:192
+msgid "注册成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:194
+msgid "注册失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:262
+msgid "页面已过期,操作失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:347
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:364
+msgid "忘记密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:352
+msgid "请先退出"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:372
+msgid "该用户不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:375
+msgid "该用户已经放入回收站！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:392
+msgid "问题回答错误或当前账户的邮箱填写错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:401
+msgid "密码变更邮件已经发送到"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:401
+msgid "，请注意查收"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//controller/site/user.php:403
+msgid "发送失败，请与商家联系"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlink.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/agreement.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/bank.php:16
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/info.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:16
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:16
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userpayaccount.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:17
+msgid "ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlink.php:28
+msgid "推广链接地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlink.php:38
+msgid "链接标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlink.php:48
+msgid "添加时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlink.php:61
+msgid "推广链接类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlink.php:74
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/bank.php:54
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/info.php:90
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:125
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:137
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userpayaccount.php:77
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:243
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:108
+msgid "是否有效"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlinkpic.php:17
+msgid "图片ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlinkpic.php:28
+msgid "推广链接ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlinkpic.php:38
+msgid "远程图片地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlinkpic.php:48
+msgid "图片宽度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlinkpic.php:58
+msgid "图片高度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/adlinkpic.php:68
+msgid "后缀"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/agreement.php:28
+msgid "协议内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/agreement.php:40
+msgid "协议类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/bank.php:28
+msgid "银行名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/bank.php:41
+msgid "是否启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/info.php:28
+msgid "文章标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/info.php:44
+msgid "发布状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/info.php:54
+msgid "发布时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/info.php:67
+msgid "文章类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/info.php:77
+msgid "文章内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:28
+msgid "首次联盟商户推广ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:38
+msgid "首次来源URL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:48
+msgid "首次来源时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:58
+msgid "本次联盟商户推广ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:68
+msgid "本次来源URL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:78
+msgid "本次来源时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:88
+msgid "会员ID/订单ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/linklog.php:98
+msgid "类型标记"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/setting.php:16
+msgid "关键字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/setting.php:27
+msgid "保存数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/thirdparty_orders.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:28
+msgid "订单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/thirdparty_orders.php:31
+msgid "来源"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/thirdparty_orders.php:41
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:66
+msgid "来源地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/thirdparty_orders.php:51
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:76
+msgid "订单金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/thirdparty_orders.php:61
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:54
+msgid "下单时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/thirdparty_orders.php:77
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:104
+msgid "状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/thirdparty_orders.php:89
+msgid "参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:28
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:27
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:29
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:32
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:30
+msgid "用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:44
+msgid "发放状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:56
+msgid "佣金总额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:66
+msgid "订单总额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:76
+msgid "订单量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:86
+msgid "年份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:99
+msgid "月份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/usermonthprofit.php:112
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:114
+msgid "联盟商ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:41
+msgid "联盟商用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:88
+msgid "佣金金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userorderprofit.php:124
+msgid "订单完成年月"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userpayaccount.php:26
+msgid "开户账号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userpayaccount.php:35
+msgid "开户银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userpayaccount.php:44
+msgid "支行名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userpayaccount.php:54
+msgid "公司名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userpayaccount.php:64
+msgid "开户人姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:40
+msgid "联系人姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:53
+msgid "手机号码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:63
+msgid "电话号码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:74
+msgid "邮箱"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:87
+msgid "注册时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:99
+msgid "注册IP"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:109
+msgid "历史佣金总额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:119
+msgid "尚未发放佣金"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:132
+msgid "用户类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:144
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:28
+msgid "联盟商推广ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:154
+msgid "安全问题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:164
+msgid "安全答案"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:174
+msgid "QQ"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:184
+msgid "MSN"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:194
+msgid "地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:204
+msgid "邮编"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:214
+msgid "身份证号码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/users.php:228
+msgid "审核状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:38
+msgid "网站名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:55
+msgid "网站类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:65
+msgid "网站地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:75
+msgid "网站简介"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:85
+msgid "访问量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//dbschema/userweb.php:95
+msgid "积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/frontpage.php:205
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/frontpage.php:217
+msgid "操作成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/frontpage.php:240
+msgid "执行成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/frontpage.php:240
+msgid "执行失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:19
+msgid "联盟商找回密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:19
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:21
+msgid "联盟商名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:19
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:21
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:32
+msgid "密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:19
+msgid "真实姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:20
+msgid "联盟商注册时"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/service/firevent/action.php:21
+msgid "联盟商更改密码时"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:129
+msgid "权限不允许"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:197
+msgid "模板文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:198
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:199
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:200
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:201
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:202
+msgid "图片文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:203
+msgid "样式表文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:204
+msgid "脚本文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:205
+msgid "theme.xml"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/inst.php:206
+msgid "模板挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/tmpl.php:24
+msgid "网站联盟首页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/tmpl.php:25
+msgid "网站联盟页面"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//lib/theme/tmpl.php:26
+msgid "网站联盟公告详情"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:58
+msgid "该邮箱已经存在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:63
+msgid "邮件格式不正确"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:68
+msgid "联系电话不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:74
+msgid "用户姓名含非法字符"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:78
+msgid "用户姓名不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:84
+msgid "该用户名已经存在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:89
+msgid "帐号含非法字符"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:95
+msgid "帐号长度5~15位"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:112
+msgid "银行账号不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:116
+msgid "开户支行不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:120
+msgid "开户人姓名不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:140
+#: /Users/bryant/codes/ecstore-release/app/cps//model/users.php:145
+msgid "密码长度需6~16位"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/ad_pic/widgets.php:16
+msgid "一张图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/ad_pic/widgets.php:18
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flashview/widgets.php:18
+msgid "广告相关"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/ad_pic/widgets.php:20
+msgid "可自定义展示一张图片,并且可以为其加上连接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/ad_pic/widgets.php:29
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/blog_coop/widgets.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/contact/widgets.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/faq/widgets.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flashview/widgets.php:25
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flow/widgets.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/menu/widgets.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/notice/widgets.php:20
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/user/widgets.php:17
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/usercustom/widgets.php:26
+msgid "默认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/blog_coop/widgets.php:9
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/blog_coop/widgets.php:17
+msgid "网站联盟博客合作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/blog_coop/widgets.php:13
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/contact/widgets.php:13
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flow/widgets.php:13
+msgid "辅助工具"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/contact/widgets.php:9
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/contact/widgets.php:17
+msgid "网站联盟联系方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/faq/widgets.php:9
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/faq/widgets.php:17
+msgid "网站联盟常见问题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/faq/widgets.php:13
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/menu/widgets.php:13
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/notice/widgets.php:13
+msgid "导航相关"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flashview/widgets.php:11
+msgid "图片轮播(FLASH)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flashview/widgets.php:20
+msgid "精巧的Flash展示自己定义的图片广告"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flow/widgets.php:9
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/flow/widgets.php:17
+msgid "网站联盟流程"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/menu/widgets.php:9
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/menu/widgets.php:17
+msgid "网站联盟导航菜单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/notice/widgets.php:9
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/notice/widgets.php:17
+msgid "网站联盟公告"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/user/widgets.php:9
+msgid "联盟会员注册/登录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/user/widgets.php:13
+msgid "系统相关"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/user/widgets.php:15
+msgid "本版块无需参数设置，添加本版块到模板页面对应插槽上即可使用。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/user/widgets.php:18
+msgid "信息条"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/usercustom/widgets.php:11
+msgid "用户自定义HTML"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/usercustom/widgets.php:16
+msgid "自定义版块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/usercustom/widgets.php:20
+msgid "支持所有HTML定义."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/usercustom/widgets.php:20
+msgid "如需查看该版块的使用说明，请"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps//widgets/usercustom/widgets.php:20
+msgid "点击这里"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:8
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:12
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:7
+msgid "Dear"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:9
+msgid "您已经修改了注册用户的密码，请妥善保管个人信息。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:11
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:16
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:10
+msgid "您可以随时进入会员中心查看或者更新个人资料"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:12
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:17
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:11
+msgid "我们保证每一位客户资料的安全与保密，您可以随时进入会员中心查看和修改个人注册信息，我们也会即时的根据您的最新资料和您保持畅通的沟通。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:15
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:18
+msgid "找到喜欢的商品，分享购物的故事"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:24
+msgid "您的新密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:25
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:28
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:26
+msgid "请妥善保管个人注册信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:31
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:34
+msgid "新密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:41
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:44
+msgid "推荐网站给朋友"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:43
+msgid "如果您喜欢我们的网站或者本期畅销的商品，可以发送一封e-mail 给您的朋友，推荐朋友加入我们的大家庭。 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-chgpass.html:52
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:55
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:65
+msgid "■重要信息：由于此邮件包含个人注册资料，请妥善保存！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:14
+msgid "您忘记密码了吗？为了保险起见，我们将您的密码更新成新密码，请查看右侧个人信息，看到新密码后，您可以立即登录会员中心修改密码。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:27
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:25
+msgid "您的个人信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-lostPw.html:46
+msgid "如果您喜欢本网站或者本期畅销的产品，可以发送一封e-mail 给您的朋友，推荐朋友加入我们的大家庭。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:9
+msgid "欢迎加入我们的网站联盟，高收益高回报率，还不马上获取代码投放到你的网站，获得佣金。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:12
+msgid "网站定位"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:13
+msgid "网站所登录的商品全部是经过我们在千百种商品中精挑细选出的精品，每一件商品都有自己的特色，每件产品在登录之前都经过网站编辑的层层筛选，这个将是我们自始至终所坚定的服务原则。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:14
+msgid "我们的承诺"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:15
+msgid "我们承诺提供权威的资讯、最低的价格和便捷的购物方式，为您打造全新的E时代购物新体验！我们承诺严格按照国家法规政策正规经营，经营的产品皆为正规渠道引进合法缴税的原装正品，有着完善的保修、退货与售后服务制度。为了让您更准确全面的了解您所需要的商品，我们的每一件商品都提供100%实样的高清晰数码照片、详尽的技术性能指标和制造厂商的介绍。同时采用多种便捷的支付方式和安全快速的配送体系，通过先进的互联网技术进行订单的实时跟踪，并保证每一位客户资料的安全与保密。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:17
+msgid "找到喜欢的商品，分享购物的乐趣"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:33
+msgid "Email"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:44
+msgid "给我们留言"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:46
+msgid "分享你的购物故事，分享你的购买心得，我们期待您能更多的和我们沟通联系.可以访问网站进行留言。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:56
+msgid "推荐给朋友"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/email/users-register.html:58
+msgid "如果您喜欢我们的网站或者某个商品，可以发送一封e-mail 给您的朋友，推荐朋友加入我们的大家庭。 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/msgbox/users-chgpass.html:1
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/sms/users-chgpass.html:1
+msgid "您已经修改了注册用户的密码，新密码为："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/msgbox/users-chgpass.html:1
+msgid "请妥善保管个人信息。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/msgbox/users-lostPw.html:1
+msgid "您忘记密码了吗？为了保险起见，我们将您的密码更新成新密码，新密码为："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/msgbox/users-lostPw.html:1
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/sms/users-lostPw.html:1
+msgid "看到新密码后，您可以立即登录会员中心修改密码。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/msgbox/users-register.html:1
+msgid "欢迎加入我们 ，这里聚集着各种精品商品，在接下来相处的日子里，我们将会向您提供优质的服务和商品，在节日或者特殊的日子里我们也会向您提供各种资讯以及精美礼品，再次感谢您的加入，希望您能在这里购物愉快、分享快乐。您的用户名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/msgbox/users-register.html:1
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/sms/users-register.html:1
+msgid "密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/msgbox/users-register.html:1
+msgid "Email："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/sms/users-lostPw.html:1
+msgid "您的新密码为："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/messenger/sms/users-register.html:1
+msgid "欢迎注册，您的用户名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/setting_rate.html:77
+msgid "每月"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/admin/setting_rate.html:77
+msgid "号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/site/user/lost.html:15
+msgid "用户名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/site/user/lost.html:20
+msgid "获取新密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/site/user/recover.html:8
+msgid "说明：当你填写邮箱并提交后，密码会自动发到您注册的邮箱里面，请及时收邮件，取回密码！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/site/user/recover.html:12
+msgid "您的用户名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/site/user/recover.html:14
+msgid "取回密码问题："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/site/user/recover.html:15
+msgid "取回密码答案："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/cps/view/site/user/recover.html:17
+msgid "请输入您的邮箱："
+msgstr ""
+

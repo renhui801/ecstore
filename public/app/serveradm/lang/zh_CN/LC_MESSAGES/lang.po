@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+#: /Users/bryant/codes/ecstore-release/app/serveradm//controller/admin/xhprof.php:15
+msgid "XHProf"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:17
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:21
+msgid "run_id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:30
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:32
+msgid "source"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:41
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:44
+msgid "app"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:51
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:54
+msgid "controller"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:61
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:63
+msgid "action"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:72
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:74
+msgid "request_uri"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:83
+msgid "params"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:89
+msgid "addtime"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:98
+msgid "Wall Time"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:108
+msgid "Memory Used"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:118
+msgid "PeakMemUse"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm//dbschema/xhprof.php:126
+msgid "xphrof"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/cache_status.html:2
+msgid "Cache"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/cache_status.html:5
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/cache_status.html:22
+msgid "缓存类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/cache_status.html:11
+msgid "无法查看状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/cache_status.html:14
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/cache_status.html:24
+msgid "没有开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/cache_status.html:19
+msgid "KVStorage"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/server_status.html:10
+#: /Users/bryant/codes/ecstore-release/app/serveradm/view/desktop/widgets/xhprof_status.html:8
+msgid "你悲剧了,你没有安装XHProf扩展"
+msgstr ""
+

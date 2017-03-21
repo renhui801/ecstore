@@ -1,0 +1,598 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift/cat.php:19
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:21
+msgid "赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift/cat.php:21
+msgid "添加分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift/cat.php:44
+msgid "操作失败！！信息为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift/cat.php:50
+msgid "分类id不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift/cat.php:67
+msgid "操作失败!分类名称重复！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift/cat.php:72
+msgid "操作成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift/cat.php:72
+msgid "操作失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:23
+msgid "添加赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:178
+msgid "成功: 操作成功!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:178
+msgid "失败: 操作失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:192
+msgid "该商品在赠品列表中已经存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:227
+msgid "开始时间格式不正确"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:231
+msgid "结束时间格式不正确"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:236
+msgid "开始时间不能晚于或等于结束时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:247
+msgid "赠品介绍请不要超过255字节"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:252
+msgid "每人限购数量不能未空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:289
+msgid "您所填写的赠品编号已被使用，请检查！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/admin/gift.php:311
+msgid "您所填写的货号已被使用，请检查！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:28
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:29
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:30
+msgid "商品页_"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:154
+msgid "系统未开启积分，不可兑换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:162
+msgid "积分只用于抵扣，不可兑换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:169
+msgid "未到兑换时间，暂时不可兑换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:176
+msgid "已过兑换时间，不可兑换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:188
+msgid "赠品已下架，不可兑换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:410
+msgid "已兑换完，不可兑换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:431
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:138
+msgid "赠品不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//controller/site/gift.php:449
+msgid "加入购物车成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/cat.php:18
+msgid "分类ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/cat.php:31
+msgid "分类名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/cat.php:41
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:113
+msgid "排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/cat.php:50
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:78
+msgid "是否发布"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/cat.php:62
+msgid "是否屏蔽（true：是；false：否）"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/cat.php:68
+msgid "赠品类目表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:17
+#: /Users/bryant/codes/ecstore-release/app/gift//model/goods.php:161
+msgid "赠品ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:24
+msgid "编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:37
+msgid "商品ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:45
+msgid "分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:57
+#: /Users/bryant/codes/ecstore-release/app/gift//model/goods.php:165
+msgid "赠品名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:69
+msgid "会员等级ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:86
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/gallery/index.html:22
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:35
+msgid "兑换所需积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:93
+#: /Users/bryant/codes/ecstore-release/app/gift//model/goods.php:167
+msgid "兑换起始时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:102
+#: /Users/bryant/codes/ecstore-release/app/gift//model/goods.php:168
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:31
+msgid "兑换结束时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:124
+msgid "每人最大购买数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:134
+msgid "赠品数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:145
+msgid "已赠送赠品数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:153
+msgid "赠品简介"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//dbschema/ref.php:173
+msgid "赠品表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:133
+msgid "添加的赠品标识不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:145
+msgid "未开启积分不能兑换！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:170
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:550
+msgid "加入购物车失败！该赠品已赠送结束！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:175
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:554
+msgid "加入购物车失败！该赠品不在兑换时间范围之内！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:196
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:580
+msgid "超出限购数量！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:211
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:595
+msgid "积分不足！！加入购物车失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:218
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:601
+msgid "加入购物车失败！您所在会员类型不能兑换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:222
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:604
+msgid "加入购物车失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:226
+msgid "加入购物车失败！赠品数量不足@！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:231
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:611
+msgid "赠品不存在！相关商品数据丢失！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:235
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:614
+msgid "赠品只限会员积分兑换！！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:271
+msgid "购物车保存失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/cart/object/gift.php:607
+msgid "加入购物车失败！赠品数量不足！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/finder/cat.php:19
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/finder/goods.php:20
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/finder/goods.php:21
+msgid "预览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/order/service/gift.php:240
+msgid "赠品区块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/order/service/gift.php:282
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/order/service/gift.php:356
+msgid "赠品库存不足！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/order/service/gift.php:314
+msgid "商品区块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/promotion/solutions/gift.php:57
+msgid "商品获得赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/promotion/solutions/gift.php:71
+msgid "获得赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/promotion/solutions/gift.php:121
+msgid "订单获得赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//lib/promotion/solutions/gift.php:185
+msgid "请指定需要赠送的赠品！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//model/goods.php:163
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:19
+msgid "赠品编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//model/goods.php:164
+msgid "赠品分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift//model/goods.php:166
+msgid "是否开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:34
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:41
+msgid "nn文件超出大小"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:61
+msgid "文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:61
+msgid "上传失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:95
+msgid "请选择作为赠品的商品规格"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:103
+msgid "请选择分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:230
+msgid "基本信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:236
+msgid "赠品名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:243
+msgid "您可以选择已有商品作为赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:249
+msgid "赠品编号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:263
+msgid "所属分类："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:267
+msgid "请选择所属分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:276
+msgid "相册"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:282
+msgid "添加商品图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:302
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:10
+msgid "发布："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:304
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:12
+msgid "是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:305
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:13
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:35
+msgid "否"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:306
+msgid "是否可通过前台链接直接浏览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:310
+msgid "所需积分："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:311
+msgid "注：赠品发布时、可用积分兑换。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:314
+msgid "兑换起始时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:322
+msgid "兑换终止时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:329
+msgid "允许兑换的会员等级："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:338
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:17
+msgid "排序："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:345
+msgid "每单限购数量："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:351
+msgid "描述："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:353
+msgid "简短的商品介绍,请不要超过70个字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:375
+msgid "详细介绍"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:389
+msgid "通用商品类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:399
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:27
+msgid "确定退出?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:400
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:28
+msgid "保存并关闭窗口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:401
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:29
+msgid "保存并添加相似商品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/add.html:402
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:30
+msgid "保存当前"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:6
+msgid "赠品分类名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/add.html:13
+msgid "如果选择发布，前台赠品页面将显示此分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/cat_list.html:9
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/input_category.html:6
+msgid "分类不限"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/cat/cat_list.html:14
+msgid "点击选择子类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/nospec.html:9
+msgid "销售价："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/nospec.html:16
+msgid "货号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/nospec.html:22
+msgid "重量："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/nospec.html:23
+msgid "克(g)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/nospec.html:26
+msgid "库存："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:1
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:9
+msgid "规格"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:6
+msgid "是否作为赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:7
+msgid "配额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:8
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:23
+msgid "货号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:10
+msgid "库存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:11
+msgid "成本价"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:12
+msgid "市场价"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:13
+msgid "重量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:14
+msgid "上架"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:32
+msgid "<{$spec.cost}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:33
+msgid "<{$spec.mktprice}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:34
+msgid "<{$spec.weight}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/admin/gift/spec/spec.html:35
+msgid "<{if $spec.marketable=='true'}><{t}>是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/cart/item/gift.html:5
+msgid "积分兑换赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/gallery/index.html:20
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:25
+msgid "销售价"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/gallery/index.html:35
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/member/exchange_gift.html:1
+msgid "兑换赠品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/gallery/index.html:39
+msgid "查看详细"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:29
+msgid "兑换开始时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:37
+msgid "限兑数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:41
+msgid "可兑换的会员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/basic.html:87
+msgid "数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/gift/view/site/product/info/pic.html:9
+msgid "点击查看大图"
+msgstr ""
+

@@ -1,0 +1,71 @@
+<table class="fill-shipping<{if $def_addr || $member_addr_list}> fold<{/if}>">
+  <{if $def_addr}><{assign var='edit_addr' value=$def_addr}><{/if}>
+  <tbody>
+    <tr>
+        <th><em>*</em><{t}>收货地区<{/t}>：</th>
+      <td><{input app=ectools type="region" name='area' vtype='area' value=$edit_addr.area callback="selectArea"}></td>
+    </tr>
+    <tr>
+      <th><em>*</em><{t}>收货地址<{/t}>：</th>
+      <td><span id="op_splice_area"><{$edit_addr.area|ship_area}></span> <{input type="text" name="addr" value=$edit_addr.addr vtype="required" size="40" data-caution="请填写收货地址"}></td>
+    </tr>
+    <tr>
+      <th><{if $site_checkout_zipcode_required_open == 'true'}><em>*</em><{/if}><{t}>邮编<{/t}>：</th>
+      <td><{input type="text" name="zip" id="" value=$edit_addr.zip}></td>
+    </tr>
+    <tr>
+      <th><em>*</em><{t}>收货人姓名<{/t}>：</th>
+      <td><{input type="text" name=name id="" vtype="required" value=$edit_addr.name data-caution="请填写收货人姓名"}></td>
+    </tr>
+    <tr>
+      <th><{t}>手机<{/t}>：</th>
+      <td><{input type="text" name="mobile" id="" vtype="mobile" data-caution="请填写手机号码或者固定电话" value=$edit_addr.mobile}> <span class="caution notice-inline">手机号码和固定电话至少填写一个</span></td>
+    </tr>
+    <tr>
+      <th><{t}>固定电话<{/t}>：</th>
+      <td><{input type="text" name="tel" id="" value=$edit_addr.tel vtype="tel"}></td>
+    </tr>
+    <{if $site_checkout_receivermore_open == 'true'}>
+    <tr>
+      <th></th>
+      <td><input type="checkbox" checked="checked" name="" id="" class="action-assign-times" > <{t}>指定送货时间<{/t}> <span class="assign-times">
+        <!--todo-->
+        <{if $edit_addr.day && $edit_addr.day != '任意日期' && $edit_addr.day != '仅工作日' && $edit_addr.day != '仅休息日'}>
+            <{assign var='special' value='special'}>
+            <{assign var='special_val' value=$edit_addr.day}>
+        <{/if}>
+        <select name="day" id="" class="action-select-special">
+          <option<{if !$edit_addr.day}> selected="selected"<{elseif $edit_addr.day == '任意日期'}> selected="selected"<{/if}> value="<{t}>任意日期<{/t}>"><{t}>任意日期<{/t}></option>
+          <option<{if $edit_addr.day == '仅工作日'}> selected="selected"<{/if}> value="<{t}>仅工作日<{/t}>"><{t}>仅工作日<{/t}></option>
+          <option<{if $edit_addr.day == '仅休息日'}> selected="selected"<{/if}> value="<{t}>仅休息日<{/t}>"><{t}>仅休息日<{/t}></option>
+          <option<{if $special == 'special'}> selected="selected"<{/if}> value="special"><{t}>指定日期<{/t}></option>
+        </select>
+        <span class="special-delivery-day" <{if !$special}>style="display:none;"<{/if}>><{input type="datepicker" name="special" readonly="readonly" size="8" value=$special_val }></span>
+        <select name="time" id="" class="action-select-times">
+          <option<{if $edit_addr.time == '任意时间段'}> selected<{/if}> value="<{t}>任意时间段<{/t}>"><{t}>任意时间段<{/t}></option>
+          <option<{if $edit_addr.time == '上午'}> selected<{/if}> value="<{t}>上午<{/t}>"><{t}>上午<{/t}></option>
+          <option<{if $edit_addr.time == '下午'}> selected<{/if}> value="<{t}>下午<{/t}>"><{t}>下午<{/t}></option>
+          <option<{if $edit_addr.time == '晚上'}> selected<{/if}> value="<{t}>晚上<{/t}>"><{t}>晚上<{/t}></option>
+        </select>
+      </span></td>
+    </tr>
+    <{/if}>
+    <{if $is_shipping_edit}>
+    <tr>
+      <th></th>
+      <td>
+          <{if $edit_addr}>
+          <a href="javascript:void(0);" class="lnklike action-save-address">[保存更改内容]</a>
+          <{else}>
+          <a href="javascript:void(0);" class="lnklike action-add-address">[保存到常用收货地址]</a>
+          <{/if}>
+      </td>
+    </tr>
+    <{else}>
+    <tr>
+      <th></th>
+      <td><{button type="button" class="btn-caution action-confirm-shipping" label=$___b2c="确认收货信息"|t:'b2c'}></td>
+    </tr>
+    <{/if}>
+  </tbody>
+</table>

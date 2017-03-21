@@ -1,0 +1,9 @@
+<services>
+    <service id="server.search_type.b2c_goods" optname="搜索类型">
+        <class>searchrule_type_goods</class>
+    </service>
+    <service id="server.search_type.search_associate" optname="搜索类型">
+        <class>searchrule_type_associate</class>
+    </service>
+
+</services>

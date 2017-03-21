@@ -1,0 +1,29 @@
+<div class="tableform widgetconfig">
+    <div class="division">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr> 
+                <th><{t app="b2c"}>显示成功发贷<{/t}></th>
+                <td><{input name="rowNum" value=$setting.rowNum|default:20 size=5}><{t app="b2c"}> 条<{/t}> 
+                </td>
+            </tr>
+            <tr> 
+                <th><{t app='b2c'}>每页显示<{/t}></th>
+                <td><{input name="pageNum" value=$setting.pageNum|default:5 size=5 required="true" type="number"}>条</td>
+            </tr>
+            <tr> 
+                <th><{t app="b2c"}>滚动速度<{/t}></th>
+                <td><select name="roll_speed"><option value=200 <{if $setting.roll_speed==200}>selected<{/if}>><{t app="b2c"}>快<{/t}></option><option value=500 <{if $setting.roll_speed==500}>selected<{/if}>><{t app="b2c"}>普通<{/t}></option><option value=800 <{if $setting.roll_speed==800}>selected<{/if}>><{t app="b2c"}>慢<{/t}></option>
+                </select></td>
+            </tr>
+            <tr>
+                <th><{t app="b2c"}>高度<{/t}></th>
+                <td><{input name="height" value=$setting.height|default:129 size=5 required="true" type="digits"}></td>
+            </tr>
+            <tr>
+                <th><{t app="b2c"}>每次滚动条数<{/t}></th>
+                <td>
+                    <input type="text" name="steps" value="<{$setting.steps|default:1}>"  />
+                </tr>
+            </table>
+        </div>
+    </div>

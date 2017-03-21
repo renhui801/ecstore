@@ -1,0 +1,319 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailaddr.php:35
+msgid "订阅邮件地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailcont.php:28
+msgid "订阅邮件模板列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailcont.php:30
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/addNew.html:3
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/showEdit.html:3
+msgid "添加邮件模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailcont.php:45
+msgid "新增订阅邮件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailcont.php:65
+msgid "操作成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailcont.php:75
+msgid "编辑订阅邮件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailcont.php:88
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:27
+msgid "订阅邮件预览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailcont.php:114
+msgid "更多邮件模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:43
+msgid "邮箱测试"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:74
+msgid "配置保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:109
+msgid "无法发送测试邮件，下面是出错信息："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:113
+msgid "已成功发送一封测试邮件，请查看接收邮箱。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:144
+msgid "发送成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:146
+msgid "发送失败，请检查邮箱配置！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:163
+msgid "请选择邮件模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:167
+msgid "请发送邮件地址方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:171
+msgid "请选择自定义邮件地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:184
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:219
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:226
+msgid "操作失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:190
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/admin/emailsend.php:223
+msgid "操作成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/site/emailaddr.php:41
+msgid "请正确填写email地址!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/site/emailaddr.php:48
+msgid "邮件订阅失败,您已经参加邮件订阅!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/site/emailaddr.php:56
+msgid "邮件订阅成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/site/emailaddr.php:56
+msgid "邮件订阅失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/site/emailaddr.php:68
+msgid "您没有权限取消订阅!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//controller/site/emailaddr.php:78
+msgid "取消订阅失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailaddr.php:35
+msgid "会员ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailaddr.php:41
+msgid "用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailaddr.php:50
+msgid "用户邮件地址表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:23
+msgid "邮件标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:32
+msgid "包含"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:33
+msgid "等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:34
+msgid "开头等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:35
+msgid "结尾等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:40
+msgid "邮件内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:49
+msgid "邮件添加时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:58
+msgid "邮件发送时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:67
+msgid "邮件是否已经发送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailcont.php:82
+msgid "订阅邮件表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailtmpl.php:13
+msgid "关键字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailtmpl.php:22
+msgid "邮件模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//dbschema/emailtmpl.php:29
+msgid "邮件模板表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//lib/finder/emailcont.php:19
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//lib/finder/emailcont.php:24
+msgid "邮件预览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//lib/finder/emailcont.php:24
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/addNew.html:20
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/showEdit.html:20
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/emailcont_list.html:18
+msgid "预览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//widgets/emailsubs/widgets.php:12
+msgid "邮件订阅"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//widgets/emailsubs/widgets.php:15
+msgid "系统相关"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//widgets/emailsubs/widgets.php:16
+msgid "通过邮件订阅功能，将网站活动通过邮件及时通知给用户"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs//widgets/emailsubs/widgets.php:17
+msgid "默认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailaddr/list.html:33
+msgid "暂时无订阅邮箱."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailaddr/moremail.html:5
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/morecont.html:5
+msgid "查询"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailaddr/moremail.html:16
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/morecont.html:16
+msgid "确定选择"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/addNew.html:8
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/showEdit.html:8
+msgid "邮件标题："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/addNew.html:12
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/showEdit.html:12
+msgid "邮件内容："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/addNew.html:19
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailcont/showEdit.html:19
+msgid "保存模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/emailaddr.html:6
+msgid "选取所有订阅邮箱地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/emailaddr.html:12
+msgid "自定义选取订阅邮箱地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/emailcont_list.html:44
+msgid "暂时无未发送邮件模板."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/sendShow.html:3
+msgid "发送邮件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/sendShow.html:9
+msgid "第一步：选择邮件模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/sendShow.html:9
+msgid "更多邮件模板&gt;&gt;"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/sendShow.html:12
+msgid "第二步：选择邮件地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/sendShow.html:15
+msgid "第三步：确定发送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/sendShow.html:18
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/emailtest.html:26
+msgid "确定发送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/sendShow.html:19
+msgid "测试发送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/config.html:28
+msgid "保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/config.html:29
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/config.html:30
+msgid "返回"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/emailtest.html:11
+msgid "测试邮箱地址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/emailtest.html:15
+msgid "发送前请确认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/emailtest.html:15
+msgid "邮箱设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/emailtest.html:20
+msgid "测试邮件模板："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/emailsubs/view/admin/emailsend/test/success.html:5
+msgid "确定"
+msgstr ""
+

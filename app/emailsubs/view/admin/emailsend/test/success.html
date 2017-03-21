@@ -1,0 +1,14 @@
+<div class='division'>
+已发送成功!
+</div>
+<div class="table-action">
+    <{button label=$___emailsubs="确定"|t:'emailsubs' type="button" id='test-success-btn'}>
+</div>
+<script>
+(function(){
+	var dialog = $('test-success-btn').getParent('.dialog'), dialogObj = dialog.retrieve('instance');
+	$E('#test-success-btn',dialog).addEvent('click',function(){
+		dialogObj.close();
+	});
+})();
+</script>

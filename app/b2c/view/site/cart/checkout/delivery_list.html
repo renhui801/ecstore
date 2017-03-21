@@ -1,0 +1,30 @@
+  <thead>
+    <tr>
+      <td>配送方式</td>
+      <td>运费</td>
+      <td>说明</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="separator"><td></td></tr>
+    <{foreach from=$shippings item="shipping" key="key" name="shippings"}>
+    <tr id="delivery_<{$shipping.dt_id}>" class="master">
+        <td><input type="radio" name="shipping" value='{"id":<{$shipping.dt_id}>,"has_cod":"<{$shipping.has_cod}>","dt_name":"<{$shipping.dt_name}>","money":"<{$shipping.money}>"}' id="for_delivery_<{$shipping.dt_id}>" class="action-change-delivery" vtype="requiredcustom" data-validatemsg="请选择一种配送方式"<{if isset($shipping_method.shipping_id) and $shipping_method.shipping_id == $shipping.dt_id}> checked="checked"<{/if}>>
+        <label for="for_delivery_<{$shipping.dt_id}>"><{$shipping.dt_name}></label></td>
+      <td><b><{$shipping.money|cur_odr}></b></td>
+      <td><{$shipping.extends_detail}>
+        <{$shipping.detail}></td>
+    </tr>
+
+    <{if $shipping.protect=='true'}>
+    <tr id="delivery_<{$shipping.dt_id}>_sub" class="sub">
+      <td colspan="3"><input type="checkbox" name="is_protect" id="for_protect_<{$shipping.dt_id}>" value='1'<{if $shipping_method.shipping_id != $shipping.dt_id}> disabled="disabled"<{/if}>><label for="for_protect_<{$shipping.dt_id}>"><{t}>物流保价<{/t}> <{t}>(保价费率为商品价格的<{/t}><{$shipping.protect_rate*100}>% ，<{t}>不足<{/t}><{$shipping.minprice|cur_odr}><{t}>按<{/t}><{$shipping.minprice|cur_odr}><{t}>计算<{/t}>)</label></td>
+    </tr>
+    <{/if}>
+    <{/foreach}>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3"><{button type="button" class="btn-caution action-confirm-delivery" label=$___b2c=确定配送方式|t:"b2c"}></td>
+    </tr>
+  </tfoot>

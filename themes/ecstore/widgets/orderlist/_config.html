@@ -1,0 +1,33 @@
+<{$setting.aa}>
+<div class="tableform widgetconfig">
+    <div class="division">
+
+        <table>
+
+            <tr> 
+                <th><{t app='b2c'}>显示订单<{/t}></th>
+                <td><{input  name="rowNum" required="true" value=$setting.rowNum size=5}> 条</td>
+            </tr>
+            <tr> 
+                <th><{t app='b2c'}>每页显示<{/t}></th>
+                <td><{input name="pageNum" value=$setting.pageNum size=5 required="true" type="number"}>条
+                    <div class="note m5">注意：此处是数值是供脚本滚动使用，需要配合显示高度使用的，比如显示高度可显示5条，此处就设置为5。如果显示高度可容纳5条，此处为1，那么前台每页仍然会显示5条，但是脚本会按照每页一条处理，有可能会出现滚动效果错误。</div>
+                </td>
+            </tr>
+            <tr> 
+                <th><{t app='b2c'}>显示高度<{/t}></th>
+                <td><{input name="height" value=$setting.height size=5 required="true" type="digits"}></td>
+            </tr>
+            <tr>
+                <th><{t app='b2c'}>滚动速度<{/t}></th>
+                <td><select name="roll_speed"><option value=250 <{if $setting.roll_speed==250}>selected<{/if}>><{t app='b2c'}>快<{/t}></option><option value=500 <{if $setting.roll_speed==500}>selected<{/if}>><{t app='b2c'}>普通<{/t}></option><option value=1000 <{if $setting.roll_speed==1000}>selected<{/if}>><{t app='b2c'}>慢<{/t}></option></select></td>
+            </tr>
+            <tr>
+                <th><{t app='b2c'}>每次滚动条数<{/t}></th>
+                <td>
+                    <input type="text" required="true" name="steps" value="<{$setting.steps}>" />
+                </tr>
+
+            </table>
+        </div>
+    </div>

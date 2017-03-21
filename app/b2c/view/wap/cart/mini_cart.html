@@ -1,0 +1,23 @@
+<div class="confirm">
+    <p class="msg">商品成功加入购物车</p>
+    <div class='col2 btn-bar'>
+        <div class="col true">
+            <a href="<{link app=b2c ctl='wap_cart' act='index'}>" class="btn orange">
+                进入购物车
+            </a>
+        </div>
+        <div class="col false">
+            <a href="#" class="btn">
+                继续购物
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    (function(){
+        $('.false .btn').bind('click',function(e){
+            $(this).parents('.dialog').data('close')();
+            return false;
+        });
+    })();
+</script>

@@ -1,0 +1,61 @@
+<div class="tableform">
+  <p><{button id="add_tab" label="添加标签"}> &nbsp;&nbsp;&nbsp;<i><{t}>为商品详情区域添加自定义标签(tab)，为了能正常显示，建议不超过4个<{/t}></i></p>
+  <table class="gridlist">
+    <thead>
+      <tr>
+        <th><{t}>标签名字<{/t}></th>
+        <th><{t}>标签内容<{/t}></th>
+        <th><{t}>操作<{/t}></th>
+      </tr>
+    </thead>
+    <tbody id="tabNode">
+      <{foreach from=$gtype.tab key=key item=row}>
+      <tr id="id_tab_<{$key}>" data-id="<{$key}>">
+        <td><{input type="text" name="gtype[tab][{$key}][name]" vtype="required" value=$row.name }></td>
+        <td><{button class="btn-edit" type="button" label="编辑内容"}>
+          <textarea name="gtype[tab][<{$key}>][content]" class="edit-content" style="display:none;"><{$row.content}></textarea></td>
+        <td><a href="javascript:void(0);"><{img src="bundle/del.gif" alt="" class="del"}></a></td>
+        <{assign var='num' value=$key}>
+      </tr>
+      <{/foreach}>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+(function(){
+    $('tabNode').getElements('.del').addEvent('click', function(e){
+        this.getParent('tr').destroy();
+    });
+    $$('.btn-edit').addEvent('click', function(e){
+        new Dialog('index.php?app=b2c&ctl=admin_goods_type&act=setTabContent&id='+ this.getParent('tr').get('data-id'),{
+            'title':'<{t}>编辑标签内容<{/t}>',
+            ajaxoptions:{
+                data: $(e.target).getParent('tr'),
+                method:'post'
+            }
+        });
+    });
+  var id=<{$num|default:0}>;
+  $('add_tab').addEvent('click', function(e){
+    id++;
+    var tpl='';
+    tpl+='<td><{input type="text" name="gtype[tab]['+ id +'][name]" id="" vtype="required"}></td>';
+    tpl+='<td><{button class="btn-edit" label="编辑内容"}><textarea name="gtype[tab]['+ id +'][content]" style="display:none;"></textarea></td>';
+    tpl+='<td><a href="javascript:void(0);"><{img src="bundle/del.gif" alt="" class="del"}></a></td>';
+    var el = new Element('tr[data-id='+id+']#id_tab_'+ id, {html:tpl}).inject($('tabNode'));
+    el.getElement('.btn-edit').addEvent('click', function(e){
+        var i = this.getParent('tr').get('data-id');
+        new Dialog('index.php?app=b2c&ctl=admin_goods_type&act=setTabContent&id='+ i,{
+            'title':'<{t}>编辑标签内容<{/t}>',
+            ajaxoptions:{
+                data: el,
+                method:'post'
+            }
+        });
+    });
+    el.getElement('.del').addEvent('click', function(e){
+        el.destroy();
+    });
+  });
+})();
+</script>

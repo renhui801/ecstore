@@ -1,0 +1,73 @@
+<div class='tableform' id='emailsubs-moremail'>
+		<div class='division' style='border:0;float:right;'>
+			<form method='post' id='emailsubs-list-form' action='index.php?app=emailsubs&ctl=admin_emailaddr&act=getMoreEmail'>
+				<span><{input type='text' name='ea_email'}>
+                    <{button type='submit' label=$___emailsubs="查询"|t:'emailsubs' }>
+                </span>
+            </form>
+        </div>
+
+        <div class='clear'></div>
+        <div class='division' style="border:0">
+            <{include file='admin/emailaddr/list.html' app='emailsubs'}>
+        </div>
+        <div class='pager' style='float:right;'><{$pager}></div>
+        <div class="table-action">
+            <{button label=$___emailsubs="确定选择"|t:'emailsubs' type="submit" id='emailsubs-moremail-btn'}>
+        </div>
+    </div>
+    <div class="row" style='display:none;' id='email-row'>
+        <div class='row-line'>
+            <div class="span-1">
+                <span class="opt"><{img app="desktop" src="bundle/delecate.gif"  onclick="javascript:this.getParent('.row').remove();" }></span>
+            </div>
+            <div class="span-auto span-auto-6">
+                <input type="hidden" name="emailsel[]" value="">
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var dialog = $('emailsubs-moremail-btn').getParent('.dialog'), dialogObj = dialog.retrieve('instance');
+            var hash = dialog.retrieve('emailhash',new Hash());
+
+            $E('#emailsubs-moremail-btn',dialog).addEvent('click',function(e){
+                var hKeys = Hash.getKeys(hash);
+                if (hKeys.length==0){
+                    MessageBox.error('至少选择一个邮件地址！');
+                    return false;
+                }
+
+                var row = $('email-row');
+                hash.each(function(value,key){
+                    var rowsBody = dialogObj.handle.getElement('.rows-body');
+                    var rowsValue = rowsBody.getElements('input[type=hidden]').getValue();
+                    var tmp = rowsValue.indexOf(key);
+                    if(tmp == -1){
+                        r = row.clone().show();
+                        r.getElement('input').set('value',key);
+                        r.getElement('.span-auto').appendText(value);
+                        dialogObj.handle.getElement('.rows-body').adopt(r);
+                    }
+                });
+                dialogObj.close();
+            });
+
+            if ($defined($ES('#emailsubs-moremail input[type=checkbox]'))){
+                var checkbox = $ES('#emailsubs-moremail input[type=checkbox]');
+                checkbox.each(function(item){
+                    if (hash.get(item.get('ea_id'))){
+                        item.checked = true;
+                    }
+                });
+                checkbox.addEvent('click',function(){
+                    if (this.checked){
+                        hash.set(this.get('ea_id'),this.value);
+                        }else{
+                        // hash.remove(this.remove(this.get('ea_id')));
+                    }
+                    dialog.store('emailhash',hash);
+                });
+            }
+        })();
+    </script>

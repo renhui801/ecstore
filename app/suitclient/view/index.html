@@ -1,0 +1,31 @@
+<div class="notice"><{t}>请输入套件授权码，以完成套件客户端绑定<{/t}></div>
+<div class="tabs-wrap clearfix"><ul><li class="tab current" ><span>绑定套件授权码</span></li></ul></div>
+
+<form method="post" id="client-form" action="index.php?app=suitclient&ctl=manage&act=save" class="tableform">
+<!--
+<p>
+	<label>套件服务端网址：</label>
+	<{input type="text" name="url" value="{$server['url']}" size="32" vtype="required"}>
+</p>
+<p>
+	<label>私钥：</label>
+	<{input type="password" name="secret" value="{$server['secret']}" size="32" vtype="required"}>
+</p>
+	
+-->
+<p>
+	<label>套件客户授权码：</label>
+	<{input type="textarea" name="setting" value="{$info}" style="width:500px;height:300px;vertical-align:top;"  vtype="required" }>
+</p>
+<div class="table-action"><{button type="submit"  label=$___suitclient="保存"|t:'suitclient' id='client-form-submit'}></div>
+</form>
+<script>
+$('client-form').addEvent('submit', function(e){
+		e.stop();
+		var action = this.action;
+		new Request({url:action,method:'POST',data:$('client-form'),onRequest:function(){},onSuccess:function(re){
+			result = JSON.decode(re);	
+			console(result);
+			}).send();   
+		});
+</script>

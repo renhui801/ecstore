@@ -1,0 +1,37 @@
+<!-- checkout主体 -->
+<div id="complete_container" class="complete-container">
+  <!-- checkout内容 -->
+  <div class="content">
+    <div class="msg msg-success">
+      <i class="icon">&#x25;</i>
+      <span class="msg-cont"><span class="msg-ttl">付款成功！</span> <i>[订单：<b><{$order.order_id}></b>　　已付金额：<b class="price"><{$order.payed|cur:$order.currency}></b>]</i><br><{$msg}></span>
+    </div>
+    <div id="complete_main" class="complete-main">
+      <table class="order-info-grid">
+        <col class="col-1">
+        <col class="col-2">
+        <col class="col-5">
+        <col class="col-6">
+        <thead>
+          <th>订单号</th>
+          <th>订单金额</th>
+          <th nowrap>订单商品数量</th>
+          <th>收货信息</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td><{$order.order_id}></td>
+            <td><b class="update-total-amount"><{$order.total_amount|cur:$order.currency}></b></td>
+            <td><{$order.quantity}></td>
+            <td><{$order.ship_addr}>（<{t}>收货人<{/t}>：<{$order.ship_name}> <{if $order.ship_mobile}><{t}>手机<{/t}>：<{$order.ship_mobile}><{/if}><{if $order.ship_tel}> <{t}>固话： <{/t}><{$order.ship_tel}><{/if}> <{if $order.ship_zip}><{t}>邮编<{/t}>：<{$order.ship_zip}><{/if}>）<{$order.ship_time}></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="may-need">您可能需要:
+      <a href="<{link app=b2c ctl=site_member act=orderdetail arg0=$order.order_id}>" class="lnklike"><i>查看订单</i> <q class="icon">3</q></a>
+      <a href="<{link app='site' ctl='default' act='index'}>" class="lnklike"><i>继续购物</i> <q class="icon">3</q></a>
+    </div>
+  </div>
+</div>

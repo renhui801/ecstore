@@ -1,0 +1,31 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            优惠券
+        </div>
+    </div>
+    </header>
+    <div class="coupons">
+        <{if count($coupons)>0}>
+        <{foreach from=$coupons item=item}>
+        <div class="gb">
+            <span class="icon <{if $item.memc_isvalid eq true}>orange<{else}>gray<{/if}>"><{$item.memc_status}></span>
+            <span>有效期：<{$item.time.from_time|cdate:SDATE_STIME}> 到 <{$item.time.to_time|cdate:SDATE_STIME}></span>
+            <div class="d-line">
+                <span class="l-k">优惠券号码：</span>
+                <span class="l-v"><{$item.memc_code}></span>
+                <span class="l-k">优惠券名称：</span>
+                <span class="l-v"><{$item.coupons_info.cpns_name}></span>
+            </div>
+        </div>
+        <{/foreach}>
+        <{else}>
+          尚无任何优惠券
+        <{/if}>
+    </div>
+</div>

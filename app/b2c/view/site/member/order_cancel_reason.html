@@ -1,0 +1,57 @@
+<div class="groupbuy-remind">
+    <form action="<{link app=b2c ctl=site_member act=docancel}>" method="post">
+    <ul >
+      <li class="form-item">
+          <input type="hidden" name="order_cancel_reason[order_id]" value="<{$cancel_order_id}>">
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="0" checked="checked">
+          <{t}>不想要了<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="1">
+          <{t}>支付不成功<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="2">
+          <{t}>价格较贵<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="3">
+          <{t}>缺货<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="4">
+          <{t}>等待时间过长<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="5">
+          <{t}>拍错了<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="6">
+          <{t}>订单信息填写错误<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="7">
+          <{t}>其他<{/t}>
+      </li>
+
+      <li class="form-item">
+          <input class='x-input' type="text" name="order_cancel_reason[reason_desc]">
+      </li>
+
+      <li class="form-item">
+        <div class="form-actions"><button type="submit" class="btn btn-caution act-subscribe" rel="_request"><span><span>提交</span></span></button></div>
+      </li>
+    </ul>
+  </form>
+</div>

@@ -1,0 +1,93 @@
+<div class="gallery-grid">
+  <input type="hidden" class="action-pagedata" value="{total:<{$total}>, pagecurrent:<{$page|default:1}>, pagetotal:<{$pagetotal}>}">
+  <ul class="clearfix">
+    <{foreach from=$goodsData key=key item=goods}>
+    <li class="goods-item">
+      <{assign var='imageset' value=$env.conf.image.image.set}>
+      <div class="goods-pic" style="<{if $imageset.S.width}>width:<{$imageset.S.width}>px;<{/if}><{if $imageset.S.height}>height:<{$imageset.S.height}>px;line-height:<{$imageset.S.height-2}>px;*font-size:<{$imageset.S.height * 0.9}>px;<{/if}>">
+        <a href="<{link app=b2c ctl=site_product arg0=$goods.products.product_id}>"><img class="action-goods-img" data-src="<{$goods.image_default_id|default:$imageDefault.S.default_image|storager:'s'}>" alt="<{$goods.name}>" style="<{if $imageset.S.width}>max-width:<{$imageset.S.width}>px;<{/if}><{if $imageset.S.height}>max-height:<{$imageset.S.height}>px;<{/if}>"></a>
+        <{if $goods.tags && $env.conf.b2c.gallery.display.tag.goods == 'true'}>
+        <{foreach from=$goods.tags item=tags}>
+        <{if $tags.params.tag_showOnIndex == 'on'}>
+        <{if $tags.params.tag_image}>
+        <span class="img-tag-<{$tags.params.pic_loc}>" style="opacity:<{$tags.params.tag_opacity / 100}>;filter:alpha(opacity=<{$tags.params.tag_opacity}>)"><img src="<{$tags.params.tag_image|storager}>"></span>
+        <{else}>
+        <span class="text-tag-<{$tags.params.pic_loc}>" style="background-color:<{$tags.tag_bgcolor|default:'transparent'}>;color:<{$tags.tag_fgcolor}>;opacity:<{$tags.params.tag_opacity / 100}>;filter:alpha(opacity=<{$tags.params.tag_opacity}>)"><{$tags.tag_name}></span>
+        <{/if}>
+        <{/if}>
+        <{/foreach}>
+        <{/if}>
+      </div>
+      <div class="goods-info">
+        <h3 class="goods-name"><a href="<{link app=b2c ctl=site_product arg0=$goods.products.product_id}>"><{$goods.name}></a></h3>
+        <div class="goods-price">
+          <ins class="price"><{$goods.products.price|cur_odr}></ins>
+          <{if $point_status == 'on'}>
+          <{if $goods.comments_count > 0}>
+          <span class="goods-comment"><a href="<{link app=b2c ctl=site_product arg0=$goods.products.product_id}>#product_comment"><b><{$goods.comments_count}></b><{t}>条评论<{/t}></a></span>
+          <{else}>
+          <span class="goods-comment"><{t}>暂无评论<{/t}></span>
+          <{/if}>
+          <{/if}>
+          <{if $env.conf.b2c.site.show_mark_price == 'true'}>
+          <del class="price"><{$goods.products.mktprice|cur_odr}></del>
+          <{/if}>
+        </div>
+      </div>
+
+      <div class="promotion-tags">
+        <{if $goods.promotion_tags && $env.conf.b2c.gallery.display.promotion == 'true'}>
+        <{foreach from=$goods.promotion_tags item=pTag}>
+        <span class="tag"><{$pTag.tag_name}></span>
+        <{/foreach}>
+        <{/if}>
+      </div>
+      <div class="goods-action">
+        <div class="goods-buy">
+          <{if $goods.products.store > 0}>
+          <!-- 加入购物车 -->
+          <{if $env.conf.b2c.gallery.display.buynum == 'true'}>
+          <span class="p-quantity">
+            <a href="javascript:void(0);" class="btn-decrease">-</a><input type="text" min="1" max="<{$goods.products.store|number}>" size="2" name="goods[num]" class="action-quantity-input" value="1"><a href="javascript:void(0);" class="btn-increase">+</a>
+            <{if $env.conf.b2c.gallery.display.store_status == 'true'}>
+            <{if $goods.products.store <= $env.conf.b2c.gallery.store_status.num}>
+            <span class="store-warn"><{t}>库存紧张<{/t}></span>
+            <{/if}>
+            <{/if}>
+          </span>
+          <input type="hidden" name="goods[goods_id]" value="<{$goods.goods_id}>">
+          <input type="hidden" name="goods[product_id]" value="<{$goods.products.product_id}>">
+          <{/if}>
+          <{if $env.conf.b2c.site.buy.target == '2'}>
+          <{assign var='buytarget' value='_blank_cart'}>
+          <{elseif $env.conf.b2c.site.buy.target == '3'}>
+          <{assign var='buytarget' value='_dialog_minicart'}>
+          <{/if}>
+          <a class="btn btn-major action-addtocart" href="<{link app=b2c ctl=site_cart act=add arg0=goods arg1=$goods.goods_id arg2=$goods.products.product_id arg3=1}>"<{if $buytarget}> target="<{$buytarget}>"<{/if}>><span><span>加入购物车</span></span></a>
+          <{elseif $goods.spec_desc && $goods.store}>
+          <a class="btn btn-caution" href="<{link app=b2c ctl=site_product arg0=$goods.products.product_id}>"><span><span>查看详情</span></span></a>
+          <{else}>
+          <!-- 到货通知 -->
+          <a href="javascript:void(0);" class="btn btn-caution action-notify" rel="<{$goods.goods_id}>::<{$goods.products.product_id}>"><span><span>到货通知</span></span></a>
+          <{/if}>
+        </div>
+        <div class="goods-others">
+          <{if $login=='nologin'}>
+          <a href="<{link app=b2c ctl=site_passport act=login}>" class="btn btn-simple"><span><span>收藏</span></span></a>
+          <{else}>
+          <{if !$goods.is_fav}>
+          <button type="button" class="btn btn-simple" rel="_favbtn_" data-gid="<{$goods.goods_id}>"><span><span>收藏</span></span></button>
+          <button type="button" class="btn btn-plane" rev="_favbtn_" style="display:none;"><span><span>已收藏</span></span></button>
+          <{else}>
+          <button type="button" class="btn btn-simple" rel="_favbtn_" data-gid="<{$goods.goods_id}>" style="display:none;"><span><span>收藏</span></span></button>
+          <button type="button" class="btn btn-plane" rev="_favbtn_"><span><span>已收藏</span></span></button>
+          <{/if}>
+          <{/if}>
+          <button type="button" class="btn btn-simple action-compare" data-compare='{type_id:"<{$goods.type_id}>",goods_id:"<{$goods.goods_id}>",img:"<{$goods.image_default_id|storager:'s'}>",name:"<{$goods.name|strip_tags}>",price:"<{$goods.products.price|cur_odr}>"}'><span><span>对比</span></span></button>
+        </div>
+      </div>
+    </li>
+    <{/foreach}>
+  </ul>
+</div>
+<{pagers data=$pager}>

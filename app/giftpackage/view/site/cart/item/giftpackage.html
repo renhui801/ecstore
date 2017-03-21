@@ -1,0 +1,62 @@
+<{if $aCart.object.giftpackage}>
+<{foreach from=$aCart.object.giftpackage item=giftpackage key=_giftpackage_key}>
+  <tbody class="cart-item">
+    <!-- 礼包 -->
+    <tr class="p-packs">
+      <td>
+        <input type="hidden" name="obj_type" value="giftpackage">
+        <input type="hidden" name="min" value="1">
+        <input type="hidden" name="max" value="<{$giftpackage.package._store.real}>">
+        <input type="hidden" name="stock" value="<{$giftpackage.package._store.store}>">
+        <div class="p-pic">
+            <a  target="_blank" href="<{link app=giftpackage ctl=site_giftpackage arg0=$giftpackage.package.id}>"><img src="<{$giftpackage.package.image|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt=""></a>
+        </div>
+      </td>
+      <td class="p-info">
+          <div class="p-title"><a  target="_blank" href="<{link app=giftpackage ctl=site_giftpackage arg0=$giftpackage.package.id}>"><{$giftpackage.package.name}></a></div>
+      </td>
+      <td class="p-price"><{$giftpackage.package.price|cur_odr}></td>
+      <td>
+        <div class="p-quantity">
+          <a href="javascript:void(0);" class="btn-decrease">-</a>
+          <input type="text" name="modify_quantity[<{$giftpackage.obj_ident}>][quantity]" value="<{$giftpackage.quantity}>">
+          <a href="javascript:void(0);" class="btn-increase">+</a>
+        </div>
+        <{if $giftpackage.package._store.store <= 5}><span class="warn-message">余量有限</span><{/if}>
+      </td>
+      <td class="p-discount">
+          <{if ($giftpackage.subtotal_goods_price-$giftpackage.package.price*$giftpackage.quantity) > 0 }>
+              <{($giftpackage.subtotal_goods_price-$giftpackage.package.price*$giftpackage.quantity)|cur_odr}>
+          <{else}>
+              <{0|cur_odr}>
+          <{/if}>
+      </td>
+      <td class="p-integral"><{$giftpackage.subtotal_gain_score}></td>
+      <td class="p-subtotal"><{$giftpackage.subtotal_price|cur_odr}></td>
+      <td class="p-action">
+        <{if $login=='nologin'}>
+        <a href="<{link app=b2c ctl=site_passport act=login}>" class="btn-fav">收藏</a>
+        <{else}>
+        <a href="javascript:void(0);" class="btn-fav" rel="_addfav_" data-gid="<{$giftpackage.package.id}>">收藏</a>
+        <{/if}>
+        <i>|</i>
+        <a href="javascript:void(0);" class="btn-delete">移除</a>
+      </td>
+    </tr>
+    <{foreach from=$giftpackage.obj_items item=giftpackage_product name=giftpackage}>
+    <tr class="p-packs-item<{if $smarty.foreach.giftpackage.last}> last<{/if}>">
+      <td>
+        <div class="p-packs-icon">礼包<br>商品</div>
+      </td>
+      <td class="p-info">
+          <div class="p-pic"><a  target="_blank" href="<{link app=b2c ctl=site_product act=index arg0=$giftpackage_product.goods_id}>"><img src="<{$giftpackage_product.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt=""></a></div>
+          <div class="p-title"><a target="_blank" href="<{link app=b2c ctl=site_product act=index arg0=$giftpackage_product.goods_id}>"><{$giftpackage_product.name}>  <{$giftpackage_product.spec_info}></a></div>
+      </td>
+      <td class="p-price"><{$giftpackage_product.price.price|cur_odr}></td>
+      <td class="p-num"><{$giftpackage_product.quantity * $giftpackage.quantity}></td>
+      <td colspan="4"></td>
+    </tr>
+    <{/foreach}>
+  </tbody>
+  <{/foreach}>
+  <{/if}>

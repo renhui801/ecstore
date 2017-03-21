@@ -1,0 +1,24 @@
+<div class="common-mod user-comments">
+  <div class="hd">
+    <h2 class="title">用户最新评论</h2>
+  </div>
+  <div class="bd">
+    <ul class="comments-list">
+      <{foreach from=$data item=item key=key}>
+      <li class="comment-item">
+        <{if $item.goodsPic}>
+        <div class="goods-pic">
+          <a href="<{$item.goodsLink}>"><img data-src="<{$item.goodsPic|storager:'m'}>" alt="<{$item.goodsName}>" class="img" data-img-zoom="true"/></a>
+        </div>
+        <{/if}>
+        <div class="goods-info">
+          <div class="goods-name">
+            <a href="<{$item.goodsLink}>"><{$item.goodsName}></a>
+          </div>
+          <div class="goods-comment"><{$item.comment}></div>
+        </div>
+      </li>
+      <{/foreach}>
+    </ul>
+  </div>
+</div>

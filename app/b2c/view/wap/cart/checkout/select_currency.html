@@ -1,0 +1,22 @@
+
+<{if count($currencys) > 1}>
+    <caption class="select-currency">选择货币类型：
+    <{input type="select" id="payment-cur" name="payment[currency]" rows=$currencys valueColumn="cur_code" labelColumn="cur_name" value=$current_currency class="action-select-currency" required="true"}>
+<{else}>
+    <{foreach from=$currencys item="currency_item" key="key" name="currency_item"}>
+        <input type="hidden" name="payment[currency]" value='<{$currency_item.cur_code}>' />
+    </caption>
+    <{/foreach}>
+<{/if}>
+
+<{foreach from=$payments item="payment" key="key" name="payments"}>
+    <li class="pay-item gb t-c" payment_app_id="<{$payment.app_id}>" payment_app_name='<{$payment.app_display_name}>' value='{"pay_app_id":"<{$payment.app_id}>","payment_name":"<{$payment.app_display_name}>"}' id="pay_app_id_<{$payment.app_id}>">
+        <{$payment.app_display_name}>
+    </li>
+<{/foreach}>
+
+<{if $has_cod == 'true'}>
+    <li class="pay-item gb t-c" payment_app_id="-1" payment_app_name="货到付款" value='{"pay_app_id":"-1","payment_name":"货到付款"}' id="pay_app_id_0">
+        货到付款
+    </li>
+<{/if}>

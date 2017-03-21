@@ -1,0 +1,21 @@
+<div class="common-mod sales-rank">
+  <div class="hd"><h2 class="title"><{$setting.block_name}></h2></div>
+  <div class="bd">
+    <ul class="goods-list clearfix">
+      <{foreach from=$data.goodsRows item=row key=gid name=goodsrow}>
+      <li class="goods-item clearfix">
+        <{assign var=pickey value=$setting.gpic_size|default:'goodsPicS'}>
+        <div class="goods-pic">
+          <a href="<{$row.goodsLink}>"><img data-src="<{$row[$pickey]}>" alt="<{$row.goodsName}>" class="img" data-img-zoom="true"/></a>
+        </div>
+        <div class="goods-info">
+          <h3 class="goods-name">
+            <a href="<{$row.goodsLink}>"><{$row.goodsName}></a>
+          </h3>
+          <div class="goods-price"><i><{$row.goodsSalePrice|cur}></i></div>
+        </div>
+      </li>
+      <{/foreach}>
+    </ul>
+  </div>
+</div>

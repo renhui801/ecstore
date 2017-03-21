@@ -1,0 +1,32 @@
+<?php
+
+return array(
+   'search_index_setting_b2c_goods'=>
+    array(
+      'ranker'=>'proximity_bm25',
+      'order_value'=>'view_count',
+      'order_type'=>'desc',
+      'max_limit'=>'100'
+    ),
+    'search_index_setting_b2c_goods_merge'=>
+    array(
+      'ranker'=>'proximity_bm25',
+      'order_value'=>'view_count',
+      'order_type'=>'desc',
+      'max_limit'=>'100'
+    ),
+    'search_index_setting_b2c_goods_delta'=>
+    array(
+      'ranker'=>'proximity_bm25',
+      'order_value'=>'view_count',
+      'order_type'=>'desc',
+      'max_limit'=>'100'
+    ),
+    'search_index_setting_search_associate'=>
+    array(
+      'ranker'=>'proximity_bm25',
+      'order_value'=>'id',
+      'order_type'=>'desc',
+      'max_limit'=>'10'
+    ),
+);

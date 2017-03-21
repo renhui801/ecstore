@@ -1,0 +1,475 @@
+<div id="main" class="clearfix">
+  <!-- 商品详情 -->
+  <div class="page-maincontent">
+    <div id="product_container" class="product-container clearfix">
+      <{include file='site/product/basic.html'}>
+    </div>
+
+    <div id="product_section">
+      <div id="product_detail" class="product-section product-detail">
+        <h2 class="tags-hd active"><a href="#detail"><{t}>商品详情<{/t}></a></h2>
+        <{include file='site/product/tab/intro.html'}>
+      </div>
+      <{if $page_product_basic.params}>
+      <div id="product_parameters" class="product-section product-parameters" data-sync-type="product_parameters" style="display:none;">
+        <h2 class="tags-hd"><a href="#parameters"><{t}>详细参数<{/t}></a></h2>
+      </div>
+      <{/if}>
+
+      <{if $setting.acomment.switch.discuss == 'on'}>
+      <div id="product_comment" class="product-section product-comment" data-sync-type="product_comment" style="display:none;">
+        <h2 class="tags-hd tag-comment"><a href="#recomment"><{t}>商品评论<{/t}></a></h2>
+      </div>
+      <{/if}>
+
+      <{if $setting.acomment.switch.ask == 'on'}>
+      <div id="product_consult" class="product-section product-consult" data-sync-type="product_consult" style="display:none;">
+          <h2 class="tags-hd tag-consult"><a href="#consult"><{t}>商品咨询<{/t}></a></h2>
+      </div>
+      <{/if}>
+
+      <{if $setting.selllog == 'true'}>
+      <div id="product_saleslog" class="product-section product-saleslog action-content-list" data-sync-type="product_saleslog" style="display:none;">
+          <h2 class="tags-hd"><a href="#saleslog"><{t}>销售记录<{/t}></a></h2>
+      </div>
+      <{/if}>
+      <{if $async_request_list}>
+      <{foreach from=$async_request_list key=key item=row}>
+        <{if $row.is_call == 'ajax'}>
+        <div id="ajax_body_async" class="product-section custom_tab" data-sync-type="ajax_body_async" style="display:none;">
+          <h2 class="tags-hd"><a href="#custom_tab"><{$row.name}></a></h2>
+        </div>
+        <{else}>
+        <{if $row.content}>
+        <div id="<{$key}>" class="product-section custom_tab" style="display:none;">
+          <h2 class="tags-hd"><a href="#custom_tab"><{$row.name}></a></h2>
+          <div class="mod-bottom">
+            <textarea class="action-lazyload hide">
+            <{*include file=$row.view app=$row.app*}>
+            </textarea>
+          </div>
+        </div>
+        <{/if}>
+        <{/if}>
+      <{/foreach}>
+      <{/if}>
+    </div>
+  </div>
+</div>
+<{script src="product.js" app="b2c" pdir="js_mini"}>
+<script>
+
+var main = $('main');
+var container = $('product_container');
+var section = $('product_section');
+
+var Query = function(url, options) {
+    var self = this;
+    this.send = function(url, options) {
+        options = Object.merge({
+            url: url,
+            method: 'post',
+            link: 'chain'
+        }, options || {});
+        return new Request(options).send();
+    };
+    this.update = function (url, update, options) {
+        options = Object.merge({
+            url: url,
+            update: update,
+            method: 'post',
+            link: 'chain'
+        }, options || {});
+        new Request.HTML(options).send();
+    };
+};
+Query = new Query;
+
+//== 商品详情图片延迟加载，并缩放到合适大小
+var sectionWidth = section.getStyle('width').toInt();
+new DataLazyLoad({containers: section,textarea:'action-lazyload',onCallback:function(){
+    section.getElements('img').each(function(img){
+        img.zoomImg(sectionWidth);
+    });
+}});
+
+
+$('product_album').getElement('.product-album-pic a').addEvent('click', function(e){
+    e.preventDefault();
+});
+
+//== 异步加载商品详情tab
+var param = {
+    <{if $setting.acomment.switch.discuss == 'on'}>
+    goodsDiscussInit:{update:section,name:'product_comment_init', onSuccess: function(){
+        storeAjaxConfig('product_comment_init','.action-submit-reply', '.reply-list');
+    }},
+    <{/if}>
+    <{if $setting.acomment.switch.ask == 'on'}>
+    goodsConsultInit:{update:section,name:'product_consult_init', onSuccess: function(){
+        storeAjaxConfig('product_consult_init','.action-submit-reply', '.answer-list');
+    }},
+    <{/if}>
+    <{if $page_product_basic.params}>
+    goodsParams:{append:section,name:'product_parameters',require:'product_comment_init'},
+    <{/if}>
+    <{if $setting.acomment.switch.discuss == 'on'}>
+    goodsDiscuss:{append:section,name:'product_comment',require:'product_comment_init', onSuccess: function(){
+        storeAjaxConfig('product_comment','.action-submit-reply', '.reply-list');
+    }},
+    <{/if}>
+    <{if $setting.acomment.switch.ask == 'on'}>
+    goodsConsult:{append:section,name:'product_consult',require:'product_comment', onSuccess: function(){
+        storeAjaxConfig('product_consult','.action-submit-reply', '.answer-list');
+        storeAjaxConfig('product_consult','.action-submit-post', 'consult_content', true);
+    }},
+    <{/if}>
+    <{if $setting.selllog == 'true'}>
+    goodsSellLoglist:{append:section,name:'product_saleslog',require:'product_consult'}
+    <{/if}>
+},queue_items = [];
+Object.each(param,function(v,k){
+    queue_items.push(Object.append({
+        url:'<{link app="b2c" ctl="site_product" act="'+k+'" arg=$page_product_basic.goods_id}>'
+    },v));
+});
+
+var lazyload = new LayoutRequest(queue_items);
+
+//== 为商品详情生成tab
+section.getElements('.tags-hd').inject(new Element('.groupbuy-tags.clearfix').inject(section,'before'));
+new Tabs('main', {
+    eventType: 'click',
+    triggersBox: '.groupbuy-tags',
+    panels: '.product-section',
+    onSwitch: function(e){
+        queue_items.each(function(q){
+            if(q.name === this.panels[e.currentIndex].id) {
+                lazyload.request.call(lazyload, q);
+            }
+        }, this);
+    }
+});
+
+//== 处理评论咨询回复异步请求
+function storeAjaxConfig(cont,handle, area, type){
+    // $(cont).getElements(trigger).each(function(handle){
+        var update;
+        var element = $(cont).getElement(handle);
+        element.retrieve('_ajax_config') || element.store('_ajax_config', {
+            onSuccess:function(rs) {
+                rs = rs[0];
+                if(rs&&rs.success&&rs.data){
+                    update = $(area);
+                    if(!update) {
+                        var active = element.getParent('.mod').getElement('.active-handle');
+                        update = active.getParent(area);
+                        closeReply(element);
+                    }
+                    rs.html = rs.data.stripScripts(function(script){
+                        rs.javascript = script;
+                    });
+                    update.set('html', rs.html);
+                    Browser.exec(rs.javascript);
+
+                    Message.success(rs.success);
+
+                    if(type) location.href = '#' + cont;
+                    resetForm(element.getParent('form'));
+                    storeAjaxConfig(cont,handle, area, type);
+                }
+            }
+        });
+    // });
+}
+//== 重置提交表单
+function resetForm(form) {
+    form.reset();
+    form.blur();
+    try{
+        form.getElement('img.verify-code').addClass('hide');
+    }catch(e){}
+}
+
+var ajax;
+var state;
+container.addEvents({
+    'click:relay(.btn-remind)': function(e){
+        var btn = this;
+        var dialog = new Dialog('<{link app=starbuy ctl=site_special act=remind_url arg0=$goodsdata.product_id arg1=$stypeid}>', {
+            width: 250,
+            async: 'ajax',
+            modal:true,
+            asyncOptions: {
+                onSuccess: function(rs) {
+                    var submit = dialog.content.getElement('button[type=submit]');
+                    submit.store('_data_ajax_config', function() {
+                        btn.hide().getNext('.btn').show();
+                        dialog.hide();
+                    });
+                }
+            }
+        });
+    }
+});
+
+$(document.body).addEvents({
+    'click:relay(.action-subscribe)': function(e) {
+        if(this.hasClass('disabled')) return;
+    },
+    'click:relay(.inter-handle)': function(e) {
+        e.preventDefault();
+        var parent = this.getParent('.mod');
+        var item = this.getParent('.comment-item') || this.getParent('.consult-item');
+        var action = this.getParent('.reply-action') || this.getParent('.answer-action');
+        var active = action.hasClass('active-handle');
+        var reply = parent.getElement('.action-post-reply');
+        var toggle = parent.getElement('.active-handle');
+        if(toggle) {
+            closeReply(toggle);
+        }
+        var id = item.getElement('input[name=id]').value;
+        reply.getElement('input[name=id]').value = id;
+        reply.removeClass('hide').setStyles({
+            width: action.getSize().x - reply.getPatch('padding','border').x
+        }).position({
+            target:this,
+            from: 'rt',
+            to: 'rb',
+            offset:{
+                y: 8
+            },
+            intoView: true
+        });
+        if(active){
+            closeReply(this);
+            // reply.addClass('hide');
+        }
+        else{
+            openReply(this);
+        }
+
+    },
+    'click:relay(.action-close-reply)': function(e) {
+        e && e.preventDefault();
+        closeReply(this);
+    },
+    'focus:relay(.action-code-form)': function(e) {
+        var code = this.getElement('img.verify-code');
+        if(code && !code.isVisible()) {
+            code.removeClass('hide');
+            <{if $valideCode == 'true'}>
+            changeCode(code);
+            <{/if}>
+        }
+    },
+    'click:relay(.auto-change-verify-handle)': function(e){
+        e.stop();
+        changeVerify(this);
+    },
+    'click:relay(.pageview .flip)': function(e){
+        e.stop();
+        Query.update(this.href, this.getParent('.action-content-list'));
+    },
+    'inputchange:relay(.action-filled-textarea)': function(){
+        var p = this.getParent();
+        var max = getVal(p, '.word-limit');
+        var cur = p.getElement('.word-count .current');
+        if(this.value.length > max) {
+            this.value = this.value.substr(0, max);
+            Message.error('<{t}>内容最多输入<{/t}>' + max + '<{t}>字<{/t}>');
+        }
+        cur.set('text', this.value.length);
+    },
+    'click:relay(.action-consult-trigger)': function(e){
+        e.preventDefault();
+    }
+});
+
+function openReply(el) {
+    var parent = el.getParent('.mod');
+    var action = el.getParent('.reply-action') || el.getParent('.answer-action');
+    var reply = parent.getElement('.action-post-reply');
+    reply.removeClass('hide');
+    action.addClass('active-handle');
+    action.setStyle('height', parseInt(action.getStyle('height')) + reply.getSize().y);
+}
+function closeReply(el) {
+    var parent = el.getParent('.comment-list') || el.getParent('.mod');
+    var reply = parent.getElement('.action-post-reply');
+    var action = parent.getElement('.active-handle');
+    reply.addClass('hide');
+    if(action) {
+        action.removeClass('active-handle');
+        action.setStyle('height', '');
+    }
+}
+
+function notice(msg, inject, where, type) {
+    var el = new Element('div.notice' + (type ? '.' + type : ''), {html:msg}).inject(inject, where);
+    el.destroy.delay(3000,el);
+}
+notice.success = function(msg, inject, where) {
+    notice('<q class="icon">&#x25;</q>' + msg, inject, where, 'success');
+};
+
+function getVal(p,c,i) {
+    if(!c) return $(p).get('text');
+    p = $(p).getElement(c).get('text');
+    if(!i) return p;
+    return Number.from(p);
+}
+function toggleText(el, attr) {
+    attr = attr || 'data-toggle';
+    var a = el.get(attr);
+    var b = el.get('text');
+    el.set(attr, b).set('text', a);
+}
+
+var timeCount = new Class({
+    inner: {
+        date: '.date',
+        hours: '.hours',
+        minutes: '.minutes',
+        seconds: '.seconds'
+    },
+    initialize:function(timeNow,timeEnd,dom,isReload){
+        this.isReload = isReload || true;
+        var diff = Math.abs((timeNow.getTime() - timeEnd.getTime())/1000);
+        var secondDiff = diff % 60;
+        var minuteDiff = ((diff - secondDiff)/60) % 60;
+        var hourDiff = (diff - secondDiff  - minuteDiff*60) / 3600;
+        if(hourDiff > 24){
+            var dayDiff = parseInt(hourDiff/24);
+            hourDiff = hourDiff - dayDiff * 24;
+            var timeDiff = [hourDiff,minuteDiff,secondDiff,dayDiff];
+        }else{
+            var timeDiff = [hourDiff,minuteDiff,secondDiff];
+        }
+        this.s = this.calcTime.periodical(1000,this,{
+            time:timeDiff,
+            dom:dom
+        });
+        if(document.getElement('.desc')){
+            this.desc = 10;
+            this.d = this.calcDesc.periodical(100,this);
+            (function(){$('timer').setStyle('display','block')}).delay(1100);
+        }
+    },
+    addZero: function(timeDiff){
+        for(var i=0;i<timeDiff.length;i++){
+            if(timeDiff[i].toString().length < 2){
+                timeDiff[i] = "0" + timeDiff[i].toString();
+            }
+        }
+        return timeDiff;
+    },
+    formatToInt: function(timeDiff){
+        for(var i=0;i<timeDiff.length;i++){
+            timeDiff[i] = parseInt(timeDiff[i]);
+        }
+        return timeDiff;
+    },
+    judgeTime: function(timeDiff){
+        if(timeDiff[2]< 0  && timeDiff[1]>0){
+            timeDiff[2] = 59;
+            timeDiff[1]--;
+            return timeDiff;
+        }else if(timeDiff[2] <0 && timeDiff[1]==0 && timeDiff[0]>0){
+            timeDiff[2] = 59;
+            timeDiff[1] = 59;
+            timeDiff[0]--;
+            return timeDiff;
+        }else if(timeDiff[2]==0 && timeDiff[1]==0 && timeDiff[0]==0){
+            clearInterval(this.s);
+            if(document.getElement('.desc')){ clearInterval(this.d); document.getElement('.desc').innerHTML = 0; }
+            if(this.isReload){
+                if(typeOf(this.isReload) == 'function'){
+                    this.isReload();
+                }else{
+                    location.reload();
+                }
+            }
+            return;
+        }
+    },
+    calcTime: function (obj){
+        if(!obj.dom) return;
+        var _timeDiff = obj.time;
+        this.addZero(_timeDiff);
+        this.formatToInt(_timeDiff);
+        _timeDiff[2]--;
+        this.judgeTime(_timeDiff);
+        this.addZero(_timeDiff);
+        var dom = $(obj.dom);
+        var inner = this.inner;
+        dom.date = dom.getElement(inner.date);
+        dom.hours = dom.getElement(inner.hours);
+        dom.minutes = dom.getElement(inner.minutes);
+        dom.seconds = dom.getElement(inner.seconds);
+
+        if(_timeDiff[3]){
+            if(dom.date) dom.date.innerHTML = _timeDiff[3];
+            if(dom.seconds){
+                // var domBox = dom.seconds.getParent('span');
+                // if(domBox) domBox.hide();
+                dom.seconds.innerHTML = _timeDiff[2];
+            }
+            if(dom.minutes) dom.minutes.innerHTML = _timeDiff[1];
+            if(dom.hours) dom.hours.innerHTML = _timeDiff[0];
+        }else{
+            if(dom.date) {
+                var domBox = dom.date.getParent('span');
+                if(domBox) domBox.hide();
+            }
+            if(dom.seconds){
+                dom.seconds.innerHTML = _timeDiff[2];
+            };
+            if(dom.minutes) dom.minutes.innerHTML = _timeDiff[1];
+            if(dom.hours) dom.hours.innerHTML = _timeDiff[0];
+        }
+    },
+    calcDesc:function(){
+        this.desc--;
+        document.getElement('.desc').innerHTML = this.desc;
+        if(this.desc == 0)
+            this.desc = 10;
+    }
+});
+
+var timeStart =new Date(($('start_time').value)*1000);
+var timeEnd =new Date(($('end_time').value)*1000);
+var timeNow = new Date;
+
+//根据状态改变显示
+new Request({
+        url: '<{link app="starbuy" ctl="site_team" act="getNowTime"}>',
+        onComplete:function(re){
+            re = JSON.decode(re);
+            timeNow=new Date(re.timeNow*1000);//当前时间
+            var status=re.status;
+            if(status==1){
+                new timeCount(timeNow,timeStart, 'timer');
+            }else if(status==2){
+                new timeCount(timeNow, timeEnd, 'timer');
+            }
+            // changeState(activeState(timeNow,re.inventory),timeNow);
+        }
+        }).send('product_id=<{$goodsdata.product_id}>&type_id=<{$goodsdata.type_id}>&begin_time='+$('start_time').value+'&end_time='+$('end_time').value);
+
+$$('.thumbnail-list li').addEvents({'mouseenter': function () {
+    var bigPicPath = $$(this).getChildren('.thumbnail')[0].getChildren('a')[0].get('rev'),
+        productPicDOM = $$('.product-album-pic').getChildren('a')[0].getChildren('img')[0];
+    //console.log(bigPicPath.getChildren('a')[0].get('rev'));
+    //var parentDOM = $$(this).parentNode.children;
+    $$('.thumbnail-list li').removeClass('active');
+    $$(this).addClass('active');
+    productPicDOM.set('src', bigPicPath);
+
+}});
+
+$$('.thumbnail>a').addEvents({'click': function (e) {
+    var e = window.event || e;
+    e.preventDefault();
+}});
+</script>

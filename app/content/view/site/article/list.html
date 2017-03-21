@@ -1,0 +1,13 @@
+<div class="mod article-mod">
+  <div class="mod-title">
+    <h2><{$cat.node_name}></h2>
+  </div>
+  <div class="mod-content">
+    <ul class="article-list">
+      <{foreach from=$articles item=article key=key}>
+      <li class="article-item"><span class="article-title"><a href="<{link app=content ctl=site_article act=index arg0=$article.article_id}>" title="<{$article.title}>"><{$article.title}></a></span><span class="datetime">[<{$article.pubtime|date:'Y-m-d H:i'}>]</span></li>
+      <{/foreach}>
+    </ul>
+  </div>
+</div>
+<{pagers data=$pager}>

@@ -1,0 +1,16 @@
+<desktop>
+    <permissions>
+        <permission id="archive" display='true' parent='0' workground='ectools.wrokground.order'>单据管理</permission>
+    </permissions>
+
+     <workground name="订单" id="ectools.wrokground.order">
+        <menugroup name="归档单据">
+            <menu app="b2c" controller='admin_archive' action='order' permission='archive' display='true' order='70'>订单</menu>
+            <menu app="ectools" controller='admin_archive' action='payment' permission='archive' display='true' order='80'>收款单</menu>
+            <menu app="b2c" controller='admin_archive' action='delivery' permission='archive' display='true' order='90'>发货单</menu>
+            <menu app="aftersales" controller='admin_archive' action='returnproduct' permission='archive' display='true' order='100'>售后单</menu>
+            <menu app="b2c" controller='admin_archive' action='reship' permission='archive' display='true' order='110'>退货单</menu>
+            <menu app="ectools" controller='admin_archive' action='refund' permission='archive' display='true' order='120'>退款单</menu>
+        </menugroup>
+    </workground>
+</desktop>

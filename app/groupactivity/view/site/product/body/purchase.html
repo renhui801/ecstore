@@ -1,0 +1,32 @@
+<{if $groupactivity}>
+<!-----------------------------团购活动 开始------------------------------------->
+<div style="background: none repeat scroll 0% 0% rgb(246, 246, 246);" class="FormWrap" id="groupou">
+  <div class="division">
+    <div style="float:left; font-size:12px;" class="price1">团购：<{$groupactivity.state}></div>
+    <div style="float:right;">活动时间：<{$groupactivity.start_time|cdate:FDATE_FTIME}> 到 <{$goodsActivityInfo.end_time|cdate:FDATE_FTIME}></div>
+    <div class="clear"></div>
+    <div>团购方案：
+		<{if $groupactivity.pro_type == 1}>
+			单笔订单数量满<{$groupactivity.postage}>时,免运费.
+		<{else}>
+		<{t}>无邮费优惠.<{/t}>
+		<{/if}>
+    </div>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	    <td style="border:1px solid #cfcfcf; padding:2px;">团购数量</td>
+	    <td style="border:1px solid #cfcfcf; padding:2px;">团购价格</td>
+	    <td style="border:1px solid #cfcfcf; padding:2px;">团购数量限制</td>
+	    <td style="border:1px solid #cfcfcf; padding:2px;">可获得积分</td>
+	  </tr>
+	  <tr>
+	    <td style="border:1px solid #cfcfcf; padding:2px;"><{$groupactivity.min_buy}></td>
+	    <td style="border:1px solid #cfcfcf; padding:2px;"><{$groupactivity.price|cur}></td>
+	    <td style="border:1px solid #cfcfcf; padding:2px;"><{$groupactivity.max_buy}></td>
+	    <td style="border:1px solid #cfcfcf; padding:2px;"><{$groupactivity.score}></td>
+	 </tr>
+	</table>
+  </div>
+</div>
+<!-----------------------------团购活动 结束------------------------------------->
+<{/if}>

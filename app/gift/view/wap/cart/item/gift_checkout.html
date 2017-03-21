@@ -1,0 +1,58 @@
+<{if $aCart.object.gift.cart}>
+<!-- 积分兑换 -->
+<ul class="pt-list">
+  <{foreach from=$aCart.object.gift.cart item=cart_gift}>
+  <li class="pt-h-item c-fix"> 
+  <a href="#">
+     <div class="pt-h-img"><img src="<{$order_gift.default_image.thumbnail|storager:'s'}>"></div>
+        <div class="pt-h-info">
+        <div class="pt-h-name">
+            <label class="f-red">[积分兑换赠品] </label><{$cart_gift.name}>
+        </div>
+        <div class="pt-h-other">
+            <{$cart_gift.spec_info}>
+        </div>
+        <div class="col2">
+            <div class="col price">
+                <{$cart_gift.price.price|cur_odr}>
+            </div>
+            <div class="col t-r">
+                数量：<{$cart_gift.quantity}>
+            </div>
+        </div>
+    </div>
+  </a>
+  </li>
+  <{/foreach}>
+</ul>
+<{/if}>
+
+
+<{if $aCart.object.gift.order}>
+<!-- 订单赠品 -->
+<ul class="pt-list">
+  <{foreach from=$aCart.object.gift.order item=order_gift}>
+  <li class="pt-h-item c-fix"> 
+  <a href="#">
+     <div class="pt-h-img"><img src="<{$order_gift.default_image.thumbnail|storager:'s'}>"></div>
+        <div class="pt-h-info">
+        <div class="pt-h-name">
+            <label class="f-red">[订单赠品] </label><{$order_gift.name}>
+        </div>
+        <div class="pt-h-other">
+            <{$order_gift.spec_info}>
+        </div>
+        <div class="col2">
+            <div class="col price">
+                <{$order_gift.price.price|cur_odr}>
+            </div>
+            <div class="col t-r">
+                数量：<{$order_gift.quantity}>
+            </div>
+        </div>
+    </div>
+  </a>
+  </li>
+  <{/foreach}>
+</ul>
+<{/if}>

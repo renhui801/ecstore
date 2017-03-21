@@ -1,0 +1,105 @@
+<{if $aCart.object.goods}>
+<ul class="pt-list">
+  <!-- 主商品 -->
+  <{foreach from=$aCart.object.goods item=goods key=_obj_key}>
+    <li class="pt-h-item c-fix"> 
+      <a href="<{link app=b2c ctl=wap_product arg0=$goods.obj_items.products.0.product_id}>" class="pt-h-link">
+        <div class="pt-h-img"><img src="<{$goods.obj_items.products.0.thumbnail|storager:'s'}>"></div>
+          <div class="pt-h-info">
+            <div class="pt-h-name">
+              <{$goods.obj_items.products.0.name}>
+            </div>
+            <div class="pt-h-other">
+              <{$goods.obj_items.products.0.spec_info}>
+            </div>
+            <div class="col2">
+              <div class="col price">
+                <{$goods.obj_items.products.0.price.price|cur_odr}>
+              </div>
+              <div class="col t-r">
+                数量：<{$goods.quantity}>
+              </div>
+            </div>
+        </div>
+      </a>
+    </li>
+
+    <!-- 赠品 -->
+    <{if $goods.gift}>
+    <{foreach from=$goods.gift item=gift key=_gift_key}>
+    <li class="pt-h-item c-fix">
+        <div class="pt-h-img"><img src="<{$gift.thumbnail|storager:'s'}>"></div>
+        <div class="pt-h-info">
+          <div class="pt-h-name">
+            <label class="f-red">[赠品] </label><{$gift.name}>
+          </div>
+          <div class="pt-h-other">
+            <{$gift.spec_desc}>
+          </div>
+          <div class="col2">
+            <div class="col price">
+              <{$gift.price.price|cur_odr}>
+            </div>
+            <div class="col t-r">
+              数量：<{$gift.quantity}>
+            </div>
+          </div>
+        </div>
+    </li>
+    <{/foreach}>
+    <{/if}>
+
+    <!-- 商品促销 -->
+    <{if $aCart.promotion.goods.[$goods.obj_ident]}>
+    <li class="pt-h-pro">
+      <span class="J-pre">
+        商品促销
+        <i class="arr down"></i>
+        <i class="arr top"></i>
+      </span>
+      <div class="pre-info hide">
+        <{foreach from=$aCart.promotion.goods.[$goods.obj_ident] item=goods_promotion}>
+        <{if $goods_promotion.cart_display}>
+        <div class="box">
+          <em class="col f-red">[<{$goods_promotion.desc_tag}>]</em>
+          <span class="col"><{$goods_promotion.name}></span>
+        </div>
+        <{/if}>
+        <{/foreach}>
+      </div>
+    </li>
+    <{/if}>
+
+    <!-- 配件 -->
+    <{foreach from=$goods.adjunct item=adjunct key=key name=adjunct}>
+    <li class="pt-h-item c-fix">
+      <a href="<{link app=b2c ctl=wap_product arg0=$adjunct.product_id}>" class="pt-h-link">
+        <div class="pt-h-img"></div>
+        <div class="pt-h-info">
+          <div class="pt-h-name">
+            <label class="f-red">[配件商品]</label><{$adjunct.name}>
+          </div>
+          <div class="pt-h-other">
+            <{$adjunct.spec_info}>
+          </div>
+          <div class="col2">
+            <div class="col price">
+              <{$adjunct.json_price.price|cur_odr}>
+            </div>
+            <div class="col t-r">
+              数量：<{$adjunct.quantity}>
+            </div>
+          </div>
+        </div>
+      </a>
+    </li>
+    <{/foreach}>
+  <{/foreach}>
+<{/if}>
+
+<script type="text/javascript">
+$('.J-pre').on('click',function(){
+  $(this).toggleClass('act');
+  $(this).next().toggleClass('hide');
+});
+</script>

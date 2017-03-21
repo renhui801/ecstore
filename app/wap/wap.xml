@@ -1,0 +1,12 @@
+<site>
+    <module controller='default'>
+        <name>index</name>
+        <title>首页</title>
+        <disable>false</disable>
+    </module>
+    <module controller='proinstance'>
+        <name>widgetsproinstance</name>
+        <title>挂件实例展示</title>
+        <disable>false</disable>
+    </module>
+</site>

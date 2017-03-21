@@ -1,0 +1,84 @@
+<div class="mod-title">
+  <h2><{t}>推荐配件<{/t}></h2>
+</div>
+<{if $setting.buytarget == '2'}>
+<{assign var='buytarget' value='target="_blank_cart"'}>
+<{elseif $setting.buytarget == '3'}>
+<{assign var='buytarget' value='target="_dialog_minicart"'}>
+<{/if}>
+<form action="<{link app=b2c ctl=site_cart act=add arg0=goods}>" method="post" <{$buytarget}>>
+  <input type="hidden" name="goods[goods_id]" value="<{$page_product_basic.goods_id}>">
+  <input type="hidden" name="goods[product_id]" value="<{$page_product_basic.product_id}>">
+  <input type="hidden" name="goods[num]" value="1">
+  <table>
+    <tbody>
+      <tr>
+        <!--<td class="product-primary">
+          <div class="product-primary-inner">
+            <div class="items-gallery product-primary-item">
+              <div class="goods-pic"><a href="<{link app=b2c ctl=site_product arg0=$page_product_basic.product_id}>"><img src="<{$page_product_basic.image_default_id|storager:'m'}>" width="100" height="100"></a></div>
+              <div class="goods-info">
+                <h3><a href="<{link app=b2c ctl=site_product arg0=$page_product_basic.product_id}>" title="<{$page_product_basic.title}>"><{$page_product_basic.title}></a></h3>
+                <p><{t}>现　价<{/t}>：<span class="price"><{$product_price.price|cur_odr}></span></p>
+              </div>
+            </div>
+            <span class="icon plus">&#x47;</span>
+          </div>
+        </td>-->
+        <td class="adjunct-list">
+          <table data-widget-type="Tabs">
+            <tbody>
+              <tr>
+                <td colspan="3">
+                  <ul class="clearfix tab-triggers">
+                    <{foreach from=$page_goods_adjunct key=key item=item}>
+                    <li class="tab-trigger <{if $key == 0}>active<{/if}>"><em title="<{$item.name}>"><{$item.name}></em></li>
+                    <{/foreach}>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td class="content">
+                  <{foreach from=$page_goods_adjunct key=key item=item}>
+                  <div class="adjunct-items tab-panel" data-widget-type="Switchable" <{if $key != 0}>style="display: none;"<{/if}>>
+                    <div class="flip prev over"><a href="javascript:void(0);" class="icon">&#x34;</a></div>
+                    <div class="adjunct-group">
+                      <ul class="clearfix switchable-content">
+                        <{foreach from=$item.items item=row}>
+                        <li class="item">
+                        <div class="goods-pic"><a href="<{link app=b2c ctl=site_product arg0=$row.product_id}>" target="_blank"><img src="<{$adjunct_images.[$row.goods_id]|storager:'s'}>" alt="<{$row.name}>"></a></div>
+                        <div class="goods-info">
+                          <h3><a href="<{link app=b2c ctl=site_product arg0=$row.product_id}>" target="_blank" title="<{$row.name}>"><{$row.name}><{if $row.spec_info}> <{$row.spec_info|spec_desc}><{/if}></a></h3>
+                          <p><{t}>单　价<{/t}>: <span class="pro-price"><{$row.price|cur_odr}></span></p>
+                          <p><{t}>优惠价<{/t}>: <span class="price adj-price"><{$row.adjprice|cur_odr}></span></p>
+                          <p><{t}>数　量<{/t}>: <span class="adj-num"><{$item.min_num|default:1}></span></p>
+                          <div class="check"><{input type="checkbox" name="goods[adjunct][{$key}][{$row.product_id}]" id="for_check_{$row.product_id}" value="1"}> <label for="for_check_<{$row.product_id}>">选择</label></div>
+                        </div>
+                        </li>
+                        <{/foreach}>
+                      </ul>
+                    </div>
+                    <div class="flip next"><a href="javascript:void(0);" class="icon">&#x35;</a></div>
+                  </div>
+                  <{/foreach}>
+                </td>
+              </tr>
+          </tbody></table>
+        </td>
+        <td class="info-area">
+          <div class="info">
+            <ul>
+              <li><i><{t}>已 选 择<{/t}>: </i><em><b class="adj-selected">0</b> <{t}>件配件<{/t}></em></li>
+              <li><i><{t}>原　　价<{/t}>: </i><em class="adj-oprice action-adjoprice"><{$product_price.price|cur_odr}></em></li>
+              <li><i><{t}>配件优惠<{/t}>: </i><em class="price adj-discount action-adjdiscount"><{0|cur_odr}></em></li>
+              <li><i><{t}>套餐价格<{/t}>: </i><em class="adj-amount action-adjamount"><{$product_price.price|cur_odr}></em></li>
+            </ul>
+            <div class="button-area">
+              <{button type="submit" class="btn-major btn-big action-addtocart hide" label="购买套餐"}>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

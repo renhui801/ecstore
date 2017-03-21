@@ -1,0 +1,31 @@
+<div id="flashcontent_<{$widgets_id}>">&nbsp;</div>
+<{assign var="allimg" value=''}>
+<{assign var="alllink" value=''}>
+<{foreach from=$setting.flash item=aitem key=key}>
+<{if $aitem['pic']}>
+<{assign var=pic value=$aitem['pic']|storager}>
+<{assign var="allimg" value="{$pic}|{$allimg}"}>
+<{assign var="alllink" value="{$aitem['url']}|{$alllink}"}>
+<{/if}>
+<{/foreach}>
+
+<script>
+window.addEvent('domready', function(){
+  var obj = new Swiff('images/1.swf', {
+    width:  <{$setting.width}>,
+    height: <{$setting.height|default:350}>,
+    container: $('flashcontent_<{$widgets_id}>'),
+    events: {
+      load:function() {
+        alert("Flash is loaded!");
+      }
+    },
+	vars:{
+		bcastr_flie:"<{$allimg}>",
+		bcastr_link:"<{$alllink}>",
+		duration_color:"<{$setting.color|default:'0xff0000'}>",
+		dur_time:"<{$setting.duration|default:2}>"
+	}
+  });
+});
+</script>

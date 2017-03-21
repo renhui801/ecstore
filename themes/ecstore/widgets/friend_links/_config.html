@@ -1,0 +1,43 @@
+<div class="tableform" id="fl_form">
+    <div class="division">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <th width="20%"><{t}>链接显示方式：<{/t}></th>
+                <td>
+                    <label>
+                        <input type="radio" name="selector" value="text" <{if $setting.selector=="text"}>checked<{/if}>/>
+                        <{t}>文字<{/t}>
+                    </label>
+                    <label>
+                        <input type="radio" name="selector" value="img" <{if $setting.selector=="img"}>checked<{/if}>/>
+                        <{t}>图片<{/t}>
+                    </label>
+                </td>
+            </tr>
+            <tr <{if $setting.selector!='img'}>style="display:none;"<{/if}>>
+                <th width="20%"><{t}>图片大小：<{/t}></th>
+                <td>
+                    宽：<input type="text" name="width" vtype="required&&digital" value="<{$setting.width|default:88}>" size="4" />
+                    高：<input type="text" name="height" vtype="required&&digital" value="<{$setting.height|default:31}>" size="4" />
+                </td>
+            </tr>
+            <tr>
+                <th width="20%"><{t}>链接显示个数：<{/t}></th>
+                <td>
+                    <input type="text" class="x-input" name="limit" value="<{$setting.limit|default:100}>" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+    $('fl_form').getElements('input[name=selector]').addEvent('click', function(e) {
+        var next = this.getParent('tr').getNext();
+        if(this.value == 'img') {
+            next.show();
+        }
+        else {
+            next.hide();
+        }
+    })
+</script>

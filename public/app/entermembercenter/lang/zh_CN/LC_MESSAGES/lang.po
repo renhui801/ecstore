@@ -1,0 +1,72 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter//controller/enterprise.php:32
+msgid ""企业帐号格式不对""
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter//controller/enterprise.php:41
+msgid ""企业帐号重置失败,请先上传文件""
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter//controller/enterprise.php:48
+msgid ""企业帐号上传成功""
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter//controller/enterprise.php:53
+msgid ""请选择要上传的文件""
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:6
+msgid "企业帐号下载备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:11
+msgid "当前企业帐号:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:15
+msgid "当前企业邮箱:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:21
+msgid "如果删除企业帐号，则无法恢复，确定要删除企业帐号吗?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:22
+msgid "下载企业帐号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:33
+msgid "企业帐号上传恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:39
+msgid "请选择企业帐号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/enterprise.html:47
+msgid "上传恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/login_verify.html:28
+#: /Users/bryant/codes/ecstore-release/app/entermembercenter/view/login_verify.html:29
+msgid "跳过登录"
+msgstr ""
+

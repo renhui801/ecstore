@@ -1,0 +1,11 @@
+<desktop>
+    <permissions>
+        <permission id="giftpackage" display='true'>礼包</permission>
+    </permissions>
+    <workground name="营销" id="b2c.wrokground.sale" controller="admin_sales_coupon" action="index" order="40">
+        <menugroup name="礼包">
+            <menu controller='admin_giftpackage' action='index' permission='giftpackage' display='true' order='10'>礼包列表</menu>
+            <menu controller='admin_giftpackage' action='add' permission='giftpackage' display='false' order='20' target="_blank">添加礼包</menu>
+        </menugroup>
+    </workground>
+</desktop>

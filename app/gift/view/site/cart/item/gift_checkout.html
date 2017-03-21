@@ -1,0 +1,39 @@
+<{if $aCart.object.gift.cart}>
+<!-- 积分兑换 -->
+<tbody class="cart-exchange" id="cart_exchange">
+  <tr class="cart-subtitle">
+    <th colspan="6">积分兑换赠品</th>
+  </tr>
+  <{foreach from=$aCart.object.gift.cart item=cart_gift}>
+  <tr class="cart-item">
+    <td class="p-info">
+      <div class="p-title"><a target="_blank" href="<{link app=gift ctl=site_gift arg0=$cart_gift.product_id}>"><{$cart_gift.name}> <{$cart_gift.spec_info}></a></div>
+    </td>
+    <td class="p-price"><{$cart_gift.price.price|cur_odr}></td>
+    <td class="p-num"><{$cart_gift.quantity}></td>
+    <td>-</td>
+    <td class="p-integral">-<{$cart_gift.consume_score}></td>
+    <td>-</td>
+  </tr>
+  <{/foreach}>
+</tbody>
+<{/if}>
+
+<{if $aCart.object.gift.order}>
+<!-- 订单赠品 -->
+<tbody class="order-gift" id="order_gift">
+  <tr class="cart-subtitle">
+    <th colspan="6">订单赠品</th>
+  </tr>
+  <{foreach from=$aCart.object.gift.order item=order_gift}>
+  <tr class="cart-item">
+    <td class="p-info">
+      <div class="p-title"><a target="_blank" href="<{link app=gift ctl=site_gift arg0=$order_gift.product_id}>"><{$order_gift.name}> <{$order_gift.spec_info}></a></div>
+    </td>
+    <td class="p-price"><{$order_gift.price.price|cur_odr}></td>
+    <td class="p-num"><{$order_gift.quantity}></td>
+    <td colspan="3"></td>
+  </tr>
+  <{/foreach}>
+</tbody>
+<{/if}>

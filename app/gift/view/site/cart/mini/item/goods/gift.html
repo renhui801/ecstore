@@ -1,0 +1,17 @@
+<{if $goods.gift}>
+  <{foreach from=$goods.gift item=goods key=key}>
+    <{if $goods.disabled==='true'}><{continue;}><{/if}>
+    <li class="goods-item">
+      <div class="goods-pic">
+        <a href="<{link app=gift ctl=site_gift arg0=$goods.product_id}>"><img src="<{$goods.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$goods.name|escape:html}>" data-img-zoom="true"></a>
+      </div>
+      <div class="goods-info">
+        <h3 class="goods-name"><a href="<{link app=gift ctl=site_gift arg0=$goods.product_id}>"><{$goods.name}> <{$goods.spec_info|spec_desc}> <span class="addition">商品赠送</span></a></h3>
+        <div class="goods-price">
+          <p>销售价：<span class="p-price"><{$goods.price|cur_odr}></span></p>
+          <p>数量：<span class="p-quantity"><{$goods.quantity}></span></p>
+        </div>
+      </div>
+    </li>
+  <{/foreach}>
+<{/if}>

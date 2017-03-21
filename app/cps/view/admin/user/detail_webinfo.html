@@ -1,0 +1,24 @@
+<div class="tableform clearfix" style="border: none; background: none;">
+<form action="index.php?app=cps&ctl=admin_users&act=editWeb" method="post"><input type="hidden" name="web_id" value="<{$data.web_id}>">
+<table width="96%" border="0">
+    <tr>
+        <th>网站类型：</th>
+        <td><select name="web[webtype]" class="x-input">
+            <{foreach from=$webTypes item=val key=key}>
+            <option value="<{$key}>"<{if $key == $data.webtype}>selected="selected"<{/if}>><{$val}></option>
+            <{/foreach}>
+        </select></td>
+    </tr>
+    <tr>
+        <th>网站地址：</th>
+        <td><input type="text" vtype="required" class="x-input" name="web[weburl]" value="<{$data.weburl}>"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+        <div style="padding-top: 10px;"><{button class="btn" type="submit" label="确定修改"}></div>
+        </td>
+    </tr>
+</table>
+</form>
+</div>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>                                                                                                                                                         
+<html>
+    <head>
+        <meta charset="utf-8" /> 
+        <title>ECSTORE激活码</title>
+        <link rel="shortcut icon" href="<{$env.base_full_url}>/favicon.gif" type="image/gif" />
+        <link rel="stylesheet" href="<{$res_url}>/login/login.css" type="text/css" media="screen, projection"/>
+    </head>
+    <body>
+        <style>                                                                                                                                                                 
+            .signup-activation { height: 348px; }
+            .activation-main { height: 348px; background: url(images/login/activation_05.gif) repeat-x; }
+            .activation { padding: 38px 0 0 0; margin: 0 auto; }
+            .activation .window-main { padding: 30px 68px 0px 68px; border: 1px solid #CCD7EC; margin:25px 40px; }
+            .activation .blank-line { width: 310px; line-height: normal; border-bottom: 1px solid #CCD7EC; margin: 26px 0 20px 0; *margin: 10px 0 20px 0; }
+            .activation-input { border: 1px solid #91A7D5; width: 200px; height: 22px; line-height: 160%; }
+            .activation .btn { float: left; padding: 0 0 0 168px; }
+        </style>
+
+        <div class="passport-bd">
+            <div class="activation">
+                <div class="window-main">
+                    <ul>
+                      <li style="padding-bottom:12px;">
+                        <font color="red">
+                          <{if $msg}>
+                          <{$msg}>
+                          <{/if}>
+                        </font>
+                      </li>
+                      <li style="padding-bottom:12px;">
+                        请<a href='<{$order_url}>' target='_blank'/>点击该处</a>，暂时处理订单发货
+                        <br/>请<a href='<{$cleanexpired_url}>' target='_blank'/>点击该处</a>，进入控制面板->清除绑定关系或数据互联操作
+                      </li>
+                      <{if $error_code != 'RegUrlError'}>
+                      <li style="padding-bottom:12px;">
+                        如果需要重新激活，请<a href='<{$code_url}>' target='_blank'/>重新输入激活码</a>激活
+                      </li>
+                      <{/if}>
+                      <{if $error_code == 'RegUrlError'}>
+                      <li style="padding-bottom:12px;">
+                        解决办法
+                      </li>
+                        如果不是更改域名请使用,shopexID绑定域名：<{$shopexUrl}> ，可以进入此域名登录后台<br/>
+                        <br/>
+                        如果你确认需要更改域名，请将一下信息发送至邮箱：ecstore_service@shopex.cn
+                        <br/>1 激活码：在商派申请的激活码
+                        <br/>2 shopexID绑定域名：<{$shopexUrl}>
+                        <br/>3 绑定当前域名：<{$env.base_full_url}>
+                        <br/>4 shopexID：<{$shopexId}>
+                        <br/>5 登录后台权限
+                        <br/>6 将该页面截图一起发送
+                        <{elseif $error_code == 'SessionError'}>
+                        <li style="padding-bottom:12px;">
+                          解决办法
+                        </li>
+                        访问如下地址：<{$env.base_full_url}>/index.php/openapi/check/handshake
+                        <br/> 如果返回结果是一串数字加字母的字符串正确，如果跳转到网站前台则表示服务器“伪静态”配置有问题
+                        <br/> 请联系服务商或者技术人员进行正确配置
+                        <br/>
+                        <br/>如果无法排查出问题，请将一下信息发送至邮箱：ecstore_service@shopex.cn
+                        <br/>1 当前域名：<{$env.base_full_url}>
+                        <br/>2 shopexID：<{$shopexId}>
+                        <br/>3 登录后台权限
+                        <br/>4 将该页面截图一起发送
+                        <{else}>
+                        如果您已经输入过激活码，但是还是回到此页面，请确认<br />
+                        1、是否更换了后台登录域名，如果更换了域名请使用原域名进行登录，或者提交域名变更申请到服务商<br />
+                        2、如果没有更换域名，请参考如下地址，联系您的服务商排查服务器问题<br />
+                        3、如果排查完成未发现服务器问题，请通过服务商/销售联系商派！<br />
+                        <{/if}>
+                        <br/></br>
+                      <li style="padding-bottom:12px;">
+                        问题排查参考地址：<a href="http://www.ec-os.net/ecstore_faq/faq.html#id3" target="_blank">http://www.ec-os.net/ecstore_faq/faq.html#id3</a>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div>
+            </div>
+          </body>
+        </html>

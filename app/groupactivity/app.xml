@@ -1,0 +1,19 @@
+<app version="1.0">
+  <name>团购</name>
+
+  <description>shopex 团购</description>
+
+  <author>
+      <name>shopex开发团队</name>
+      <email>dev@shopex.cn</email>
+      <url>www.shopex.cn</url>
+  </author>
+
+  <version>0.1</version>
+  <parent_model_class>dbeav_model</parent_model_class>
+  <license>license</license>
+  <depends>
+    <app>b2c</app>
+  </depends>
+
+</app>

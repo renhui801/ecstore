@@ -1,0 +1,46 @@
+
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            收藏商品
+        </div>
+    </div>
+    </header>
+    <{if !$favorite}>
+    <div class="noinfo"><{t}>暂无收藏<{/t}></div>
+    <{else}>
+    <div class="favorites">
+        <{foreach from=$favorite item="good"}>
+        <div class="item">
+            <div class="f-l">
+                <span class="pic">
+                    <{if $good.udfimg == 'true'}>
+                    {assign var="gimage" value=$good.thumbnail_pic|default:$defaultImage}>
+                    <{else}>
+                    <{assign var="gimage" value=$good.image_default_id|default:$defaultImage}>
+                    <{/if}>
+                    <a href="<{link app=b2c ctl=wap_product act=index arg=$good.spec_desc_info.0.product_id}>">
+                        <img src="<{$gimage|storager:'s'}>"  alt="<{$good.name|escape:html}>"/>
+                    </a>
+                </span>
+                <a href="<{link app=b2c ctl=wap_member act=ajax_del_fav arg0=$good.goods_id}>" class="del">删除</a>
+            </div>
+            <span class="name"><{$good.name}></span>
+            <span class="size"><{$good.brief}></span>
+            <span class="price"><{$good.price|cur_odr}></span>
+            <a href="<{link app=b2c ctl=wap_product act=index arg=$good.spec_desc_info.0.product_id}>" class="get">
+                查看详情
+                <i class="arr right"></i>
+            </a>
+        </div>
+        <{/foreach}>
+    </div>
+    <input type="hidden" id="b2c-fav-current-page" value="<{$current_page}>" />
+    <{wap_pagers data=$pager}>
+    <{/if}>
+</div>

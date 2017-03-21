@@ -1,0 +1,254 @@
+<div id="return_detail">
+<div class="tableform">
+
+  <h5><{t}>买家说<{/t}>：<span class="font14px font-blue"><{$info.title}></span></h5>
+  <div class="division">
+  <table cellpadding="0" cellspacing="0" border="0">
+  <tr>
+  <th> <{t}>订单编号：<{/t}></th><td><span class="font16px fontbold fontcolorBlack"><{$info.order_id}></span></td></tr>
+  <tr><th> <{t}>订单状态：<{/t}></th><td> <span id="x-return_item_status-<{$info.return_id}>" class="font14px font-orange fontbold"><{$info.status}></span></td></tr>
+  <tr><th><{t}>提出申请的时间：<{/t}></th><td> <span class="font-orange"><{$info.add_time|cdate:FDATE_STIME}></span></td></tr>
+  <tr><{foreach from=$info.comment item=item}><th>&nbsp;</th><td><{t}>我的反馈：<{/t}><span class="font12px font-gray fontnormal"><{$item.time|cdate:FDATE_STIME}></span>
+<p style="padding:0 5px 0 0; margin-top:6px; border-top:1px solid #ddd"><{$item.content}></p>
+    <{/foreach}>
+  </td>
+  </tr>
+  </table>
+   </div>
+
+
+    <h5><{t}>申请售后服务的商品<{/t}></h5>
+    <div class="division">
+      <table cellspacing="0" cellpadding="3" width="100%" class="gridlist">
+        <col class="span-3"/>
+        <col class="span-auto"/>
+        <col class="span-2"/>
+        <thead>
+          <tr>
+            <th style="width:20%"><{t}>货号<{/t}></th>
+            <th><{t}>商品名称<{/t}></th>
+            <th><{t}>数量<{/t}></th>
+          </tr>
+        </thead>
+        <tbody>
+          <{foreach from=$info.product_data item=item}>
+          <tr>
+            <td><{$item.bn}></td>
+            <td><{$item.name|escape:"html"}></td>
+            <td><{$item.num}></td>
+          </tr>
+          <{/foreach}>
+        </tbody>
+      </table>
+    </div>
+    <{if $info.image_file}>
+    <h5><{t}>附件下载<{/t}></h5>
+    <div class=" clearfix division thumbnailPic">
+    <a class="margin10" href="javascript:file_download();"><{t}>请点击下载该附件<{/t}></a>
+    </div>
+    <{/if}>
+    <h5><{t}>详细说明<{/t}></h5>
+    <div class="division">
+    <{$info.content|escape:"html"}>
+    </div>
+<div id='x-send_comment-<{$info.return_id}>' style='display:<{if $info.return_status >= 3 && $info.return_status <= 5}>block<{else}>none<{/if}>;'>
+<form action="index.php?app=aftersales&ctl=admin_returnproduct&act=send_comment" id="return-product-send-comment" method="post">
+<input type="hidden" name="return_id" value="<{$info.return_id}>">
+<h5 style="border:none"><{t}>给用户留言<{/t}></h5>
+<div class="p10">
+  <textarea style="width:100%; height:150px;" class="x-input" name="comment"></textarea>
+
+</div>
+<table cellspacing="0" cellpadding="0" border="0" align="center">
+    <tbody>
+      <tr>
+        <td align="center">
+        <{button label=$___aftersales="发送"|t:'aftersales' type="submit" name="butsubmit"}>
+
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+</form>
+</div>
+<div id="aftersales-basic-action-btns" class="table-action" <{if $showBtn==false}>style='display:none;'<{/if}>>
+
+    <{if $info.status_code == '1'}>
+        <{button label=$___aftersales="审核中"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_2"}>
+        <{button label=$___aftersales="接受申请"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_3"}>
+        <{button label=$___aftersales="完成"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_4"}>
+        <{button label=$___aftersales="拒绝"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_5"}>
+
+    <{elseif $info.status_code == '2'}>
+        <{button label=$___aftersales="审核中"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_2"}>
+        <{button label=$___aftersales="接受申请"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_3"}>
+        <{button label=$___aftersales="完成"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_4"}>
+        <{button label=$___aftersales="拒绝"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_5"}>
+
+    <{elseif $info.status_code == '3'}>
+        <{button label=$___aftersales="审核中"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_2"}>
+        <{button label=$___aftersales="接受申请"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_3"}>
+        <{button label=$___aftersales="完成"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_4"}>
+        <{button label=$___aftersales="拒绝"|t:'aftersales' type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_5"}>
+
+    <{elseif $info.status_code == '4'}>
+         <{button label=$___aftersales="审核中"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_2"}>
+        <{button label=$___aftersales="接受申请"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_3"}>
+        <{button label=$___aftersales="完成"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_4"}>
+        <{button label=$___aftersales="拒绝"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_5"}>
+
+    <{elseif $info.status_code == '5'}>
+        <{button label=$___aftersales="审核中"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_2"}>
+        <{button label=$___aftersales="接受申请"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_3"}>
+        <{button label=$___aftersales="完成"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_4"}>
+        <{button label=$___aftersales="拒绝"|t:'aftersales' class="btn btn-secondary" style="cursor: not-allowed;" disabled="true" type="submit" name="butsubmit" id="x-return-status_{$info.return_id}_5"}>
+    <{/if}>
+</div>
+
+</table>
+
+</div>
+<script>
+
+(function(){
+	var _form = $('return-product-send-comment');
+	var finder = finderGroup['<{$env.get.finder_id}>'];
+
+	_form.store('target',{
+		onComplete:function(){
+		    finder.refresh.delay(400,finder);
+		}
+
+	});
+
+	$ES('#aftersales-basic-action-btns button').addEvent('click',function(e){
+		var _target = this;
+		var _target_id = _target.id;
+		var _status = '';
+		var _return_id = '';
+		if (_target_id){
+			var _arr_return_id = _target_id.split('_');
+			_status = _arr_return_id[2];
+			_return_id = _arr_return_id[1];
+			init_button(_status,_return_id);
+			if( _status >= 3 && _status<=5 ){
+				$('x-send_comment-<{$info.return_id}>').style.display = 'block';
+			}else{
+				$('x-send_comment-<{$info.return_id}>').style.display = 'none';
+			}
+			new Request.HTML({url:"index.php?app=aftersales&ctl=admin_returnproduct&act=save",method:"post",update:$("x-return_item_status-<{$info.return_id}>"),data:"return_id="+_return_id+"&status="+_status}).send();
+		}
+	});
+
+})();
+
+function init_button(status,return_id){
+
+	var el = $('x-return-status_<{$info.return_id}>_'+status);
+
+	if( el )
+	{
+		el.disabled = true;
+		var el_b = el.getParents('b');
+		el_b.removeClass('submitBtn');
+		el_b.addClass('submitBtnoff');
+	}
+
+	if(status == 1)
+	{
+        $('x-return-status_<{$info.return_id}>_2').disabled = false;
+        var el_b = $('x-return-status_<{$info.return_id}>_2');
+        el_b.removeClass('submitBtnoff');
+        el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_3').disabled = false;
+		var el_b = $('x-return-status_<{$info.return_id}>_3');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_4').disabled = false;
+		var el_b = $('x-return-status_<{$info.return_id}>_4');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_5').disabled = false;
+		var el_b = $('x-return-status_<{$info.return_id}>_5');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+	}
+    else if(status == 2 )
+    {
+        $('x-return-status_<{$info.return_id}>_3').disabled = false;
+        var el_b = $('x-return-status_<{$info.return_id}>_3');
+        el_b.removeClass('submitBtnoff');
+        el_b.addClass('submitBtn');
+
+        $('x-return-status_<{$info.return_id}>_4').disabled = false;
+        var el_b = $('x-return-status_<{$info.return_id}>_4');
+        el_b.removeClass('submitBtnoff');
+        el_b.addClass('submitBtn');
+
+        $('x-return-status_<{$info.return_id}>_5').disabled = false;
+        var el_b = $('x-return-status_<{$info.return_id}>_5');
+        el_b.removeClass('submitBtnoff');
+        el_b.addClass('submitBtn');
+    }
+	else if( status == 3 )
+	{
+		$('x-return-status_<{$info.return_id}>_2').disabled = true;
+		var el_b = $('x-return-status_<{$info.return_id}>_2');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_4').disabled = false;
+		var el_b = $('x-return-status_<{$info.return_id}>_4');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_5').disabled = false;
+		var el_b = $('x-return-status_<{$info.return_id}>_5');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+	}
+	else if( status == 4 )
+	{
+		$('x-return-status_<{$info.return_id}>_2').disabled = true;
+		var el_b = $('x-return-status_<{$info.return_id}>_2');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_3').disabled = true;
+		var el_b = $('x-return-status_<{$info.return_id}>_3');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_5').disabled = true;
+		var el_b = $('x-return-status_<{$info.return_id}>_5');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+	}
+	else if( status == 5 )
+	{
+		$('x-return-status_<{$info.return_id}>_2').disabled = true;
+		var el_b = $('x-return-status_<{$info.return_id}>_2');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_3').disabled = true;
+		var el_b = $('x-return-status_<{$info.return_id}>_3');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+
+		$('x-return-status_<{$info.return_id}>_4').disabled = true;
+		var el_b = $('x-return-status_<{$info.return_id}>_4');
+		el_b.removeClass('submitBtnoff');
+		el_b.addClass('submitBtn');
+	}
+}
+
+function file_download(){
+    var ifm=new IFrame({src:'index.php?app=aftersales&ctl=admin_returnproduct&act=file_download&p[0]=<{$info.return_id}>'});
+    ifm.inject(document.body);
+}
+</script>

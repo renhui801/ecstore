@@ -1,0 +1,49 @@
+<div id="main" class="clearfix">
+  <!-- 赠品列表 -->
+  <div id="gift_gallery" class="gift-gallery">
+    <div class="mod-title">
+      <h2>赠品</h2>
+    </div>
+    <div class="mod">
+      <table class="mod-grid">
+        <tbody>
+          <{if $data}>
+          <{foreach from=$data item=row name=name}>
+          <tr <{if $smarty.foreach.name.first}>class="first"<{/if}>>
+            <td><div class="goods-pic"><a href="<{link app=gift ctl=site_gift arg0=$row.product_id}>"><img src="<{$row.goods.image_default_id|default:$defaultImage|storager:'s'}>" alt="<{$row.name}>"></a></div></td>
+            <td class="goods-desc">
+              <h3>
+                <a href="<{link app=gift ctl=site_gift arg0=$row.product_id}>"><{$row.goods.name}></a>
+              </h3>
+              <p><{$row.goods.brief}></p>
+            </td>
+            <td class="s-price"><{t}>销售价<{/t}>：<{$row.goods.price|cur_odr}></td>
+            <{if $setting.open != '1' && $setting.site_point_usage == '1'}>
+            <td class="status"><b><{t}>兑换所需积分<{/t}>：<span class="warn"><{$row.consume_score}></span></b></td>
+            <{/if}>
+            <td class="actions">
+              <{if $setting.open != '1' && $setting.site_point_usage == '1'}>
+                <{if $row.to_time < $setting.time}>
+                <span class="text-disabled">已过兑换时间，不可兑换</span>
+                <{elseif $setting.time < $row.from_time }>
+                <span class="text-disabled">未到兑换时间，暂时不可兑换</span>
+                <{elseif $row.goods.store <= 0 || $row.store <= 0}>
+                <span class="text-disabled">赠品已经兑换或赠送完毕</span>
+                <{elseif $row.cat.ifpub == 'false' || $row.goods.marketable == 'false'}>
+                <span class="text-disabled">赠品已下架，不可兑换</span>
+                <{else}>
+                <a href="<{link app=gift ctl=site_gift arg0=$row.product_id}>" class="btn btn-major"><span><span><{t}>兑换赠品<{/t}></span></span></a>
+                <{/if}>
+                <i class="separator"></i>
+              <{/if}>
+              <a href="<{link app=gift ctl=site_gift arg0=$row.product_id}>" class="btn btn-simple"><span><span><{t}>查看详细<{/t}></span></span></a>
+            </td>
+          </tr>
+          <{/foreach}>
+          <{/if}>
+        </tbody>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+</div>

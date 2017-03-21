@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//controller/admin/log.php:28
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:146
+msgid "优惠券使用记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_ref.php:32
+msgid "优惠券使用记录关联表ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_ref.php:39
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:38
+msgid "应用订单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_ref.php:49
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:102
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:12
+msgid "使用的优惠券号码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_ref.php:67
+msgid "优惠券使用记录关联表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:50
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:9
+msgid "优惠券方案ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:59
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:10
+msgid "优惠券方案名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:69
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log.html:12
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:11
+msgid "使用时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:83
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log.html:13
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:13
+msgid "订单金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:90
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log.html:14
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:14
+msgid "使用者"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:113
+msgid "全局"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:114
+msgid "用户"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:115
+msgid "外部优惠券"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog//dbschema/order_coupon_user.php:118
+msgid "优惠券类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log.html:11
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:8
+msgid "订单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log.html:15
+msgid "该订单使用的优惠券"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/couponlog/view/admin/finder/log_detail.html:15
+msgid "同时使用的优惠券"
+msgstr ""
+

@@ -1,0 +1,223 @@
+<form action="index.php?app=weixin&ctl=admin_menu&act=save" method="POST" id="menu_add_form">
+    <div class="tableform">
+        <div class="division">
+            <h4><{t}>自定义菜单信息<{/t}></h4>
+            <{input type='hidden' name='menu_id' value=$menu.menu_id}>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <th><{t}>公众账号:<{/t}></th>
+                    <td>
+                        <label><{$menu.bind_info.name}></label>
+                        <{input type='hidden' name='menu[bind_id]' vtype='required' value=$menu.bind_info.id }>
+                    </td>
+                </tr>
+                <tr>
+                    <th><{t}>菜单模板:<{/t}></th>
+                    <td>
+                        <label><{$menu.menu_theme_info.menu_theme_name}></label>
+                        <{input type='hidden' name='menu[menu_theme]' vtype='required' value=$menu.menu_theme_info.menu_theme_id }>
+                    </td>
+                </tr>
+                <tr>
+                    <th><{t}>自定义菜单名称:<{/t}></th>
+                    <td>
+                        <{input  type='text' name='menu[menu_name]' vtype='required&&text' caution=$__weixin='请填写自定义菜单名称'|t:'weixin' value=$menu.menu_name }>
+                        <span class="notice-inline"><{t}>一级菜单最多4个汉字，二级菜单最多7个汉字,多出来的部分微信中将会以“...”代替<{/t}></span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><{t}>上级菜单:<{/t}></th>
+                    <td>
+                        <{input noselect=true type='select' name='menu[parent_id]' value=$menu.parent_id required='true' vtype='required' caution=$__weixin='请选择上级菜单'|t:'weixin' rows=$selectmaps valueColumn="menu_id" labelColumn="menu_name"}>
+                        <span class="notice-inline"><{t}>顶级菜单默认选'无',添加子菜单默认选中当前父菜单<{/t}></span>
+                    </td>
+                </tr>
+                <tr> 
+                    <th><{t}>排序:<{/t}></th>
+                    <td>
+                        <{input type='text' name='menu[ordernum]' size='20' size='3' vtype='required&&number' value='0' caution=$__weixin='请填写排序值'|t:'weixin' value=$menu.ordernum }>
+                        <span class="notice-inline"><{t}>数字越小越靠前<{/t}> </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><{t}>回复类型:<{/t}></th>
+                    <td>
+                        <{input class="act-switch" type="radio" name="menu[content_type]" required="true" value=$menu.content_type options=$content_type_options separator='&nbsp;&nbsp;'}>
+                    </td>
+                </tr>
+                <tr class="switch-cont msg_url" <{if $menu.content_type != 'msg_url'}> style="display:none;"<{/if}> >
+                    <th><label for="title"><{t}>自定义链接:<{/t}></label></th>
+                    <td>
+                        <{input type="text" id="_msg_url" vtype="required" name='menu[msg_url]' value=$menu.msg_url size=150 maxLength=256 placeholder='http://' }>
+                        <table  class="gridlist">
+                            <tr class="module_link">
+                                <th><{t}>商品详细页:<{/t}></th>
+                                <td>
+                                    <{input type="object" breakpoint=0 cols='name' textcol="name" object="products@b2c" select='radio' callback="_callback_product"}>
+                                </td>
+                            </tr>
+                            <tr class="module_link">
+                                <th><{t}>商品列表页:<{/t}></th>
+                                <td>
+                                    <{input type="object" breakpoint=0 cols='cat_name' textcol="cat_name" object="goods_cat@b2c" select='radio' callback="_callback_gallery"}>
+                                </td>
+                            </tr>
+                            <tr class="module_link">
+                                <th><{t}>文章列表页:<{/t}></th>
+                                <td>
+                                    <{input type='select' rows=$article_nodes valueColumn="node_id" labelColumn="node_name" onchange="_callback_articlelist(this.value)"}>
+                                </td>
+                            </tr>
+                            <tr class="module_link">
+                                <th><{t}>文章页:<{/t}></th>
+                                <td>
+                                    <{input type="object" breakpoint=0 filter="platform=wap" cols='title' textcol="title" object="article_indexs@content" select='radio' callback="_callback_article"}>
+                                </td>
+                            </tr>
+                            <tr class="module_link">
+                                <th><{t}>需授权页:<{/t}></th>
+                                <td>
+                                    <{input type='select' rows=$auth_url_options valueColumn="url" labelColumn="label" onchange="_callback_authlink(this.value)"}>
+                                </td>
+                                <td><div class='notice'>如果需要使用这些页面，您的微信公众帐号必须开通了高级接口，<br />请务必至微信公众平台-〉服务-〉我的服务-〉高级接口-〉OAuth2.0网页授权，<br />设置授权回调页面域名为您的域名地址，比如：ecstoredemo.vip.vmod.cn</div></td>
+                            </tr>
+                            <tr class="module_link">
+                                <th><{t}>维权:<{/t}></th>
+                                <td>
+                                    <{input type="checkbox" value="true" onchange="_callback_weiquan(this.checked)"}>
+                                </td>
+                                <td><div class='notice'>如果您的微信公众帐号已经申请开通了微信支付功能，<br />根据微信官方要求，必须接入微信维权客服系统，请务必配置维权菜单。</div></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="switch-cont msg_text" <{if $menu.content_type != 'msg_text'}> style="display:none;"<{/if}> >
+                    <th><label for="title"><{t}>文字消息:<{/t}></label></th>
+                    <td>
+                        <{input type="object" breakpoint=0 name='menu[msg_text]' value=$menu.msg_text cols='name' textcol="name" breakpoint=0  object=message_text app=weixin select='radio'}>
+                    </td>
+                </tr>
+                <tr class="switch-cont msg_image" <{if $menu.content_type != 'msg_image'}> style="display:none;"<{/if}>>
+                    <th><label for="title"><{t}>图文消息:<{/t}></label></th>
+                    <td>
+                        <{input type="object" breakpoint=0 name='menu[msg_image]' filter="parent_id=0&has_children=true" value=$menu.msg_image cols="name" textcol="name" breakpoint=0 object=message_image app=weixin select='radio'}>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
+<{area inject='.mainFoot'}>
+    <div class="notice" style="text-align:center">如果您需要将此更改生效至微信公众帐号,请点击确定之后再点击页面上方'更新当前菜单到微信'按钮</div>
+    <div class="table-action">
+      <{button type="button" label=$__weixin="确定"|t:'weixin' class="btn-primary" id="menu_add_form_submit_btn"}>
+      <{button type="button" label=$__weixin="取消"|t:'weixin' isCloseDialogBtn="true" class="btn-secondary"}>
+    </div>
+<{/area}>
+
+<script>
+    function _callback_product(rs){
+       var _data = JSON.decode(rs);
+        if(_data.id){
+            new Request.JSON({
+                url:'index.php?app=weixin&ctl=admin_menu&act=get_product_url',
+                method:'post',
+                data:'product_id='+_data.id,
+                onComplete:function(ret){
+                    $('_msg_url').value = ret;
+                }
+            }).send();
+        }
+    }
+    function _callback_weiquan(rs){
+        if(rs){
+            $E('input[name=menu[menu_name]]').value='维权';
+            $E('input[name=menu[msg_url]]').value='维权';
+        }else{
+            $E('input[name=menu[menu_name]]').value='';
+            $E('input[name=menu[msg_url]]').value='';
+        }
+    }
+
+    function _callback_gallery(rs){
+       var _data = JSON.decode(rs);
+        if(_data.id){
+            new Request.JSON({
+                url:'index.php?app=weixin&ctl=admin_menu&act=get_gallery_url',
+                method:'post',
+                data:'cat_id='+_data.id,
+                onComplete:function(ret){
+                    $('_msg_url').value = ret;
+                }
+            }).send();
+        }
+    }
+
+    function _callback_articlelist(_node_id){
+        if(_node_id){
+            new Request.JSON({
+                url:'index.php?app=weixin&ctl=admin_menu&act=get_articlelist_url',
+                method:'post',
+                data:'node_id='+_node_id,
+                onComplete:function(ret){
+                    console.log(ret);
+                    $('_msg_url').value = ret;
+                }
+            }).send();
+        }
+    }
+
+    function _callback_article(rs){
+       var _data = JSON.decode(rs);
+        if(_data.id){
+            new Request.JSON({
+                url:'index.php?app=weixin&ctl=admin_menu&act=get_article_url',
+                method:'post',
+                data:'article_id='+_data.id,
+                onComplete:function(ret){
+                    $('_msg_url').value = ret;
+                }
+            }).send();
+        }
+    }
+
+    function _callback_authlink(rs){
+        if(rs){
+            $('_msg_url').value = rs;
+        }
+    }
+
+(function(){
+    $$(".act-switch").addEvent('change', function(e) {
+        var val = this.value;
+        if(this.checked) {
+            var switchmsg = this.getParent('tbody').getElement('.' + val);
+            switchmsg.show().getElements('input').set("disabled",false);
+            switchmsg.getSiblings('.switch-cont').hide().getElements('input').invoke('set', 'disabled', true);
+        }
+    })
+
+    $$(".module_link").addEvent('click', function(e) {
+        this.getElement('th').setStyle('color','red');
+        this.getSiblings('.module_link').getElement('th').setStyle('color','');
+    })
+
+    $('menu_add_form').store('target',{
+        onComplete:function(){
+            var dialog;
+            if(dialog = $('menu_add_form').getParent('.dialog')){
+                dialog  = dialog.retrieve('instance');
+                dialog.close();
+            }
+        }
+    });
+
+    $('menu_add_form_submit_btn').addEvent('click',function(){
+        $('menu_add_form').fireEvent('submit',{stop:$empty});
+    });
+
+})();
+
+</script>

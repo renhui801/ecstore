@@ -1,0 +1,16 @@
+<!-- 评论回复列表 -->
+<div class="reply-list">
+  <p class="clearfix reply-action"><i><{t}>已有<{/t}><{$comlist.items|count}><{t}>条回复<{/t}></i>
+  <span class="inter-handle"><a href="javascript:void(0);">[<{t}>回复<{/t}>]</a><em><i class="arrow arrow-top"><i class="above"></i></i></em></span>
+  </p>
+  <{if $comlist.items}>
+  <{foreach from=$comlist.items item=item}>
+  <blockquote class="reply-item <{if $item.author==='管理员'}>answer-admin<{/if}>">
+    <em class="icon lquote">&#x5b;</em>
+    <div class="reply-label clearfix"><span class="infos"><em><{$item.author}></em> <{t}>说<{/t}></span><span class="time"><{$item.time|cdate:'SDATE_STIME'}></span></div>
+    <p class="reply-content"><{$item.comment|nl2br}></p>
+    <em class="icon rquote">&#x5c;</em>
+  </blockquote>
+  <{/foreach}>
+  <{/if}>
+</div>

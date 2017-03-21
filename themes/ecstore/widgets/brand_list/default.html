@@ -1,0 +1,16 @@
+<div class="common-mod hot-brands">
+  <div class="hd">
+    <h2 class="title">热卖品牌</h2>
+  </div>
+  <div class="bd">
+    <ul class="brands-list clearfix">
+      <{foreach from=$data item=item key=key name="branditem"}>
+      <li class="brand-item">
+        <a href="<{link app=b2c ctl=site_brand act=index arg0=$item.brand_id}>" title="<{$item.brand_name}>">
+          <img data-src="<{$item.brand_logo|storager}>" alt="<{$item.brand_name}>" data-img-zoom="true"/>
+        </a>
+      </li>
+      <{/foreach}>
+    </ul>
+  </div>
+</div>

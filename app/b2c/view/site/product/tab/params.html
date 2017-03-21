@@ -1,0 +1,17 @@
+<table>
+  <tbody>
+    <{foreach from=$goods_params key=group item=row}>
+    <tr>
+        <th colspan="2" class="section-hd"><{$group}></th>
+    </tr>
+    <{foreach from=$row key=key item=value}>
+	<{if $value != ''}>
+    <tr>
+        <td class="item-ttl"><{$key}></td>
+        <td><{$value|default:'-'}></td>
+    </tr>
+    <{/if}>
+    <{/foreach}>
+    <{/foreach}>
+  </tbody>
+</table>

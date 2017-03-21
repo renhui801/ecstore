@@ -1,0 +1,7 @@
+<!-- 商品清单 -->
+  <!-- 购物车条目 -->
+  <{if $item_section}>
+      <{foreach from=$item_section item=section}>
+      <{include file=$section.wap_file app=$section.app}>
+      <{/foreach}>
+  <{/if}>

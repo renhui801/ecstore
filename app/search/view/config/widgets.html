@@ -1,0 +1,25 @@
+<div class="tabs-wrap">
+  <ul>
+    <li class="tab current"><span><{t}>搜索挂件配置<{/t}></span></li>
+  </ul>
+</div>
+<div>
+  <form method="post" action="index.php?app=search&ctl=search&act=save_widgets" id="whitelist">
+    <div class="tableform">
+      <div class="division">
+        <p style="margin:20px 0"><{t}>搜索挂件默认文字：<{/t}>
+          <input type=text name='search_key' value=<{$search_key}>>
+        </p>
+      </div>
+      <div class="division">
+        <p ><{t}>是否开启联想搜索：<{/t}>
+          <input id="switch-off" name="associate_enabled" value="0" type="radio" <{if !$associate_enabled }> checked <{/if}>><label for="switch-off" style="margin-left:10px;"><{t}>关闭<{/t}></lable>
+          <input <{if $associate_enabled }> checked <{/if}> style="margin-left:20px;" id="switch-on" name="associate_enabled" value="1" type="radio"><label for="switch-on" style="margin-left:10px;"><{t}>开启<{/t}></lable>
+        </p>
+      </div>
+      <div class="table-action">
+        <{button type="submit"  label=$___b2c="保存"|t:'site'}>
+      </div>
+    </div>
+  </form>
+</div>

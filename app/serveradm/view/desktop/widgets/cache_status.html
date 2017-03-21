@@ -1,0 +1,27 @@
+<div class="clearfix dashbd-row">
+	<h4><{t}>Cache<{/t}></h4>
+	<table cellpadding="0" cellspacing="0" style="width:100%">
+			<{if $cache}> 
+			     <tr><th><span class="opt"><{t}>缓存类型<{/t}></span></th><td><{$cache.name}></td></tr>
+			     <{if $cache.status}>
+    		         <{foreach from=$cache.status item=item key=key name="item"}>
+    		             <tr><th><span class="opt"><{$key}></span></th><td><{$item}></td></tr>
+                     <{/foreach}>
+                 <{else}>
+                     <tr><td colspan="2"><font color="red"><{t}>无法查看状态<{/t}></font></td></tr>
+                 <{/if}>
+			<{else}>
+			     <tr><td><font color="red"><{t}>没有开启<{/t}></font></td></tr>
+			<{/if}>
+	</table> 
+</div>
+<div class="clearfix dashbd-row">
+	<h4><{t}>KVStorage<{/t}></h4>
+	<table cellpadding="0" cellspacing="0" style="width:100%">
+ 			<{if $kvstore}> 
+			     <tr><th><span class="opt"><{t}>缓存类型<{/t}></span></th><td><{$kvstore.name}></td></tr>
+			<{else}>
+			     <tr><td colspan="2"><font color="red"><{t}>没有开启<{/t}></font></td></tr>
+			<{/if}>
+	</table> 
+</div>

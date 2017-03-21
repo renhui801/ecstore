@@ -1,0 +1,15 @@
+<desktop>
+  <permissions>
+    <permission id="system" display='true' parent='0' workground='system'>系统设置</permission>
+  </permissions>
+    <workground name="系统" id="system.workground.setting" controller="search" action="index" order='205'>
+      <menugroup name="搜索配置">
+        <menu controller='search' action='index' permission='system' display='true' order='10'>sphinx</menu>
+        <!--
+        <menu controller='search' action='segment' permission='system' display='true' order='11'>scws</menu>
+        -->
+        <menu controller='search' action='widgets' permission='system' display='true' order='12'>搜索挂件配置</menu>
+        <menu controller='search' action='init_data' permission='system' display='true' order='12'>初始化联想词库</menu>
+      </menugroup>
+    </workground>
+</desktop>

@@ -1,0 +1,24 @@
+<div class="groupbuy-grid">
+  <input type="hidden" class="action-pagedata" value="{total:<{$total}>, pagecurrent:<{$page|default:1}>, pagetotal:<{$pagetotal}>}">
+  <ul class="clearfix">
+    <{foreach from=$goodsData key=key item=goods name="item"}>
+    <li class="goods-item<{if $goods.products.store-$goods.products.freez==0 || $goods.products.marketable=='false'}> outstock<{/if}>">
+      <{assign var='imageset' value=$env.conf.image.image.set}>
+      <div class="goods-pic">
+        <a href="<{link app=starbuy ctl=site_team act=index arg0=$goods.products.product_id arg1=$goods.products.special_typeid}>"><img class="action-goods-img" data-src="<{$goods.image_default_id|default:$imageDefault.S.default_image|storager:'m'}>" alt="<{$goods.name}>"></a>
+        <{if $goods.products.store-$goods.products.freez == 0 || $goods.products.marketable=='false'}><span class="tag-flags">已抢完<i class="arrow"></i></span><{/if}>
+      </div>
+      <div class="goods-info">
+        <h3 class="goods-name"><a href="<{link app=starbuy ctl=site_team act=index arg0=$goods.products.product_id arg1=$goods.products.special_typeid}>"><{$goods.name}></a></h3>
+        <div class="goods-price">
+          <ins class="price"><{$goods.products.price|cur_odr}></ins>
+          <del class="price"><{$goods.products.mktprice|cur_odr}></del>
+      <em><{$goods.products.initial_num}>人已购买</em>
+        </div>
+      </div>
+
+    </li>
+    <{/foreach}>
+  </ul>
+</div>
+<{pagers data=$pager}>

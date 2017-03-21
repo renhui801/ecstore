@@ -1,0 +1,41 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <div id="member_security" class="member-security">
+    <div class="member-title">
+      <h2><{t}>手机验证<{/t}></h2> 
+    </div>
+    <!-- 步骤图 -->
+    <div id="verify_steps" class="steps steps-three">
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="step-item step-1 "><span><q class="icon">&#x50;</q><i>1</i><{t}>身份验证<{/t}></span></td>
+            <td class="icon step-arrow">&#x28;</td>
+            <td class="step-item step-2 " ><span><q class="icon">&#x50;</q><i>2</i><{t}>设置验证信息<{/t}></span></td>
+            <td class="icon step-arrow">&#x28;</td>
+            <td class="step-item step-3 active"><span><q class="icon">&#x50;</q><i>3</i><{t}>完成<{/t}></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="verify_content" class="signupin-content verify-content">
+      <{if $verifyType == 'verifymobile'}>
+      <div class="msg"><i class="icon icon-success">&#x25;</i> 恭喜您，您的手机已经验证完成，将会获取更好的安全体验</div>
+      <{/if}>
+
+      <{if $verifyType == 'setmobile'}>
+      <div class="msg"><i class="icon icon-success">&#x25;</i> 恭喜您，您的手机已经修改完成，将会获取更好的安全体验</div>
+      <{/if}>
+
+      <{if $verifyType == 'verifyemail'}>
+      <div class="msg"><i class="icon icon-success">&#x25;</i> 恭喜您，您的邮箱已经验证完成，将会获取更好的安全体验</div>
+      <{/if}>
+
+      <{if $verifyType == 'setemail'}>
+      <div class="msg"><i class="icon icon-success">&#x25;</i> 恭喜您，您的邮箱已经修改完成，将会获取更好的安全体验</div>
+      <{/if}>
+
+    </div>
+  </div>
+</div>

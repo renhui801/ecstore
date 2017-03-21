@@ -1,0 +1,76 @@
+<div class="full-screen">
+  <header>
+    <div class="a-bar">
+      <a href="javascript:history.back()" class="a-back"><i class="arr left"></i>返回</a>
+      <div class="a-name">注册</div>
+      <div class="a-right">
+        <a href="<{link app=b2c ctl=wap_passport act=login}>" class="btn orange">登录</a>
+      </div>
+    </div>
+  </header>
+  <div class="full-padding">
+    <form action="<{link app=b2c ctl=wap_passport act=create args01=$next_url}>" method="post" class="form" data-type="ajax">
+      <input name="forward" type="hidden" value="<{$options.url}>">
+      <input name="mini" type="hidden" value="<{$mini_passport}>">
+      <div class="c-g">
+        <label for="" class="c-l">
+          <em class="f-red">*</em>手机号：
+        </label>
+        <div class="c">
+          <input type="text" name="pam_account[login_name]" class="text a-account" required="required" maxlength="11" pattern="^1[3458]\d{9}$" autofocus data-caution="手机号不能为空"><a href="<{link app=b2c ctl=wap_passport act=send_vcode_sms}>" class="btn btn-send orange ib-btn">发送密码</a>
+        </div>
+      </div>
+      <div class="notice"></div>
+      <div class="c-g">
+        <label for="" class="c-l">
+          <em class="f-red">*</em>密码：
+        </label>
+        <div class="c">
+          <input type="password" name="pam_account[login_password]" maxlength="20" placeholder="请输入您收到的短信登录密码" required="required" pattern=".{6,20}" class="text" data-caution="密码不能为空">
+        </div>
+      </div>
+      <div class="notice"></div>
+      <div class="c-g-c">
+        <input type="checkbox" name="license" id="license" checked="checked">
+        <label for="license">
+          <{t}>同意<a href="<{link app=b2c ctl=wap_passport act=license}>" class="license lnk">注册协议</a><{/t}>
+        </label>
+      </div>
+      <div class="btn-bar">
+        <button type="submit" class="btn orange" rel="_request">免费注册</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+$('.form .btn-send').click(function (e) {
+    e.preventDefault();
+    var el = $('.form .a-account');
+    if($(this).hasClass('disabled')) return false;
+    sendVerify(this, 'uname=' + el.val() + '&type=signup');
+});
+
+function sendVerify(el, data) {
+    var url = el.href;
+    $(el).addClass('disabled');
+    var cd = new countdown(el, {
+        start: 120,
+        secondOnly: true,
+        callback: function(e) {
+            $(el).removeClass('disabled').html('重发密码');
+        }
+    });
+    $.post(url, data, function(rs) {
+        if(rs) {
+            try{
+                rs = $.parseJSON(rs);
+            } catch (e) {}
+            if(rs.error) {
+                $(el).removeClass('disabled').html('重发密码');
+                clearTimeout(cd.timer);
+                if(typeof rs.error === 'string') alert(rs.error);
+            }
+        }
+    });
+}
+</script>

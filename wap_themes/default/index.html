@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="images/styles.css" />
+    <{wapheader}>
+</head>
+<body>
+    <{wap_require file="block/header.html"}>
+    <div class="page">
+        <!-- 搜索 -->
+        <{wap_widgets id="search"}>
+        <!-- 活动图 -->
+        <{wap_widgets id="main_slide"}>
+        <!-- 登录注册 -->
+        <{wap_widgets id="topbar_member"}>
+        <!-- 自定义促销商品 -->
+        <div class="home-hot">
+            <div class="tab J-tab">
+                <ul class="trigger-list">
+                    <li class="trigger act">
+                    促销商品
+                    </li>
+                    <li class="trigger">
+                    最新商品
+                    </li>
+                    <li class="trigger">
+                    最热商品
+                    </li>
+                </ul>
+                <ul class="panel-list">
+                    <li class="panel c-fix act">
+                        <{wap_widgets id="cuxiao_goods"}>
+                    </li>
+                    <li class="panel c-fix" <{if $backend}>style="display:block;"<{/if}>>
+                        <{wap_widgets id="new_goods"}>
+                    </li>
+                    <li class="panel c-fix" <{if $backend}>style="display:block;"<{/if}>>
+                        <{wap_widgets id="hot_goods"}>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 分类入口 -->
+        <{wap_widgets id="goodscat"}>
+        <!-- 各分类/虚拟分类中的排行 -->
+        <!-- 服饰鞋帽销售榜 -->
+        <{wap_widgets id="goodssort"}>
+        <!-- 手机数码销售榜 -->
+        <{wap_widgets id="goodssort2"}>
+        <!-- 品牌汇 -->
+        <{wap_widgets id="brandlist"}>
+        <!-- 用户评论 -->
+        <{wap_widgets id="commentlist"}>
+        <!-- 促销公告 -->
+        <{wap_widgets id="rightnews"}>
+    </div>
+    <{wap_require file="block/footer.html"}>
+</body>
+</html>

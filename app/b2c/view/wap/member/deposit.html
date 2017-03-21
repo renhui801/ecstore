@@ -1,0 +1,62 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            预存款充值
+        </div>
+    </div>
+    </header>
+    <form action='<{link app="b2c" ctl="wap_paycenter" act="dopayment" arg0="recharge"}>' method="post">
+    <input type="hidden" name="payment[member_id]" value="<{$member_id}>" />
+    <input type="hidden" name="payment[return_url]" value="<{$return_url}>" />
+    <input type="hidden" name="payment[pay_app_id]" />
+    <div class="deposit">
+        <div class="count">
+            目前预存款金额：<em class="f-red"><{$total|cur_odr}></em>
+        </div>
+        <div class="deposit-num">
+            <label>充值金额：</label>
+            <input type="number" name="payment[money]" required="required" min="1" id='deposit'>
+        </div>
+        <div class="deposit-way">
+            <label>充值方式：</label>
+            <{foreach from=$payments item="payment" key="key" name="payments"}>
+            <span class="pay-item gb t-c" payment_app_id="<{$payment.app_id}>" payment_app_name='<{$payment.app_display_name}>' value='{"pay_app_id":"<{$payment.app_id}>","payment_name":"<{$payment.app_display_name}>"}' id="pay_app_id_<{$payment.app_id}>">
+            <{$payment.app_display_name}>
+            </span>
+            <{/foreach}>
+        </div>
+        <button type="submit" class="btn" >去充值</button>
+    </div>
+    </form>
+</div>
+
+<script>
+$('.deposit-way').bind('click',function(e){
+    var el = $(e.target);
+    if(el.hasClass('pay-item')) {
+      $('input[name="payment[pay_app_id]"]').val( el.attr('payment_app_id') );
+      el.addClass('act').siblings().removeClass('act');
+    }
+});
+
+$('button[type=submit]').bind('click',function(){
+    var form = $(this).parents('form');
+    var money   = form.find('input[name="payment[money]"]').val();
+    var payment = form.find('input[name="payment[pay_app_id]"]').val();
+    if(isNaN(money) || parseInt(money)<=0 || !money){
+        alert('充值金额请填写大于0的数值!');
+        return false;
+    }
+    if(!payment){
+        alert('必须选择一个支付方式!');
+        return false;
+    }
+});
+</script>
+
+

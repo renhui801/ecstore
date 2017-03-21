@@ -1,0 +1,97 @@
+<form action="<{link app=b2c ctl=wap_passport act=post_login}>" class="form"  method="post" data-type="ajax">
+  <input type="hidden" name="forward" value="<{$forward}>">
+  <div class="c-g">
+    <label class="c-l">
+      用户名：
+    </label>
+    <div class="c">
+      <input type="text" name="uname" value="<{$loginName}>" placeholder="用户名/邮箱/手机号" class="text a-account" required="required" data-caution="用户名不能为空">
+    </div>
+  </div>
+  <div class="c-g a-need-verify" style="display:none;">
+    <label for="" class="c-l">验证码：</label>
+    <div class="c">
+      <input type="text" name="mobileVcode" id="" placeholder="填写验证码" class="text"><a href="<{link app=b2c ctl=wap_passport act=send_vcode_sms}>" class="btn orange ib-btn btn-send"><span><span>获取验证码</span></span></a>
+    </div>
+  </div>
+  <div class="c-g">
+    <label class="c-l">密码</label>
+    <div class="c">
+      <input type="password" name="password" placeholder="填写密码" class="text" required="required" data-caution="密码不能为空">
+    </div>
+  </div>
+
+  <{if $show_varycode}>
+  <div class="c-g">
+    <label class="c-l">验证码</label>
+    <div class="c">
+      <{input type="vcode" name="verifycode" class="verify-input" placeholder="填写验证码" key='b2c' label='换一张'}>
+    </div>
+  </div>
+  <{/if}>
+
+  <div class="c-g-c c-fix">
+    <label class="f-l">
+      <input type="checkbox" name="is_remember" <{if $site_b2c_remember != '0'}> checked="checked"<{/if}> >
+      记住我
+    </label>
+    <a href="<{link app=b2c ctl=wap_passport act=lost}>" class="f-r lnk">忘记密码</a>
+  </div>
+  <div class="btn-bar">
+    <button type="submit" class="btn orange" rel="_request">登录</button>
+  </div>
+</form>
+<script>
+$('.form .a-account').change(function(e) {
+    if(/^1[3458]\d{9}$/.test(this.value)) {
+        $.post('<{link app=b2c ctl=wap_passport act=login_ajax_account}>', this.name + '=' + this.value, function(rs){
+            if(rs) {
+                try{
+                    rs = $.parseJSON(rs);
+                } catch (e) {}
+                if(rs.error) {
+                    if(typeof rs.error === 'string') alert(rs.error);
+                }
+                else if(rs.needVerify === 'true') {
+                    $('.form .a-need-verify').show();
+                }
+            }
+        });
+        // alert('您的手机号码还未通过验证，点击进行验证');
+    }
+    else {
+        $('.form .a-need-verify').hide();
+    }
+});
+
+$('.form .btn-send').click(function (e) {
+    e.preventDefault();
+    var el = $('.form .a-account');
+    if($(this).hasClass('disabled')) return false;
+    sendVerify(this, el.attr('name') + '=' + el.val() + '&type=activation');
+});
+
+function sendVerify(el, data) {
+    var url = el.href;
+    $(el).addClass('disabled');
+    var cd = new countdown(el, {
+        start: 120,
+        secondOnly: true,
+        callback: function(e) {
+            $(el).removeClass('disabled').html('重发密码');
+        }
+    });
+    $.post(url, data, function(rs) {
+        if(rs) {
+            try{
+                rs = $.parseJSON(rs);
+            } catch (e) {}
+            if(rs.error) {
+                $(el).removeClass('disabled').html('重发密码');
+                clearTimeout(cd.timer);
+                if(typeof rs.error === 'string') alert(rs.error);
+            }
+        }
+    });
+}
+</script>

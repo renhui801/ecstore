@@ -1,0 +1,42 @@
+<{if $check_policy}>
+<div class="division">
+<table border="0" cellspacing="0" class="gridlist" cellpadding="0">
+<input type="hidden" id='filter' name="filter" value='<{$filter}>'>
+<input type="hidden" id='params' name="params" value='<{$params}>'>
+<tr>
+    <td style='width:100px;height:30px;'>文件类型：</td>
+	<td style='text-align:left;'><select id='filetype'><{foreach from=$export_type key=k item=v}><option value='<{$k}>'><{$v}></option><{/foreach}></select></td>
+</tr>
+<tr>
+    <td style='width:100px;height:30px;'>导出描述：</td>
+	<td style='text-align:left;'><input id='name' name='name' type='text' value='' style='width:200px;'/></td>
+</tr>
+</table>
+</div>
+<div style='margin-top:10px;text-align:center;'><{button class="btn-primary" type="button" id="create_export_submit" label="导出"}></div>
+<script>
+  $('create_export_submit').addEvent('click', function(e) {
+    if( $('name').value == '' ){
+      alert('导出任务描述必须填写');
+      return;
+    }
+    if( $('name').value.indexOf("&") > -1 ){
+      alert('导出任务描述包含特殊字符&');
+      return; 
+    }
+    if( $('name').value.indexOf("%") > -1 ){
+      alert('导出任务描述包含特殊字符%');
+      return; 
+    }
+    $('create_export_submit').set('disabled',true).getElement('span span').set('html','正在导出');
+    new Request({url:'index.php?app=importexport&ctl=admin_export&act=create_export',onSuccess:function(rs){
+      alert('导出任务添加成功!');
+      $('create_export_submit').getParent('.dialog').retrieve('instance').close();
+    }}).post('name='+$('name').value+'&filetype='+$('filetype').value+'&filter='+$('filter').value+'&params='+$('params').value);
+  });
+</script>
+<{else}>
+<{t}>
+请到 系统-》队列导入导出-》存储方式配置 进行正确的配置
+<{/t}>
+<{/if}>

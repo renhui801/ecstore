@@ -1,0 +1,44 @@
+<div class="tableform widgetconfig">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>尺寸设置:</th>
+            <td>
+                <div class="span-auto division">
+                    <label>
+                        <p>弹出分类宽度：</p>
+                        <input type="text" class="x-input"  name="sub_category_width" value="<{$setting.sub_category_width}>" />px
+                    </label>
+                </div>
+                <div class="span-auto division">
+                    <label>
+                        <p>品牌列表宽度：</p>
+                        <input type="text" class="x-input"  name="brands_box_width" value="<{$setting.brands_box_width}>" /> px
+                    </label>
+                </div>
+                <div class="span-auto division">
+                    <label>
+                        <p>品牌logo宽度：</p>
+                        <input type="text" class="x-input"  name="brand_width" value="<{$setting.brand_width}>" /> px
+                    </label>
+                </div>
+                <div class="span-auto division">
+                    <label>
+                        <p>品牌logo高度：</p>
+                        <input type="text" class="x-input"  name="brand_height" value="<{$setting.brand_height}>" /> px
+                    </label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>其他设置:</th>
+            <td>
+                <div class="span-auto division">
+                    <label>
+                        <p>分类链接在新窗口打开？</p>
+                        <input type="checkbox" name="target_blank" value="1" <{if $setting.target_blank}> checked <{/if}> />是
+                    </label>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

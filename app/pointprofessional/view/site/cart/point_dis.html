@@ -1,0 +1,20 @@
+<div id="order_deduction" class="order-deduction">
+<h3>
+  <a href="javascript:void(0);" class="btn-expand action-toggle">+</a>积分抵扣
+</h3>
+<div class="content" style="display:none;">
+  <p class="desc"><{t}>本订单最大可抵扣金额为<{/t}><{if $discount_rate}><{$max_discount_value|cur_odr}><{else}>0<{/if}>（<span class="action-max-score"><{if $discount_rate}><{$max_discount_value/$discount_rate}><{else}>0<{/if}></span><{t}>积分<{/t}>）</p>
+  <p class="desc"><i>当前账户积分：</i><b class="action-user-score"><{$real_usage_point}></b>
+    <em><{t}>1积分<{/t}>=<{$discount_rate|cur_odr}></em>
+  </p>
+  <p class="scoreinput">
+    <input type="hidden" name="point[rate]" value="<{$discount_rate}>">
+    <label for="">输入抵扣积分数：</label>
+    <q class="score-inner"><input type="text" name="point[score]" size="8" class="action-input-score">
+      <{button type="button" class="btn-simple action-confirm-score" label=$___b2c=使用|t:"b2c"}><br>
+      <em>可抵扣 <span class="action-deduct-price">0</span> 元</em></q>
+  </p>
+  <p class="usedscore fold">
+  </p>
+</div>
+</div>

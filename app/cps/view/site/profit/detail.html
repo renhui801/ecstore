@@ -1,0 +1,174 @@
+<{css src="style/modify.css" app="cps"}>
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span><a href="<{link app='cps' ctl='site_welcome' act='profitIndex'}>">佣金报表</a></span>&gt;<span class="bold">实时业绩查询</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="m2_left">
+<ul id="m2left_nav">
+    <li class="curr bg_color1"><a href="<{link app='cps' ctl='site_welcome' act='profitSearch'}>">实时业绩查询</a></li>
+    <li><a href="<{link app='cps' ctl='site_welcome' act='orderSearch'}>">查询订单详情</a></li>
+    <li><a href="<{link app='cps' ctl='site_welcome' act='incomeSearch'}>">收益月报表查询</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="m2_right">
+<div class="yj_search">
+<form action="<{link app='cps' ctl='site_welcome' act='profitSearch'}>" method="get">
+<table width="99%" border="0" align="left">
+    <tbody>
+        <tr>
+            <td width="9%"  valign="top">下单时间</td>
+            <td  valign="top" width="22%">
+                <input type="hidden" name="_DTYPE_TIME[]" value="start" />
+                <input class="logintext1"  size="10" maxlength="10" autocomplete="off" type="text" name="start" value="<{$start}>" id="start" vtype="date"  />            </td>
+            <td width="3%"  valign="top" >至</td>
+            <td  valign="top" width="22%">
+                <input type="hidden" name="_DTYPE_TIME[]" value="end" />
+                <input class="logintext1" size="10" maxlength="10" autocomplete="off" type="text" name="end" value="<{$end}>" id="end" vtype="date" />            </td>
+            <td width="5%" valign="top"><label> <input type="submit" value="搜索" class="but_bglan"> </label></td>
+            <td width="14%" valign="top"><label> <input type="button" id="export" value="导出execl" class="but_bglan"> </label></td>
+            <td width="25%"></td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<div class="clear"></div>
+</div>
+<!--yj_search-->
+<{if $total}>
+<div class="yj_xiangqing ">
+<table   border="0"  cellspacing="0">
+    <tbody>
+        <tr class="bg_color1">
+            <th>总订单量</th>
+            <th>总订单金额</th>
+            <th>佣金总额</th>
+        </tr>
+        <tr>
+            <td height="30" align="center"><{$total.num}></td>
+            <td height="30" align="center"><{$total.totalCost}>元</td>
+            <td height="30" align="center">
+            <p class="text_red"><{$total.totalMoney}>元</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="clear"></div>
+</div>
+<{/if}>
+<!--yj_xiangqing-->
+<{if $list}>
+<div class="yj_xiangqing">
+<table border="0" cellpadding="0" cellspacing="0" >
+    <tbody >
+    	<col class="td1"/>
+        <col class="td2" />
+        <col class="td3" />
+        <col class="td4" />
+        <col class="td5" />
+        <col class="td6" />
+        <tr class="bg_color1">
+            <th>订单号</th>
+            <th>下单时间</th>
+            <th>来源</th>
+            <th>订单金额</th>
+            <th>佣金</th>
+            <th>状态</th>
+        </tr>
+        <{foreach from=$list item=val}>
+        <tr class="o_tr<{if $val.flag==2}> o_valid<{/if}>" orderid=<{$val.order_id}>>
+            <td class="tab-td1"><{$val.order_id}></td>
+            <td class="tab-td2"><{$val.addtime}></td>
+            <td class="tab-td3"><span><{$val.refer_url}></span></td>
+            <td class="tab-td4"><{$val.order_cost}>元</td>
+            <td class="tab-td5"><p class="text_red"><{$val.money}>元</p></td>
+            <td class="tab-td6"><{$val.state}></td>
+        </tr> 
+        <{/foreach}>
+    </tbody>
+</table>
+
+
+<div class="clear"></div>
+</div>
+<{elseif $isSearch}>
+<div class="yj_xiangqing bor_color1">
+<div>暂无查到相关记录</div>
+<div class="clear"></div>
+</div>
+<{/if}>
+<!--yj_xiangqing-->
+<div class="yema"><{pagers data=$pager}></div>
+<!--yema-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<!--mc_2box--></div>
+<div class="clear"></div>
+<script>
+	try {
+		Ex_Loader("picker", function() {
+			$('start').makeCalable();
+			$('end').makeCalable();
+		});
+	} catch (e) {
+		$('start').makeCalable();
+		$('end').makeCalable();
+	}
+
+	$('export')
+			.addEvent(
+					'click',
+					function() {
+						location.href = "<{link app='cps' ctl='site_welcome' act='profitExport'}>?start="
+								+ $('start').value + "&end=" + $('end').value;
+					});
+
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+
+/*鼠标移进 显示订单详情 begin*/
+var showOdDetail = function(order_tr,order_id){
+	$$("tr[id^=detail]").each(function(e){
+	    if(e.getProperty('id') != 'detail'+order_id){
+		    e.remove();
+		}
+	});
+    if(!document.getElementById("detail" + order_id)){
+        var detailRow = order_tr.parentNode.insertRow(order_tr.rowIndex+1);
+        detailRow.id = "detail" + order_id;
+        new Request({
+			   url:'<{link app="cps" ctl="site_welcome" act="orderDetail"}>',
+			   method:'post',			   
+			   data:'order_id='+order_id,
+			   onRequest:function(){},
+			   onSuccess:function(re){
+			       var obj = JSON.decode(re);
+			       var detailInnerHtml = '<table width="100%" class="tabnone"><tr>';
+			       for(var i=0; i<obj.length; i++){
+                       if (obj[i].goods_id){
+                           detailInnerHtml += "<td width='50%' align='center'>"  + '<a target="_blank" href="product-index-'+ obj[i].goods_id + '.html">' + obj[i].name + "  " + obj[i].nums + "件</a></td>";
+                       } else {
+                           detailInnerHtml += "<td width='50%' align='center'>"  + obj[i].name + "  " + obj[i].nums + "件</td>";
+                       }
+			       	   if(i%2 == 1){
+			       	       detailInnerHtml += '</tr><tr>';
+			       	   }
+			       }
+			       detailInnerHtml += "</tr></table>";
+                   detailTd = detailRow.insertCell(0);
+                   detailTd.colSpan = "6";
+				   detailTd.align = "center";
+				   detailTd.innerHTML = detailInnerHtml;
+			   }
+			}).send();
+    }
+}
+
+$ES('.o_tr').addEvent('mouseenter',function(){
+	showOdDetail(this,this.getProperty('orderid'));
+});
+/*鼠标移进 显示订单详情 end*/
+</script>

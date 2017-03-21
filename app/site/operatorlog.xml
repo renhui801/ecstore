@@ -1,0 +1,51 @@
+<root>
+<!-- 模块：站点管理(site) -->
+    <!-- 模板管理 -->
+    <register module="site" ctl="admin_theme_manage" act="set_default" param="theme" method="get">
+        <operate_type>模板使用</operate_type>
+        <template>使用模板 %s</template>
+    </register>
+
+    <register module="site" ctl="admin_theme_widget" act="editor" param="theme" method="get">
+        <operate_type>可视化编辑模板</operate_type>
+        <template>可视化编辑模板%s</template>
+    </register>
+
+    <register module="site" ctl="admin_theme_manage" act="delete" param="theme" method="get">
+        <operate_type>模板删除</operate_type>
+        <template>删除模板 %s</template>
+    </register>
+
+    <register module="site" ctl="admin_theme_manage" act="reset" param="theme" method="get">
+        <operate_type>模板还原</operate_type>
+        <template>还原模板 %s</template>
+    </register>
+
+    <register module="site" ctl="admin_theme_manage" act="bak" param="theme" method="get">
+        <operate_type>模板备份</operate_type>
+        <template>备份模板 %s</template>
+    </register>
+
+
+<!-- 模块：站点管理(site) -->
+    <!-- 导航菜单 -->
+    <register module="site" ctl="admin_menu" act="savemodule" param="menu.title" prk="menu.id">
+        <operate_type>链接</operate_type>
+        <template>链接 %s</template>
+    </register>
+
+    <register module="site" ctl="admin_menu" act="saveurl" param="menu.title" prk="menu.id">
+        <operate_type>自定义链接</operate_type>
+        <template>自定义链接 %s</template>
+    </register>
+
+<!--     <register module="site" ctl="admin_menu" act="dorecycle" param="id">
+        <operate_type>批量删除 链接</operate_type>
+        <template>批量删除 链接 %s</template>
+    </register> -->
+
+
+<!-- 模块：站点管理(site) -->
+    <!-- 站点配置 -->
+        <!-- 编辑站点配置@todo -->
+</root>

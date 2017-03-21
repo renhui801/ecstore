@@ -1,0 +1,64 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            发表咨询
+        </div>
+    </div>
+    </header>
+    <form action="<{link app=b2c ctl=wap_comment act=toComment arg0=ask}>" method="post" class="action-code-form" data-type="ajax">
+    <{if !$comments.setting.power_status}>
+    <{assign var=disable value='disabled'}>
+    <{/if}>
+    <div class="page">
+        <div class="publish_comment">
+            <div class="consult-type" id="J_choose_type">
+                <input type="hidden" name="goods_id" value="<{$goods_id}>" />
+                <input type="hidden" name="product_id" value="<{$product_id}>" />
+                <input type="hidden" name="gask_type" value="<{$comments.gask_type[0].type_id}>" />
+                <strong>选择咨询类型：</strong>
+                <{foreach from=$comments.gask_type item="gask_type" key=key}>
+                <span data-value="<{$gask_type.type_id}>" class="<{if $key==0}>active<{/if}>"><{$gask_type.name}></span>
+                <{/foreach}>
+            </div>
+            <div class="textarea">
+                <textarea class="action-fill-textarea" name="comment" placeholder="欢迎发表回复，最多1000字" required="required" data-caution="回复内容不能为空" <{$disable}>></textarea>
+                <span class="current">还可以输入<b>1000</b>字</span>
+            </div>
+          <{if $comments.setting.login eq "nologin"}>
+          <div class="item">
+            <label for="" class="form-label"><{t}>联系方式<{/t}></label>
+            <input type="text" name="contact" placeholder="可以是电话、email、qq等" <{$disable}> />&nbsp;
+          </div>
+          <{else}>
+          <span class="form-act-wide"><input type="checkbox" name="hidden_name" value="YES" id="" <{$disable}> > <{t}>匿名发表<{/t}></span>
+          <{/if}>
+            <{if $comments.setting.verifyCode == "on"}>
+            <div class="item mt10">
+                <label>验证码</label>
+                <{input type="vcode" class="verify-input"  required="required" data-caution="验证码不能为空" id="ask_verifycode" name="askverifyCode" key="ASKVCODE" label="换一个"}>
+            </div>
+            <{/if}>
+            <button type="submit" class="btn mt10" >发表咨询</button>
+        </div>
+    </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+$('.action-fill-textarea').on('input',function(){
+  var cur = $(this).next().find('b'), max = 1000;
+  if(this.value.length > max) {
+      this.value = this.value.substr(0, max);
+      alert('内容超限，最多输入 ' + max + ' 字');
+  }
+  cur.text(1000 - this.value.length);
+});
+$('#J_choose_type span').on('click',function(){
+    $(this).addClass('active').siblings('span').removeClass('active').parent().find('input[name=gask_type]').val($(this).attr('data-value'));
+});
+</script>

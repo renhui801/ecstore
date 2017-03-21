@@ -1,0 +1,60 @@
+<!--<{if $comments.askCount}>
+<div class="title"><{t}>共<{/t}><i><{$comments.askCount|default:'0'}></i><{t}>个咨询<{/t}>。
+</div>
+<{/if}>
+-->
+
+<{if $comments.gask_type}>
+<ul class="tabs clearfix switchable-triggerBox">
+  <li class="active"><a class="action-consult-trigger" href="<{link app=b2c ctl=site_comment act=ajax_type_ask arg0=$goods_id arg1=$gask_type1.type_id}>"><{t}>全部咨询<{/t}>(<{$comments.askCount|default:'0'}>)</a></li>
+  <{foreach from=$comments.gask_type item="gask_type1"}>
+  <li><a class="action-consult-trigger" href="<{link app=b2c ctl=site_comment act=ajax_type_ask arg0=$goods_id arg1=$gask_type1.type_id arg2=$page_type}>"><{$gask_type1.name}>(<{$gask_type1.total}>)</a></li>
+  <{/foreach}>
+</ul>
+<{/if}>
+
+<div class="action-content-list switchable-panel">
+  <{if !$comments.askCount}><div class="no-message"><{$comments.setting.null_notice}></div><{/if}>
+  <ul class="consult-list">
+    <{foreach from=$comments.list.ask item=comlist}>
+    <li class="consult-item">
+      <input type="hidden" name="id" value="<{$comlist.comment_id}>">
+      <span class="icon icon-question">&#x56;</span>
+      <p class="question-content clearfix">
+        <span class="desc"><b><{t}>问<{/t}>：</b><{$comlist.comment|nl2br}></span>
+        <span class="name"><{if $comlist.addon.hidden_name =='YES' && $comlist.author_id!=0}>匿名<{else}><{$comlist.author}><{/if}><{if $comments.setting.display_lv == 'on' && $comlist.addon.hidden_name !='YES'}> (<{$comlist.member_lv_name|default:'游客'}>)<{/if}></span><span class="time"><{$comlist.time|cdate:'SDATE_STIME'}></span>
+      </p>
+      <{if $comments.setting.switch_reply == 'on'}>
+      <{include file='site/product/tab/ask/reply.html'}>
+      <{/if}>
+    </li>
+    <{/foreach}>
+  </ul>
+
+  <{if $comments.asktotalpage>1 && $page_type == 'tab'}>
+    <{pagers data=$pager}>
+  <{/if}>
+</div>
+<{foreach from=$comments.gask_type item="gask_type1"}>
+<div class="action-content-list switchable-panel" style="display:none;">
+</div>
+<{/foreach}>
+
+<{if $comments.gask_type}>
+<script>
+    new Tabs('consult_content',{
+      eventType: 'click',
+      stopEvent: true,
+      onSwitch: function(e){
+        var a = this.triggers[e.currentIndex].getElement('a');
+        var content = this.panels[e.currentIndex];
+        var parent = this.container.getParent();
+        if(!content.getFirst()) content.load(a.href,{data:''});
+        if(parent.getElement('.active-handle')) {
+            closeReply(this.container.getParent().getElement('.action-close-reply'));
+        }
+      }
+    });
+</script>
+<{/if}>
+

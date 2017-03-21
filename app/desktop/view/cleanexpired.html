@@ -1,0 +1,12 @@
+<div class="tableform">
+    <h3><{t}>清除系统中原有的与shopex用户中心关联的数据<{/t}></h3>
+
+    <hr/>
+    <div class="division"><p class="notice" ><{t}>当系统改变了域名，点击以下按钮退出后重新登录即可重新生成，以免影响绑定ocs，导致数据不同步<{/t}></p></div>
+
+    <form action="<{link app=desktop ctl=cleanexpired act=clean_data}>">
+        <{button type="submit" id="btn_data_dobackup" class="btn-primary" label=$___desktop="清除"|t:'desktop'}>
+    </form>
+</div>
+
+

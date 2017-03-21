@@ -1,0 +1,88 @@
+<h3>基本设置</h3>
+<div id="x-g-basic" class="goods-detail tableform">
+        <div class="division">
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th><em class="red">*</em>礼包名称：</th>
+                    <td><input type="text" name="giftpackage[name]" class="inputstyle" vtype='required' value="<{$giftpackage[name]}>" size=20></td>
+                </tr>
+                    <tr>
+                    <th><em class="red">*</em>礼包总价：</th>
+                    <td><input type="text" name="giftpackage[amount]" class="inputstyle" value="<{$giftpackage[amount]}>" size="20" vtype="required&&positive"  ></td>
+                </tr>
+                    <tr <{if $show_score=='false'}>style="display:none;"<{/if}> >
+                    <th>礼包积分：</th>
+                    <td><input type="text" name="giftpackage[score]" class="inputstyle" vtype='digits' value="<{$giftpackage[score]|default:0}>" size=20 ><em>留空则为0</em></td>
+                </tr>
+                <tr>
+                    <th>礼包重量：</th>
+                    <td>
+                    	<input type="text" name="giftpackage[weight]" class="inputstyle" vtype='positive' value="<{$giftpackage[weight]}>" size=20 >
+                    	<em>重量为空时系统自动计算加入礼包中的商品重量</em>
+                    </td>
+                </tr>
+                    <tr>
+                    <th><em class="red">*</em>礼包库存：</th>
+                    <td><input type="text" name="giftpackage[store]" class="inputstyle" vtype='required&&unsignedint'   value="<{$giftpackage[store]}>" size=20 ></td>
+                </tr>
+                    <tr>
+                    <th>礼包开始时间：</th>
+                    <td><{input type="time" vtype="required" name="stime"   vtype='required' value=$giftpackage.stime size=20 }></td>
+                </tr>
+                    <tr>
+                    <th>礼包结束时间：</th>
+                    <td><{input type="time" vtype="required" name="etime"   vtype='required' value=$giftpackage.etime size=20 }></td>
+                </tr>
+                    <tr>
+                    <th>活动对象：</th>
+                     <td>
+                     <{if $security_guest_enabled=='true'}>
+                     <label><input type="radio" class="alluser" name="giftpackage[alluser]" <{if $giftpackage.alluser!='false'}>checked="checked"<{/if}> value="true"   >所有顾客</label>
+                     <{/if}>
+                     <label><input type="radio" class="alluser" name="giftpackage[alluser]" <{if $giftpackage.alluser=='false'}>checked="checked"<{/if}> value="false">仅会员</label>
+                     </td>
+                </tr>
+
+                <tr id='alluser' <{if !$giftpackage.member_lv_ids && $security_guest_enabled=='true'}> style="display:none;"<{/if}> >
+                    <th></th>
+                     <td>
+                     <{foreach from=$member_level item=ml}>
+                        <lable><input type="checkbox" value="<{$ml.member_lv_id}>" <{if is_array($giftpackage.member_lv_ids)}><{if in_array($ml.member_lv_id,$giftpackage.member_lv_ids)}>checked="checked"<{/if}> <{/if}> name="giftpackage[member_lv_ids][]" /><{$ml.name}></label>
+                   <{/foreach}>
+                   <span id="mleverror"></span>
+                 </td>
+                 </tr>
+
+
+                <tr>
+                    <th><span id="giftpackage-limit">每单限购</span>：</th>
+                    <td><input type="text" name="giftpackage[limitbuy_count]" class="inputstyle" vtype="digits&&positive"  value="<{$giftpackage.limitbuy_count}>" size=4><em>留空则不做限制</em></td>
+                </tr>
+            </table>
+        </div>
+</div>
+
+
+<script>
+    $$('.alluser').each(function(item){
+        var _all_user_tr = $('alluser');
+        var _giftpackage_userlimit = '每人限购';
+        var _giftpackage_orderlimit = '每单限购';
+        item.addEvent('click',function(){
+            if( $(this).value=='true' ) {
+                _all_user_tr.setStyle('display','none');
+                $('giftpackage-limit').set('html',_giftpackage_orderlimit);
+            } else {
+                _all_user_tr.setStyle('display','');
+                $('giftpackage-limit').set('html',_giftpackage_userlimit);
+            }
+        });
+        if( item.checked ) {
+            if( item.value=='true' ) {
+                _all_user_tr.setStyle('display','none');
+            } else {
+                _all_user_tr.setStyle('display','');
+            }
+        }
+    });
+</script>

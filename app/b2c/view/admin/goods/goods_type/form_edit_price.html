@@ -1,0 +1,41 @@
+<div class="tableform">
+  <p><{button id="add_price" label="添加价格区间"}> &nbsp;&nbsp;&nbsp;</p>
+  <table class="gridlist">
+    <thead>
+      <tr>
+        <th><{t}>最小值<{/t}></th>
+        <th><{t}>最大值<{/t}></th>
+        <th><{t}>操作<{/t}></th>
+      </tr>
+    </thead>
+    <tbody id="priceNode">
+      <{foreach from=$gtype.price key=key item=row}>
+      <tr id="id_<{$key}>" data-id="<{$key}>">
+        <td><{input type="text" name="gtype[price][{$key}][min]" vtype="required&&unsigned" size="5" value=$row.min }></td>
+        <td><{input type="text" name="gtype[price][{$key}][max]" vtype="required&&unsigned" size="5" value=$row.max }></td>
+        <td><a href="javascript:void(0);"><{img src="bundle/del.gif" alt="" class="del"}></a></td>
+        <{assign var='num' value=$key}>
+      </tr>
+      <{/foreach}>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+(function(){
+    $('priceNode').getElements('.del').addEvent('click', function(e){
+        this.getParent('tr').destroy();
+    });
+  var id=<{$num|default:0}>;
+  $('add_price').addEvent('click', function(e){
+    id++;
+    var tpl='';
+    tpl+='<td><{input type="text" name="gtype[price]['+ id +'][min]" id="" size="5" vtype="required&&unsigned"}></td>';
+    tpl+='<td><{input type="text" name="gtype[price]['+ id +'][max]" id="" size="5" vtype="required&&unsigned"}></td>';
+    tpl+='<td><a href="javascript:void(0);"><{img src="bundle/del.gif" alt="" class="del"}></a></td>';
+    var el = new Element('tr[data-id='+id+']#id_'+ id, {html:tpl}).inject($('priceNode'));
+    el.getElement('.del').addEvent('click', function(e){
+        el.destroy();
+    });
+  });
+})();
+</script>

@@ -1,0 +1,108 @@
+<div id='<{$panel_id}>-filter-list-<{$finder_id}>' class="filter-list" style="float:left;">
+      <{foreach from=$columns key=c item=v}>
+        <{if $panel_id==$v.panel_id}>
+          <div k="<{$c}>" style="<{if $v.filtertype && $v.filterdefault}><{else}>display:none;<{/if}>float:left;border: 1px solid #EBEFF4;margin:2px 16px 2px 0;padding: 4px;height:26px;">
+          <div style="float:left;"><{$v.label}><{$v.addon}>：</div>
+              <div style="float:left;"><{$v.inputer}></div>
+          </div>
+          <{/if}>
+      <{/foreach}>
+
+      </div style="float:left;">
+      <div style="float:left;margin:5px 16px 2px 0;padding: 4px;height:26px;padding:0;">
+         <{button class="btn-primary" id="{$panel_id}-filter-submit-{$finder_id}" label=$___desktop="立即筛选"|t:'desktop'}>
+         <{button class="btn-secondary" id="{$panel_id}-filter-reset-{$finder_id}" label=$___desktop="清除条件"|t:'desktop'}>
+        </div>
+ <script>
+   window.fireEvent('resize');
+
+void function(){
+  /** 清空所有radio的值 **/
+  $$('#<{$panel_id}>-filter-list-<{$finder_id}> input[type=radio]').each(function(item,index){
+    $(item).checked = false;
+  });
+
+   var tmp_str = "√";
+
+   var filerHTML =  $('<{$panel_id}>-filter-list-<{$finder_id}>').innerHTML;
+
+   var filter_<{$finder_id}> = new Filter('<{$panel_id}>-filter-list-<{$finder_id}>','<{$finder_id}>',{
+    onChange:function(){
+
+      }
+  });
+
+  $('<{$panel_id}>-filter-submit-<{$finder_id}>').addEvent('click',function(){
+
+    filter_<{$finder_id}>.update();
+
+  });
+
+  $('<{$panel_id}>-filter-reset-<{$finder_id}>').addEvent('click',function(){
+
+    $('<{$panel_id}>-filter-list-<{$finder_id}>').innerHTML = filerHTML;
+    $('<{$panel_id}>-filter-list-<{$finder_id}>').getElements('input.cal').each(function(dpi){
+      dpi.makeCalable();
+    });
+  });
+
+}();
+
+
+
+Ex_Loader("picker",function(){
+  $$('#<{$panel_id}>-filter-list-<{$finder_id}> input[type=text]').addEvent('keyup',function(e){
+
+      if(e.code==13){
+        $('<{$panel_id}>-filter-submit-<{$finder_id}>').fireEvent('click');
+      }
+  });
+
+  $$('#<{$panel_id}>-filter-list-<{$finder_id}> input[vtype=date]').setStyles({'display':'block','margin':1});
+
+});
+
+
+$$('#<{$panel_id}>-filter-list-<{$finder_id}> dl').addEvents({
+  'mouseenter':function(){this.addClass('over')},
+  'mouseleave':function(){this.removeClass('over')}
+});
+
+$ES('select[search^=1]','#<{$panel_id}>-filter-list-<{$finder_id}>').each(function(ipt){
+  ipt.addEvent('change',function(e){
+    var dl=this.getParent('dl'),field_name=$E('input[type=text]',dl).name;
+
+    if('between'==this.value){
+      var obj=dl.getElement('dd');
+      this.getParent('dl').store(':dd',obj.innerHTML);
+      var to= new Element('dd',{'html':'<{t}>小于<{/t}>'+obj.innerHTML}).inject(obj,'after');
+      var from=new Element('dd',{'html':'<{t}>大于<{/t}>'+obj.innerHTML}).inject(obj,'after');
+      replace_name(from,'_from');
+      replace_name(to,'_to');
+      new Element('input',{'type':'hidden','class':'ipt','name':field_name,'value':'1'}).inject(obj,'after');
+      obj.destroy();
+    }else{
+      if(dl.getElements('dd').length>1){
+        dl.getElements('dd').destroy();
+        if(dl.getElement('.ipt')) {
+          dl.getElement('.ipt').destroy();
+        }
+
+        new Element('dd',{'html':dl.retrieve(':dd')}).inject(dl);
+      }
+    }
+
+    $(dl).getElements('input.cal').each(function(dpi){
+      dpi.makeCalable();
+    });
+  });
+});
+
+var replace_name=function(box,nice){
+  var n=$E('input[type=text]',box).name;
+  $$(box.getElements('input'),box.getElements('select')).each(function(el){
+    el.name=el.name.replace(n,n+nice);
+  });
+}
+
+</script>

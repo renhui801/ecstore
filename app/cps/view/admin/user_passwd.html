@@ -1,0 +1,15 @@
+<div class="tableform clearfix" style="padding: 5px; border: solid 1px #ccc; width: 500px;">
+<form action="index.php?app=cps&ctl=admin_users&act=chkpassword" method="post"><input type="hidden" name="u_id" value="<{$data.u_id}>">
+<table width="96%" border="0">
+    <tr>
+        <th width="20%">新密码：</th>
+        <td width="80%"><input type="password" vtype="required" class="x-input" name="passwd"></td>
+    </tr>
+    <tr>
+        <th>确认密码：</th>
+        <td><input type="password" vtype="required" class="x-input" name="passwd_confirm"></td>
+    </tr>
+</table>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确定修改"}></div>
+</form>
+</div>

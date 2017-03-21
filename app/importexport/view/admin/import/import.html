@@ -1,0 +1,50 @@
+<{if $check_policy}>
+<form action='index.php?app=importexport&ctl=admin_import&act=create_import' method='post' target="uploadframe" enctype="multipart/form-data" id="import_form" class="tableform">
+<div class="division">
+<table border="0" cellspacing="0" class="gridlist" cellpadding="0">
+<input type="hidden" name="app" value="<{$params['app']}>">
+<input type="hidden" name="mdl" value="<{$params['mdl']}>">
+<tr>
+  <td style='width:100px;height:30px;'>文件类型：</td>
+  <td style='text-align:left;'>
+    <select id='filetype'>
+      <{foreach from=$import_type key=k item=v}>
+      <option value='<{$k}>'><{$v}></option>
+      <{/foreach}>
+    </select>
+  </td>
+</tr>
+<tr>
+  <td style='width:100px;height:30px;'>导入文件：</td>
+  <td style='text-align:left;'> <input type='file' name='import_file' id='ImportType'/></td>
+</tr>
+</table>
+</div>
+<div class="table-action">
+<{button label=$___desktop="导入"|t:'desktop' id="ImportBtn" disabled="disabled" type="submit"}>
+</div>
+</form>
+<script>
+(function(){
+	$('import_form').addEvent('submit',function(e){
+		if(!$('ImportType').value.length) return false;
+		$('ImportBtn').set('disabled',true);
+	});
+	$('ImportType').addEvent('change',function(e){
+        var type = $('filetype').options[$('filetype').selectedIndex].text.toLowerCase();
+        var val = this.get('value').toLowerCase().split('.');
+        val = val[val.length - 1];
+        val = new RegExp('\.' + val);
+        if(!val.test(type)){
+            this.set('value','');
+            return MessageBox.error('<{t}>请上传当前选中的文件类型<{/t}>');
+        }
+        $('ImportBtn').set('disabled',false);
+    });
+})();
+</script>
+<{else}>
+<{t}>
+请到 系统-》队列导入导出-》存储方式配置 进行正确的配置
+<{/t}>
+<{/if}>

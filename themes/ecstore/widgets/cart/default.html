@@ -1,0 +1,105 @@
+<div class="minicart<{if $setting.show_minicart}> has-minicart<{/if}>" id="minicart_<{$widgets_id}>">
+  <{if $setting.show_minicart}>
+  <a href="<{link app=b2c ctl=site_cart act=index}>" class="minicart-text">
+    <i class="icon">&#x3e;</i> <{t app='b2c'}>购物车中有<{/t}>
+    <{if $setting.cart_show_type==1}><b class="op-cart-number">0</b> <{t app='b2c'}>件<{/t}><{else}><b class="op-cart-count">0</b> <{t app='b2c'}>种<{/t}><{/if}><{t app='b2c'}>商品<{/t}>
+  </a>
+  <div class="minicart-cont">
+  </div>
+  <{else}>
+  <span class="minicart-text">
+    <i class="icon">&#x3e;</i> <{t app='b2c'}>购物车中有<{/t}>
+    <{if $setting.cart_show_type==1}><b class="op-cart-number">0</b> <{t app='b2c'}>件<{/t}><{else}><b class="op-cart-count">0</b> <{t app='b2c'}>种<{/t}><{/if}><{t app='b2c'}>商品<{/t}>
+  </span>
+  <a href="<{link app=b2c ctl=site_cart act=index}>" class="btn btn-tocart"><{t app='b2c'}>去结算<{/t}></a>
+  <{/if}>
+</div>
+<script>
+window.addEvent('domready',function(){
+    updateCartInfo();
+
+    <{if $setting.show_minicart}>
+    var cartViewUrl='<{link app=b2c ctl=site_cart act=view}>';
+    var MiniCarWidgets={
+        init:function(){
+            var minicart=this.cart= $('minicart_<{$widgets_id}>');
+            this.detailbox=minicart.getElement('.minicart-cont');
+            this.handle=minicart.getElement('.minicart-text');
+            this.attach();
+        },
+        attach:function(){
+            this.handle.addEvents({
+                'mouseenter':function(e){
+                    if(e&&this.state) return;
+                    this.show();
+
+                    this.request({
+                        url:cartViewUrl,
+                        method:'post',
+                        onRequest:function(){
+                            this.detailbox.innerHTML='<div class="loading">加载中...</div>';
+                        }.bind(this)
+                    });
+                }.bind(this)
+            });
+            this.cart.addEvent('_show',function(e){
+                this.handle.fireEvent('mouseenter');
+            }.bind(this));
+        },
+        show:function(e){
+            this.cart.addClass('minicart-active');
+            this.state=true;
+            var self = this;
+            $(document.body).addEvent('click',function(){
+                self.hide();
+                this.removeEvent('click',arguments.callee);
+            });
+            return this;
+        },
+        hide:function(){
+            this.cart.removeClass('minicart-active');
+            this.state=false;
+        },
+        setHeight: function(el) {
+            var h = window.getSize().y - this.detailbox.getPosition(document.body).y + window.getScroll().y - this.detailbox.getPatch().y;
+            var dh = this.detailbox.getSize().y - this.detailbox.getPatch('padding', 'border').y;
+            if(dh >= h){
+                this.detailbox.setStyle('height',h);
+            }
+            else this.detailbox.setStyle('height', 'auto');
+            return this;
+        },
+        removeCart:function(el){
+            this.request({
+                url:el.href,
+                data:el.getParent('.goods-item')
+            });
+        },
+        addEvent:function(){
+            var _this=this;
+            this.detailbox.getElements('.action-delete').addEvent('click',function(e){
+                e.stop();
+                _this.removeCart(this);
+            });
+        },
+        request:function(options){
+            options = options || {};
+            options.data = (options.data?options.data.toQueryString():'')+'&mini_cart_list=true';
+            options = Object.merge({
+                method:'post',
+                update: this.detailbox,
+                onSuccess:function(re){
+                    try{
+                        updateCartInfo();
+                        fixImageSize($$('img[data-img-zoom]'));
+                    }catch(e){}
+                    this.setHeight().addEvent();
+                }.bind(this)
+            },options);
+            return new Request.HTML(options).send();
+        }
+    };
+    MiniCarWidgets.init();
+    <{/if}>
+});
+</script>

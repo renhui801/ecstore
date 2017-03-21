@@ -1,0 +1,109 @@
+ <{css src="style/modify.css" app="cps" }>
+
+ <div>
+<div class="tabs-wrap clearfix">
+<ul>
+    <li class="tab current"><span>佣金比率设置</span></li>
+</ul>
+</div>
+<form action="index.php?app=cps&ctl=admin_setting&act=save" method="post">
+<div class="tableform" style="padding: 10px 0;">
+<table width="96%" border="0">
+    <tr>
+        <th>设置佣金比率：</th>
+        <td><input type="radio" name="prateType" id="prateType1" value="whole" <{if $pRateType == 'whole' || $pRateType == ''}>checked="checked"<{/if}> onclick="rateRadioClick(this.value);">统一设置&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="prateType" id="prateType2" value="cat" <{if $pRateType == 'cat'}>checked="checked"<{/if}> onclick="rateRadioClick(this.value);">按商品分类设置</td>
+    </tr>
+    <tr class="tr1">
+        <td>&nbsp;</td>
+        <td><input type="text" name="prate" vtype="required&&unsignedint" class="x-input" value="<{$pRate}>"> %</td>
+    </tr>
+    <tr class="tr1">
+        <td>&nbsp;</td>
+        <td>数值为1~100的整数，建议控制在5~20为佳。</td>
+    </tr>
+    <tr class="tr1">
+        <td>&nbsp;</td>
+        <td>佣金比率是指联盟商利润与推广商品产生的价格总合之间的比率。</td>
+    </tr>
+    <tr class="tr1">
+        <td>&nbsp;</td>
+        <td>比率设置越高，联盟商获得利益越高。</td>
+    </tr>
+    <tr class="tr2">
+          <td class="">&nbsp;</td>
+        <td class=" ">
+        <table>
+  <tr>
+    <td width="380"><table>
+        <{foreach from=$catRate item=cr key=key}>
+		  <tr class="tr2">
+            <td><{$cr.cat_name}>：</td>
+            <td><input type="text" name="catRate[<{$key}>]" vtype="required&&unsignedint" value="<{$cr.cRate}>"> %</td>
+            </tr>
+        <{/foreach}>
+        </table></td>
+    <td><p>数值为1~100的整数，建议控制在5~20为佳。<br>佣金比率是指联盟商利润与推广商品产生的实际支付费用（去除邮费）之间的比率。<br>比率设置越高，联盟商获得利益越高。</p></td>
+  </tr>
+</table>              
+</td>
+</tr>
+</table>
+<hr/>
+<table>
+    <tr>
+        <th>订单自动有效周期：<input type="hidden" name="prevOrderProfitDate" value="<{$orderProfitDate}>"></th>
+        <td><input type="text" name="orderProfitDate" vtype="required&&unsigedint" class="x-input" value="<{$orderProfitDate}>"> 天</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>订单自生成后一段时间内变更有效状态，有效订单才会发放佣金。请根据运营情况设置，<br>建议设定在7~20天。</td>
+    </tr>
+</table>
+<hr />
+<table>
+    <tr>
+        <th>Cookie有效时间：<input type="hidden" name="prevCookiePeriod" value="<{$cookiePeriod}>"></th>
+        <td><input type="text" name="cookiePeriod" vtype="required&&unsigedint" class="x-input" value="<{$cookiePeriod}>"> 天</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>买家通过联盟商广告进入B2C网站购物后联盟商获得佣金的有效时间，时间越长，联盟商可<br>能获得利益更多，建议15~30天。</td>
+    </tr>
+</table>
+<hr />
+<table>
+  <tr>
+    <th>佣金结算日：</th>
+	<td><{t}>每月<{/t}><{input type="number" vtype='required' name="settlementDate" size="5" value=$settlementDate}><{t}>号<{/t}></td>
+  </tr>
+  <tr><th>&nbsp;</th><td>佣金结算日表示计算上月佣金生成报表的日子，建议1~28号。</td></tr>
+</table>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确定设置"}></div>
+</div>
+</form>
+</div>
+<script>
+var rateRadioClick = function(rValue){
+    if(rValue == 'cat'){
+        $$('.tr1').each(function(e){
+            e.style.display = "none";
+        });
+        $$('.tr2').each(function(e){
+            e.style.display = "";
+        });
+    }else if(rValue == 'whole'){
+        $$('.tr2').each(function(e){
+            e.style.display = "none";
+        });
+        $$('.tr1').each(function(e){
+            e.style.display = "";
+        });
+    }
+}
+if($("prateType2").checked == true){
+    rateRadioClick('cat');
+}else{
+    rateRadioClick('whole');
+}
+
+</script>

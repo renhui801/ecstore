@@ -1,0 +1,35 @@
+<form>
+  <div style="margin:10px">
+    <table id="levelPriceEditor" class="gridlist" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <th><{t}>会员等级<{/t}></th>
+          <th><{t}>价格<{/t}></th>
+          <th><{t}>折扣<{/t}></th>
+        </tr>
+      </thead>
+      <tbody>
+        <{foreach name=item from=$mPrice item=level key=level_id}>
+        <tr>
+          <td><{$level.name}></td>
+          <td><{input size="4" type="text" value=$level.price name="{$level_id}" vtype="positive"}></td>
+          <td><{$level.dis_count}></td>
+        </tr>
+        <{/foreach}>
+      </tbody>
+    </table>
+  </div>
+  <div class="mainFoot">
+    <div class="table-action">
+      <{button label=$___b2c="确定"|t:'b2c' onclick="check(this.form);"}>
+    </div>
+  </div>
+</form>
+<script>
+var check=function(el){
+    var inp=$ES('input[vtype=positive]','levelPriceEditor');
+    if(!validate(el)) return;
+    window.fbox.onSelect(inp);
+    window.fbox.hide();
+}
+</script>

@@ -1,0 +1,69 @@
+<h3><{t}>商品批量导入<{/t}></h3>
+<div class="division">
+  <div class="span-8">
+    <div class="span-auto">
+      <i class="font-blue f-20">1 <i class="font-gray">&raquo;&raquo;</i></i>
+    </div>
+    <div class="span-auto">
+      <form id="export_form" target="uploadframe" method="post" action="index.php?app=importexport&ctl=admin_import&act=export_template" class="tableform"  enctype="multipart/form-data">
+        <h4><{t}>商品数据模板下载<{/t}></h4>
+        <input type='hidden' value='goods' name='name'/>
+        <input type='hidden' value='b2c' name='app'/>
+        <input type='hidden' value='b2c_mdl_goods' name='mdl'/>
+
+        <div class="division">
+          <table border="0" cellspacing="0" class="gridlist" cellpadding="0">
+            <tr>
+              <td style='width:200px;height:30px;'>支持文件类型：</td>
+              <td style='text-align:left;'><select id='filetype' name='filetype'><{foreach from=$import_type key=k item=v}><option value='<{$k}>'><{$v}></option><{/foreach}></select></td>
+            </tr>
+            <tr>
+              <td style='width:100px;height:30px;'>选择商品类型：</td>
+              <td style='text-align:left;'>
+                <select name='group_col'>
+                  <{foreach from=$gtype item=item}>
+                  <option value='<{$item.type_id}>'><{$item.name}></option>
+                  <{/foreach}>
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="table-action">
+          <{button class="btn-primary" label=$___b2c="下载"|t:'b2c' type="button" onclick="$('export_form').submit();"}>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="span-3">
+    <div class="span-auto">
+      <i class="font-blue f-20">2<i class="font-gray">&raquo;&raquo;</i></i>
+    </div>
+    <div class="span-auto">
+      <div class="tableform">
+        <h4><{t}>完成填写<{/t}></h4>
+      </div>
+    </div>
+  </div>
+  <div class="span-10">
+    <div class="span-auto">
+      <i class="font-blue f-20">3<i class="font-gray">&raquo;&raquo;</i></i>
+    </div>
+    <div class="span-auto">
+      <div class="tableform">
+        <h4><{t}>商品导入<{/t}></h4>
+      </div>
+      <div class="span-auto">
+        <div id="goods_import_panel" >
+          loading...
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    W.page('index.php?app=importexport&ctl=admin_import&act=import_view&_params[app]=b2c&_params[mdl]=b2c_mdl_goods',{update: 'goods_import_panel'});
+  }).delay(1);
+</script>

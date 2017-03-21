@@ -1,0 +1,43 @@
+
+<td colspan="4">
+  <{if $cart_promotion_display == 'true'}>
+  <!-- 订单获得的优惠促销 -->
+  <div class="order-promotion" id="order_promotion">
+    <h3><a href="javascript:void(0);" class="btn-collapse">-</a><{t}>订单优惠<{/t}></h3>
+    <ul class="content">
+      <{foreach from=$aCart.promotion.order item=item}>
+      <li><b class="f-red">[<{$item.desc_tag}>]</b><{$item.name}></li>
+      <{/foreach}>
+    </ul>
+  </div>
+  <!-- 未享受到的优惠促销 -->
+  <div class="unused-promotion" id="unused_promotion">
+      <h3><a href="javascript:void(0);" class="btn-collapse">+</a><{t}>您还未享受到的优惠<{/t}></h3>
+    <ul class="content hide">
+      <{foreach from=$unuse_rule item=rule}>
+      <li><b class="f-red">[<{$rule.desc_tag}>]</b><{$rule.name}></li>
+      <{/foreach}>
+    </ul>
+  </div>
+  <script type="text/javascript">
+  var o = $('#order_promotion,#unused_promotion');
+  o.find('.btn-collapse').on('click',function(){
+    if( $(this).html()=='-' ){
+      $(this).html('+').parent().next().toggleClass('hide');
+      return;
+    }
+
+    var list = o.find('.content'),
+        handle = o.find('.btn-collapse'),
+        n;
+    if( handle[0]==this )n = 1;
+    else n = 0;
+
+    $(this).html('-');
+    $(this).parent().next().removeClass('hide');
+    handle.eq(n).html('+');
+    list.eq(n).addClass('hide');
+  });
+  </script>
+  <{/if}>
+</td>

@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//controller/default.php:15
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//controller/normallogs.php:15
+msgid "操作日志"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:23
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/normallogs.php:23
+msgid "操作员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:35
+msgid "姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:47
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/normallogs.php:56
+msgid "操作时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:58
+msgid "普通"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:59
+msgid "会员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:60
+msgid "商品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:61
+msgid "订单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:64
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/normallogs.php:47
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:58
+msgid "操作类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:73
+msgid "主关键字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:82
+msgid "操作内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:90
+msgid "登录IP"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/logs.php:119
+msgid "操作日志表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/normallogs.php:35
+msgid "模块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/normallogs.php:67
+msgid "日志内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:23
+msgid "程序目录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:29
+msgid "控制器"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:35
+msgid "动作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:41
+msgid "post方法"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:42
+msgid "get方法"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:46
+msgid "提交方法"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:52
+msgid "日志模块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:64
+msgid "模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:70
+msgid "参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/operatorlog//dbschema/register.php:77
+msgid "修改项唯一值"
+msgstr ""
+

@@ -1,0 +1,15 @@
+<desktop>
+
+    <permissions>
+        <permission id="wapbasic" display='true'>基本配置</permission>
+        <permission id="waptheme" display='true'>模板设置</permission>
+    </permissions>
+
+    <workground name="移动" id="wap.workground.theme" controller="admin_theme_manage" action="index" order='70'>
+        <menugroup name="移动端配置">
+            <menu controller='admin_theme_manage' action='index' permission='waptheme' display='true' order='10'>模板列表</menu>
+            <menu controller='admin_setting' action='index' permission='wapbasic' display='true' order='20'>基本配置</menu>
+            <!-- <menu controller='admin_module' action='index' permission='wapbasic' display='true' order='30'>系统模块</menu> -->
+        </menugroup>
+    </workground>
+</desktop>

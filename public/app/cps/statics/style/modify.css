@@ -1,0 +1,101 @@
+table.tabblue{ border-collapse:collapse;margin-bottom:20px;}
+table.tabblue th,table.tabblue td{border: 1px solid #E5EFF8; color: #678197;font-weight: normal; padding: 0.3em 1em;text-align: left;}
+.tableform td{ padding-left:10px;}
+h3.title{ height:30px; line-height:30px; color:#333;
+text-shadow:#fff 1px 1px 0; border-top:1px #efefef solid;
+background-image: -moz-linear-gradient(top, #fff, #ccc); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ccc)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc', GradientType='0'); /* IE*/  }
+.long-width{ width:400px;}
+.precent {position:relative; z-index:88; display:block; zoom:1;}
+
+/*detail*/
+.tabnone td{ border:0;}
+table td.tab-td3 span{ width:auto;}
+col.td3{ width:280px;}
+col.td6{width:40px;}
+.tab-td4{ text-align:center;}
+.tab-td5{ width:80px; text-align:center;}
+.tab-td6{ text-align:center;}
+.tab1{ table-layout:inherit}
+table td.tab-td3{ width:auto;}
+.yj_xiangqing table{ border:1px solid #f1dbbf; border-collapse:collapse; width:100%}
+.yj_xiangqing th{ border:1px solid #f1dbbf; border-collapse:collapse; padding:5px;text-align: center;}
+.yj_xiangqing td{ border:1px solid #f1dbbf; border-collapse:collapse; padding:5px;}
+.yj_xiangqing .tabnone  { border:none;}
+.yj_xiangqing .tabnone th{ border:none;}
+.yj_xiangqing .tabnone td{ border:none;}
+.o_valid{background-color: #EEFFEE;}
+
+/*gencode*/
+.dama_m_line { width:740px; overflow:hidden;}
+.dama_m_tit{clear:both}
+
+/*order*/
+#yj_ss span.notice-inline{ display:block;  width:60px; line-height:16px; height:16px; margin:4px 0 0 0;}
+
+
+/*register_refuse*/
+h2{ font-size:16px;  line-height:180%; width:350px; margin:0 auto;}
+h2 i{  width:60px; height:60px; margin-right:30px; float:left;}
+h2 span{ }
+.lightbox{
+padding:30px;
+background-image: -moz-linear-gradient(top, #fff, #efefef); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #efefef)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType='0'); /* IE*/
+text-shadow:#fff 1px 1px 0;
+}
+.btn-gray{
+padding:4px 10px; cursor:pointer;
+margin:0 5px;
+color:#333333;
+border:1px #999 solid;
+text-shadow:#fff 1px 1px 0;
+background-image: -moz-linear-gradient(top, #fff, #ccc); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ccc)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc', GradientType='0'); /* IE*/
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-webkit-box-shadow:#ccc 0 0 2px ;
+-moz-box-shadow:#ccc 0 0 2px;}
+.btn-space{ text-align:center; padding:20px 0; border-top:1px #ccc dashed; margin-top:20px;}
+
+/*register_check*/
+h2{ font-size:16px;  line-height:180%; width:350px; margin:0 auto;}
+h2 i{  width:60px; height:60px; margin-right:30px; float:left;}
+ .lightbox{
+padding:30px;
+background-image: -moz-linear-gradient(top, #fff, #efefef); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #efefef)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#efefef', GradientType='0'); /* IE*/
+text-shadow:#fff 1px 1px 0;
+}
+.btn-gray{
+padding:4px 10px; cursor:pointer;
+margin:0 5px;
+color:#333333;
+border:1px #999 solid;
+text-shadow:#fff 1px 1px 0;
+background-image: -moz-linear-gradient(top, #fff, #ccc); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ccc)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc', GradientType='0'); /* IE*/
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-webkit-box-shadow:#ccc 0 0 2px;
+-moz-box-shadow:#ccc 0 0 2px;}
+.btn-space{ text-align:center; padding:20px 0; border-top:1px #ccc dashed; margin-top:20px;}
+
+/*bar*/
+.trustlogin { background:url(<{$data.res_url}>/icons/thridparty1.gif) no-repeat left; padding-left:18px; height:20px; line-height:20px; }
+#accountlogin{visibility:hidden;cursor:pointer;padding-top:0px; position:absolute; border:2px solid #BADBF2; background:#fff; }
+.logoimg { margin:0 2px 0 2px;}
+
+
+/*lost*/
+.loginbox{padding:10px;}
+.loginbox li{padding:4px 0;}
+.loginbox li .but_bgred{margin-left:80px;float: none}
+.RegisterWrap{margin:10px 0 10px 90px;}
+.RegisterWrap p{line-height: 25px;}
+.RegisterWrap .but_bgred{float: none;margin-left:120px;}

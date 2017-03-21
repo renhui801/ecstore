@@ -1,0 +1,74 @@
+<!-- 促销信息 -->
+<div class="pt-promotions">
+    <span class="icon red">
+        促
+    </span>
+    <!-- 商品促销标签 -->
+    <{foreach from=$page_product_basic.promotion.goods item=goods}>
+    <span class="ib gray">
+        <{$goods.tag}>
+    </span>
+    <{/foreach}>
+
+    <!-- 订单促销标签 -->
+    <{foreach from=$page_product_basic.promotion.order item=order}>
+    <span class="ib gray">
+        <{$order.tag}>
+    </span>
+    <{/foreach}>
+    <span class="arr right"></span>
+</div>
+
+<!-- 促销具体名称 -->
+<div class="promotions-panel tab" style="display:none">
+    <ul class="trigger-list">
+        <li class="trigger act" data-target="0">商品促销</li>
+        <li class="trigger" data-target="1">订单促销</li>
+    </ul>
+
+    <div class="panel act">
+        <ul>
+            <{foreach from=$page_product_basic.promotion.goods item=goods}>
+            <{if $goods.use == 'true'}>
+            <li>
+              <span>[<{$goods.tag}>]</span><{$goods.name}>
+              <{if $goods.gift}>
+              <{foreach from=$goods.gift item=giftid}>
+                <br>
+                <img src="<{$page_product_basic.promotion.gift.$giftid.image_default_id|storager:'s'}>" alt="<{$page_product_basic.promotion.gift.$giftid.name}>" width="24" height="24">
+                <{$page_product_basic.promotion.gift.$giftid.name}>
+              <{/foreach}>
+              <{/if}>
+            </li>
+            <{else}>
+            <li class="disable">
+              <span title="会员等级不符，您不能享受此优惠">[<{$goods.tag}>]</span><{$goods.name}>
+              <{if $goods.gift}>
+              <{foreach from=$goods.gift item=giftid}>
+                <br>
+                <img src="<{$page_product_basic.promotion.gift.$giftid.image_default_id|storager:'s'}>" alt="<{$page_product_basic.promotion.gift.$giftid.name}>" width="24" height="24">
+                <{$page_product_basic.promotion.gift.$giftid.name}>
+              <{/foreach}>
+              <{/if}>
+            </li>
+            <{/if}>
+            <{/foreach}>
+        </ul>
+    </div>
+    <div class="panel">
+        <ul>
+            <{foreach from=$page_product_basic.promotion.order item=order}>
+            <li>
+              <span>[<{$order.tag}>]</span><{$order.name}>
+              <{if $order.gift}>
+              <{foreach from=$order.gift item=giftid}>
+                <br>
+                <img src="<{$page_product_basic.promotion.gift.$giftid.image_default_id|storager:'s'}>" alt="<{$page_product_basic.promotion.gift.$giftid.name}>" width="24" height="24">
+                <{$page_product_basic.promotion.gift.$giftid.name}>
+              <{/foreach}>
+              <{/if}>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+</div>

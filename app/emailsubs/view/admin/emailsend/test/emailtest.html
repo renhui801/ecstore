@@ -1,0 +1,39 @@
+<style type="text/css">
+.tab2{ border-collapse:collapse; margin-bottom:20px;}
+.tab2 td,.tab2 th{ background:#f4f9fd; padding:3px; border:1px #e6edf3 solid; padding:5px;}
+.tab2 th{ font-weight:bold;}
+</style>
+
+<div class="tableform">
+  <form method='post' action='index.php?app=emailsubs&ctl=admin_emailsend&act=doTestemail'>
+   <table cellpadding="0" cellspacing="0" border="0" class="tab2">
+  <tr>
+		<th><{t}>测试邮箱地址：<{/t}></th>
+		<td>
+			<{input type='email' vtype='required' name='email' size=30}>
+			<div style="padding:10px 0; color:#FF9900;">
+				<{t}>发送前请确认<{/t}><a style=" color:#FF9900; text-decoration:underline;"href='index.php?app=emailsubs&ctl=admin_emailsend&act=setting&p[0]=<{$emailcont.ec_id}>'><{t}>邮箱设置<{/t}></a>
+			</div>
+		</td>
+  </tr>
+  <tr>
+		<th><{t}>测试邮件模板：<{/t}></th>
+		<td><{$emailcont.ec_title}></td>
+  </tr>
+  </table>
+ 
+	<div class="table-action">
+		<{button label=$___emailsubs="确定发送"|t:'emailsubs' type="submit" id='test-submit'}>
+	</div>
+	<input type='hidden' name='ec_id' value='<{$emailcont.ec_id}>'>
+  </form>
+</div>
+<script>
+$('test-submit').addEvent('click',function(e){
+	var ec_id = $E('input[name=ec_id]').getValue();
+	if (!ec_id){
+		MessageBox.error('请选择模板!');
+		e.stop();
+	}
+});
+</script>

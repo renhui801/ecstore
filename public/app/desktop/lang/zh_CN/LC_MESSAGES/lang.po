@@ -1,0 +1,3190 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:17
+msgid "APP管理已被禁用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:30
+msgid "应用程序管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:33
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:36
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:65
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:65
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/dashboard.html:126
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/dashboard.html:126
+msgid "检查更新"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:50
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/prototype.php:206
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:13
+msgid "全部"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:51
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:29
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:33
+msgid "已安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:52
+msgid "未安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:61
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/widgets/appolymer.php:19
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:3
+msgid "应用程序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:64
+msgid "已安装的应用程序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:96
+msgid "以下应用将被安装, 是否继续?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:101
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:112
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:212
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:223
+msgid "(被依赖)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:101
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:212
+msgid "与"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:101
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:212
+msgid "存在冲突"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:105
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:216
+msgid "请手工卸载冲突应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:167
+msgid "以下应用将被删除, 是否继续?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:171
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:193
+msgid "(依赖)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:189
+msgid "以下应用将被停用, 是否继续?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/appmgr.php:207
+msgid "以下应用将被启用或安装, 是否继续?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/backup.php:12
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/debug.php:12
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:3
+msgid "数据备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/backup.php:37
+msgid "正在准备备份应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/backup.php:40
+msgid "正在备份应用："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/backup.php:45
+msgid "备份完成"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/backup.php:59
+msgid "非法操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/certificate.php:32
+msgid "证书格式不对"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/certificate.php:72
+msgid "上传证书无效"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/certificate.php:77
+msgid "证书重置失败,请先上传文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/certificate.php:80
+msgid "证书上传成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/certificate.php:86
+msgid "请选择要上传的文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/cleanexpired.php:19
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/passport.php:89
+msgid "已成功退出系统,正在转向..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/comeback.php:21
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:60
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:78
+msgid "数据恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/comeback.php:65
+msgid "恢复完成"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/comeback.php:68
+msgid "正在恢复第"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/comeback.php:68
+msgid "卷 共"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/comeback.php:68
+msgid "卷"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/comeback.php:78
+msgid "数据错误！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/comeback.php:80
+msgid "移除成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/crontab.php:8
+msgid "计划任务管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:144
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/default.php:268
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/column.php:20
+msgid "设置成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:182
+msgid "原始密码不正确"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:188
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:92
+msgid "两次密码不一致"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:198
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:100
+msgid "密码修改成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:205
+msgid "原始密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:206
+msgid "新密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:207
+msgid "再次输入新密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:250
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:251
+msgid "申请失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:256
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/dashboard.php:257
+msgid "申请成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/default.php:38
+msgid "管理后台"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/default.php:121
+msgid "保存成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/default.php:216
+msgid "参数错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/default.php:290
+msgid "您有新短消息！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:22
+msgid "上传"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:50
+msgid "所有图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:96
+msgid "行数："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:100
+msgid "列数:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:106
+msgid "边框粗细:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:110
+msgid "对齐标题:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:113
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:388
+msgid "默认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:114
+msgid "左边"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:115
+msgid "中间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:116
+msgid "右边"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:121
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:128
+msgid "表格宽度:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:125
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:129
+msgid "像素"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:126
+msgid "百分比"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:134
+msgid "单元格边距"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:138
+msgid "单元格间距"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:144
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:288
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:401
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/allmenu.html:22
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:71
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/object_selector.html:118
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/pam.html:12
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/add_roles.html:27
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/chkpass.html:23
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/edit_roles.html:27
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:38
+msgid "确定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:145
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:289
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:402
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/allmenu.html:23
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/uninstall.html:1
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:72
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/object_selector.html:119
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:14
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/license.html:4
+msgid "取消"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:191
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:4
+msgid "文本："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:194
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:31
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:8
+msgid "标题："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:195
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:9
+msgid "当鼠标移至链接上时，会显示链接标题。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:200
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:13
+msgid "在新窗口中打开链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:203
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:16
+msgid "链接到："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:206
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:17
+msgid "链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:208
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:67
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:18
+msgid "商品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:210
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:19
+msgid "页面"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:212
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:21
+msgid "文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:214
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:22
+msgid "电子邮件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:222
+msgid "链接地址:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:232
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:37
+msgid "查找商品："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:233
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:38
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:56
+msgid "查找"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:245
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:45
+msgid "页面地址:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:268
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:55
+msgid "查找文章:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:280
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:62
+msgid "邮件地址:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:369
+msgid "选择上传图片的方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:370
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/tools/uploader.html:9
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/ui/input_image_btn.html:3
+msgid "上传图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:371
+msgid "网络图片地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:372
+msgid "使用图库"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:373
+msgid "从您的电脑中挑选一张图片："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:374
+msgid "为图片设置标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:375
+msgid "请输入标签名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:376
+msgid "请选择标签名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:377
+msgid "建议为图片设置标签,以方便管理图库"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:378
+msgid "输入一张网络图片的网址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:379
+msgid "复制网络上的一张图片路径到上面的输入框"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:380
+msgid "例如:"http://www.example.com/images/pic.jpg""
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:381
+msgid "从网店图库中挑选一张图片："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:382
+msgid "按标签过滤:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:383
+msgid "显示所有"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:384
+msgid "请点击选择要使用的图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:385
+msgid "读取图片库，请稍侯..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:386
+msgid "设置图片属性"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:387
+msgid "位置："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:389
+msgid "上对齐"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:390
+msgid "底对齐"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:391
+msgid "文字环绕"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:392
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:5
+msgid "左对齐"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:393
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:7
+msgid "右对齐"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:394
+msgid "缩放："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:395
+msgid "最宽:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:396
+msgid "最高:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:397
+msgid "(等比例缩放图片的设置.)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:398
+msgid "连接："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:399
+msgid "点击图片链接到原图."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:400
+msgid "点击图片链接到指定地址:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:403
+msgid "正在上传..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:404
+msgid "图片上传失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:405
+msgid "正在校验这张图片..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:406
+msgid "图片来源不正确!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:407
+msgid "没有要使用的图片源."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:608
+msgid "请输入关键字。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:632
+msgid "没有符合条件""
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:632
+msgid ""的记录。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/editor.php:738
+msgid "列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:28
+msgid "发送方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:28
+msgid "使用本服务器发送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:28
+msgid "使用外部SMTP发送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:29
+msgid "发信人邮箱"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:30
+msgid "smtp服务器地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:31
+msgid "smtp服务器端口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:32
+msgid "smtp用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:33
+msgid "smtp密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:43
+msgid "配置保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:61
+msgid "来自["
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:61
+msgid "]网店的测试邮件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:62
+msgid "这是一封测试邮箱配置的邮件，您的网店能正常发送邮件。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:67
+msgid "无法发送测试邮件，下面是出错信息："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:71
+msgid "已成功发送一封测试邮件，请查看接收邮箱。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:101
+msgid "发送成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/email.php:104
+msgid "发送失败，请检查邮箱配置！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/filter.php:33
+msgid "筛选器保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/filter.php:45
+msgid "筛选器删除成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:30
+msgid "未读"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:31
+msgid "已读"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:32
+msgid "星标"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:59
+msgid "事务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:60
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:70
+msgid "账号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:61
+msgid "状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:71
+msgid "记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/flow.php:72
+msgid "手机访问"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/pam.php:13
+msgid "通行证管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/pam.php:26
+msgid "配置失败,前台必须开启一种认证方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/pam.php:35
+msgid "配置失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/pam.php:47
+msgid "配置成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/queue.php:15
+msgid "队列管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/queue.php:17
+msgid "全部启动"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/queue.php:18
+msgid "全部暂停"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/queue.php:33
+msgid "启动成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/queue.php:44
+msgid "暂停成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:22
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/service/view/menu.php:14
+msgid "回收站"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:45
+msgid "重新生成唯一性的字段后新增"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:45
+msgid "不做恢复处理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:74
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:80
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:91
+msgid "恢复失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:99
+msgid "恢复成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:121
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:130
+msgid "删除失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/recycle.php:136
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/dorecycle.php:46
+msgid "删除成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:22
+msgid "角色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:24
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:24
+msgid "新建角色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:94
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:132
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:26
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:55
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/detail-in-one.html:67
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/detail-in-one.html:72
+msgid "保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:96
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:134
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:57
+msgid "保存失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:122
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:186
+msgid "工作组名称不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:126
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:190
+msgid "请至少选择一个权限"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/roles.php:130
+msgid "该工作组名称已存在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/rpcnotify.php:17
+msgid "通知已被禁用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/rpcnotify.php:24
+msgid "通知"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/rpcnotify.php:26
+msgid "标记为已读"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/rpcnotify.php:48
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/rpcnotify.php:60
+msgid "操作失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/rpcnotify.php:60
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:301
+msgid "操作成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:28
+msgid "标题设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:39
+msgid "系统配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:90
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:95
+msgid "后台登录启用验证码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:90
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:95
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/filter/render.php:52
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/the_filter.html:20
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:11
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:7
+msgid "是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:90
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/system.php:95
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:11
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:7
+msgid "否"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/tags.php:17
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:383
+msgid "标签管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/tags.php:19
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/tags.php:19
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:385
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:385
+msgid "新建普通标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/tags.php:47
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:26
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:420
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:465
+msgid "标签名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/tags.php:48
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:70
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:421
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:466
+msgid "标签备注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/tags.php:49
+msgid "标签背景色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:21
+msgid "操作员管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:23
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:23
+msgid "添加管理员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:35
+msgid "请至少选择一个工作组"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:89
+msgid "超级管理员密码不正确"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:121
+msgid "编辑失败,参数丢失！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:123
+msgid "编辑失败,参数错误！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:124
+msgid "不能编辑超级管理员！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:129
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:148
+msgid "编辑成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:151
+msgid "请至少选择一个工作组！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//controller/users.php:168
+msgid "无内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:28
+msgid "finder过滤器ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:34
+msgid "筛选器名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:39
+msgid "过滤条件名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:45
+msgid "用户id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:51
+msgid "过滤器所属后台用户ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:57
+msgid "表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:62
+msgid "过滤器对应的model(表名)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:68
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:632
+msgid "筛选条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:72
+msgid "过滤器对应的过滤条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:78
+msgid "控制器"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:81
+msgid "过滤器对应的controller(控制器)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:87
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:45
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:50
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:34
+msgid "应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:90
+msgid "过滤器对应的app(应用)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:96
+msgid "方法"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:99
+msgid "过滤器对应的act(方法)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:106
+msgid "建立时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:111
+msgid "过滤器创建时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/filter.php:114
+msgid "后台搜索过滤器表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:14
+msgid "序号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:25
+msgid "发送者"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:28
+msgid "管理员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:29
+msgid "系统"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:30
+msgid "站外"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:31
+msgid "用户"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:42
+msgid "操作员ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:46
+msgid "消息标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:56
+msgid "消息描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:65
+msgid "内容本体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:78
+msgid "IP"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:82
+msgid "直送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:83
+msgid "广播"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:84
+msgid "收取"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:95
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:34
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle.html:20
+msgid "类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:100
+msgid "发送时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/flow.php:105
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/role_flow.php:24
+msgid "信息表(废弃)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/hasrole.php:17
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:24
+msgid "后台用户ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/hasrole.php:24
+msgid "角色ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/hasrole.php:28
+msgid "后台权限, 角色和用户关联表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:16
+msgid "后台菜单ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:25
+msgid "菜单类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:34
+msgid "所属app(应用)ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:38
+msgid "顶级菜单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:42
+msgid "菜单组"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:47
+msgid "菜单标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:51
+msgid "菜单对应执行的url路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:60
+msgid "是否显示"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:64
+msgid "权限,有效显示范围"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:68
+msgid "额外信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:73
+msgid "跳转"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:78
+msgid "排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:83
+msgid "父节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/menus.php:112
+msgid "后台菜单表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:19
+msgid "回收站表ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:24
+msgid "名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:51
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:54
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:38
+msgid "app(应用)ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:55
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle.html:21
+msgid "删除时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:66
+msgid "记录值,sdf序列化"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:70
+msgid "相关权限"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/recycle.php:77
+msgid "回收站表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/roles.php:18
+msgid "工作组id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/roles.php:23
+msgid "管理员角色ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/roles.php:29
+msgid "角色名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/roles.php:37
+msgid "对应有权限的顶级菜单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/roles.php:45
+msgid "管理员角色表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:19
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:20
+msgid "tag ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:37
+msgid "普通标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:38
+msgid "自动标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:41
+msgid "标签类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:61
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:48
+msgid "标签对应的model(表)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:79
+msgid "标签背景颜色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:88
+msgid "标签字体颜色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:97
+msgid "标签条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:108
+msgid "关联的个数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag.php:129
+msgid "finder tag(标签)表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:29
+msgid "对象ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:45
+msgid "标签对象"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:53
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:51
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:8
+msgid "更新时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/tag_rel.php:60
+msgid "tag和对象关联表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/user_flow.php:44
+msgid "用户信息表(废弃)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:18
+msgid "用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:30
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:28
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:32
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/pam.php:16
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:7
+msgid "启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:40
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:6
+msgid "姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:51
+msgid "最后登录时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:61
+msgid "配置信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:67
+msgid "爱好"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:74
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:35
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:7
+msgid "超级管理员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:84
+msgid "上次登录ip"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:91
+msgid "登录次数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:108
+msgid "编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:112
+msgid "操作员no"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:117
+msgid "备注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//dbschema/users.php:135
+msgid "商店后台管理员表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:57
+msgid "您无权操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:422
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:467
+msgid "标签颜色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:423
+msgid "标签字体景色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:425
+msgid "如果新建的标签已经存在，则此操作变为编辑原标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/controller.php:468
+msgid "标签字体色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:20
+msgid "升级并安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:21
+msgid "下载并安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:22
+msgid "安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:27
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:31
+msgid "停用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:29
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:33
+msgid "卸载"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/apps.php:36
+msgid "升级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/column.php:51
+msgid "拖动改变顺序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/column.php:52
+msgid "保存提交"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/dorecycle.php:48
+msgid "删除失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/filter/render.php:88
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:299
+msgid "标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/settag.php:32
+msgid "标签设置失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/settag.php:46
+msgid "标签重复添加！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/settag.php:71
+msgid "标签设置成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/to/import.php:76
+msgid "上传成功 已加入队列 系统会自动跑完队列"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/to/import.php:78
+msgid "但是存在以下问题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/to/run/import.php:45
+msgid "瀵煎叆鍟嗗搧涓虹┖"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:263
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:8
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:9
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:8
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:28
+msgid "条"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:294
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:294
+msgid "新建"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:302
+msgid "为选中项打标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:302
+msgid "设置标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:312
+msgid "标签设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:321
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/tagsetter.html:44
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/the_filter.html:22
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:60
+msgid "删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:321
+msgid "确定删除选中项？删除后可进入回收站恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:325
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:325
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/export.html:11
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/export.html:10
+msgid "导出"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:329
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:329
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/import.html:7
+msgid "导入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:508
+msgid "拖动改变列宽"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:509
+msgid "列宽"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:535
+msgid "不限"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:629
+msgid "查看"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:670
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:670
+msgid "展开"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:671
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:671
+msgid "新窗"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:731
+msgid "在新窗口查看"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/builder/view.php:736
+msgid "展开查看"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/crontab.php:11
+msgid "编辑计划任务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/crontab.php:11
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/magicvars.php:12
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/tag.php:12
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/users.php:20
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/users.php:23
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/href.html:1
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/crontab.php:11
+msgid "执行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/recycle.php:15
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle.html:42
+msgid "彻底删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/recycle.php:15
+msgid "确定删除选中项？删除后将不可恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/recycle.php:16
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/recycle.php:16
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle.html:41
+msgid "恢复所选"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/tag.php:12
+msgid "链接编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/users.php:20
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/finder/users.php:23
+msgid "编辑操作员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/service/view/menu.php:12
+msgid "应用中心"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/service/view/menu.php:13
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/adminpanel.html:1
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_roles.html:29
+msgid "控制面板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/service/view/menu.php:15
+msgid "桌面"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/user.php:128
+msgid "无任何权限"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/view/input.php:46
+msgid "选择"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//lib/view/input.php:190
+msgid "请选择..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/pam.php:15
+msgid "通行证"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/pam.php:17
+msgid "后台启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/pam.php:18
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:50
+msgid "版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:23
+msgid "角色下存在管理员,不能删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:68
+msgid "订单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:69
+msgid "会员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:70
+msgid "营销推广"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:71
+msgid "页面管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:72
+msgid "统计报表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:73
+msgid "商店配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:74
+msgid "工具箱"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:77
+msgid "采购中心"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:103
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:31
+msgid "操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/roles.php:196
+msgid "该名称已经存在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/users.php:43
+msgid "自己不能删除自己"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/users.php:119
+msgid "必填项不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/users.php:123
+msgid "两次密码输入不一致"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//model/users.php:129
+msgid "该用户名已存在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//setting.php:12
+msgid "日期格式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//setting.php:13
+msgid "日期时间格式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop//setting.php:15
+msgid "finder默认表头的宽度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/console.html:5
+msgid " 控制台"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/default_msg.html:8
+msgid "立即更新"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/default_msg.html:14
+msgid "是否要更新全部？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/default_msg.html:15
+msgid "立即更新全部"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:5
+msgid "应用中心简介"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:15
+msgid "当前安装的应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:26
+msgid "关闭程序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:28
+msgid "设置选项"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:32
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:35
+msgid "启用程序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:34
+msgid "清除数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:42
+msgid "作者"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/index.html:49
+msgid "安装量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:3
+msgid "应用信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:7
+msgid "简介:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:11
+msgid "证书:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:16
+msgid "开发者信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:19
+msgid "开发者:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:20
+msgid "Email:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:21
+msgid "www:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/info.html:26
+msgid "文档"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/install.html:1
+msgid "储存并继续"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/uninstall.html:1
+msgid "即将卸载"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/uninstall.html:1
+msgid "注意！卸载过程将："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/uninstall.html:1
+msgid "从数据库里删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/uninstall.html:1
+msgid "个表:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/uninstall.html:1
+msgid "复原你的"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/appmgr/uninstall.html:1
+msgid "流程。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/auth_error.html:6
+msgid "登录错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:8
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/login.html:14
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:6
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/chkpass.html:7
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:7
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:7
+msgid "用户名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:10
+msgid "密&nbsp;码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:11
+msgid "忘记密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:14
+msgid "Caps Lock键已开启,密码输入是大写状态!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:18
+msgid "验证码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:19
+msgid "看不清楚?换个图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:23
+msgid "下次自动登录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:28
+msgid "登 录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/basic-login.html:121
+msgid "登录中.."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:2
+msgid "缓存管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:4
+msgid "缓存状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:15
+msgid "无法查看缓存状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:18
+msgid "缓存操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:20
+msgid "优化缓存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:21
+msgid "清空缓存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:25
+msgid "静态缓存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cachemgr/index.html:65
+msgid "系统没有启用缓存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:1
+msgid "ShopEx证书是您享受ShopEx服务的唯一标识，它记录了您的商家信息、购买服务记录、充值帐户金额等重要信息。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:1
+msgid "您需要通过“证书下载备份”功能备份证书，并妥善保管。在您遇到商店系统需要重新安装时，可以在新安装的系统中使用“证书上传恢复”功能将之前备份的证书恢复，这样新系统就可以继续使用证书内的重要信息。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:5
+msgid "证书下载备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:10
+msgid "当前证书:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:16
+msgid "如果删除证书，则无法恢复，确定要删除证书吗?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:17
+msgid "下载证书"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:18
+msgid "删除证书"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:23
+msgid "提示：只有在网络服务器安装的ShopEx商店系统才拥有证书功能，您的商店系统由于是在本地安装，所以无ShopEx证书，无法使用ShopEx证书下载和上传功能。如果您将本地的商店系统迁移至服务器，则会自动获得ShopEx证书。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:28
+msgid "证书上传恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:34
+msgid "请选择证书："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/certificate.html:42
+msgid "上传恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cleanexpired.html:2
+msgid "清除系统中原有的与shopex用户中心关联的数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cleanexpired.html:5
+msgid "当系统改变了域名，点击以下按钮退出后重新登录即可重新生成，以免影响绑定ocs，导致数据不同步"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/cleanexpired.html:8
+msgid "清除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/detail-in-one.html:57
+msgid "表单验证失败."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/dialog_recycle.html:2
+msgid "确定删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/dialog_recycle.html:3
+msgid "取消删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/dialog_recycle.html:4
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/tagsetter.html:3
+msgid "对选择的"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/dialog_recycle.html:4
+msgid "个条目进行删除操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/export.html:5
+msgid "导出类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/imglib.html:3
+msgid "选择上传的文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/imglib.html:3
+msgid "上传新图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/import.html:2
+msgid "上传.CSV文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/import.html:19
+msgid "只能上传.csv文件！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle.html:3
+msgid "选择所有"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle.html:19
+msgid "标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle_processtype.html:3
+msgid "如果选中的要恢复的记录，在原表已被占用，请选择下面的方式处理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/recycle_processtype.html:15
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/tagsetter.html:53
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/crontab/detail.html:53
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/email/config.html:23
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/filter2packet.html:19
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/main_menu_define.html:19
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:40
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:25
+msgid "保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/tag_menu.html:3
+msgid "按标签检索"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/tagsetter.html:3
+msgid "个条目应用标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/common/tagsetter.html:35
+msgid "增加新标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/dashboard.html:125
+msgid " 当前版本："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/dashboard.html:131
+msgid "你知道么?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/dashboard.html:132
+msgid "再一条"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/dlg_lnk.html:31
+msgid "链接地1址:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:6
+msgid "居中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:9
+msgid "添加链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:11
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:11
+msgid "插入表格"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:12
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:12
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:18
+msgid "插入图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:13
+msgid "插入横线"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:14
+msgid "加粗"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:15
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:10
+msgid "斜体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:16
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:11
+msgid "下划线"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:17
+msgid "中划线"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:18
+msgid "脚注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:19
+msgid "标注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:20
+msgid "排序列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:21
+msgid "无序列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:22
+msgid "减少缩进"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:23
+msgid "增加缩进"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:26
+msgid "字体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:27
+msgid "仿宋"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:28
+msgid "宋体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:29
+msgid "黑体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:30
+msgid "楷体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:31
+msgid "新宋体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:32
+msgid "雅黑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:33
+msgid "Tahoma"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:34
+msgid "Times"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:35
+msgid "Arial"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:36
+msgid "IMPACT"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:37
+msgid "Verdana"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:41
+msgid "字号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:50
+msgid "文字颜色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:51
+msgid "背景颜色"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style1.html:52
+msgid "HTML源码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:4
+msgid "返回可视化编辑模式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:8
+msgid "返回可视化编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:9
+msgid "粗体"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:9
+msgid "B"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:10
+msgid "i"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:11
+msgid "U"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:12
+msgid "超链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:12
+msgid "LINK"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:13
+msgid "DIV层"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:13
+msgid "DIV"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:14
+msgid "段落"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:15
+msgid "LI"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:15
+msgid "li"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:16
+msgid "BR"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:16
+msgid "换行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:17
+msgid "HR"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:17
+msgid "分割线"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:18
+msgid "图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/html_style2.html:99
+msgid "不能再小"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/object_selector.html:7
+msgid "筛选>>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/object_selector.html:17
+msgid "立刻筛选"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/object_selector.html:21
+msgid "<<筛选并返回列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/the_filter.html:2
+msgid "添加筛选条件："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/the_filter.html:9
+msgid "您可以选择添加多个筛选条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/editor/the_filter.html:10
+msgid "删除所有筛选条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/email/config.html:25
+msgid "测试配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/email/testemail.html:6
+msgid "测试接收邮箱:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/email/testemail.html:7
+msgid "测试"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/email/testemail.html:14
+msgid "邮箱格式错误!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/export.html:2
+msgid "csv-逗号分隔的文本文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:7
+msgid "按类型筛选"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:10
+msgid "全部类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:18
+msgid "按价格区间筛选"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:19
+msgid " 元"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:22
+msgid "按商品关键词筛选"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:23
+msgid "如果填写商品关键词，则只有符合该关键词搜索条件的商品才会出现在本虚拟分类，具体如下："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:23
+msgid "1、商品名称中包含该关键词"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:23
+msgid "2、商品中的商品关键词中有任何一个等于该关键词"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/filter.html:23
+msgid "3、商品中的货号或商品编号等于该关键词"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:4
+msgid "筛选项"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:15
+msgid "使用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:179
+msgid "小于等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:180
+msgid "大于等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:213
+msgid "立即筛选"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/finder_filter.html:214
+msgid "清除条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/actions.html:39
+msgid "其他动作..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/actions.html:55
+msgid "高级筛选"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/actions.html:71
+msgid "高级筛选(搜索)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/actions.html:103
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/actions.html:125
+msgid "输入后直接回车确认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/actions.html:107
+msgid "搜索"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:3
+msgid "您当前选定了"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:3
+msgid "条记录！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:4
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:9
+msgid "取消选定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:5
+msgid "选定全部"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:8
+msgid "您当前选定了全部记录！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/body.html:25
+msgid "没有符合条件的条目."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/filter2packet.html:4
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:17
+msgid "另存当前筛选条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/filter2packet.html:5
+msgid "为当前筛选条件命名，方便再次筛选."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/filter2packet.html:8
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:13
+msgid "名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:5
+msgid "(共"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:5
+msgid "条)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:12
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:15
+msgid "返回全部列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:14
+msgid "保存筛选条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:18
+msgid "清除当前搜索条件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:29
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:30
+msgid "刷新当前列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:35
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:35
+msgid "列表项配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/finder_title.html:35
+msgid "配置列表项"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/footer.html:14
+msgid "确定退出?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/packet.html:36
+msgid "确认删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:6
+msgid " 每页最多显示："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:17
+msgid " 跳转到第"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:19
+msgid "页 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:28
+msgid "共"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:28
+msgid "条记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/finder/view/pager.html:28
+msgid ",当前页:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/login.html:3
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/login.html:11
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/page.html:4
+msgid "网店管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/login.html:17
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:18
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/chkpass.html:8
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:8
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:8
+msgid "密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/login.html:20
+msgid "登录系统"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/message.html:17
+msgid "标记这些为已读"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/message.html:20
+msgid "后20条"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/message.html:20
+msgid "前20条"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/message.html:27
+msgid "暂无事项。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:10
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:10
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:10
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:6
+msgid "姓名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:14
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:12
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:12
+msgid "编号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:18
+msgid "部门："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:23
+msgid "同时修改密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:27
+msgid "当前密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:31
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/chkpass.html:8
+msgid "新密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:35
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/chkpass.html:9
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:9
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:9
+msgid "确认密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:44
+msgid "您的当前时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:53
+msgid "当前服务器时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:56
+msgid "  系统默认服务器时间为东八区（标准时：北京时间），如果您的服务器不在国内则请按照下面《标准时区列表》修改您的服务器时间。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:56
+msgid "修改服务器时间方法："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:58
+msgid "用记事本打开config/config.php文件，找到define SERVER_TIMEZONE这一行（如下面所示），修改后面的数字值即可（譬如8代表东八区北京时间）。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:60
+msgid "《标准时区列表》："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:77
+msgid "提交"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/mysetting.html:84
+msgid "确定设置空密码？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/flow/page.html:27
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/singlepage.html:96
+msgid "您好，要正常运行ECStore后台，浏览器必须支持Javascript"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/helper.html:3
+msgid "帮助"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/helper.html:6
+msgid "更多"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/helper.html:7
+msgid "观看视频"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/href.html:1
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/href.html:1
+msgid "配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:42
+msgid "您好，要正常运行，浏览器必须支持Javascript"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:66
+msgid "快捷菜单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:76
+msgid "快捷菜单配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:76
+msgid "点此编辑快捷菜单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:83
+msgid "系统通知"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:93
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:93
+msgid "设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:94
+msgid "退出"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:107
+msgid "<{$menus.workground.$item.menu_title}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:116
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:124
+msgid "<{$group.menu_title}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/index.html:149
+msgid "点击收起或展开左侧"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/keyboard_setting.html:37
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:26
+msgid "保存设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/license.html:3
+msgid "立即申请"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/login.html:50
+msgid "加入收藏"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/login.html:52
+msgid "生成快捷方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/login.html:86
+msgid "请使用键盘上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/login.html:86
+msgid "进行收藏操作。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/main_menu_define.html:37
+msgid "保存成功!n是否刷新？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/network/new_link.html:2
+msgid "shopex网络"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/network/new_link.html:6
+msgid "网店直连"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/network/new_link.html:8
+msgid "要连接的网店地址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/network/new_link.html:11
+msgid "请输入验证信息："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/network/new_link.html:14
+msgid "提交申请"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/recycle.html:2
+msgid "详情"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/regionSelect.html:145
+msgid "[无上级]"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/rel_items.html:2
+msgid "关联方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/rel_items.html:6
+msgid "单向相关"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/rel_items.html:7
+msgid "双向相关"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/sidepanel.html:30
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/sidepanel.html:43
+msgid "<{$menu.menu_title}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/sidepanel.html:39
+msgid "<{$menus.menugroup}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/splash/failed.html:10
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/splash/notice.html:10
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/splash/success.html:9
+msgid "秒后系统会自动跳转，也可点击本处"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/splash/notice.html:10
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/splash/success.html:9
+msgid "正在跳转..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:5
+msgid "用户名:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:14
+msgid "真实姓名:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:21
+msgid "更改密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:27
+msgid "再输入一次"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:33
+msgid "工作组:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/staff/basic_info.html:42
+msgid "保存管理员信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/backup.html:3
+msgid "说明：您可以在此处备份商店的整站数据库结构和数据，一旦商店数据意外损坏，您可以通过数据库恢复功能恢复所备份的数据。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/backup.html:4
+msgid "备份分卷大小：1024 K"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/backup.html:4
+msgid "备份过程中请勿进行其他页面操作。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/backup.html:5
+msgid "上次备份时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/backup.html:5
+msgid "从未备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/backup.html:15
+msgid "开始备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/backup.html:22
+msgid "正在备份，请勿进行其他页面操作。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/backup/check.html:18
+msgid "继续"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/comeback.html:1
+msgid "数据将恢复至："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/comeback.html:3
+msgid "准备就绪..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/comeback.html:9
+msgid "开始恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/comeback.html:16
+msgid "注意：执行本恢复数据操作将导致"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/comeback.html:16
+msgid "后录入或修改的数据丢失，确认吗？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:2
+msgid "通过本界面对以往备份的数据库进行恢复或下载，请注意在恢复后，所有数据库信息包括管理员用户名密码都会恢复成备份时的状态。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:15
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:27
+msgid "备份文件名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:16
+msgid "app"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:18
+msgid "子版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:19
+msgid "卷数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:21
+msgid "大小(字节)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:22
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:30
+msgid "备份时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:23
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:48
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:50
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:53
+msgid "恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/comeback/tgzFileList.html:46
+msgid "版本不符，无法恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/curlist.html:12
+msgid "提交保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:5
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/add_roles.html:2
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/edit_roles.html:2
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:2
+msgid "点击查看帮助"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:7
+msgid "您还未做过备份操作."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:9
+msgid "如需上传备份文件，请使用ftp上传到指定目录（/data/backup）"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:11
+msgid "立即备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:20
+msgid "备份历史"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:23
+msgid "最近一次备份发生在："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:28
+msgid "备份类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:29
+msgid "大小"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:50
+msgid "因版本不符，无法恢复此备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:57
+msgid "下载"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:91
+msgid "体验数据清除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:97
+msgid "管理员用户名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:101
+msgid "管理员密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:107
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/clear.html:18
+msgid "清除体验数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:119
+msgid "确定备份么？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:136
+msgid "&raquo;下载备份好的文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/data_run.html:144
+msgid "清除体验数据操作将会清除的数据包括商品分类、商品类型、商品品牌、商品等相关数据n也包括您近期添加的数据，确认么？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/clear.html:2
+msgid "您可以通过此功能将安装系统时所安装的体验数据全部删除，清除的数据包括商品分类、商品类型、商品品牌、商品等相关数据。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/clear.html:2
+msgid "注意："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/clear.html:2
+msgid "您最新添加的数据也会一起删除，请慎重使用此功能，建议先做好数据备份。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/clear.html:7
+msgid "请输入管理员用户名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/clear.html:11
+msgid "请输入管理密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/clear.html:18
+msgid "清除操作也会删除您最新添加的数据，建议先做好数据备份，确定要清除吗？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/databasecheck.html:4
+msgid "立即修复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/databasecheck.html:4
+msgid "数据库存在错误."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/databasecheck.html:21
+msgid "数据库结构一切正常"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:3
+msgid "当您的商店需要暂停营业的时候，您可以在下面输入框输入停业公告，并点击下面“暂停营业”按钮，这样当用户访问商店的时候就会看到商店关闭停业的通知，并且无法访问商店的任何链接。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:4
+msgid " 当您需要恢复营业的时候，点击“开启商店”按钮即可。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:8
+msgid "商店当前状态："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:9
+msgid "正常营业中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:9
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:24
+msgid "暂停营业"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:14
+msgid "停业公告："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:26
+msgid "更新停业公告"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/debug/debug.html:27
+msgid "开启商店"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:5
+msgid "图片信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:6
+msgid "原始尺寸"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:10
+msgid "存储引擎"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:15
+msgid "尺寸版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:19
+msgid "生成"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:20
+msgid "剪裁"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:51
+msgid "原图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:55
+msgid "大图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/image.html:60
+msgid "中图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:34
+msgid "图片尺寸设定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:43
+msgid "尺寸"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:44
+msgid "水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:62
+msgid "更换缺省图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:68
+msgid "宽"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:68
+msgid "高"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:72
+msgid "无水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:73
+msgid "图片水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:74
+msgid "文字水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:76
+msgid "水印文字："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:78
+msgid "透明度："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:83
+msgid "水印位置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:86
+msgid "左上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:87
+msgid "中上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:88
+msgid "右上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:91
+msgid "左中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:92
+msgid "正中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:93
+msgid "右中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:96
+msgid "左下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:97
+msgid "中下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/imageset.html:98
+msgid "右下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:1
+msgid "全局变量使用方法："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:2
+msgid "复制“变量名”到希望出现自定义内容的地方，如：所有衬衣的商品详情中粘贴变量“{PRODUCT_SIZE}”（产品尺码表）,然后再自定义内容中填写尺码表内容，前台所有使用过该变量的商品介绍中都会显示自定义内容中填写的尺码表内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:4
+msgid "注意：请使用标准格式 {XXXXX}"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:17
+msgid "变量名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:19
+msgid "仅支持英文字母、下划线，格式："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:24
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:13
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:13
+msgid "备注："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/system/var_item.html:34
+msgid "全局变量内容："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/ui/index.html:2
+msgid "sdsds"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/add_roles.html:4
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/edit_roles.html:5
+msgid "角色名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/add_roles.html:10
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/edit_roles.html:10
+msgid "角色权限"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/chkpass.html:7
+msgid "超级管理员密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/chkpass.html:9
+msgid "再次输入新密码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/href.html:1
+msgid "角色编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:3
+msgid "当前登录用户"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:7
+msgid "姓名:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:11
+msgid "登录密码修改:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:14
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:15
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:6
+msgid "密码修改"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:24
+msgid "后台操作习惯"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:28
+msgid "操作界面风格选择:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:32
+msgid "主导航菜单设置:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:32
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:33
+msgid "菜单定制"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:38
+msgid "快捷键设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:40
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/profile.html:41
+msgid "快捷键定制"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:11
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:11
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:7
+msgid "启用："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:15
+msgid "超级管理员："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_add.html:18
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:11
+msgid "角色:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_detail.html:6
+msgid "修改密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_roles.html:1
+msgid "角色拥有的权限"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_roles.html:50
+msgid "桌面挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/users/users_roles.html:68
+msgid "其他"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:17
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:32
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:53
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:68
+msgid "立即安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:38
+msgid "最新发布的"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:74
+msgid "有更新的"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:93
+msgid "暂无需要更新的应用。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/desktop/view/widgets/appolymer.html:93
+msgid "再次检查更新"
+msgstr ""
+

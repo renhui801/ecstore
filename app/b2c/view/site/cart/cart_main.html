@@ -1,0 +1,47 @@
+<div class="title"><h2><{t}>已选择的商品<{/t}></h2></div>
+<form action="<{link app=b2c ctl=site_cart act=_check_checkout}>" method="post">
+  <!-- 购物车内容 -->
+  <table id="cart_main" class="cart-main" width="100%">
+    <colgroup>
+      <col class="col-1">
+      <col class="col-2">
+      <col class="col-3">
+      <col class="col-4">
+      <col class="col-5">
+      <col class="col-6">
+      <col class="col-7">
+      <col class="col-8">
+    </colgroup>
+    <thead>
+      <tr>
+        <th colspan="2"><{t}>商品<{/t}></th>
+        <th><{t}>销售价<{/t}></th>
+        <th><{t}>数量<{/t}></th>
+        <th><{t}>优惠金额<{/t}></th>
+        <th><{t}>积分<{/t}></th>
+        <th><{t}>小计<{/t}></th>
+        <th><{t}>操作<{/t}></th>
+      </tr>
+    </thead>
+    <{include file="site/cart/cart_items.html" app=b2c}>
+    <tfoot>
+      <tr>
+        <{include file="site/cart/cart_solution.html" app=b2c}>
+        <{include file="site/cart/cart_total.html" app=b2c}>
+      </tr>
+      <tr>
+        <!-- 按钮 -->
+        <td colspan="4" class="cart-left">
+          <{button type="button" class="btn-flat action-clean" label=$___b2c="清空购物车"|t:'b2c'}>
+          <{if $fororder_show == 'true'}>
+          <{button type="button" class="btn-caution action-fororder" label=$___b2c="凑单商品"|t:'b2c'}>
+          <{/if}>
+        </td>
+        <td colspan="4" class="cart-right">
+          <a href="./" class="btn-link"><{t}>继续购物<{/t}></a>
+          <{button type="submit" icon_r="►" class="btn-import btn-huge action-settle" rel="_request" label=$___b2c="下单结算"|t:'b2c'}>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</form>

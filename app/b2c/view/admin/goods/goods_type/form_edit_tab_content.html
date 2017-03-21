@@ -1,0 +1,13 @@
+<form action="index.php?app=b2c&ctl=admin_goods_type&act=saveTabContent" method="post" id="save_content">
+  <div class="tableform">
+    <{input type="html" name="editcontent" value=$content}>
+    <div class="table-action"><{button label="保存" type="submit" id="btn_save_content"}></div>
+  </div>
+</form>
+<script>
+    $('save_content').addEvent('submit', function(e) {
+        $('id_tab_<{$id}>').getElement('textarea[name]').value = $$('textarea[name=editcontent]')[0].value;
+        this.getParent('.dialog').getElement('.btn-close').fireEvent('click');
+        e.stop();
+    });
+</script>

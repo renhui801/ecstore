@@ -1,0 +1,85 @@
+<div class="tabs-wrap">
+  <ul>
+    <li class="tab current"><span><{t}>后台访问设置<{/t}></span></li>
+  </ul>
+</div>
+<div>
+  <form method="post" action="index.php?app=site&ctl=admin_secure_desktop&act=save" id="whitelist">
+    <div class="tableform">
+      <div class="division">
+        <p style="margin:20px 0"><{t}>是否开启白名单：<{/t}>
+          <input id="switch-off" name="enabled" value="0" type="radio" <{if !$enabled }> checked <{/if}>><label for="switch-off" style="margin-left:10px;"><{t}>关闭<{/t}></label>
+          <input <{if $enabled }> checked <{/if}> style="margin-left:20px;" id="switch-on" name="enabled" value="1" type="radio"><label for="switch-on" style="margin-left:10px;"><{t}>开启<{/t}></label>
+        </p>
+        <div id="switch-off-box" <{if $enabled }> style="display:none" <{/if}> style="margin:20px;border:1px solid #999;background:#f0f0f0;padding:20px;-moz-border-radius:5px;-webkit-border-radius:5px;radius:5px">
+           <{t}>关闭白名单之后，任意IP都能访问后台<{/t}>
+        </div>
+        <div id="switch-on-box" <{if !$enabled }> style="display:none" <{/if}>>
+          <table>
+            <tr>
+              <th><{t}>白名单列表:<{/t}></th>
+              <td>
+                <textarea name="ips" style="width:400px;height:100px;"><{ $ips }></textarea>
+              </td>
+            </tr>
+            <tr>
+              <th>
+              <td>
+                <p style="width:400px"><{t}>开启白名单后，只有IP在白名单范围内才可访问后台；<{/t}><br />
+<{t}>请输入白名单，每行一个IP或者一个IP段（IP段使用/符号分割IP地址最后一位；<{/t}><br />
+<{t}>管理员当前访问IP，将会进入自动白名单，直到管理员在其他地方重新设置了白名单，进入自动白名单的IP将会被替换<{/t}></p></td>
+            </tr>
+            <tr>
+              <th><{t}>不可访问时页面返回：<{/t}></th>
+              <td>
+                <select name="error_code">
+                  <option value="403"  <{if $error_code == '403' }> selected <{/if}>><{t}>403页面<{/t}></option> 
+                  <option value="404"  <{if $error_code == '404' }> selected <{/if}>><{t}>404页面<{/t}></option> 
+                </select>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="table-action">
+        <{button type="submit"  label=$___b2c="保存"|t:'site'}>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+(function() {
+    function sw(bool) {
+        if( bool ) {
+           $('switch-on-box').show();
+           $('switch-off-box').hide();
+        } else {
+           $('switch-on-box').hide();
+           $('switch-off-box').show();
+        }
+    }
+
+    $('switch-off').addEvent('click', function(){
+      sw(false);
+    });
+
+    $('switch-on').addEvent('click', function() {
+     sw(true);
+    });
+    
+    $('whitelist').addEvent('submit', function(e){
+       e.stop();  
+       this.send({
+           onComplete: function() {
+               
+           }
+       });
+    });
+
+
+})();
+
+
+</script>

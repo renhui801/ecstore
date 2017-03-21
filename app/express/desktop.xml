@@ -1,0 +1,12 @@
+<desktop>
+    <adminpanel group="b2c_shipment" controller="admin_delivery_printer" action="index" permission="express" display="true" order='40'>快递单模板</adminpanel>
+    <adminpanel group="b2c_shipment" controller="admin_delivery_printer" action="add_tmpl" permission="express" display="false" order='41'>添加模版</adminpanel>
+    <adminpanel group="b2c_shipment" controller="admin_delivery_printer" action="import" permission="express" display="false" order='42'>导入模版</adminpanel>
+
+    <adminpanel group="b2c_shipment" controller="admin_delivery_center" action="index" permission="express" display="true" order='50'>发货信息管理</adminpanel>
+    <adminpanel group="b2c_shipment" controller="admin_delivery_printer" action="edit_tmpl" permission="express" display="false" order='51'>编辑模版</adminpanel>
+    <adminpanel group="b2c_shipment" controller="admin_delivery_printer" action="add_same" permission="express" display="false" order='52'>添加相似模版</adminpanel>
+    <permissions>
+        <permission id="express" display='true' workground='ectools.wrokground.order'>快递单管理</permission>
+    </permissions>
+</desktop>

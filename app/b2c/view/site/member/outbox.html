@@ -1,0 +1,95 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 站内信：草稿箱 -->
+  <div id="member_messagebox" class="member-messagebox">
+    <div class="member-tabs">
+      <a href="<{link app=b2c ctl=site_member act=send}>"><em><{t}>发消息<{/t}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=inbox}>"><em><{t}>收件箱<{/t}><{if $inbox_num!=0}>(<span class="item-unread"><{$inbox_num}></span>)<{/if}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=track}>"><em><{t}>发件箱<{/t}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=outbox}>" class="active"><em><{t}>草稿箱<{/t}><{if $outbox_num!=0}>(<span class="item-unread"><{$outbox_num}></span>)<{/if}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=message}>"><em><{t}>给管理员发消息<{/t}></em></a>
+    </div>
+    <div class="member-mod member-messagebox-list">
+      <table class="member-grid">
+        <!-- 标题 -->
+        <caption><span class="messagebox-action"><a href="<{link app=b2c ctl=site_member full=1 act=deleteMsg}>" class="btn btn-simple action-batch-delete" rel="_request"><span><span><{t}>删除<{/t}></span></span></a></span><span class="messagebox-tip">共<i><{$total_msg}></i>条消息</span></caption>
+        <thead>
+          <tr>
+            <th class="check"><input type="checkbox" name="" id="" class="x-check action-check-all"></th>
+            <th><{t}>收件人<{/t}></th>
+            <th><{t}>标题<{/t}></th>
+            <th><{t}>时间<{/t}></th>
+          </tr>
+        </thead>
+        <tbody class="first">
+        <{if count($message)>0}>
+        <{foreach item=msg from=$message name=name}>
+          <tr class="handle<{if $smarty.foreach.name.iteration==1}> first<{/if}>">
+            <td class="check"><input type="checkbox" name="delete[]"  value="<{$msg.comment_id}>" id="" class="x-check op-check-all" vtype="requiredcustom" data-validatormsg="请先选择消息后再删除"></td>
+            <td class="adressee"><{if $msg.to_type == 1}><{t}>管理员<{/t}><{else}><{$msg.to_uname}><{/if}></td>
+            <td class="title"><{$msg.title|nl2br}></td>
+            <td class="time"><{$msg.time|cdate:SDATE_STIME}></td>
+          </tr>
+        <{/foreach}>
+        <{else}>
+          <tr class="first"><td colspan="4" class="no-information"><{t}>暂无消息<{/t}></td></tr>
+        <{/if}>
+        </tbody>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+</div>
+
+<{if count($message)>0}>
+<script>
+var Module = $('member_messagebox');
+var Router = {
+    sendmsg: '<{link app=b2c ctl=site_member act=send arg0="{id}"}>'
+};
+
+Object.merge(validatorMap, {
+    requiredcustom: function(element, v, type, parent){
+        var name = element.name;
+        if(!parent.getElements('input[type=' + type + ']' + name ? '[name="' + name + '"]' : '').some(function(el) {
+            element.bindEvent = false;
+            return el.checked;
+        })) {
+            return Message.error(element.get('data-validatormsg'));
+        }
+        return true;
+    }
+});
+
+Module.addEvents({
+    'change:relay(.action-check-all)': function(e) {
+        checkAll(this, Module.getElements('.op-check-all'));
+    },
+    'click:relay(.handle)': function (e) {
+        if(e.target.tagName == 'INPUT') return;
+        var id = this.getElement('input[type=checkbox]').value;
+        location.href = Router.sendmsg.substitute({id:id});
+    },
+    'click:relay(.action-batch-delete)': function(e) {
+        e.stop();
+        var parent = this.getParent('.member-mod');
+        var data = [];
+        parent.getElements('.handle').each(function(el){
+            data.push(el.toQueryString());
+        });
+        data.push('response_json=true');
+        data = data.join('&');
+
+        if(validate(parent, 'all')) {
+            Dialog.confirm('确定要删除消息吗？', function(e){
+                if(e) async(this, {
+                    url: this.href,
+                    data: data,
+                    method: 'post'
+                });
+            }.bind(this));
+        }
+    }
+});
+</script>
+<{/if}>

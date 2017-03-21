@@ -1,0 +1,160 @@
+<table class="member-grid">
+  <thead>
+    <tr>
+      <th><{t}>订单号<{/t}></th>
+      <th><{t}>金额<{/t}></th>
+      <th><{t}>下单时间<{/t}></th>
+      <th><{t}>订单状态<{/t}></th>
+      <th><{t}>支付方式<{/t}></th>
+      <th><{t}>操作<{/t}></th>
+    </tr>
+  </thead>
+  <{if $orders}>
+  <{foreach from=$orders item=order name=orders key="key"}>
+  <tbody class="<{if !$is_orders}>fold<{else}>unfold<{/if}><{if $smarty.foreach.orders.iteration == 1}> first<{/if}>">
+    <tr>
+      <td class="order" width="28%"><a href="<{link app=b2c ctl=site_member act=orderdetail arg0=$order.order_id arg1=$archive}>"><{$order.order_id}></a><span class="handle action-view-goods">[<{$order.itemnum}> <{t}>商品<{/t}>]<i class="icon arrow-down">&#x36;</i><i class="icon arrow-up">&#x37;</i></span></td>
+      <td class="price"><{$order.cur_amount|cur_odr:$order.currency:false:true}></td>
+      <td class="datetime"><{$order.createtime|cdate:FDATE_STIME}></td>
+      <td class="status">
+        <{switch from=$order.status}>
+        <{case value='finish'}><{t}>已完成<{/t}>
+        <{case value='dead'}><{t}>已作废<{/t}>
+        <{case}>
+        <{switch from=$order.pay_status}>
+        <{case value='1'}><{t}>已付款<{/t}>
+        <{switch from=$order.ship_status}>
+        <{case value='1'}><{t}>[已发货]<{/t}>
+        <{case value='2'}><{t}>[部分发货]<{/t}>
+        <{case value='3'}><{t}>[部分退货]<{/t}>
+        <{case value='4'}><{t}>[已退货]<{/t}>
+        <{case}><{t}>[正在备货]<{/t}>
+        <{/switch}>
+        <{case value='2'}><{t}>已付款至担保方<{/t}>
+        <{case value='3'}><a href="<{link app=b2c ctl=site_paycenter arg0=$order.order_id}>"><{t}>等待补款<{/t}></a>
+        <{switch from=$order.ship_status}>
+        <{case value='1'}><{t}>[已发货]<{/t}>
+        <{case value='2'}><{t}>[部分发货]<{/t}>
+        <{case value='3'}><{t}>[部分退货]<{/t}>
+        <{case value='4'}><{t}>[已退货]<{/t}>
+        <{/switch}>
+        <{case value='4'}><{t}>部分退款<{/t}>
+        <{switch from=$order.ship_status}>
+        <{case value='0'}><{t}>[未发货]<{/t}>
+        <{case value='1'}><{t}>[已发货]<{/t}>
+        <{case value='2'}><{t}>[部分发货]<{/t}>
+        <{case value='3'}><{t}>[部分退货]<{/t}>
+        <{case value='4'}><{t}>[已退货]<{/t}>
+        <{/switch}>
+        <{case value='5'}><{t}>已退款<{/t}>
+        <{switch from=$order.ship_status}>
+        <{case value='0'}><{t}>[未发货]<{/t}>
+        <{case value='1'}><{t}>[已发货]<{/t}>
+        <{case value='2'}><{t}>[部分发货]<{/t}>
+        <{case value='3'}><{t}>[部分退货]<{/t}>
+        <{case value='4'}><{t}>[已退货]<{/t}>
+        <{/switch}>
+        <{case}>
+        <{if $order.payinfo.pay_app_id != '-1'}><a href="<{link app=b2c ctl=site_paycenter arg0=$order.order_id}>"><{/if}><{t}>等待付款<{/t}><{if $order.payinfo.pay_app_id != '-1'}></a><{/if}>
+        <{switch from=$order.ship_status}>
+        <{case value='1'}><{t}>[已发货]<{/t}>
+        <{case value='2'}><{t}>[部分发货]<{/t}>
+        <{case value='3'}><{t}>[部分退货]<{/t}>
+        <{case value='4'}><{t}>[已退货]<{/t}>
+        <{/switch}>
+        <{/switch}>
+        <{/switch}>
+      </td>
+      <td class="payments"><{$order.payinfo.pay_app_id|pay_name}></td>
+      <td class="actions" valign="top"<{if $is_orders}> rowspan="2"<{/if}>>
+        <{if $order.status == 'active' && ($order.pay_status=='0' || $order.pay_status=='3')}>
+        <{if $order.payinfo.pay_app_id != '-1'}>
+        <a href="<{link app=b2c ctl=site_paycenter arg0=$order.order_id}>" class="btn btn-import"><span><span><{t}>去付款<{/t}></span></span></a>
+        <{/if}>
+        <{/if}>
+        <i class="separator"></i><a href="<{link app=b2c ctl=site_member act=orderdetail arg0=$order.order_id arg1=$archive}>"><{t}>查看订单<{/t}></a>
+        <{if $order.status == 'active' && $order.pay_status == '0' && $order.ship_status == '0' }>
+        <i class="separator"></i><a class="btn-cancel" href="<{link app=b2c ctl=site_member act=cancel arg0=$order.order_id arg1=$archive}>"><{t}>取消订单<{/t}></a>
+        <{else}>
+        <i class="separator"></i><a href="<{link app=b2c ctl=site_member act=reAddCart arg0=$order.order_id arg1=$archive}>"><{t}>再次购买<{/t}></a>
+        <{/if}>
+      </td>
+    </tr>
+    <tr class="goods-row">
+      <td colspan="5">
+        <ul class="member-piclist">
+          <{if $order.goods_items}>
+          <{foreach from=$order.goods_items item=item_goods name=goods_item}>
+          <!--goods-->
+          <{if $item_goods.product}>
+          <li class="goods-item">
+            <div class="goods-pic" data-tips="<{$item_goods.product.name}>&nbsp;<{if $item_goods.product.attr}><{$item_goods.product.attr|spec_desc}><{/if}>&nbsp;<{$item_goods.product.quantity}>">
+              <a href="<{$item_goods.product.link_url}>"><img src="<{$item_goods.product.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$item_goods.product.name}>&nbsp;<{$item_goods.product.attr}>" data-img-zoom="true"></a>
+            </div>
+          </li>
+          <{/if}>
+
+          <!--adjunct-->
+          <{if $item_goods.adjunct_items}>
+          <{foreach from=$item_goods.adjunct_items item=item_adjunct name=adjunct_item}>
+          <li class="goods-item">
+            <div class="goods-pic" data-tips="<{$item_adjunct.name}><{if $item_adjunct.attr}>&nbsp;<{$item_adjunct.attr}><{/if}>&nbsp;<{$item_adjunct.quantity}>">
+              <span class="label-important"><{t}>配<{/t}></span>
+              <a href="<{link app=b2c ctl=site_product act=index arg0=$item_adjunct.product_id}>"><img src="<{$item_adjunct.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$item_adjunct.name}> <{$item_adjunct.attr}>" data-img-zoom="true"></a>
+            </div>
+          </li>
+          <{/foreach}>
+          <{/if}>
+
+          <!--gift-->
+          <{if $item_goods.gift_items}>
+          <{foreach from=$item_goods.gift_items item=item_gift name=gift_item}>
+          <li class="goods-item">
+            <div class="goods-pic" data-tips="<{$item_gift.name}>&nbsp;<{if $item_gift.attr}><{$item_gift.attr}><{/if}>&nbsp;<{$item_gift.quantity}>">
+              <span class="label-important"><{t}>赠<{/t}></span>
+              <a href="<{$item_gift.link_url}>"><img src="<{$item_gift.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$item_adjunct.name}> <{$item_adjunct.attr}>" data-img-zoom="true"></a>
+            </div>
+          </li>
+          <{/foreach}>
+          <{/if}>
+          <{/foreach}>
+          <{/if}>
+          <!-- gift -->
+          <{if $order.order.gift_items}>
+          <{foreach from=$order.order.gift_items item=item_gift name=gift_item}>
+          <li class="goods-item">
+            <div class="goods-pic" data-tips="<{$item_gift.name}>&nbsp;<{if $item_gift.attr}><{$item_gift.attr}><{/if}>&nbsp;<{$item_gift.quantity}>">
+              <span class="label-important"><{t}>赠<{/t}></span>
+              <a href="<{$item_gift.link_url}>"><img src="<{$item_gift.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$item_adjunct.name}> <{$item_adjunct.attr}>" data-img-zoom="true"></a>
+            </div>
+          </li>
+          <{/foreach}>
+          <{/if}>
+          <{if $order.gift.gift_items}>
+          <{foreach from=$order.gift.gift_items item=item_gift name=gift_item}>
+          <li class="goods-item">
+            <div class="goods-pic" data-tips="<{$item_gift.name}>&nbsp;<{if $item_gift.attr}><{$item_gift.attr}><{/if}>&nbsp;<{$item_gift.quantity}>">
+              <span class="label-important"><{t}>赠<{/t}></span>
+              <a href="<{$item_gift.link_url}>"><img src="<{$item_gift.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$item_adjunct.name}> <{$item_adjunct.attr}>" data-img-zoom="true"></a>
+            </div>
+          </li>
+          <{/foreach}>
+          <{/if}>
+
+          <!-- extends -->
+          <{if $order.extends_items}>
+          <{foreach from=$order.extends_items item=item_extends name=item_extends}>
+          <{$item_extends}>
+          <{/foreach}>
+          <{/if}>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+  <{/foreach}>
+  <{else}>
+  <tbody class="first">
+    <tr class="no-information"><td colspan="6">暂无订单</td></tr>
+  </tbody>
+  <{/if}>
+</table>

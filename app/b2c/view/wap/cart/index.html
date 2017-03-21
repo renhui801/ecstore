@@ -1,0 +1,214 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            购物车
+        </div>
+        <div class="a-right">
+            <a href="#" class="btn red J_settlement">
+                结算
+                <i class="arr right"></i>
+            </a>
+        </div>
+    </div>
+    </header>
+    <div class="total<{if $aCart.items_quantity==0}> hide<{/if}>" id="J_total">
+        <div class="fixed-bar">
+            <div class="total-inner">
+                共<span class="num"><{$aCart.items_quantity}></span>件,总价(不含运费):<span class="price"><{$aCart.promotion_subtotal|cur_odr}></span>
+                <a href="#" class="checkout J_settlement">
+                    结算
+                    <i class="arr right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="full-padding">
+        <div class="cart-pt">
+            <{if $is_empty}>
+            <{include file="wap/cart/cart_empty.html" app=b2c}>
+            <{else}>
+            <!-- 购物车主体 -->
+            <{include file="wap/cart/cart_main.html" app=b2c}>
+            <{/if}>
+        </div>
+    </div>
+</div>
+<script>
+(function(){
+    $(window).scroll(function(e){
+        if($(this).scrollTop() > 95){
+            $('#J_total').addClass('fixed');
+        }else{
+            $('#J_total').removeClass('fixed');
+        }
+    });
+    $('.J-pre').bind('click',function(e){
+        $(this).toggleClass('act');
+        $(this).parents('.pt-h-item').find('.pre-info').toggleClass('hide');
+    });
+
+    $('#order_promotion .d-line').bind('click',function(){
+        $('#J_pre_info').toggleClass('hide');
+        $(this).find('.pre-list').toggleClass('hide');
+    });
+
+    // 设置商品数量
+    function setQuantity(el,flag){
+        var ipt = el.parent().find('.num-ipt'),
+            max = parseInt(el.parents('.pt-h-item').find('.max-num').val()),
+            min = parseInt(el.parents('.pt-h-item').find('.min-num').val()),
+            val = ipt.val();
+
+        switch(flag){
+            case 1:
+                if(!/^\d+$/.test(val)) 
+                    ipt.val(min);
+                else if(val > min)
+                    ipt.val( val-1 );
+                else if(val == min)
+                    popup('此商品最少购买' + min + '件');
+                break;
+            case 2:
+                if(val < max)
+                    ipt.val( +val+1 );
+                else if(val == max)
+                    popup('此商品最多只能购买' + max + '件');
+                break;
+            case 3:
+                if(!/^\d+$/.test(val)) {
+                    ipt.val(min);
+                } else if(val > max){
+                    popup('此商品最多只能购买' + max + '件');
+                    ipt.val(max);
+                } else if(val < min){
+                    popup('此商品最少购买' + min + '件');
+                    ipt.val(min);
+                }
+                break;
+        }
+        function popup(msg) {
+            var tpl = $('<div class="popup">' + msg + '</div>').appendTo(document.body);
+            var timer = setTimeout(function(){
+                tpl.remove();
+            }, 3000);
+        }
+
+        var data = $('<form action=""></form>').append(el.parents('.pt-h-item').clone()).serialize();
+        $.post('<{link app=b2c ctl=wap_cart act=update}>',data+"&response_type=true",function(re){
+            var o = JSON.parse(re),
+                promotion = $('#order_promotion .content'),
+                unuse_rule = $('#unused_promotion .content'),
+                ul = '';
+            if(o.promotion){
+                if(o.promotion.order){
+                    $.each(o.promotion.order,function(){
+                        ul += '<li><b class="f-red">['+this.desc_tag+']</b>'+this.name+'</li>';
+                    });
+                    promotion.html(ul);
+                    ul = '';
+                }else{
+                    promotion.html('');
+                }
+            }else{
+                promotion.html('');
+            }
+            if(o.unuse_rule){
+                $.each(o.unuse_rule,function(){
+                    ul += '<li><b class="f-red">['+this.desc_tag+']</b>'+this.name+'</li>';
+                unuse_rule.html(ul);
+                });
+            }else{
+                unuse_rule.html('');
+            }
+
+            el.parents('.pt-h-item').find('.price').html(o.edit_ajax_data.buy_price);
+            $('#J_total .price').html(o.sub_total.promotion_subtotal);
+            $('#J_total .num').html(o.number.cart_number);
+        });
+
+    }
+    $('.J-pt-num').bind('click',function(e){
+        var el = $(e.srcElement),
+            n = 0;
+        if( !el.hasClass('btn') )return;
+
+        if( el.hasClass('minus') )n=1;
+        if( el.hasClass('plus') )n=2;
+
+        setQuantity(el,n);
+
+    });
+    $('.num-ipt').bind('change',function(){
+        setQuantity( $(this),3 );
+    });
+
+    // 移除商品
+    $('.J-remove').bind('click',function(e){
+        if(!confirm('确认移除商品“'+$(this).parents('li').find('.pt-h-name').html().trim()+'”？'))return false;
+        var oo = $(e.target);
+        var data = $('<form action=""></form>').append($(this).parents('.pt-h-item').clone()).serialize();
+        $.post($(this).attr('href'),data+"&response_type=true",function(re){
+            var rs = JSON.parse(re);
+            if(rs.is_empty) return location.reload();
+            $('#J_total .price').html(rs.sub_total.promotion_subtotal);
+            $('#J_total .num').html(rs.number.cart_number);
+            if(rs.error) return alert(rs.error);
+            oo.parents('.pt-h-item').remove();
+            // if(p.hasClass('item') && $('.pt-list').children().length == 2){
+            //     oo.parents('.pt-h-item').remove();
+            //     $('cart-pt').remove();
+            // }else{
+            //     p.destroy();
+            // }
+
+
+        });
+        return false;
+    });
+
+    // 初始化购物车的收藏按钮状态
+    var favmid = $.fn.cookie('S[MEMBER]');
+    var gfav = $.fn.cookie("S[GFAV]["+favmid+"]");
+    var gfav = decodeURIComponent(gfav);
+    $('.favlist').each(function(index){
+        if( gfav.split(',').indexOf( $(this).attr('data-gid') ) > -1 )
+        {
+            $(this).removeClass('btn-addfav').addClass('btn-faved').html('已收藏');
+        }else{
+            $(this).removeClass('btn-faved').addClass('btn-addfav').html('收藏');
+        }
+    });
+
+    //收藏商品
+    $('.btn-addfav').bind('click',function(){
+        var $this = $(this);
+        if($this.hasClass('btn-faved')) return;
+        var data = 'gid='+$this.attr('data-gid')+'&type=goods';
+        $.post('<{link app=b2c ctl=wap_member act=ajax_fav}>',data,function(re){
+            //var re = $.parseJSON(re);
+            //if(re.success){
+                //$this.hide().next().show();
+                $this.removeClass('btn-addfav').addClass('btn-faved').html('已收藏');
+            //}
+        });
+        return false;
+    });
+
+    // 购物车结算
+    $('.J_settlement').bind('click',function(e){
+        $('<form>').attr({
+            'action':'<{link app=b2c ctl=wap_cart act=checkout}>',
+            'method':'post'
+        }).append($('.pt-list').clone()).submit();
+        return false;
+    });
+
+})();
+</script>
+
+

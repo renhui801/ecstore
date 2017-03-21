@@ -1,0 +1,25 @@
+<div class="tableform">
+<{tabber}>
+    <{tab name=$___logisticstrack="物流跟踪设置"|t:'logisticstrack'}>
+    <form action="<{link app=logisticstrack ctl='admin_tracker' act=index}>" method="post">
+    <div class="clear division">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th><{t}>是否启用订单跟踪查询:<{/t}></th>
+          <td>
+            <input type="radio" value="true"  name='system_order_tracking' <{if $system_order_tracking == 'true'}>checked="checked"<{/if}>  />
+            <label for="bool-t">是</label>
+            <input  type="radio" value="false" name='system_order_tracking' <{if $system_order_tracking == 'false'}>checked="checked"<{/if}> />
+            <label for="bool-t">否</label>
+          </td>
+        </tr>
+        <tr>
+          <th><{t}>快递100身份授权Key:<{/t}></th>
+          <td><input type='text' name='kuaidi100Key' value=<{$kuaidi100Key}> >    <span class="notice"><a href="http://www.kuaidi100.com/openapi/applyapi.shtml" target="_blank" color="#FF0000">如果没有授权key，请点击此申请</a></span></td>
+        </tr>
+      </table>
+    </div>
+	  <div class="table-action"><{button type="submit" label=$___b2c="保存"|t:'logisticstrack' }></div>
+    <{/tab}>
+<{/tabber}>
+</div>

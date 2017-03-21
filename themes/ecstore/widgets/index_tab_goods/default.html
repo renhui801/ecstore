@@ -1,0 +1,31 @@
+<ul class="goods-list clearfix">
+  <{foreach from=$data.goodsRows item=row key=gid name=goodsrow}>
+  <li class="goods-item clearfix">
+    <{assign var=pickey value=$setting.gpic_size|default:'goodsPicS'}>
+    <div class="goods-pic">
+      <a href="<{$row.goodsLink}>"><img data-src="<{$row[$pickey]}>" alt="<{$row.goodsName}>"　data-img-zoom="true" /></a>
+    </div>
+    <h3 class="goods-name">
+      <a href="<{$row.goodsLink}>" title="<{$row.goodsName}>"><{$row.goodsName}></a>
+    </h3>
+    <div class="goods-price">
+      <ins class="selling-price">
+        <{$setting.texttag}>：<i><{$row.goodsSalePrice|cur}></i>
+      </ins>
+      <{if $setting.show_market == 'true'}>
+      <del class="market-price">
+        市场价：<i><{$row.goodsMarketPrice|cur}></i>
+      </del>
+      <{/if}>
+    </div>
+    <{if $setting.show_star == 'true'}>
+    <div class="goods-star">
+      评分：
+      <em class="stars stars-<{$row.star*10}>">
+        <span class="below"><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i></span><span class="above"><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i></span>
+      </em>
+    </div>
+    <{/if}>
+  </li>
+  <{/foreach}>
+</ul>

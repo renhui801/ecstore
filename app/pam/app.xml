@@ -1,0 +1,18 @@
+<app>
+    <name>用户认证系统</name>
+    <description>Pluggable Authentication Modules</description>
+
+    <author>
+        <name>shopex开发团队</name>
+        <email>dev@shopex.cn</email>
+        <url>http://www.shopex.cn</url>
+    </author>
+
+    <version>0.1</version>
+    <license>shopex license</license>
+
+	<depends>
+		<app>dbeav</app>
+	</depends>
+
+</app>

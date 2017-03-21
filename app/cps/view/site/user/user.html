@@ -1,0 +1,51 @@
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span class="bold">账户信息管理</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="myacc_box">
+<div class="myacc_line">
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">网站信息</div>
+<div class="myacclist_main">
+<div class="myacclist_text">此信息为联盟会员的网站信息，请完整填写</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app='cps' ctl='site_welcome' act='user_webinfo_edit'}>">修改基本信息</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">联系方式</div>
+<div class="myacclist_main">
+<div class="myacclist_text">提供您具体的联系方式，方便我们与您联系</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app='cps' ctl='site_welcome' act='user_contactinfo_edit'}>">修改联系方式</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="clear"></div>
+</div>
+<!--myacc_line-->
+<div class="myacc_line">
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">收款帐户信息</div>
+<div class="myacclist_main">
+<div class="myacclist_text">完整详细的收款信息有利于佣金的支付</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app='cps' ctl='site_welcome' act='user_pay_account_edit'}>">修改收账信息</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">修改密码</div>
+<div class="myacclist_main">
+<div class="myacclist_text">定期修改账户密码，确保账户更加安全</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app='cps' ctl='site_welcome' act='user_password_edit'}>">修改密码</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="clear"></div>
+</div>
+<!--myacc_line--></div>
+</div>
+<div class="clear"></div>
+<script>
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

@@ -1,0 +1,28 @@
+<div class="point-dis">
+  <p>本订单最大可抵扣金额为<{if $discount_rate}><{$max_discount_value|cur_odr}><{else}>0<{/if}>（<{if $discount_rate}><{$max_discount_value/$discount_rate}><{else}>0<{/if}>积分），1积分=<{$discount_rate|cur_odr}></p>
+  当前账户积分：<b><{$real_usage_point}></b>
+  <div class="dis-set">
+    <p>输入抵扣分数：</p>
+    <input type="hidden" name="point_rate" value="<{$discount_rate}>">
+    <!-- 最大可使用积分 -->
+    <{if $discount_rate}>
+      <{if $max_discount_value/$discount_rate > $real_usage_point}>
+        <{assign var="maxusepoint" value=$real_usage_point}>
+      <{else}>
+        <{assign var="maxusepoint" value=($max_discount_value/$discount_rate)}>
+      <{/if}>
+    <{else}>
+        <{assign var="maxusepoint" value=0}>
+    <{/if}>
+    <input type="text" name="point_score" max="<{$maxusepoint}>">
+    <span class="btn">使用</span>
+    <p>可抵扣 <i>0</i> 元</p>
+  </div>
+  <div class="dis-reset" style="display:none">
+    <p>
+      抵扣积分：<label id="dispoint">0</label>
+      <span>抵扣金额：<label id="disprice">0</label></span>
+    </p>
+    <span class="btn">更改抵扣积分</span>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            登录
+        </div>
+        <div class="a-right">
+            <a href="<{link app=b2c ctl=wap_passport act=signup}>" class="btn">
+                免费注册
+            </a>
+        </div>
+    </div>
+    </header>
+    <div class="full-padding">
+        <{include file='wap/passport/signin.html'}>
+        <{if $login_image_url.0}>
+        <div id="trust_signin" class="trust-signin">
+            <{foreach from=$login_image_url item=login_image_url}>
+            <{$login_image_url}>
+            <{/foreach}>
+        </div>
+        <{/if}>
+    </div>
+</div>

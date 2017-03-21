@@ -1,0 +1,14 @@
+<desktop>
+	
+    <permissions>
+        <permission id="bussiness" display='true'>生意经统计</permission>
+    </permissions>
+    
+	<widgets id="stats_desktop_widgets_exstatistics" order='30'>生意经分析</widgets>
+     <workground name="报表" id="b2c.wrokground.analysis" controller="admin_sales_coupon" action="index" order="60">
+        <menugroup name="营销统计">
+            <menu controller='admin_bussiness' action='index' permission='bussiness' display='true'  order='09'>生意经统计</menu>
+        </menugroup>
+    </workground>
+
+</desktop>

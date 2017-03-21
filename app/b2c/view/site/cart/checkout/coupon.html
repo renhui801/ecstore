@@ -1,0 +1,38 @@
+<!-- 使用优惠券 -->
+<div id="order_coupon" class="order-coupon">
+  <h3>
+    <a href="javascript:void(0);" class="btn-expand action-toggle">+</a>使用优惠券
+  </h3>
+  <div class="content" style="display:none;">
+    <p class="item">
+    <label for="for_select_coupon"><{t}>选择已有优惠券<{/t}>：</label>
+    <select name="coupon" id="for_select_coupon" <{if !$coupon_lists}>disabled="disabled"<{/if}>>
+      <option value=""><{t}>-- 选择优惠券 --<{/t}></option>
+      <{if $coupon_lists}>
+      <{foreach from=$coupon_lists item=list_coupon}>
+      <option value="<{$list_coupon.memc_code}>" data-coupon="<{$list_coupon.cpns_id}>"><{$list_coupon.coupons_info.cpns_name}></option>
+      <{/foreach}>
+      <{/if}>
+    </select>
+    <{button type="button" class="btn-simple action-confirm-coupon" label=$___b2c="确定"|t:"b2c"}>
+    </p>
+    <p class="item">
+      <label for="for_input_coupon"><{t}>如您有通过站外方式获得的优惠券，请在此输入号码<{/t}>：</label>
+      <input type="text" name="coupon" id="for_input_coupon" size="15">
+      <{button type="button" class="btn-simple action-confirm-coupon" label=$___b2c="确定"|t:"b2c"}>
+    </p>
+    <div class="used<{if !$aCart.object.coupon}> fold<{/if}> clearfix">
+      <q>已使用：</q>
+      <ul class="usedlist">
+        <{foreach from=$aCart.object.coupon item=coupon}>
+        <{if $coupon.used}>
+        <li>
+          <i title="<{$coupon.name}>"><{$coupon.coupon}>-<{$coupon.name}></i>
+          <a href="javascript:void(0);" rel="<{$coupon.obj_ident}>" data-coupon="<{$coupon.cpns_id}>" data-code="<{$coupon.coupon}>" class="lnklike action-cancel-coupon">[取消使用]</a>
+        </li>
+        <{/if}>
+        <{/foreach}>
+      </ul>
+    </div>
+  </div>
+</div>

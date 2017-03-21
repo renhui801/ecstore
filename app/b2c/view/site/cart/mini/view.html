@@ -1,0 +1,13 @@
+<{if $aCart.items_quantity && $item_section}>
+<ul class="minicart-list clearfix">
+  <{foreach from=$item_section item=section}>
+  <{include file=$section.file app=$section.app}>
+  <{/foreach}>
+</ul>
+<div class="minicart-info">
+  <p><{t}>共<{/t}> <i><{$aCart.items_quantity}></i> <{t}>件商品<{/t}><br/><{t}>金额总计：<{/t}><span class="price"><{$aCart.subtotal|cur_odr}></span></p>
+  <p> <a href="<{link app=b2c ctl=site_cart act=index}>" class="btn-tocart"><{t}>去结算<{/t}></a> </p>
+</div>
+<{else}>
+<div class="no-information"><{t}>您的购物车是空的<{/t}></div>
+<{/if}>

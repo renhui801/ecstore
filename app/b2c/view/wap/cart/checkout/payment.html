@@ -1,0 +1,13 @@
+<!-- 支付方式模块 -->
+<div id="order_payment" class="order-section order-payment" data-validatemsg="请选择一种支付方式并确认支付方式" data-linkagemsg="因为配送方式变更，请重新确认支付方式">
+  <div class="title"><b>支付方式</b><a href="javascript:void(0);" class="action-edit-payment <{if !$arr_def_payment}> fold <{/if}>">[修改]</a></div>
+  <div class="content">
+    <div class="notice<{if $shipping_method}> fold<{/if}>">请先确定配送方式，之后再选择支付方式</div>
+    <table class="view-payment<{if !$arr_def_payment}> fold<{/if}>">
+      <{include file='wap/cart/checkout/payment_confirm.html'}>
+    </table>
+    <div class="change-payment<{if $arr_def_payment || !$shipping_method}> fold<{/if}>">
+      <{$payment_html}>
+    </div>
+  </div>
+</div>

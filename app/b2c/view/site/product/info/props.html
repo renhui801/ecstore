@@ -1,0 +1,28 @@
+<div class="product-params">
+  <table width="100%">
+    <tbody>
+      <tr>
+        <{if $setting.goodsbn == 'true'}>
+        <td class="label"><div class="text-nowrap"><{t}>货品编号<{/t}>：</div></td>
+        <td width="45%"><{$page_product_basic.product_bn}></td>
+        <{/if}>
+        <{if $page_product_basic.brand.brand_name}>
+        <td class="label"><{t}>品牌<{/t}>：</td>
+        <td width="45%"><a href="<{link app=b2c ctl=site_brand arg0=$page_product_basic.brand.brand_id}>"><{$page_product_basic.brand.brand_name}></a></td>
+        <{/if}>
+      </tr>
+      <{if $setting.goodsprop == '0' || $setting.goodsprop == '1'}>
+      <{foreach from=$page_product_basic.props key=key item=props name=nums}>
+      <{if $smarty.foreach.nums.iteration%2 == 1}>
+      <tr>
+      <{/if}>
+        <td class="label"><div class="text-nowrap"><{$props.name}>：</div></td>
+        <td width="45%"><{$props.value}></td>
+      <{if $smarty.foreach.nums.iteration%2 == 0}>
+      </tr>
+      <{/if}>
+      <{/foreach}>
+      <{/if}>
+    </tbody>
+  </table>
+</div>

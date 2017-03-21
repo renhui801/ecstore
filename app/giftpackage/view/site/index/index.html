@@ -1,0 +1,156 @@
+<{script src="core.js" app='giftpackage'}>
+<{css src="style.css" app='giftpackage'}>
+
+<div id="AllWrap" class="clearfix">
+  <h2 class="giftname"><{$package.name}></h2>
+  <form <{if $setting.buytarget==2}> target="_blank_cart"<{elseif $setting.buytarget==3}> target="_dialog_minicart"<{/if}> name="giftpackage-form" class="giftpackage-form" action="<{link app=giftpackage ctl=site_giftpackage act=add_to_cart}>" method="post">
+    <input type="hidden" name="checkout" value="1" disabled />
+    <input type="hidden" name="id" value="<{$package.id}>" />
+    <div id="GiftSide" <{if $package.repeat!='true' }>class="GiftRepeat"<{/if}>>
+      <div class="GiftBorder">
+        <ul class="giftGroup">
+          <{foreach from=$count_goods key=key item=item}>
+          <li class="gift-null" data-i="<{$key+1}>">
+          <div class="gift-items">
+            <input type="hidden" class="color" name="goods[<{$key}>][goods_id]" value="" />
+            <input type="hidden" class="product" name="goods[<{$key}>][product_id]" value="" />
+            <div class="gift-box"><span style="line-height:80px;"><{$item}></span><p>从右侧选择商品</p></div>
+          </div>
+          </li>
+          <{/foreach}>
+        </ul>
+
+        <div class="GiftBuy">
+          <p class="textcenter">礼包价：<span class="price" style="color:#ff3f3f;font-weight:bold;"><{$package.amount|cur_odr}></span>  元</p>
+          <p class="Msg textcenter">您没有选择任何商品</p>
+          <p class="gift-info">已选<span class="selectnum"></span>件商品<span class="selectedNum">,再选<span class="num"></span>件</span></p>
+          <div class="clearfix textcenter">
+            <{if $store>$quantity}>
+            <{button class="order-btn buy" label="立刻购买" type="button"}> <input type="submit" class="cart-bj" value="加入购物车" />
+            <{else}>
+            <button class="btn shop-over" type="button" style="margin-left:0;">已卖光</button>
+            <{/if}>
+          </div>
+        </div>
+        <!--浮动框-->
+        <div class="floatbox">
+          <div class="Inner">
+            <!--<span class="del"></span>-->
+            <div class="arr_icon"></div>
+            <p class="selected">礼包里已有<{$package.goods_count}>件商品,想要将商品加入礼包，请先移除礼包里的商品.</p>
+            <p class="textinfo">礼包还差几件商品，快去挑选吧！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="GiftBody">
+    <div class="GiftHelp clearfix">
+      <div id="GiftHelp-img" class="gift-img">
+        <img src="<{$package.image|default:$image_default_id|storager:'m'}>" alt="<{$goods.title}>" />
+      </div>
+      <div class="gift-about">
+        <h4><{$package.name}></h4>
+        <p><{$package.intro}></p>
+        <p>开始时间：<{$package.stime|cdate:FDATE_FTIME}></p>
+        <p>结束时间：<{$package.etime|cdate:FDATE_FTIME}></p>
+      </div>
+    </div>
+    <div id="giftTab">
+      <div id="GiftHead">
+        <div class="Gift-title clearfix">
+          <h2>可选商品</h2>
+          <ul style="margin:0; padding:0;float:right;">
+            <{if is_array($package.goods)}>
+            <{foreach from=$package.goods key=key item=item}>
+            <li data-i=<{$key+1}> >
+            <span>第<{$key+1}>件</span>
+            </li>
+            <{/foreach}>
+            <{/if}>
+          </ul>
+        </div>
+      </div>
+      <{foreach from=$goods key=k item=info}>
+      <div class="GiftList clearfix" style="display:<{if $k==0}>block<{else}>none<{/if}>">
+        <{foreach from=$info item=item key=key}>
+        <{if $item.status=='false'}><{continue;}><{/if}>
+        <dl class="gift-single">
+          <input type="hidden" name="goods_id" value="<{$item.goods_id}>" />
+          <input type="hidden" name="price" value="<{$item.price|cur_odr}>" />
+          <dt class="gift-image <{if $item.spec}>has-spec<{/if}>" data-id="<{$item.goods_id}>"><img src="<{$item.image_default_id|default:$image_default_id|storager:'m'}>">
+          <div class="have_select nodisplay">已选择<span></span></div>
+          </dt>
+          <dd class="addinfo add_over"><div class="gift-addOk">
+            <div class="center">
+              <img src="<{$env.app.res_url}>/bundle/ok_icon.gif"><span>已加入礼包</span>
+            </div>
+          </div></dd>
+          <dd class="gift-dec left">
+          <p><a href="<{link app=b2c ctl=site_product act=index arg0=$item.goods_id}>" target="_blank"><{$item.name}></a></p>
+          </dd>
+          <dd> <{include file='site/index/addbtn.html' }></dd>
+        </dl>
+        <{/foreach}>
+      </div>
+      <{/foreach}>
+    </div>
+  </div>
+</div>
+
+<div class="gift-has" style="display:none">
+  <div class="gift-chose">
+    <div class="gift_dele"><a class="remove">移除</a></div>
+    <input type="hidden" name="goods[{i}][product_id]" value="{product_id}" />
+    <div class="gift_tit">{giftTitle}</div>
+    <input type="hidden" name="goods[{i}][goods_id]"  value="{goods_id}" class="goodsId" />
+    <div class="small-pic">{img}</div>
+    <div class="small_box">
+      <ul>{giftSpec}
+        <li>价格:<span>{price}</span></li>
+      </ul>
+    </div>
+    <div style="clear:both"></div>
+  </div>
+</div>
+
+
+<script>
+  window.addEvent('domready',function(){
+    $$('.has-spec').addEvent('click',function(e){
+      var gift = this.getParent('.gift-single');
+      var dialog = new Dialog('<{$request_url_1}>',{
+        position:{target:this},
+        width:342,
+        single:true,
+        effect:{duration:250},
+        async:'ajax',
+        onLoad:function(){
+            if(this.content.getElement('.dialog_gift')) {
+              this.content.set('html',this.options.ajaxTpl);
+              try{miniCart.hide();}catch(e){}
+            }
+        },
+        asyncOptions:{
+          method:'post',
+          data:'gid='+this.get('data-id'),
+          onSuccess: function() {
+            dialog.container.store('_target_', gift);
+          }
+        }
+      });
+    });
+
+    $$('.add-spec').addEvent('click',function(e){
+      this.getParent('.gift-single').getElement('.has-spec').fireEvent('click');
+    });
+
+    new Switchable('giftTab',{
+      eventType:'click',
+      triggersBox:'#GiftHead .Gift-title ul',
+      triggers:'#GiftHead .Gift-title ul li',
+      panels:'.GiftList',
+      autoplay:false
+    });
+  });
+</script>

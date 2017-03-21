@@ -1,0 +1,34 @@
+<div class="dashbd-list">	  
+    <div class="finder-packet sort">
+        <ul>
+            <{foreach from=$sections item=item key=key}>
+            <li class="<{if !$key}>current<{/if}>">
+               <a href="javascript:void(0);"> <span><{$item.name}></span></a>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+    <div style="height:240px;overflow:hidden" class="gridlist sale-top">
+        <{foreach from=$sections item=item key=key}>
+    	<div class="sort-items">
+    		<textarea class="textarea-lazyload dis_n">
+    		      <{include file=$item.file}>
+    		</textarea>
+    	</div>
+    	<{/foreach}>
+    </div>
+</div>
+
+<script>
+(function(){
+    var lazyload = new LazyLoad();
+    if($ES('.sort li').length)
+	new ItemAgg($ES('.sort li'),$ES('.dashbd-list .sort-items'),{
+		activeName:'current',
+		itemsClass:'chart-item-cur',
+		onActive:function(tab,item){
+			lazyload.loadCustomLazyData(item,'textarea');
+		}	
+	});
+})();
+</script>

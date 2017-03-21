@@ -1,0 +1,237 @@
+<!-- 筛选区 -->
+<div class="pt-filter" id="J_filter">
+  <form action="">
+    <div class="title">
+        <span class="reset">
+          <!-- <a href="<{link app=b2c ctl=wap_gallery act=index arg0=$screen.cat_id}>?scontent=n,<{$filter.search_keywords.0}>" onclick="Memory.clear('gallery.filter');"> -->
+            清空筛选条件
+          <!-- </a> -->
+        </span>
+        <input class="btn orange" type="button" value="确定筛选" />
+    </div>
+    <dl>
+        <!-- 分类 -->
+        <{if $screen.cat}>
+        <{assign var='filter_num' value=1}>
+        <dt class="first"> <i class="arr right"></i> <i class="arr down"></i> 分类 <span>全部</span> </dt>
+        <dd class="hide">
+          <input type="hidden" name="cat_id" value="<{$screen.cat_id}>" />
+          <table  data-label="cat_id">
+            <tr>
+              <td class="handle action-select-unlimit">全部</td>
+              <{foreach from=$screen.cat item=cat_row name=name}>
+              <td data-fid="cat_id-<{$cat_row.cat_id}>">
+                <!-- <a href="<{link app=b2c ctl=wap_gallery act=index arg0=$cat_row.cat_id}>" > -->
+                  <{$cat_row.cat_name|cut:12}>
+                <!-- </a> -->
+              </td>
+              <{if $smarty.foreach.name.iteration==2}>
+              </tr><tr>
+              <{elseif ($smarty.foreach.name.iteration-2)%3 == 0}>
+              </tr><tr>
+              <{/if}>
+              <{/foreach}>
+              <!-- 补全空格 -->
+              <{assign var='catcount' value=$screen.cat|count}>
+              <{if 3-(($catcount - 2) % 3) ==1}>
+              <td class="empty">&nbsp;</td>
+              <{/if}>
+              <{if 3-(($catcount -2) % 3) ==2}>
+              <td class="empty">&nbsp;</td>
+              <td class="empty">&nbsp;</td>
+              <{/if}>
+            </tr>
+          </table>
+        </dd>
+        <{else}>
+        <input type="hidden" name="cat_id" value="<{$screen.cat_id}>" />
+        <{/if}>
+
+
+      <!-- 品牌 -->
+      <{if $screen.brand}>
+      <{assign var='filter_num' value=$filter_num+1}>
+        <dt> <i class="arr right"></i> <i class="arr down"></i> 品牌 <span>全部</span> </dt>
+        <dd class="hide">
+          <input type="hidden" name="" value="" />
+          <table data-label="brand_id">
+            <tr>
+              <td class="handle action-select-unlimit">全部</td>
+                <{foreach from=$screen.brand item=brand_row name=name}>
+                <td data-fid="brand_id-<{$brand_row.brand_id}>" >
+                    <{$brand_row.brand_name|cut:12}>
+                </td>
+                <{if $smarty.foreach.name.iteration==2}>
+                </tr><tr>
+                <{elseif ($smarty.foreach.name.iteration-2)%3 == 0}>
+                </tr><tr>
+                <{/if}>
+                <{/foreach}>
+                <!-- 补全空格 -->
+                <{assign var='brandcount' value=$screen.brand|count}>
+                <{if 3-(($catcount - 2) % 3) ==1}>
+                <td class="empty">&nbsp;</td>
+                <{/if}>
+                <{if 3-(($brandcount -2) % 3) ==2}>
+                <td class="empty">&nbsp;</td>
+                <td class="empty">&nbsp;</td>
+                <{/if}>
+            </tr>
+          </table>
+        </dd>
+      <{/if}>
+
+      <!-- 价格-->
+      <{if $screen.price && $env.conf.b2c.gallery.display.price == 'true'}>
+      <{assign var='filter_num' value=$filter_num+1}>
+        <dt> <i class="arr right"></i> <i class="arr down"></i> 价格 <span>全部</span> </dt>
+        <dd class="hide">
+          <input type="hidden" name="" value="" />
+          <table data-label="price">
+            <tr>
+              <td class="handle action-select-unlimit">全部</td>
+              <{foreach from=$screen.price item=price_row name=name}>
+                <td data-fid="price-<{$price_row.min}>~<{$price_row.max}>">
+                  <{$price_row.min}>-<{$price_row.max}>元
+                </td>
+                <{if $smarty.foreach.name.iteration==2}>
+                </tr><tr>
+                <{elseif ($smarty.foreach.name.iteration-2)%3 == 0}>
+                </tr><tr>
+                <{/if}>
+                <{/foreach}>
+                <!-- 补全空格 -->
+                <{assign var='pricecount' value=$screen.price|count}>
+                <{if 3-(($catcount - 2) % 3) ==1}>
+                <td class="empty">&nbsp;</td>
+                <{/if}>
+                <{if 3-(($pricecount -2) % 3) ==2}>
+                <td class="empty">&nbsp;</td>
+                <td class="empty">&nbsp;</td>
+                <{/if}>
+              </tr>
+          </table>
+        </dd>
+      <{/if}>
+
+      <!-- 扩展属性 -->
+      <{if $screen.props}>
+      <{assign var='props_select' value=array()}>
+      <{foreach from=$screen.props item=props_row key=key}>
+        <{if $props_row.search == 'select'}>
+          <{assign var='props_select' value=array_merge($props_select,array($props_row))}>
+          <{continue}>
+        <{/if}>
+      <{assign var='filter_num' value=$filter_num+1}>
+        <dt> <i class="arr right"></i> <i class="arr down"></i> <{$props_row.name}> <span>全部</span> </dt>
+        <dd class="hide">
+          <input type="hidden" name="" value="" />
+          <table data-label="p_<{$key}>">
+            <tr>
+              <td class="handle action-select-unlimit">全部</td>
+              <{foreach from=$props_row.options item=options_v key=options_k name=name}>
+              <td data-fid="p_<{$props_row.goods_p}>-<{$options_k}>">
+                  <{$options_v|cut:12}>
+              </td>
+              <{if $smarty.foreach.name.iteration==2}>
+              </tr><tr>
+              <{elseif ($smarty.foreach.name.iteration-2)%3 == 0}>
+              </tr><tr>
+              <{/if}>
+              <{/foreach}>
+              <!-- 补全空格 -->
+              <{assign var='props_rowcount' value=$props_row.options|count}>
+              <{if 3-(($props_rowcount - 2) % 3) ==1}>
+              <td class="empty">&nbsp;</td>
+              <{/if}>
+              <{if 3-(($props_rowcount - 2) % 3) ==2}>
+              <td class="empty">&nbsp;</td>
+              <td class="empty">&nbsp;</td>
+              <{/if}>
+            </tr>
+          </table>
+        </dd>
+      <{/foreach}>
+      <{/if}>
+
+
+      <!-- 规格 -->
+      <{if $screen.spec}>
+      <{assign var='spec_select' value=array()}>
+      <{foreach from=$screen.spec item=spec_row key=spec_id}>
+      <{if $spec_row.spec_style == 'select'}>
+      <{assign var='spec_select' value=array_merge($spec_select,array($spec_row))}>
+      <{continue}>
+      <{/if}>
+      <{assign var='filter_num' value=$filter_num+1}>
+        <dt> <i class="arr right"></i> <i class="arr down"></i> <{$spec_row.name}> <span>全部</span> </dt>
+        <dd class="hide">
+          <input type="hidden" name="" value="" />
+          <table data-label="s_<{$spec_id}>">
+            <tr>
+              <td class="handle action-select-unlimit">全部</td>
+              <{foreach from=$spec_row.spec_value item=spec_value key=spec_value_id name=name}>
+              <td data-fid="s_<{$spec_id}>-<{$spec_value_id}>">
+                  <{$spec_value.spec_value|cut:12}>
+              </td>
+              <{if $smarty.foreach.name.iteration==2}>
+              </tr><tr>
+              <{elseif ($smarty.foreach.name.iteration-2)%3 == 0}>
+              </tr><tr>
+              <{/if}>
+              <{/foreach}>
+              <!-- 补全空格 -->
+              <{assign var='spec_rowcount' value=$spec_row.spec_value|count}>
+              <{if 3-(($spec_rowcount - 2) % 3) ==1}>
+              <td class="empty">&nbsp;</td>
+              <{/if}>
+              <{if 3-(($spec_rowcount -2) % 3) ==2}>
+              <td class="empty">&nbsp;</td>
+              <td class="empty">&nbsp;</td>
+              <{/if}>
+            </tr>
+          </table>
+        </dd>
+      <{/foreach}>
+      <{/if}>
+
+
+      <{if $spec_select || $props_select}>
+      <{assign var='filter_num' value=$filter_num+1}>
+        <!-- 扩展属性下拉 -->
+        <{if $props_select}>
+        <{foreach from=$props_select item=props_row key=key}>
+          <dt> <i class="arr right"></i> <i class="arr down"></i> <{$props_row.name}> <span>全部</span> </dt>
+          <dd class="hide">
+            <input type="hidden" name="" value="" />
+            <table data-label="p_<{$key}>">
+              <tr>
+                <td class="handle action-select-unlimit">全部</td>
+                <{foreach from=$props_row.options item=options_v key=options_k name=name}>
+                <td data-fid="p_<{$props_row.goods_p}>-<{$options_k}>">
+                    <{$options_v|cut:12}>
+                </td>
+                <{if $smarty.foreach.name.iteration==2}>
+                </tr><tr>
+                <{elseif ($smarty.foreach.name.iteration-2)%3 == 0}>
+                </tr><tr>
+                <{/if}>
+                <{/foreach}>
+                <!-- 补全空格 -->
+                <{assign var='props_rowcount' value=$props_row.options|count}>
+                <{if 3-(($props_rowcount - 2) % 3) ==1}>
+                <td class="empty">&nbsp;</td>
+                <{/if}>
+                <{if 3-(($props_rowcount -2) % 3) ==2}>
+                <td class="empty">&nbsp;</td>
+                <td class="empty">&nbsp;</td>
+                <{/if}>
+              </tr>
+            </table>
+          </dd>
+        <{/foreach}>
+        <{/if}>
+      <{/if}>
+    </dl>
+  </form>
+</div>

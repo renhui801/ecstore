@@ -1,0 +1,108 @@
+<div class="tabs-wrap clearfix">
+<ul>
+    <li class="tab current"><span>修改联盟广告</span></li>
+</ul>
+</div>
+<div class="spage-main-box">
+<div class="tableform clearfix" style="padding: 0px;">
+<form action="index.php?app=cps&ctl=admin_adlink&act=editAdLink&linkId=<{$data.link_id}>" method="post">
+<div>
+<table width="100%" border="0" align="left" cellspacing="0">
+    <tr>
+        <th style="vertical-align: middle">推广地址：</th>
+        <td><input id="url" name="url" type="text" value="<{$data.url}>" class="x-input" size="40"></td>
+    </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <td>推广地址指的是广告最终跳转的地址。</td>
+    </tr>
+    <tr>
+        <th style="vertical-align: middle;">图片地址：</th>
+        <td><input id="img_url" name="remote_img_url" type="text" value="<{$data.remote_img_url}>" class="x-input" size="40"></td>
+    </tr>
+    <tr>
+        <th style="vertical-align: middle;">图片规格：</th>
+        <td>宽：&nbsp;&nbsp; <input id="width0" name="width[<{$data.link_id}>]" type="text" value="<{$data.width}>" class="x-input" size="10" style="vertical-align: middle"> &nbsp;&nbsp; 像素&nbsp;高：&nbsp;&nbsp; <input id="height0" name="height[<{$data.link_id}>]" type="text" value="<{$data.height}>" class="x-input" size="10" style="vertical-align: middle">&nbsp;像素&nbsp;&nbsp<{button label="增加尺寸" onclick="addSize(this);"}></td>
+    </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <td>推广图片地址请使用站外地址，以此保证高流量下的网站速度。</td>
+    </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <td>可使用独立的服务器存储图片，也可以使用独立图片空间，推荐：<a href="http://web.babidou.com/" target="_blank">巴比豆</a></td>
+    </tr>
+    <tr>
+        <th>&nbsp;</th>
+        <td><{button label="预览" onclick="preview();"}></td>
+    </tr>
+    <tr>
+        <th style="vertical-align: middle">广告预览：</th>
+        <td><span id="preview_span"></span><a id="preview_a" href="<{$data.url}>" target="_blank"><img id="preview_img0" src="<{$data.remote_img_url}>" width="<{$data.width}>" height="<{$data.height}>"></a></td>
+    </tr>
+</table>
+</div>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确定修改"}></div>
+</form>
+</div>
+</div>
+<script>
+var preview = function(){
+	$('preview_span').getParent('td').set('html', '<span id="preview_span"></span>');
+    var max = $$('input[id^=width]').length;
+    for(var j=0, k=0, n=0; k<max; j++){
+        var aSize = document.getElementById("width" + j);
+	    var newWith = document.getElementById("height"+j);
+	    if (aSize && newWith) {
+            k++;
+            var preimg = document.getElementById("preview_img" + j);
+            var newimg = document.createElement("img");
+    	    var newa = document.createElement("a");
+    	    newimg.src = $('img_url').value;
+    	    newa.appendChild(newimg);
+    	    newa.href = $('url').value;
+            if(!preimg && aSize.value!="" && newWith.value!=""){
+             	newimg.width = aSize.value;
+               	newimg.height = newWith.value;
+               	newimg.id = "preview_img" + j;
+               	$('preview_span').getParent('td').appendChild(newa);
+               	$('preview_span').getParent('td').innerHTML += aSize.value + "*" + newWith.value;
+                if(n%3 == 2){
+                 	$('preview_span').getParent('td').innerHTML += "<br><br>";
+                }
+                n++;
+            }else if(!aSize){
+                break;
+            }
+	    }
+    }
+}
+
+var insertAfter = function(newEl, targetEl){
+	var parentEl = targetEl.parentNode;
+    if(parentEl.lastChild == targetEl){
+		parentEl.appendChild(newEl);
+    }else{
+        parentEl.insertBefore(newEl,targetEl.nextSibling);
+    }            
+}
+var i = 1;
+var addSize = function(size_tr){
+	var trs = $$('.sizePanel');
+	var last = trs.length > 0 ? trs[trs.length - 1] : $('width0');
+	var newtr=document.createElement("tr");
+	newtr.setAttribute('id', 'wtr'+i);
+	var newth1=document.createElement("th");
+	var newtd2=document.createElement("td");
+	newth1.innerHTML="";
+	newtd2.innerHTML='宽：&nbsp;&nbsp; <input id="width'+ i +'" name="width[]" type="text" vtype="unsignedint&&required" value="" class="x-input sizePanel" size="10" style="vertical-align: middle"> &nbsp;&nbsp; 像素&nbsp;高：&nbsp;&nbsp; <input id="height'+ i +'" name="height[]" type="text" vtype="unsignedint&&required" value="" class="x-input" size="10" style="vertical-align: middle">&nbsp;像素&nbsp;&nbsp;<{button label="删除" onclick="delSize('+i+');"}>';
+	i++;
+	newtr.appendChild(newth1);
+	newtr.appendChild(newtd2);
+	insertAfter(newtr,last.getParent('tr'));
+}
+
+var delSize = function(i){
+	$('wtr'+i).remove();
+}
+</script>

@@ -1,0 +1,88 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            取消订单
+        </div>
+    </div>
+    </header>
+    <div class="section">
+    <form class="form" action="<{link app=b2c ctl=wap_member act=docancel}>" method="post">
+    <ul >
+      <li class="form-item">
+          <input type="hidden" name="order_cancel_reason[order_id]" value="<{$cancel_order_id}>">
+      </li>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="0" checked="checked">
+          <{t}>不想要了<{/t}>
+        </li>
+      </label>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="1">
+          <{t}>支付不成功<{/t}>
+        </li>
+      </label>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="2">
+          <{t}>价格较贵<{/t}>
+        </li>
+      </label>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="3">
+          <{t}>缺货<{/t}>
+        </li>
+      </label>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="4">
+          <{t}>等待时间过长<{/t}>
+        </li>
+      </label>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="5">
+          <{t}>拍错了<{/t}>
+        </li>
+      </label>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="6">
+          <{t}>订单信息填写错误<{/t}>
+        </li>
+      </label>
+
+      <label>
+        <li class="form-item" style="margin:20px;">
+          <input type="radio" name="order_cancel_reason[reason_type]" value="7">
+          <{t}>其他<{/t}>
+        </li>
+      </label>
+
+      <li >
+        <div class="c-g">
+          <input class='x-input' type="text" name="order_cancel_reason[reason_desc]" placeholder="您还想说些什么？(50个字以内)">
+        </div>
+      </li>
+
+      <li >
+        <div class="form-actions"><button type="submit" class="btn btn-caution act-subscribe" rel="_request"><span><span>提交</span></span></button></div>
+      </li>
+    </ul>
+  </form>
+   </div>
+</div> 

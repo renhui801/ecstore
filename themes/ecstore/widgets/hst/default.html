@@ -1,0 +1,75 @@
+<div class="common-mod history" id="box_<{$widgets_id}>">
+  <div class="hd">最近您浏览过</div>
+  <div class="bd">
+    <ul class="goods-list clearfix">
+    </ul>
+  </div>
+</div>
+<script>
+    withBrowserStore(function(browserStore){
+        var box=$('box_<{$widgets_id}>');
+        browserStore.get('history', function(rs) {
+            rs = JSON.decode(rs);
+            var min = 1;
+            if (!rs || rs.length <= min) return box.hide();
+
+            var html='';
+            var template = '<li class="goods-item clearfix {last}">';
+                template+= '<div class="goods-pic">';
+                template+= '<a href="<{link app=b2c ctl=site_product act=index arg0="{goodsId}"}>" target="_blank" title="{goodsName}" data-gid="{goodsId}"><img src="{goodsImg}" alt="{goodsName}" /></a>'.replace('index-','');
+                template+= '</div>';
+                template+='<div class="goods-info">';
+                template+='<a href="<{link app=b2c ctl=site_product act=index arg0="{goodsId}"}>" target="_blank" title="{goodsName}" class="goods-name">{goodsName}</a>'.replace('index-','');
+                template+= '</div>';
+                template+= '</li>';
+
+            var max=Math.min(rs.length,<{$setting.max|default:5}>);
+
+            rs.each(function(goods,index){
+                if(index >= min && index <= max){
+                    if(index == max - 1){
+                        goods['last'] = 'last';
+                    }
+                    html += template.substitute(goods);
+                }
+            });
+
+            box.getElement('ul').innerHTML = html;
+
+            box.getElements('.goods-pic a').each(function(item) {
+                var img = item.getElement('img');
+                img.zoomImg(69,69);
+                img.onerror = function(){
+                    imgRequest(item, img, rs, min, max);
+                }
+                if (!img.get('src')) {
+                    imgRequest(item, img, rs, min, max);
+                }
+            });
+        });
+
+        function imgRequest(el, img, rs, min, max) {
+            var gid = el.get('data-gid');
+            new Request.JSON({
+                url: "<{link app=b2c ctl=site_product act=picsJson}>",
+                onComplete: function(data) {
+                    new Asset.image(data, {
+                        onload: function() {
+                            img.src = data;
+                            img.zoomImg(69,69);
+                        },
+                        onerror: function() {
+                            el.set('text', '<{t}>图片加载失败<{/t}>');
+                        }
+                    });
+
+                    rs.map(function(goods, index) {
+                        if (index >= min && index <= max && goods['goodsId'] == gid) return goods['goodsImg'] = data;
+                    });
+
+                    browserStore.set('history', JSON.encode(rs));
+                }
+            }).get({'gids': gid});
+        }
+    });
+</script>

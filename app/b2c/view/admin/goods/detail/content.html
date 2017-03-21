@@ -1,0 +1,12 @@
+<h3><{t}>详细介绍<{/t}></h3>
+<div class="tableform">
+<{input type="html" name="goods[description]" value=$goods.description includeBase=true}>
+</div>
+<br />
+<{if $env.conf.wap.wap.status == 'true'}>
+<h3><{t}>手机端详细介绍<{/t}></h3><span class="notice-inline ">(<{t}>手机端请用小图片，否则会导致手机流量过大<{/t}>)</span>
+<div class="tableform">
+<{input type="html" name="goods[wapintro]" value=$goods.wapintro includeBase=true}>
+</div>
+<{/if}>
+

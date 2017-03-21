@@ -1,0 +1,44 @@
+<div class='tableform' id='emailsubs-morecont'>
+    <div class='division' style='border:0;float:right;'>
+        <form method='post' id='emailsubs-list-form' action='index.php?app=emailsubs&ctl=admin_emailcont&act=getMoreCont'>
+            <span><{input type='text' name='ec_title'}>
+                <{button type='submit' label=$___emailsubs="查询"|t:'emailsubs' }>
+            </span>
+        </form>
+    </div>
+
+    <div class='clear'></div>
+    <div class='division' style="border:0;">
+        <{include file='admin/emailsend/emailcont_list.html' app='emailsubs'}>
+    </div>
+    <div class='pager' style='float:right;'><{$pager}></div>
+    <div class="table-action">
+        <{button label=$___emailsubs="确定选择"|t:'emailsubs' type="submit" id='emailsubs-morecont-btn'}>
+    </div>
+</div>
+
+<script>
+    (function(){
+        var dialog = $('emailsubs-morecont-btn').getParent('.dialog'), dialogObj = dialog.retrieve('instance');
+        $E('#emailsubs-morecont-btn',dialog).addEvent('click',function(e){
+            var cur = '';
+            $ES('input[type=radio]',$('emailsubs-morecont')).each(function(item){
+                if(item.checked){
+                    cur = item;
+                }
+            });
+            if(!cur)return MessageBox.error('请选择模板');
+            dialogObj.handle.getElement('table tbody').empty();
+            var tr = new Element('tr');
+            var td = new Element('td',{'class':'row odd','width':'50%'});
+            td = td.adopt(cur.getParent('table'));
+            tr = tr.adopt(td);
+            dialogObj.handle.getElement('table tbody').adopt(tr);
+            if ($defined(dialogObj.handle.getNext('.no-emailcont'))){
+                dialogObj.handle.getNext('.no-emailcont').remove();
+                dialogObj.handle.show();
+            }
+            dialogObj.close();
+        });
+    })();
+</script>

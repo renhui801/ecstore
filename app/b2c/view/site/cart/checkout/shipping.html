@@ -1,0 +1,22 @@
+<!-- 收货信息 -->
+<div id="order_shipping" class="order-section order-shipping" data-validatemsg="请完整填写收货信息并确认收货信息">
+  <div class="order-section-title"><b>收货信息</b><a href="javascript:void(0);" class="action-edit-shipping<{if !$def_addr}> fold<{/if}>">[修改]</a></div>
+  <div class="order-section-content">
+    <!-- 完整收货信息 -->
+    <table class="view-shipping <{if !$def_addr}>fold<{/if}>">
+      <{include file='site/cart/checkout/shipping_confirm.html'}>
+    </table>
+    <!-- 常用收货地址列表 -->
+    <ul id="change_shipping" class="change-shipping <{if $def_addr || !$member_addr_list}>fold<{/if}>">
+      <{if $member_addr_list}>
+        <{include file="site/cart/checkout/shipping_list.html" app=b2c}>
+      <{/if}>
+      <li class="last">
+          <input type="radio" name="address" id="for_shipping_0" value="0" class="action-change-shipping" vtype="requiredcustom" data-validatemsg="请选择一个收货地址">
+          <label for="fro_shipping_0"><address>使用新收货地址</address></label>
+      </li>
+      <li><{button type="button" class="btn-caution action-confirm-shipping" label=$___b2c="确认收货信息"|t:'b2c'}></li>
+    </ul>
+    <{include file='site/cart/checkout/shipping_edit.html'}>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<services>
+     <!--
+    <service id="b2c_promotion_tpl_order_apps">
+        <class>quantitygoodspro_conditions_goods_goodsofquantity</class>
+    </service>
+    -->
+    
+    
+    <service id="desktop_finder.giftpackage_mdl_giftpackage">
+        <class>giftpackage_finder_giftpackage</class>
+    </service>
+    
+    <service id="order_goodstype_operation">
+        <class>giftpackage_order_service_giftpackage</class>
+    </service>
+    
+    <service id="b2c.order_store_extends">
+        <class>giftpackage_order_service_giftpackage</class>
+    </service>
+    
+    <service id="b2c_cart_render_items_apps">
+        <class>giftpackage_cart_render_item_giftpackage</class>
+    </service>
+    
+    <service id="b2c_cart_object_apps">
+        <class>giftpackage_cart_object_giftpackage</class>
+    </service>
+    
+    <service id="site.site_theme_tmpl">
+        <class>giftpackage_theme_tmpl</class>
+    </service>
+
+
+    <service id="b2c_allow_delete_goods">
+        <class>giftpackage_delete_check</class>
+    </service>
+    
+    <service id="b2c_order.beforecreate">
+        <class>giftpackage_order_beforecreate</class>
+    </service>
+    
+</services>

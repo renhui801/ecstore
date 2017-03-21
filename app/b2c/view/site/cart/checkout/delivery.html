@@ -1,0 +1,13 @@
+<!-- 配送方式模块 -->
+<div id="order_delivery" class="order-section order-delivery" data-validatemsg="请选择一种配送方式并确认配送方式" data-linkagemsg="因为收货地区变更，请重新确认配送方式">
+  <div class="order-section-title"><b>配送方式</b><a href="javascript:void(0);" class="action-edit-delivery <{if !$shipping_method}> fold<{/if}>">[<{t}>修改<{/t}>]</a></div>
+  <div class="order-section-content">
+    <div class="notice<{if $def_addr}> fold<{/if}>">请先确定收货信息，之后再选择配送方式</div>
+    <table class="view-delivery <{if !$shipping_method}> fold <{/if}>">
+      <{include file='site/cart/checkout/delivery_confirm.html'}>
+    </table>
+    <table class="change-delivery <{if $shipping_method}> fold <{/if}>">
+      <{$dlytype_html}>
+    </table>
+  </div>
+</div>

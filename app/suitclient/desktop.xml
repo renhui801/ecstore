@@ -1,0 +1,8 @@
+<desktop>
+
+    <panelgroup id="suit" icon="panel-image.jpg" order="90">套件客户端配置</panelgroup>
+    <adminpanel group="suitclient_suit" controller="manage" permission='suit' display='true' order="9010">套件客户端配置</adminpanel>
+    <permissions>
+        <permission id="suit" display='true'>套件列表</permission>
+    </permissions>
+</desktop>

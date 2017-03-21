@@ -1,0 +1,9 @@
+<form action="index.php?app=aftersales&ctl=admin_returnproduct&act=settings" method="post" id="x-return_product"  target="{update:'messagebox'}">
+    <div class="division"> 
+        <h4><{t}>售后服务须知：<{/t}></h4>
+        <{input type="html" name="conmment" value=$return_product.comment}>
+    </div>
+    <div class="table-action">
+        <{button id="x-submit" type="submit"  label=$___aftersales="保存"|t:'aftersales'}>
+    </div>
+</form>

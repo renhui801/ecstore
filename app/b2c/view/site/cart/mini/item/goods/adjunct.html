@@ -1,0 +1,16 @@
+<{if $goods.adjunct}>
+<{foreach from=$goods.adjunct item=adjunct}>
+<li class="goods-item">
+  <div class="goods-pic">
+    <a href="<{link app=b2c ctl=site_product arg0=$adjunct.product_id}>"><img src="<{$adjunct.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$adjunct.name|escape:html}>" data-img-zoom="true"></a>
+  </div>
+  <div class="goods-info">
+    <h3 class="goods-name"><a href="<{link app=b2c ctl=site_product arg0=$adjunct.product_id}>"><{$adjunct.name}> <{$adjunct.spec_info|spec_desc}></a></h3>
+    <div class="goods-price">
+      <p><{t}>销售价：<{/t}><span class="p-price"><{$adjunct.price.buy_price|cur_odr}></span></p>
+      <p><{t}>数量：<{/t}><span class="p-quantity"><{$adjunct.quantity}></span><a href="<{link app=b2c ctl=site_cart act=removeMiniCart arg0=goods arg1=$goods.obj_ident arg2=$adjunct.product_id}>" class="action-delete"><{t}>移除<{/t}></a></p>
+   </div>
+  </div>
+</li>
+<{/foreach}>
+<{/if}>

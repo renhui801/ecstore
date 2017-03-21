@@ -1,0 +1,17 @@
+<li class="product-buy-action">
+  <{if $page_product_basic.goods_marketable=='true' && $page_product_basic.product_marketable == 'true'}>
+  <{foreach from=$btn_page_list item=item}>
+  <{include file=$item.file app=$item.app}>
+  <{/foreach}>
+  <{if $setting.scanbuy == 'true' && $setting.wap_status == 'true' && $page_product_basic.qrcode_image_id}>
+  <span class="pop-wrapper action-scanbuy">
+    <button type="button" class="btn action-handle">扫一扫购买 <i class="icon icon-qrcode">&#x69;</i></button>
+    <div class="pop-body" style="display:none;">
+      <img src="<{$page_product_basic.qrcode_image_id|storager:'s'}>" alt="商品二维码" width="148" height="148">
+    </div>
+  </span>
+  <{/if}>
+  <{else}>
+  <{t}>此商品已下架，看看其他商品吧<{/t}>
+  <{/if}>
+</li>

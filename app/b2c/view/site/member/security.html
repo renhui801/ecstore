@@ -1,0 +1,39 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 修改密码 -->
+  <div class="member-title">
+    <h2>修改密码</h2>
+  </div>
+  <div id="member_changepass" class="member-changepass member-mod">
+    <form action="<{link app=b2c ctl='site_member' full='1' act='save_security'}>" method="post" class="mod-content signupin-content">
+      <ul>
+        <li class="form-item">
+          <label for="" class="form-label">旧密码：</label><span class="form-act"><input type="password" name="old_passwd" id="" class="x-input" maxlength="20" autofocus="autofocus" vtype="required" data-caution="请填写旧密码"></span>
+        </li>
+        <li class="form-item">
+          <label for="" class="form-label">新密码：</label><span class="form-act"><input type="password" name="passwd" class="x-input auto-password-check-handle" maxlength="20" placeholder="6-20个字符" vtype="required&&minLength:6&&maxLength:20" data-equal="pam_account[psw_confirm]" data-caution="请填写新密码，6-20个字符&&输入不正确，最少6个字符&&输入不正确，最多20个字符"><span class="password-check"><q>密码强度：</q><em class="poor">差</em><em class="weak">弱</em><em class="good">中</em><em class="strong">强</em><span class="progress"><span class="percent"></span></span></span><span class="validation-messagebox"></span></span>
+        </li>
+        <li class="form-item">
+          <label for="" class="form-label">确认新密码：</label><span class="form-act"><input type="password" name="passwd_re" id="" class="x-input" maxlength="20" vtype="equal:passwd" data-caution="两次密码输入不相符，请重新输入"><span class="validation-messagebox"></span></span>
+        </li>
+        <li class="form-item-normal"><label for="" class="form-label"></label><span class="form-act"><button type="submit" class="btn btn-caution action-confirm" rel="_request"><span><span>确 定</span></span></button></span></li>
+      </ul>
+    </form>
+  </div>
+</div>
+
+<script>
+$('member_changepass').getElement('.action-confirm').store('_ajax_config', {
+    progress: function(rs) {
+        var type = ['success','error'], i = type.length;
+        for(;i --;) {
+            var v = type[i], msg = v === 'success' ? rs[v]  + '<br><b>系统将转向登录页面，请用新密码登录！</b>' : rs[v];
+            if(!msg) continue;
+            return Message(msg, v, callback);
+        }
+        function callback() {
+            if(rs.redirect) location.href = rs.redirect;
+        }
+    }
+});
+</script>

@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <td rowspan="2" style="vertical-align:top;align:center;padding:10px 10px 10px;">
+         <a href="<{$url}>" target="_blank" style="width:150px; height:150px;overflow:hidden;" >
+                    <img src="<{if $goods.udfimg == 'true'}><{$goods.thumbnail_pic|storager:'s'}><{else}><{$goods.image_default_id|default:$defaultImage|storager:'s'}><{/if}>"<{if $goods.udfimg != 'true'}> width="150" height="150"<{/if}> />
+         </a>
+    </td>
+    <td colspan="2">
+      <div class='division'>
+      <strong><{t}>前台访问地址 <{/t}></strong>
+     
+      <br />
+      <div style="width:55%; float:left"><input type='text' value='<{$url}>' class='shadow' style='color:<{if $purchase.act_open=='true'}>#060<{else}>#900<{/if}>;font-size:10px; height:15px; line-height:15px; float:left; margin-right:5px;font-family:Arial;width:98%;' onclick='this.focus();this.select();'/></div><span class="finder-action-items flt" style="float:left; margin-left:5px; display:block; padding:0 1px"><a  href="<{$url}>" target="new_group"><span><{t}>访问此链接<{/t}></span></a></span>
+      </div>
+    </td>
+  </tr>
+</table>

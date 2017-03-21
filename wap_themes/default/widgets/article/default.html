@@ -1,0 +1,12 @@
+<div class="w-article">
+  <div class="title">
+    <a href="<{link app=content ctl=wap_article act=l arg0=$data.nodeId}>"><{$data.title|cut:36}></a>
+  </div>
+  <ul>
+    <{foreach from=$data.articles item=item}>
+    <li class="article-item">
+      <a href="<{link app=content ctl=wap_article act=index arg0=$item.article_id}>"><{$item.title|cut:48}></a>
+    </li>
+    <{/foreach}>
+  </ul>
+</div>

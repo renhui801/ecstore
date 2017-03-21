@@ -1,0 +1,69 @@
+<div id="gift_set"class="gift-tab">
+    <div class="switchable-triggerBox">
+        <ul style="margin:0; padding:0">
+        <{foreach item=item from=$num }>
+            <li class="l-style"><span>第<{$item}>件商品</span></li>
+        <{/foreach}>
+        </ul>
+    </div>
+    <div class="switchable-content" >
+        <div class="gift-picbox">
+        <{foreach item=item key=key from=$num }>
+            <div class="goodsone">
+                <input type="hidden" name="giftpackage[2][goods][<{$key}>]" value='<{if $giftpackage.type!=1}><{$giftpackage.goods[$key]}><{/if}>' class="goodsId"/>
+                <div class="gift-title clearfix"><span style="float:left">
+                    <{if $giftpackage.type!=1}>
+                        <{input type="object"  default_id="gift-package-{$key}" filter=$filter select="checkbox" object=goods name="goods" app=b2c cols="name" return_url="{$return_url}" hanld="aaa" callback='_callback' cols="name,spec_info" value=$giftpackage.goods[$key] textcol="name" view="b2c:admin/goods/rows.html"}>
+                    <{else}>
+                        <{input type="object"  default_id="gift-package-{$key}" filter=$filter select="checkbox" object=goods name="goods" app=b2c cols="name" return_url="{$return_url}" hanld="aaa" callback='_callback' cols="name,spec_info" value='' textcol="name" view="b2c:admin/goods/rows.html"}>
+                    <{/if}>
+                    </span>&nbsp;&nbsp;<span style="line-height:25px"></span>
+                </div>
+                <div id="handle_gift-package-<{$key}>" class="goods-list" style="clear:both">
+               <{if $giftpackage['type']!=1}>
+                <{foreach item=html key=index from=$goods.html}>
+                    <{if $key==$index}>
+                        <{$html}><{break;}>
+                    <{/if}>
+                <{/foreach}>
+               <{/if}>
+                </div>
+            </div>
+        <{/foreach}>
+            <div style="margin-bottom:10px; clear:both"></div>
+        </div>
+     </div>
+</div>
+<script>
+new ItemAgg($$('#gift_set li.l-style'),$$('#gift_set .goodsone'),{
+    activeName:'cur'
+});
+
+
+var delEvent = function(){
+         var dels = $$('.goodsone .del');
+
+            dels.getParent().removeEvents('mouseover').addEvents({
+                'mouseover':function(){
+                    this.getElement('.del').setStyle('visibility','visible');
+                },
+                'mouseout':function(){
+                    this.getElement('.del').setStyle('visibility','hidden');
+                }
+            });
+
+            dels.addEvent('click',function(){
+                var id = this.get('goods_id');
+                var stringArr = this.getParent('.goodsone').getElement('input').get('value');
+                var arr =  stringArr.split(',');
+                this.getParent('.goodsone').getElement('input').set('value',arr.erase(id).toString());
+                this.getParent().destroy();
+            });
+};
+function _callback( rs ) {
+        delEvent();
+    }
+    window.addEvent('domready',function(){
+        delEvent();
+    })
+</script>

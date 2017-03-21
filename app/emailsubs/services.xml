@@ -1,0 +1,8 @@
+<services>
+	<service id="desktop_finder.emailsubs_mdl_emailcont">
+		<class>emailsubs_finder_emailcont</class>
+	</service>
+	<service id="site_controller_content.site.default.index">
+		<class>emailsubs_notice</class>
+	</service>
+</services>

@@ -1,0 +1,871 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:28
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:57
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:76
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:18
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/page.html:4
+msgid "基本信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:33
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:1
+msgid "扩展属性"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:38
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/articleimage.html:1
+msgid "文章配图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:43
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:37
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:133
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/body.html:1
+msgid "文章内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:48
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:62
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:81
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/seo.html:1
+msgid "SEO设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:67
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:69
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:93
+msgid "可视化编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:86
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/custom.html:1
+msgid "自定义内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:131
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:83
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:86
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:108
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:129
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:146
+msgid "错误请求"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:180
+msgid "保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:182
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:185
+msgid "保存失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:199
+msgid "添加成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:201
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article/detail.php:204
+msgid "添加失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article.php:27
+msgid "页面列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article.php:32
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/left-panel.html:3
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:75
+msgid "添加文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article.php:33
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/left-panel.html:4
+msgid "添加单独页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/article.php:34
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/left-panel.html:5
+msgid "添加自定义页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/base/setting.php:16
+msgid "基础设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/base/setting.php:21
+msgid "文章配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:64
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:88
+msgid "---无---"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:116
+msgid "删除成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:118
+msgid "该文章类目存在子类目，不能被删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:132
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:134
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:109
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:89
+msgid "发布"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:132
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:134
+msgid "取消发布"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:132
+msgid "成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:134
+msgid "失败！请查看父类是否已发布"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:153
+msgid "父类目未发布！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:170
+msgid "保存成功!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:172
+msgid "保存失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:183
+msgid "添加成功!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:185
+msgid "添加失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:199
+msgid "修改失败!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/admin/node.php:201
+msgid "修改成功!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/site/article.php:48
+msgid "文章节点未发布！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/site/article.php:51
+msgid "文章未发布！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/site/article.php:54
+msgid "访问出错！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/site/article.php:93
+msgid "访问出错"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/site/article.php:100
+#: /Users/bryant/codes/ecstore-release/app/content//controller/site/article.php:209
+msgid "未发布！错误访问!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//controller/site/article.php:212
+msgid "错误访问!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:16
+msgid "自增id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:26
+msgid "文章id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:32
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:123
+msgid "单独页模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:43
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:64
+msgid "SEO标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:48
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:69
+msgid "SEO简介"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:53
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:74
+msgid "SEO关键字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:58
+msgid "关联产品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:62
+msgid "热词"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:66
+msgid "内容长度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:71
+msgid "图片id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_bodys.php:87
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:143
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:162
+msgid "文章节点表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:16
+#: /Users/bryant/codes/ecstore-release/app/content//lib/menu/article/index.php:23
+msgid "文章ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:27
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/indexs.php:41
+msgid "文章标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:39
+msgid "普通文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:40
+msgid "单独页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:41
+msgid "自定义页面"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:43
+msgid "文章类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:55
+msgid "节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:66
+msgid "作者"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:77
+msgid "发布时间（无需精确到秒）"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:87
+msgid "更新时间（精确到秒）"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:95
+msgid "普通"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:96
+msgid "重要"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:98
+msgid "文章等级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:130
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_indexs.php:177
+msgid "文章主表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:16
+msgid "节点id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:27
+msgid "父节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:36
+msgid "节点深度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:43
+msgid "节点名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:52
+msgid "节点页面名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:58
+msgid "节点路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:81
+msgid "是否存在子节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:97
+msgid "图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:106
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:32
+msgid "排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:112
+msgid "主页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:119
+msgid "修改时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//dbschema/article_nodes.php:128
+msgid "列表页模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+msgid "编辑此挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+#: /Users/bryant/codes/ecstore-release/app/content//lib/finder/indexs.php:41
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:56
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:78
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:78
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:78
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+msgid "另存为样例"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+msgid "添加挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+msgid "添加到此挂件上方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+msgid "添加到上方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+msgid "添加到此挂件下方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:61
+msgid "添加到下方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:62
+msgid "上移"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:62
+msgid "下移"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:63
+msgid "删除此挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/article/helper.php:63
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:81
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:81
+msgid "删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/finder/indexs.php:62
+msgid "预览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//lib/menu/article/i.php:31
+#: /Users/bryant/codes/ecstore-release/app/content//lib/menu/article/l.php:31
+msgid "文章节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/bodys.php:41
+msgid "文章ID不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/indexs.php:96
+msgid "文章名称不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/indexs.php:100
+msgid "所属节点不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/nodes.php:57
+msgid "节点名称不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/nodes.php:123
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/nodes.php:127
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/nodes.php:159
+msgid "节点『"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/nodes.php:123
+msgid "』的父节点不能为自己"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/nodes.php:127
+msgid "』的父节点不能为自己的子节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//model/article/nodes.php:159
+msgid "』下存在子节点，不能删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content//setting.php:10
+msgid "是否启用节点名称补全URL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:24
+msgid "文章标题："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:28
+msgid "所属文章类目："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:31
+msgid "请选择所属类目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:41
+msgid "作者："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:45
+msgid "发布时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:49
+msgid "发布："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:51
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:39
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:45
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:56
+msgid "是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/basic.html:52
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:40
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:46
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:57
+msgid "否"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/body.html:3
+msgid "选择文章页模板："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:7
+msgid "设置："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:12
+msgid "启用热点链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:17
+msgid "相关商品："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:18
+msgid "匹&nbsp;&nbsp;配&nbsp;&nbsp;词："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:20
+msgid "多个匹配词用半角竖线&quot;|&quot;分开"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:20
+msgid "系统会根据您输入的匹配词搜索相关的商品，商品名称中包含该词，或者商品关键词中存在该词都会被搜索到"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:22
+msgid "显示数量："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:33
+msgid "热点链接："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:37
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:43
+msgid "热&nbsp;&nbsp;点&nbsp;&nbsp;词："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:39
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:45
+msgid "链接URL："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:48
+msgid "添加热点词"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:67
+msgid "确定要删除吗？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/ext.html:71
+msgid "不能删除全部输入项，如果不想使用热点链接，请取消上方的启用选项！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/page.html:15
+msgid "文章标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/page.html:39
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:27
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:26
+msgid "确定退出?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/page.html:41
+msgid "保存并关闭窗口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/page.html:42
+msgid "保存当前"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/seo.html:7
+msgid "SEO TITLE："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/seo.html:11
+msgid "SEO KEYWORDS："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/seo.html:15
+msgid "SEO DESCRIPTION："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/single.html:1
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/single.html:17
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single.html:1
+msgid "单独页内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/single.html:7
+msgid "选择站点栏目单独页模板："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/detail/single.html:12
+msgid "如果您不喜欢“默认模板”或当前的站点栏目单独页模板，您可以前往“模板编辑”中的自定义添加“站点栏目单独页”以个性化您的模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:9
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:9
+msgid "单独页编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:14
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:13
+msgid "选择页面布局"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:17
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:16
+msgid "添加版块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:21
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:20
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:61
+msgid "确定保存您对当前页面的修改吗?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:22
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:76
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:21
+msgid "保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:25
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:88
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:24
+msgid "浏览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:28
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:27
+msgid "退出"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:50
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:51
+msgid "选择布局前需要先保存当前页面编辑状态,保存吗?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:55
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:56
+msgid "设置布局"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/article/single/editor.html:69
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:75
+msgid "选择挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/left-panel.html:6
+msgid "查看所有文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/left-panel.html:13
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/left-panel.html:13
+msgid "管理文章节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/left-panel.html:13
+msgid "按文章节点检索"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:4
+msgid "文章类目信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:7
+msgid "文章类目名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:8
+msgid "请填写文章类目名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:11
+msgid "上级类目："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:12
+msgid "请选择上级类目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:12
+msgid "顶级类目请选'无'"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:15
+msgid "文章列表页模板："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:17
+msgid "如果您不喜欢“默认模板”或当前的文章列表页模板，您可以前往“模板编辑”中的自定义添加“文章列表页”以个性化您的模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:21
+msgid "URL路径："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:22
+msgid "默认为文章类目名称的拼音缩写"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:25
+msgid "SEO title："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:26
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:30
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:34
+msgid "默认为文章类目名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:29
+msgid "SEO keywords："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:33
+msgid "SEO description："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:37
+msgid "是否发布："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:43
+msgid "是否图文并茂："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:49
+msgid "排序："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:50
+msgid "请填写排序值"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:50
+msgid "数字越小越靠前"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:53
+msgid "是否使用站点栏目单独页："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:77
+msgid "取消"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/edit.html:97
+msgid "正在更新设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:4
+msgid "文章栏目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:4
+msgid "共"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:4
+msgid "条"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:7
+msgid "添加文章类目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:8
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:167
+msgid "编辑排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:9
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:175
+msgid "保存排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:18
+msgid "展开文章类目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:20
+msgid "收起文章类目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:29
+msgid "栏目ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:30
+msgid "栏目名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:31
+msgid "栏目URL优化"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:33
+msgid "操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:51
+msgid "收起子分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:52
+msgid "展开子分类"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:70
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:70
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:71
+msgid "添加文章子类目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:75
+msgid "在此文章类目下添加文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:84
+msgid "查看此文章类目下文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:84
+msgid "查看文章"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:88
+msgid "跳转前台查看该"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:92
+msgid "已发布"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:94
+msgid "已禁用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/index.html:114
+msgid "您确定要删除该文章类目？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single/editor.html:88
+msgid "确定退出模板编辑吗?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single.html:4
+msgid "站点栏目单独页模板："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single.html:7
+msgid "可在“模板编辑”中的自定义添加“站点栏目单独页”以个性化您的模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/admin/node/single.html:12
+msgid "单独页内容："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/content/view/site/article/index.html:7
+msgid "发布日期："
+msgstr ""
+

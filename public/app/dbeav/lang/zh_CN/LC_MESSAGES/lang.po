@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:29
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:31
+msgid "表名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:40
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:42
+msgid "主表主键名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:50
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:52
+msgid "字段名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:60
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:62
+msgid "字段类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:70
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:72
+msgid "字段描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:77
+msgid "meta关联表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_register.php:105
+msgid "meta注册主表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_datetime.php:17
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_decimal.php:17
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_int.php:17
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_longtext.php:17
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_text.php:17
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_varchar.php:17
+msgid "meta注册主表id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_datetime.php:24
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_decimal.php:24
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_int.php:24
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_longtext.php:24
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_text.php:24
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_varchar.php:24
+msgid "对应数据行的主键值"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_datetime.php:30
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_decimal.php:30
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_int.php:30
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_longtext.php:30
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_text.php:30
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_varchar.php:30
+msgid "meta值"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_datetime.php:45
+msgid "meta具体类型表(datetime类型)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_decimal.php:45
+msgid "meta具体类型表(decimal类型)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_int.php:45
+msgid "meta具体类型表(intl类型)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_longtext.php:35
+msgid "meta具体类型表(longtextl类型)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_text.php:35
+msgid "meta具体类型表(text类型)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/meta_value_varchar.php:33
+msgid "meta具体类型表(varchar类型)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/recycle.php:23
+msgid "名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/recycle.php:31
+msgid "类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/recycle.php:40
+msgid "删除时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/recycle.php:49
+msgid "序列化数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dbeav//dbschema/recycle.php:54
+msgid "回收站(废弃)"
+msgstr ""
+

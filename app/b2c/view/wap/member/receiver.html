@@ -1,0 +1,60 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            地址管理
+        </div>
+        <div class="a-right">
+            <{if $is_allow}><a class="btn" href="<{link app=b2c ctl=wap_member act=add_receiver}>">添加新地址</a><{/if}>
+        </div>
+    </div>
+    </header>
+    <div class="address">
+        <{if !$is_allow}>
+            <div class="count f-red">最多只能添加10个地址</div>
+        <{/if}>
+        <{if !$receiver}>
+            <div>暂无收货地址</div>
+        <{else if}>
+            <{foreach from=$receiver item=items key=key}>
+            <div class="item">
+                <p>
+                    <{$items.area|region}> <br />
+                    <{$items.addr|escape:'html'}> ,<{$items.zip|escape:'html'}><br />
+                    <{$items.name|escape:'html'}><br />
+                    <{if $items.mobile}><{$items.mobile|escape:'html'}><{else}><{$items.tel|escape:'html'}><{/if}><br />
+                    <{$items.day}>&nbsp;<{$items.time}>
+                </p>
+                <a href="<{link app=b2c ctl=wap_member act=modify_receiver arg0=$items.addr_id}>">编辑收货地址</a>
+                <{if $items.def_addr}>
+                <a href='<{link app=b2c ctl=wap_member act=set_default arg0=$items.addr_id arg1=1}>'>取消默认</a>
+                <{else}>
+                <a href='<{link app=b2c ctl=wap_member act=set_default arg0=$items.addr_id arg1=2}>'>设为默认</a>
+                <{/if}>
+                <a href="<{link app=b2c ctl=wap_member act=del_rec arg0=$items.addr_id}>" class="del">删除</a>
+                <i class="arr right"></i>
+                <{if $items.def_addr}><span>默认</span><{/if}>
+            </div>
+            <{/foreach}>
+        <{/if}>
+    </div>
+</div>
+<script type="text/javascript">
+$('.del').bind('click',function(){
+    if(confirm('确定删除该地址？'))
+    $.post(this.href,function(re){
+        var o = JSON.parse(re);
+        if(o.success){
+            new Dialog('#success',{'title':'删除成功'});
+            setTimeout(function(){location.reload(true)},2000);
+        }else{
+            return alert(o.error);
+        }
+    });
+    return false;
+});
+</script>

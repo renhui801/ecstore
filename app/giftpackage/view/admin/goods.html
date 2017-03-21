@@ -1,0 +1,81 @@
+<h3>商品设置</h3>
+<div class="tableform">
+<div class="division">
+    <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>礼包商品数：</th>
+            <td>
+                <select name="giftpackage[goods_count]" id="giftpackage-goods-count" >
+                <{foreach item=item from=$giftnum}>
+                    <option <{if $giftpackage.goods_count==$item}>selected<{/if}> value="<{$item}>" ><{$item}></option>
+                <{/foreach}>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>礼包类型：</th>
+            <td>
+                <label><input type="radio" class="gift-type" name="giftpackage[type]" <{if $giftpackage['type']==1 || $giftpackage['type'] == ""}>checked="checked"<{/if}> value="1" >任选</label>
+                <label><input type="radio" class="gift-type" name="giftpackage[type]" <{if $giftpackage['type']!=1 && $giftpackage['type'] != ""}>checked="checked"<{/if}> value="2" >礼包中每件商品规定不同的可选范围</label>
+            </td>
+        </tr>
+        <tr class="gift-type-1"  id="gift-type-1" <{if $giftpackage['type']!=1 && $giftpackage['type'] != ""}>style="display:none"<{/if}> >
+            <th></th>
+            <td>
+                <div class="goodsone">
+                <input type="hidden" name="giftpackage[1][goods]" value='<{if $giftpackage.type==1}><{$giftpackage.goods}><{/if}>' class="goodsId"/>
+                <div class="gift-title"><span style="float:left">
+                    <{if $giftpackage.type!=1}>
+                        <{input type="object" obj_filter="marketable=true" mdl_object="object=goods" default_id="gift-package" filter=$filter select="checkbox" object=goods name="goods" app=b2c cols="name" return_url="{$return_url}" hanld="aaa" callback='_callback' cols="name,spec_info" value='' textcol="name" view="b2c:admin/goods/rows.html"}>
+                    <{else}>
+                        <{input type="object" obj_filter="marketable=true" mdl_object="object=goods" default_id="gift-package" filter=$filter select="checkbox" object=goods name="goods" app=b2c cols="name" return_url="{$return_url}" hanld="aaa" callback='_callback' cols="name,spec_info" value='' textcol="name" view="b2c:admin/goods/rows.html"}>
+                    <{/if}>
+                    </span>&nbsp;&nbsp;<span style="line-height:25px"></span>
+                </div>
+                <div id="handle_gift-package" class="have_selct">
+                <{if $giftpackage['type']==1}><{$goods.html}><{/if}>
+                </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr class="gift-type-2"  id="gift-type-2" <{if $giftpackage['type']==1 || $giftpackage['type'] == ""}>style="display:none"<{/if}> >
+            <th></th>
+            <td>
+                <{$html}>
+            </td>
+        </tr>
+        <tr class="gift-type-1" <{if $giftpackage['type']!=1 && $giftpackage['type'] != ""}>style="display:none"<{/if}> >
+            <th>允许重复购买：</th>
+            <td>
+                <label><input type="radio" name="giftpackage[repeat]" checked <{if $giftpackage['repeat']=='true'}>checked="checked"<{/if}>  value="true" >客户可挑选相同商品</label>
+                <label><input type="radio" name="giftpackage[repeat]" <{if $giftpackage['repeat']=='false'}>checked="checked"<{/if}>  value="false" >客户必须挑选不同商品</label>
+            </td>
+        </tr>
+    </table>
+</div></div>
+<script>
+
+        $('giftpackage-goods-count').addEvent('change',function(){
+            new Request.HTML({
+                update:$('gift-type-2').getChildren('td')[0],
+                url:'<{link app=giftpackage ctl=admin_giftpackage act=get_html}>',
+                onComplete: function(tt) {
+                }
+            }).post('num='+ $(this).value);
+        });
+
+        $$('.gift-type').each(function(item){
+            $(item).addEvent('click',function(){
+                [1,2].each(function(index){
+                    if( $('gift-type-'+index) ) {
+                        if( $(item).value==index ){
+                            $$('.gift-type-'+index).setStyle('display','');
+                        }else
+                            $$('.gift-type-'+index).setStyle('display','none');
+                    }
+                });
+            });
+        });
+
+</script>

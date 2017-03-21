@@ -1,0 +1,13 @@
+<form action="<{link app=b2c ctl=site_passport act=resetpassword}>" method="post">
+  <input type="hidden" name="key" value="<{$data.key}>">
+  <input type="hidden" name="account" value="<{$data.account}>">
+  <ul>
+    <li class="form-item">
+      <label for="" class="form-label"><em class="warn">*</em>新密码：</label><span class="form-act"><{input type="password" name="login_password" maxlength="20" placeholder="6-20个字符" autofocus="autofocus" vtype="required&&minLength:6&&maxLength:20" data-caution="请填写新密码，6-20个字符&&输入不正确，最少6个字符&&输入不正确，最多20个字符" check="true"}></span>
+    </li>
+    <li class="form-item">
+      <label for="" class="form-label"><em class="warn">*</em>确认新密码：</label><span class="form-act"><{input type="password" name="psw_confirm" id="" maxlength="20" placeholder="再次输入新密码" vtype="equal:pam_account[login_password]" data-caution="两次密码输入不相符，请重新输入"}><span class="validation-messagebox"></span></span>
+    </li>
+    <li class="form-item-normal"><span class="form-act"><{button type="submit" rel="_request" data-ajax-config="{onSuccess:function(rs){changeStep(rs);}}" class="btn-simple btn-big" label="确　定"}></span></li>
+  </ul>
+</form>

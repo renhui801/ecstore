@@ -1,0 +1,33 @@
+<div class="coupon-use">
+  <div class="tab">
+    <ul class="trigger-list">
+      <li class="trigger act">已有优惠券</li>
+      <li class="trigger">站外获得优惠券</li>
+    </ul>
+    <div class="panel act">
+      <p>选择已有优惠券：</p>
+      <select name="coupon">
+        <option value="">选择优惠券</option>
+        <{if $coupon_lists}>
+        <{foreach from=$coupon_lists item=list_coupon}>
+        <option value="<{$list_coupon.memc_code}>" data-coupon="<{$list_coupon.cpns_id}>"><{$list_coupon.coupons_info.cpns_name}></option>
+        <{/foreach}>
+        <{/if}>
+      </select>
+      <span class="btn">使用</span>
+    </div>
+    <div class="panel">
+      <p>使用通过站外方式获得的优惠券<br />输入号码：</p>
+      <input type="text" name="coupon" value="" />
+      <span class="btn">使用</span>
+    </div>
+  </div>
+  <ul class="used">
+  <{foreach from=$aCart.object.coupon item=coupon}>
+  <{if $coupon.used}>
+    <li><span class="del" rel="<{$coupon.obj_ident}>" data-coupon="<{$coupon.cpns_id}>" data-code="<{$coupon.coupon}>">取消使用</span><{$coupon.coupon}>-<{$coupon.name}></li>
+  </li>
+  <{/if}>
+  <{/foreach}>
+  </ul>
+</div>

@@ -1,0 +1,82 @@
+<site>
+    <explorer id='b2c' path='view/wap'>触屏版前台模版</explorer>
+
+    <module id='b2c' controller='wap_gallery' >
+        <name>gallery</name>
+        <title>全部商品</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_product' >
+        <name>product</name>
+        <title>商品详细页</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_member' >
+        <name>member</name>
+        <title>会员中心</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_brand' >
+        <name>brand</name>
+        <title>品牌区</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_message' >
+        <name>message</name>
+        <title>商店留言</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_comment' >
+        <name>comment</name>
+        <title>评论咨询</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_passport' >
+        <name>passport</name>
+        <title>会员登录</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_cart' >
+        <name>cart</name>
+        <title>购物车</title>
+        <disable>false</disable>
+    </module>
+
+    <module id='b2c' controller='wap_tools' >
+        <name>tools</name>
+        <title>工具</title>
+        <disable>false</disable>
+    </module>
+
+    <module id='b2c' controller='wap_associate' >
+        <name>associate</name>
+        <title>联想搜索</title>
+        <disable>false</disable>
+    </module>
+
+    <module id='b2c' controller='wap_order' >
+        <name>order</name>
+        <title>订单</title>
+        <disable>false</disable>
+    </module>
+
+    <module id='b2c' controller='wap_search' >
+        <name>search</name>
+        <title>搜索</title>
+        <disable>false</disable>
+    </module>
+    
+    <module id='b2c' controller='wap_paycenter' >
+        <name>paycenter</name>
+        <title>支付中心</title>
+        <disable>false</disable>
+    </module>
+    
+</site>

@@ -1,0 +1,34 @@
+<{if $emailaddr}>
+	<div class='finder-list finder-normal emailaddr-block'>
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+			<tr valign="top"> 
+			<{foreach from=$emailaddr item=item name=emailaddr}>
+			<td class='row odd'>
+			<!--内容-->
+				<table width='100%' cellpadding=0 cellspacing=0>
+					<tbody>
+						<tr class='row odd'>
+							<td  width="30"><input type="checkbox"  name="emailaddr[]" value="<{$item.ea_email}>" ea_id='<{$item.ea_id}>'></td>
+							<td><{$item.ea_email}></td>
+						</tr>
+					</tbody>
+				</table>				
+			</td>
+			<{if !($smarty.foreach.emailaddr.iteration%4)}> 
+			</tr>
+				<{if !$smarty.foreach.emailaddr.last}>
+				<tr valign="top"> 
+				<{/if}>
+			<{elseif $smarty.foreach.emailaddr.last}>
+				<td>&nbsp;</td>
+			</tr>
+			<{/if}>
+			<{/foreach}>
+		</tbody>
+		</table>
+
+	</div>
+	<{else}>
+	<div style="margin:20px;border:1px solid #999;background:#f0f0f0;padding:20px;-moz-border-radius:5px;-webkit-border-radius:5px;radius:5px"><{t}>暂时无订阅邮箱.<{/t}></div>
+	<{/if}>

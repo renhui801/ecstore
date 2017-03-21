@@ -1,0 +1,115 @@
+<{css src="style/modify.css" app="cps"}>
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span><a href="<{link app='cps' ctl='site_welcome' act='gencode'}>">获取代码</a></span>&gt;<span class="bold">快速获取代码</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="m2_left">
+<ul id="m2left_nav">
+    <li class="curr bg_color1"><a href="<{link app=cps ctl=site_welcome act=adlink_image}>">快速获取代码</a></li>
+    <li><a href="<{link app=cps ctl=site_welcome act=adlink_customize}>">自定义链接</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="m2_right">
+<div class="dama_nav">
+<ul id="ad_tabs">
+    <li class="curr" hidstr='selectshow'><a href="#">选择尺寸</a></li>
+    <li hidstr='listshow'><a href="#" >全部显示</a></li>
+</ul>
+</div>
+<!--dama_nav-->
+<div class="dama_main"><input type="hidden" name="union_str" id="union_str" value="<{$union_str}>">
+<div id="selectshow" class="formshow">
+<div class="dama_m_tit bg_color1 bor_color1">
+请选择您网站广告位的尺寸，或者浏览全部素材寻找您想要的广告素材。
+</div>
+<{foreach from=$data item="link"}>
+    <span style="padding-right: 30px; height:30px; line-height:30px; padding:10px; width:100px; display:block; float:left;">
+        <input id="lnk_<{++$i}>" type="radio" style=" vertical-align:middle;" name="link" value="<{$link.link_id}>"><{$link.width}>*<{$link.height}>
+    </span>
+ <{/foreach}>
+ <div class="clear"></div>
+<div class="dama_m_tit bg_color1 bor_color1" >图片预览</div>
+<div class="dama_m_line"><{img id="preview_img" src="images/none_pic.jpg" width=$link.width height=$link.height}></div>
+<div class="dama_m_line"><textarea style="width:100%; height:150px; background:none; border:solid 1px #ccc;" id="preview_txt"></textarea></div>
+<div class="dama_m_line "><span><input type="button" class="but_bgred adlink_url_copy" value="复制广告链接" info=''>&nbsp;&nbsp;&nbsp;广告尺寸为<{$link.width}>*<{$link.height}>&nbsp;&nbsp;&nbsp;复制后，黏贴至你的网站、博客即可实现</span></div>
+</div>
+
+<div id="listshow" style="display:none;" class="formshow">
+<div class="dama_m_tit bg_color1 bor_color1">请选择您网站广告位的尺寸，或者浏览全部素材寻找您想要的广告素材。</div>
+<{foreach from=$data item="link"}>
+<div class="dama_m_tit bg_color1 bor_color1">图片预览区域</div>
+<div class="dama_m_line">
+    <img src="<{$link.remote_img_url}>" width="<{$link.width}>" height="<{$link.height}>">
+</div>
+<div class="dama_m_line">
+<textarea style="width:100%; height:150px; background:none; border:solid 1px #ccc;" name="adlink_<{$link.link_id}>"><a href="<{$link.url}><{$union_str}>"><img src="<{$link.remote_img_url}>" width="<{$link.width}>" height="<{$link.height}>"></a></textarea>
+</div>
+<div class="dama_m_line"><input type="button" class="but_bgred adlink_url_copy" value="复制广告代码" info='<a href="<{$link.url}><{$union_str}>"><img src="<{$link.remote_img_url}>" width="<{$link.width}>" height="<{$link.height}>"></a>'>&nbsp;广告尺寸为<{$link.width}>*<{$link.height}>&nbsp;&nbsp;复制后，黏贴至你的网站、博客即可实现</div>
+<{/foreach}>
+</div>
+<div class="clear"></div>
+</div>
+<!--dama_main--></div>
+<!--m2_right-->
+<div class="clear"></div>
+</div>
+<!--mc_2box-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+<script>
+window.addEvent('domready',function() {
+    $('ad_tabs').getElements('li').addEvent('click',function(e){
+        $('ad_tabs').getElements('li').removeClass('curr');
+        this.addClass('curr');
+        
+        $$('.formshow').setStyle('display','none');
+        var hidform = this.getProperty('hidstr');
+        $(hidform).setStyle('display','block');
+        
+    });
+    
+    var preview = function(id) {
+        var index = id.substr(4) - 1;
+        var ext_url = $('union_str').value;
+
+        $('preview_img').set('width', ads[index]['width']);
+        $('preview_img').set('height', ads[index]['height']);
+        $('preview_img').set('src', ads[index]['remote_img_url']);
+        $('preview_txt').value = '<a href="'+ads[index]['url']+ext_url+'"><img src="'+ads[index]['remote_img_url']+'" width="' + ads[index]['width'] + '" height="' + ads[index]['height'] + '"></a>';
+        $E('.adlink_url_copy').setProperty('info', $('preview_txt').value);
+    }
+
+    $$('input[name=link]').addEvent('click', function() {
+        preview(this.id);
+    });
+
+    var ads = <{$jsdata}>;
+    if ($('lnk_1')) {
+        $('lnk_1').checked = "checked";
+        preview('lnk_1');
+    }
+
+    if($E('.adlink_url_copy')){
+        $$('.adlink_url_copy').addEvent('click',function(e){
+            	copyToClipboard(this.get('info'));
+        });
+    }
+
+    function copyToClipboard(txt) {
+        if (window.clipboardData) {
+            window.clipboardData.clearData();
+            if (window.clipboardData.setData("Text", txt)) {
+                alert("复制成功！");
+            }
+        } else {
+            alert("您的浏览器不支持，请手工复制");
+        }
+    }
+
+    $('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+});
+</script>

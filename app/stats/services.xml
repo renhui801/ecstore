@@ -1,0 +1,18 @@
+<services>	
+    <service id="site_view_helper">   
+        <class>stats_site_view_helper</class>
+    </service>
+
+	<service id="stats_data_storager">   
+        <class>stats_data_storager</class>
+    </service>
+	
+	<service id="desktop.widgets">
+		<class>stats_desktop_widgets_exstatistics</class>
+    </service>
+    
+    <service id="desktop_keyboard_setting">
+        <class>stats_keyboard_initdata</class>
+    </service>
+
+</services>

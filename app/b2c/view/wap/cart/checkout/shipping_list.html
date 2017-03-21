@@ -1,0 +1,11 @@
+
+<{foreach from=$member_addr_list item=addr key=key}>
+<li class="address-item gb <{if $def_addr.addr_id==$addr.addr_id}>act<{/if}>" value='{"addr_id":<{$addr.addr_id}>,"area":<{$addr.area|ship_area_id}>}'>
+  <{$addr.area|ship_area}>,
+  <{$addr.addr}>,
+  <{if $addr.zip}><{$addr.zip}>,<{/if}>
+  <{$addr.name}>,
+  <{if $addr.tel}><{$addr.tel}>,<{/if}>
+  <{if $addr.mobile}><{$addr.mobile}><{/if}>
+</li>
+<{/foreach}>

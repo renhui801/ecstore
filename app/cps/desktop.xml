@@ -1,0 +1,71 @@
+<desktop>
+    <workground name="网站联盟" id="cps_center" order="800">
+        <menugroup name="佣金管理">
+            <menu controller="admin_usermonthprofit" action="index" params="p[0]:2" permission="cps_profit_sheet" display="true" order="8000100">月度佣金报表</menu>
+            <menu controller="admin_usermonthprofit" action="index" params="p[0]:1" permission="cps_profit_sheet" display="true" order="8000200">未发放佣金</menu>
+            <menu controller="admin_usermonthprofit" action="grant" permission="cps_profit_grant" display="false" order="8000201">发放佣金</menu>
+        </menugroup>
+
+        <menugroup name="广告管理">
+            <menu controller="admin_adlink" action="showAdLink" permission="cps_ad_list" display="true" order="8000300">已添加广告</menu>
+            <menu controller="admin_adlink" action="addAdLink" permission="cps_ad_save" display="true" order="8000400">添加广告</menu>
+            <menu controller="admin_adlink" action="editAdLink" permission="cps_ad_save" display="false" order="8000401">编辑广告</menu>
+            <menu controller="admin_adlink" action="delete" permission="cps_ad_save" display="false" order="8000402">删除广告</menu>
+        </menugroup>
+
+        <menugroup name="消息管理">
+            <menu controller="admin_info" action="index" params="p[0]:1" permission="cps_info_notice" display="true" order="8000500">公告列表</menu>
+            <menu controller="admin_info" action="index" params="p[0]:2" permission="cps_info_help" display="true" order="8000600">帮助列表</menu>
+            <menu controller="admin_info_detail" action="add" permission="cps_info_save" display="true" order="8000700">添加消息</menu>
+            <menu controller="admin_info_detail" action="edit" permission="cps_info_save" display="false" order="8000701">编辑消息</menu>
+        </menugroup>
+
+        <menugroup name="推广订单">
+            <menu controller="admin_userorderprofit" action="index" permission="cps_order_list" display="true" order="8000800">订单列表</menu>
+        </menugroup>
+
+
+        <menugroup name="第三方数据">
+            <menu controller="admin_thirdparty" action="index" permission="cps_thirdparty_list" display="true" order="8000810">订单列表</menu>
+        </menugroup>
+
+        <menugroup name="联盟商管理">
+            <menu controller="admin_users" action="index" permission="cps_user_list" display="true" order="8000900">联盟商列表</menu>
+            <menu controller="admin_users" action="add" permission="cps_user_add" display="true" order="8001000">添加联盟商</menu>
+            <menu controller="admin_users" action="toConfirm" permission="cps_user_confirm" display="false" order="8001001">联盟商审核</menu>
+        </menugroup>
+
+        <menugroup name="基本设置">
+            <menu controller="admin_setting" action="index" permission="cps_setting_rate" display="true" order="8001100">佣金比率设置</menu>
+            <menu controller="admin_bank" action="index" permission="cps_setting_bank" display="true" order="8001200">银行配置</menu>
+            <menu controller="admin_agreement" action="index" permission="cps_setting_agree" display="true" order="8001300">联盟协议设置</menu>
+            <menu controller="admin_bank" action="addNew" permission="cps_setting_bank" display="false" order="8001400">添加联盟商银行</menu>
+            <menu controller="admin_users" action="setting" permission="cps_setting_user" display="true" order="8001500">注册审核设置</menu>
+        </menugroup>
+    </workground>
+
+        <permissions>
+        <permission id="cps_profit_sheet" display='true'>佣金报表</permission>
+        <permission id="cps_profit_grant" display='true'>发放佣金</permission>
+
+        <permission id="cps_ad_list" display='true'>已添加广告</permission>
+        <permission id="cps_ad_save" display='true'>编辑广告</permission>
+
+        <permission id="cps_info_notice" display='true'>公告列表</permission>
+        <permission id="cps_info_help" display='true'>帮助列表</permission>
+        <permission id="cps_info_save" display='true'>编辑消息</permission>
+
+        <permission id="cps_order_list" display='true'>订单列表</permission>
+
+        <permission id="cps_thirdparty_list" display='true'>第三方订单列表</permission>
+
+        <permission id="cps_user_list" display='true'>联盟商列表</permission>
+        <permission id="cps_user_add" display='true'>添加联盟商</permission>
+        <permission id="cps_user_confirm" display='true'>联盟商审核</permission>
+
+        <permission id="cps_setting_rate" display='true'>佣金比率设置</permission>
+        <permission id="cps_setting_bank" display='true'>银行配置</permission>
+        <permission id="cps_setting_agree" display='true'>联盟协议设置</permission>
+        <permission id="cps_setting_user" display='true'>注册审核设置</permission>
+    </permissions>
+</desktop>

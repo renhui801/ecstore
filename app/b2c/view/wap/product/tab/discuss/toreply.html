@@ -1,0 +1,59 @@
+<!-- 评论回复 -->
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            发表评论回复
+        </div>
+    </div>
+    </header>
+    <div class="post-reply action-post-reply ">
+      <form action="<{link app=b2c ctl=wap_comment act=toReply}>" method="post" class="action-code-form" data-type="ajax">
+        <input type="hidden" name="id" value="<{$comment_id}>">
+        <input type="hidden" name="product_id" value="<{$product_id}>">
+        <ul>
+          <{if !$comments.setting.power_status}>
+          <{assign var=disable value='disabled'}>
+          <{/if}>
+          <li class="form-item">
+          <div class="form-act-wide<{if !$comments.setting.power_status}> no-permission<{/if}>">
+            <textarea class="action-filled-textarea" name="comment" id="" cols="30" rows="10" <{$disable}> vtype="required" data-caution="请填写回复内容，最多1000字" placeholder="请填写评论内容，最多1000字"></textarea>
+            <{if !$comments.setting.power_status}>
+            <div class="mini-mask"><{$comments.setting.power_message}></div>
+            <{/if}>
+            <div class="clearfix">
+              <div class="word-count"><i class="current"><b>0</b></i>/<i class="word-limit">1000</i></div>
+              <div class="sub-label"></div>
+            </div>
+          </div>
+          </li>
+          <{if $comments.setting.verifyCode == "on"}>
+          <li class="form-item">
+          <label for="reply_verifycode" class="form-label"><{t}>验证码<{/t}>：</label>
+          <span class="form-act">
+            <{input type="vcode" class="verify-input" id="reply_verifycode" name="replyverifyCode" size="4" disabled=$disable key="REPLYVCODE" a_class="lnklike"}>
+          </span>
+          </li>
+          <{/if}>
+          <li class="form-item form-item-last">
+          <span class="form-act"><{button type="submit" class="btn-simple action-submit-reply" rel="_request" disabled=$disable label="发表回复"}></span>
+          </li>
+        </ul>
+      </form>
+    </div>
+</div>
+<script type="text/javascript">
+$('.action-filled-textarea').on('input',function(){
+  var cur = $(this).next().find('b'), max = 1000;
+  if(this.value.length > max) {
+      this.value = this.value.substr(0, max);
+      alert('内容超限，最多输入 ' + max + ' 字');
+  }
+  cur.text(this.value.length);
+});
+
+</script>

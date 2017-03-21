@@ -1,0 +1,9 @@
+<div class="p10" style="padding-left:30%">
+  <p>
+      <input type="radio" id="wg_show_cur1" value=1 name="cart_show_type" <{if $setting.cart_show_type==1}>checked="checked"<{/if}> /> <label for="wg_show_cur1"><{t app="b2c"}>显示商品总数量<{/t}></label>
+      <input type="radio" id="wg_show_cur2" value=2 name="cart_show_type" <{if $setting.cart_show_type!=1}>checked="checked"<{/if}> /> <label for="wg_show_cur2"><{t app="b2c"}>显示商品种类<{/t}></label>
+  </p>
+  <p>
+      <input type="checkbox" id="wg_show_minicart" value="1" name="show_minicart" <{if $setting.show_minicart=="1"}>checked="checked"<{/if}> /> <label for="wg_show_minicart"><{t app="b2c"}>显示迷你购物车<{/t}></label>
+  </p>
+</div>

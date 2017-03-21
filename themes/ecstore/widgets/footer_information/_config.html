@@ -1,0 +1,71 @@
+<div class="tableform widgetconfig" >
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th><{t app='content'}>选择栏目节点:<{/t}> </th>
+            <td>
+                <{input id="select_begin_node" type='select' name='node_id' value=$setting.node_id vtype='required' caution=$___content='请选择节点'|t:'content' rows=$setting.selectmaps valueColumn="node_id" labelColumn="node_name"}>
+            </td>
+        </tr>
+        <tr>
+            <th><{t app='content'}>选择栏目下展示文章:<{/t}> <br><{t}>(按住ctrl 或 shift 多选)<{/t}></th>
+            <td>
+                <{input type='select' id="select_article" name='article_id[]' multiple="true" value=$setting.article_id  caution=$___content='请选择文章'|t:'content' rows=$setting.selectmaps valueColumn="article_id" labelColumn="article_name" size=15 style="min-width:150px"}>
+            </td>
+        </tr>
+        <tr data-extends="beginnode">
+            <th><{t app='content'}>去除根栏目节点链接:<{/t}> </th>
+            <td >
+                <input type="radio" name="stripparenturl" value="1" <{if $setting.stripparenturl ==1}> checked <{/if}> > <{t app='content'}>是<{/t}>
+                <input type="radio" name="stripparenturl" value="0" <{if $setting.stripparenturl !=1}> checked <{/if}> > <{t app='content'}>否<{/t}>
+            </td>
+        </tr>
+        <tr>
+            <th><{t app='content'}>文章标题按:<{/t}> </th>
+            <td>
+            <select name="order_type">
+              <{foreach from=$setting.select_order.order_type key=key item=item}>
+              <option value="<{$key}>" <{if $key==$setting.order_type}>selected="selected"<{/if}> ><{$item}></option>
+              <{/foreach}>
+            </select>
+            <select name="order">
+              <{foreach from=$setting.select_order.order key=key item=item}>
+              <option value="<{$key}>" <{if $key==$setting.order}>selected="selected"<{/if}> ><{$item}></option>
+              <{/foreach}>
+            </select>
+            排序
+            </td>
+        </tr>
+   </table>
+</div>
+<{assign var=article_id value=$setting.article_id|json_encode}>
+
+<script type="text/javascript">
+
+$$('input[name=showallart]').addEvent('change',function(){
+    if(!this.checked)return;
+    $$('[data-extends='+this.get('data-extends-name')+']').setStyle('display',this.value>0 ? '' : 'none');
+}).fireEvent('change');
+
+$('select_begin_node').addEvent('change',function(){
+req('node_id=' + this.value);
+    $$('[data-extends=beginnode]').setStyle('display', this.value>0 ? '' : 'none');
+}).fireEvent('change');
+
+function req(data) {
+    new Request({
+      url: '<{link app=content ctl=site_article act=ajax_widgets}>',
+        onSuccess: function(rs) {
+            var s = [];
+            if(rs) {
+                rs = JSON.decode(rs);
+                var article_id = '<{$article_id}>';
+                rs.each(function(r){
+                    s.push('<option value="' + r.article_id + '" '+(article_id.indexOf(r.article_id) > -1 ? 'selected' : '') +'>' + r.title + '</option>');
+                });
+                $('select_article').set('html', s.join(''));
+            }
+        }
+    }).post(data);
+}
+req('node_id=<{$setting.node_id}>');
+</script>

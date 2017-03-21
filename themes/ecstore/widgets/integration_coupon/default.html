@@ -1,0 +1,17 @@
+<div class="common-mod integ-coupon">
+  <div class="hd"><h2 class="title"><{$setting.block_name}></h2></div>
+  <div class="bd">
+    <ul class="coupons-list clearfix">
+      <{foreach from=$data item=row key=gid name=couponsexchangerow}>
+      <li class="coupon-item clearfix">
+        <div class="coupon-name"><{$row.cpns_name}></div>
+        <div class="coupon-info"><{$row.description}></div>
+        <div class="clearfix">
+          <a href="<{link app=b2c ctl=site_member act=couponExchange}>" class="btn btn-primary">马上兑换</a>
+          <span class="need-integ">兑换积分：<i><{$row.cpns_point}></i>分</span>
+        </div>
+      </li>
+      <{/foreach}>
+    </ul>
+  </div>
+</div>

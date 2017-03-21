@@ -1,0 +1,9 @@
+<div class="head"></div>
+<div class="main">
+<ul class="mainlist">
+<{foreach from=$data item=val}>
+    <li><a href="<{link app='cps' ctl='site_info' act='index' arg0=$val.info_id}>"><{$val.title}></a></li>
+<{/foreach}>
+</ul>
+<div class="clear"></div>
+</div>

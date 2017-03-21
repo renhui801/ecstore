@@ -1,0 +1,9 @@
+<!---
+<cronentries>
+  <cron id="aftersales_tasks_archive_returnProduct">
+    <description>归档售后单</description>
+    <schedule>0 4 * * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+</cronentries>
+-->

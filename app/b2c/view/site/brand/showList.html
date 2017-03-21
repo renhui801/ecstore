@@ -1,0 +1,25 @@
+<div class="brands-list clearfix">
+  <{foreach from=$data item=data}>
+  <div class="items">
+    <dl>
+      <dt class="img"><a href="<{link app=b2c ctl=site_brand act=index arg0=$data.brand_id}>" title="<{t}>了解<{/t}> <{$data.brand_name}>"><img src="<{$data.brand_logo|default:$defaultImage|storager}>" alt="<{$data.brand_name}>"></a></dt>
+      <dd class="intro">
+        <a href="<{link app=b2c ctl=site_brand act=index arg0=$data.brand_id}>" title="<{t}>了解<{/t}> <{$data.brand_name}>"><{$data.brand_name}> &raquo;</a>
+     </dd>
+    </dl>
+  </div>
+  <{/foreach}>
+</div>
+<div class="clearfix">
+  <{pagers data=$pager}>
+</div>
+
+<script>
+window.addEvent('load',function(){
+    if(Browser.ie6) {
+        $$('.brands-list .img img').each(function(img){
+            img.zoomImg(150,100);
+        });
+    }
+});
+</script>

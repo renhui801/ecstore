@@ -1,0 +1,36 @@
+<div class="tableform clearfix" style="border: none; background: none;">
+<form action="index.php?app=cps&ctl=admin_users&act=editUser" method="post"><input type="hidden" name="u_id" value="<{$data.u_id}>">
+<table width="96%" border="0">
+    <tr>
+        <th>用户名：</th>
+        <td><span><{$data.u_name}></span><span><a href="index.php?app=cps&ctl=admin_users&act=chkpassword&uid=<{$data.u_id}>">修改密码</a></span></td>
+    </tr>
+    <tr>
+        <th>邮箱：</th>
+        <td><input type="text" vtype="email&&required" class="x-input" name="user[email]" value="<{$data.email}>" /></td>
+    </tr>
+    <tr>
+        <th>联系人姓名：</th>
+        <td><input type="text" vtype="required" class="x-input" name="user[realname]" id="textfield" value="<{$data.realname}>" /></td>
+    </tr>
+    <tr>
+        <th>联系电话：</th>
+        <td><input type="text" vtype="required" class="x-input" name="user[mobile]" value="<{$data.mobile}>" /></td>
+    </tr>
+    <tr>
+        <th>用户类型：</th>
+        <td><select class="x-input" name="user[u_type]">
+            <{foreach from=$userTypes item=val key=key}>
+            <option value="<{$key}>"<{if $key == $data.u_type}>selected="selected"<{/if}>><{$val}></option>
+            <{/foreach}>
+        </select></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+        <div style="padding-top: 10px;"><{button class="btn" type="submit" label="确定修改"}></div>
+        </td>
+    </tr>
+</table>
+</form>
+</div>

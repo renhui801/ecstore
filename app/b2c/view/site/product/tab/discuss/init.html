@@ -1,0 +1,73 @@
+<table class="product-score">
+  <tbody>
+    <tr>
+      <{if $comments.setting.goods_point_status != 'off'}>
+      <td class="score-total">
+        <span class="label"><{t}>商品评分<{/t}></span>
+        <span class="values">
+          <em class="stars stars-<{$comments.goods_point.avg_num*10}>">
+            <span class="below"><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i></span><span class="above"><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i></span>
+          </em>
+          <b class="score"><{$comments.goods_point.avg_num}></b>
+          <span class="total"><b class="total-count"><{$comments.total_point_nums}></b><{t}>人评分<{/t}></span>
+        </span>
+      </td>
+      <td>
+        <ul class="scores-list">
+          <{foreach from=$comments._all_point item="_all_point"}>
+          <li class="scores-item">
+          <span class="label"><{$_all_point.type_name}></span>
+          <em class="stars stars-<{$_all_point.avg*10}>">
+            <span class="below"><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i></span><span class="above"><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i></span>
+          </em>
+          <b class="score"><{$_all_point.avg}></b>
+          </li>
+          <{/foreach}>
+        </ul>
+      </td>
+      <{/if}>
+      <td>
+        <p class="desc"><i><{$comments.setting.power_discuss_message}></i></p>
+        <a href="<{link app=b2c ctl=site_member act=nodiscuss}>" class="btn btn-simple"><span><span><{t}>我要评论<{/t}></span></span></a>
+        <p class="desc"><{$comments.setting.goods_discuss_notice}></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<{include file='site/product/tab/discuss/content.html'}>
+<!--回复-->
+<div class="post-reply action-post-reply hide">
+  <form action="<{link app=b2c ctl=site_comment act=toReply}>" method="post" class="action-code-form">
+    <input type="hidden" name="id">
+    <input type="hidden" name="product_id" value="">
+    <ul>
+      <{if !$comments.setting.power_status}>
+      <{assign var=disable value='disabled'}>
+      <{/if}>
+      <li class="form-item">
+      <div class="form-act-wide<{if !$comments.setting.power_status}> no-permission<{/if}>">
+        <textarea class="action-filled-textarea" name="comment" id="" cols="30" rows="10" <{$disable}> vtype="required" data-caution="请填写回复内容，最多1000字" placeholder="请填写评论内容，最多1000字"></textarea>
+        <{if !$comments.setting.power_status}>
+        <div class="mini-mask"><{$comments.setting.power_message}></div>
+        <{/if}>
+        <div class="clearfix">
+          <div class="word-count"><i class="current">0</i>/<i class="word-limit">1000</i></div>
+          <div class="sub-label"></div>
+        </div>
+      </div>
+      </li>
+      <{if $comments.setting.verifyCode == "on"}>
+      <li class="form-item">
+      <label for="reply_verifycode" class="form-label"><{t}>验证码<{/t}>：</label>
+      <span class="form-act">
+        <{input type="vcode" class="verify-input" id="reply_verifycode" name="replyverifyCode" size="4" disabled=$disable key="REPLYVCODE" a_class="lnklike" img_class="hide"}>
+      </span>
+      </li>
+      <{/if}>
+      <li class="form-item form-item-last">
+      <span class="form-act"><{button type="submit" class="btn-simple action-submit-reply" rel="_request" disabled=$disable label="提交回复"}><a href="javascript:void(0);" class="btn-close action-close-reply"><{t}>取消回复<{/t}></a></span>
+      </li>
+    </ul>
+  </form>
+</div>
+

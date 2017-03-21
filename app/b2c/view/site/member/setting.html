@@ -1,0 +1,102 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 个人信息 -->
+  <div id="member_information" class="member-information">
+    <div class="member-title">
+      <h2><{t}>个人信息<{/t}></h2><p> | <{t}>请尽量完整填写您的个人信息，方便店家与您联系<{/t}>。</p>
+    </div>
+
+    <div class="member-mod">
+      <form action="<{link app=b2c ctl=site_member act=save_setting}>" method="post" class="signupin-content">
+        <ul>
+          <!--
+          <li class="form-item">
+            <label for="" class="form-label"><{t}>货币<{/t}>：</label>
+            <span class="form-act">
+              <{input type=select name="currency" options=$currency.options value=$currency.value required=true}>
+            </span>
+          </li>
+          -->
+          <li class="form-item">
+            <label for="" class="form-label"><em class="warn">*</em>用户名：</label>
+            <{if $mem.local}>
+              <{$mem.local}>
+            <{else}>
+            <span class="form-act">
+              <{input type="text" name="local_name" value='' vtype="required"}>
+            </span>
+            <{/if}>
+          </li>
+          <{if $mem.email}>
+          <li class="form-item">
+            <label for="" class="form-label"><em class="warn"></em> E-mail：</label>
+            <{$mem.email}>
+          </li>
+          <{/if}>
+          <{if $mem.mobile}>
+          <li class="form-item">
+            <label for="" class="form-label"><em class="warn"></em> 手机号：</label>
+            <{$mem.mobile}>
+          </li>
+          <{/if}>
+          <{foreach from=$attr item=item name="item" key='row'}>
+          <li class="form-item">
+            <label for="" class="form-label"><{if $item.attr_required eq 'true'}><em class="warn">*</em><{/if}><{$item.attr_name}>：</label>
+            <span class="form-act">
+              <{assign var=vtype value=""}>
+              <{if $item.attr_required eq 'true'}>
+              <{if $item.attr_type =='region'}>
+              <{assign var=vtype value="area"}>
+              <{elseif $item.attr_type =='gender' || $item.attr_type =='checkbox'}>
+              <{assign var=vtype value="onerequired"}>
+              <{else}>
+              <{assign var=vtype value="required"}>
+              <{/if}>
+              <{/if}>
+
+              <{if $item.attr_type =='date'}>
+              <{if $item.attr_value != '0-0-0' && $item.attr_value != '--'}>
+              <{assign var=value value=$item.attr_value}>
+              <{/if}>
+              <{input type="datepicker" name=$item.attr_column value=$value vtype=$vtype}>
+              <{/if}>
+
+              <{if $item.attr_type =='region'}>
+              <{input app=ectools type="region" name=$item.attr_column value=$item.attr_value vtype=$vtype}>
+              <{/if}>
+
+              <{if $item.attr_type =='gender'}>
+              <{input type="gender" class="x-check" name=$item.attr_column value=$item.attr_value vtype=$vtype}>
+              <{/if}>
+
+              <{if $item.attr_type =='select'}>
+              <select name="<{$item.attr_column}>" class="x-select" vtype=$vtype>
+                <option value="" <{if $item.attr_value == ''}>selected="selected"<{/if}>><{t}>请选择<{/t}></option>
+                <{foreach from=$item.attr_option item=option name="option"}>
+                <option value="<{$option}>" <{if $item.attr_value == $option}>selected="selected"<{/if}>><{$option}></option>
+                <{/foreach}>
+              </select>
+              <{/if}>
+
+              <{if $item.attr_type =='checkbox'}>
+              <{foreach from=$item.attr_option item=checkbox name="checkbox"}>
+              <input type="checkbox" class="x-check" name="box:<{$item.attr_column}>[]" value="<{$checkbox}>"<{if $smarty.foreach.checkbox.first}> vtype="<{$vtype}>"<{/if}><{foreach from=$item.attr_value item=checkboxvalue name="checkboxvalue"}><{if $checkboxvalue==$checkbox}> checked="checked"<{break}><{/if}><{/foreach}>>
+              <label><{$checkbox}></label>
+              <{/foreach}>
+              <!-- <input type="hidden" name="<{$item.attr_column}>[]" value="%no%"> -->
+              <{/if}>
+
+              <{if $item.attr_type == 'text' || $item.attr_type == 'number' || $item.attr_type == 'alpha'}>
+              <input type="text" class="x-input" name="<{$item.attr_column}>" value="<{$item.attr_value}>" vtype="<{$vtype}><{if $item.attr_valtype}><{if $vtype}>&&<{/if}><{$item.attr_valtype}><{/if}>" />
+              <{/if}>
+            </span>
+          </li>
+          <{/foreach}>
+          <{if $attr || !$mem.local }>
+          <li class="form-item-normal"><span class="form-act"><button type="submit" class="btn btn-caution" rel="_request"><span><span><{t}>保 存<{/t}></span></span></button></span></li>
+          <{/if}>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>

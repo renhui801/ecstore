@@ -1,0 +1,16 @@
+<app>
+    <name>系统模块</name>
+    <description>定时任务,队列...</description>
+    <author>
+        <name>shopex开发团队</name>
+        <email>dev@shopex.cn</email>
+        <url>http://www.shopex.cn</url>
+    </author>
+    
+    <version>0.4</version>
+    <license>shopex license</license>
+	<depends>
+		<app>base</app>
+		<app>desktop</app>
+	</depends>
+</app>

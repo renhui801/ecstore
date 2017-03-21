@@ -1,0 +1,61 @@
+<table>
+    <tr>
+        <th>预告：</th>
+        <td><{input type="radio" class="timedbuy-radio-forentice-status" name="{$prename}[forenotice][status]" if($config.forenotice.status=='')checked='checked' options=$forenotice.status value="{$config.forenotice.status}" }></td>
+    </tr>
+    <tr <{if $config.forenotice.status!=1}>style="display:none;"<{/if}> >
+        <td></td>
+        <td>
+            提前：
+            <{input type="select" name="{$prename}[forenotice][timeh]" options=$forenotice.timeh value="{$config.forenotice.timeh}" required="true"}>小时
+            <{input type="select" name="{$prename}[forenotice][timei]" options=$forenotice.timei value="{$config.forenotice.timei}" required="true"}>分
+            <{input type="select" name="{$prename}[forenotice][times]" options=$forenotice.times value="{$config.forenotice.times}" required="true"}>秒
+        </td>
+    </tr>
+    <tr>
+        <th>价格：</th>
+        <td><{input type="text" vtype="required&number&&positive" name="{$prename}[price]" value="{$config.price}" }> </td>
+    </tr>
+    <tr>
+        <th>限时抢购的商品数量：</th>
+        <td><{input type="text" vtype="digits&&positive" name="{$prename}[quantity]" value="{$config.quantity}" }> <em>留空不作限制</em></td>
+    </tr>
+    <tr>
+        <th>每人限购：</th>
+        <td><{input type="text" vtype="unsignedint" name="{$prename}[limit]" value="{$config.limit}" }> <em>留空不作限制</em></td>
+    </tr>
+</table>
+
+<script>
+    $ES('.timedbuy-radio-forentice-status').each(function(item){
+        item.addEvent('click',function(i){
+            if( $(this).value==1 ) {
+                item.getParent('tr').getNext('tr').setStyle('display','');
+            } else {
+                item.getParent('tr').getNext('tr').setStyle('display','none');
+            }
+        });
+    });
+
+    $ES('input[type=radio]','.stpl_list').each(function(el){
+      if(el.get('name')=='rule[s_template]') {
+        if( el.value=='timedbuy_promotion_solution_timedbuy' ) {
+			/*
+            if(el.get('checked')) {
+                $('b2c-sales-promotion-no-mlev').getParent().setStyle('display','none');
+                $('b2c-sales-promotion-no-mlev').set('disabled','true');
+            }
+			*/
+            el.addEvent('click',function(item){
+                $('b2c-sales-promotion-no-mlev').getParent().setStyle('display','none');
+                $('b2c-sales-promotion-no-mlev').set('disabled','true');
+            });
+        } else {
+            el.addEvent('click',function(item){
+                $('b2c-sales-promotion-no-mlev').getParent().setStyle('display','');
+                $('b2c-sales-promotion-no-mlev').set('disabled','');
+            });
+        }
+      }
+    })
+</script>

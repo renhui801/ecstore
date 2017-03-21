@@ -1,0 +1,21 @@
+<div class="main-slide auto-bind-widget" data-widget-type="Switchable" data-widget-config="{
+  haslrbtn:false,
+  effect:'<{$setting.effectWay}>',
+  autoplay:<{$setting.autoplay}>
+}" id="main_slide_<{$widgets_id}>">
+  <ul class="slide-list switchable-content">
+    <{foreach from=$data.pic item=parent key=parentId}>
+    <li class="slide-item">
+      <a href="<{$parent.linktarget}>">
+        <img src="<{$parent.link}>" title="<{$data.linkinfo}>"/>
+      </a>
+    </li>
+    <{/foreach}>
+  </ul>
+  <ul class="slide-triggers switchable-triggerBox">
+    <{assign var=countnum value="1"}>
+    <{foreach from=$data.pic item=parent key=parentId}>
+    <li class="trigger-item"><{$countnum++}></li> 
+    <{/foreach}> 
+  </ul>
+</div>

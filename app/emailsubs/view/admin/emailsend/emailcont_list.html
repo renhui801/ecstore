@@ -1,0 +1,45 @@
+<style type="text/css">
+    .pager{ overflow:hidden; width:100%; padding:10px; text-align:right;}
+</style>
+
+<{if $emailcont}>
+<div class='finder-list finder-normal emailcont-block'>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tabnone">
+        <tbody>
+            <tr valign="top"> 
+                <{foreach from=$emailcont item=item name=emailcont}>
+                <td class='row odd'>
+                    <!--内容-->
+                    <table width='100%' cellpadding="0" cellspacing="0"  class="tabblue">
+                        <tbody>
+                            <tr class='row odd'>
+                                <td width="30"><input type="radio"  name="selTmpl" value="<{$item.ec_id}>" <{if $smarty.foreach.emailcont.first}>checked='checked'<{/if}>></td>
+                                <td><{$item.ec_title}></td>
+                                <td width="60"><{button label=$___emailsubs="预览"|t:'emailsubs' type="button" onclick="		new Dialog('index.php?app=emailsubs&ctl=admin_emailcont&act=preview&p[0]={$item.ec_id}',{title:'邮件预览',width:800,height:680});"}></td>
+                            </tr>
+                        </tbody>
+                    </table>				
+                </td>
+                <{if !($smarty.foreach.emailcont.iteration%2)}> 
+            </tr>
+            <{if !$smarty.foreach.emailcont.last}>
+            <tr valign="top"> 
+                <{/if}>
+                <{elseif $smarty.foreach.emailcont.last}>
+                <td>&nbsp;</td>
+            </tr>
+            <{/if}>
+            <{/foreach}>
+        </tbody>
+    </table>
+
+</div>
+<{else}>
+<div class='finder-list finder-normal emailcont-block' style='display:none'>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tabnone">
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<div class='no-emailcont' style="margin:20px;border:1px solid #999;background:#f0f0f0;padding:20px;-moz-border-radius:5px;-webkit-border-radius:5px;radius:5px"><{t}>暂时无未发送邮件模板.<{/t}></div>
+<{/if}>

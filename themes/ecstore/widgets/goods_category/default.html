@@ -1,0 +1,98 @@
+<div class="category-handle" id="category_handle">
+  <a href="javascript:void(0);">所有商品分类</a>
+</div>
+<div class="category-content" id="category_box"<{if $data.page != "index" && $tmpl_type != "index"}> style="visibility:hidden;"<{/if}>>
+  <ul class="category-list">
+    <{foreach from=$data.data item=item key=key}>
+    <li class="category-item">
+      <a href="<{$item.url}>" <{if $setting.target_blank=='1'}>target="_blank"<{/if}> class="category-link"><span class="text"><{$item.cat_name}></span><{if $item.lv2}><i class="icon">&#x64;</i><{/if}></a>
+      <{if $item.lv2}>
+      <div class="sub-box clearfix">
+        <table style="width:<{$setting.sub_category_width + $setting.brands_box_width + 1}>px;">
+          <col width="<{$setting.sub_category_width}>"/>
+          <col width="<{$setting.brands_box_width}>"/>
+          <tr>
+            <td class="sub-category-box" valign="top">
+              <div class="padding">
+                <{foreach from=$item.lv2 item=sub_item key=sub_key}>
+                <dl class="sub-category clearfix">
+                  <dt><a href="<{$sub_item.url}>" <{if $setting.target_blank=='1'}>target="_blank"<{/if}> class="level2"><{$sub_item.cat_name}></a></dt>
+                  <dd class="clearfix">
+                    <{if $sub_item.lv3}>
+                    <{foreach from=$sub_item.lv3 item=lv3_item key=lv3_key}>
+                    <a href="<{$lv3_item.url}>" <{if $setting.target_blank=='1'}>target="_blank"<{/if}> class="level3"><{$lv3_item.cat_name}></a>
+                    <{/foreach}>
+                    <{/if}>
+                  </dd>
+                </dl>
+                <{/foreach}>
+              </div>
+            </td>
+            <td class="brands-box" valign="top">
+              <{foreach from=$item.brand item=brand key=brand_key}>
+              <a href="<{link app=b2c ctl=site_brand arg0=$brand}>" class="item">
+                <img src="<{$data.brand_list[$brand].brand_logo|storager}>" alt="<{$data.brand_list[$brand].brand_name}>" />
+              </a>
+              <{/foreach}>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <{/if}>
+    </li>
+    <{/foreach}>
+  </ul>
+</div>
+<script>
+var category = $('category_box');
+<{if $data.page != "index" && $tmpl_type != "index"}>
+$('category_handle').getParent().addEvents({
+    'mouseenter': function(e){
+        category.setStyle('visibility','visible');
+    },
+    'mouseleave': function(e){
+        category.setStyle('visibility','hidden');
+    }
+});
+<{/if}>
+
+category.getElements('.category-item').addEvents({
+    'mouseover':function(e){
+        var self = this;
+        clearTimeout(this.showTimer);
+        clearTimeout(this.hideTimer);
+        var active = function(){
+            if(self.getElement('.sub-box')){
+                self.addClass('active');
+            }
+        }
+        this.showTimer = active.delay(100);
+    },
+    'mouseout':function(e){
+        var self = this;
+        clearTimeout(this.showTimer);
+        clearTimeout(this.hideTimer);
+        var active = function(){
+            if(self.getElement('.sub-box')){
+                self.removeClass('active');
+            }
+        }
+        this.hideTimer = active.delay(100);
+    }
+});
+</script>
+<style>
+.category-list .brands-box .item {
+  width: <{$setting.brand_width}>px;
+  height: <{$setting.brand_height}>px;
+  line-height: <{$setting.brand_height}>px;
+  *line-height: <{$setting.brand_height - 2}>px;
+  *font-size: <{$setting.brand_height * 0.9}>px;
+}
+.category-list .brands-box .item img { 
+  max-width: <{$setting.brand_width}>px;
+  max-height: <{$setting.brand_height}>px;
+  _width: <{$setting.brand_width}>px;
+  _height: <{$setting.brand_height}>px;
+}
+</style>

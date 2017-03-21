@@ -1,0 +1,75 @@
+<services>
+<!--
+    <service id="b2c_promotion_tpl_order_apps">
+        <class>proundefined_promotion_conditions_order_itemsquanityuserdefinedgoods</class>
+        <class>proundefined_promotion_conditions_order_subtotaluserdefinedgoods</class>
+    </service>
+-->
+
+    <service id="desktop_finder.groupactivity_mdl_purchase">
+        <class>groupactivity_finder_purchase</class>
+    </service>
+    
+
+    
+    <service id="b2c_products_index_info">
+        <class>groupactivity_product_info_purchase</class>
+    </service>
+    
+    <service id="b2c_products_get_groupinfo">
+        <class>groupactivity_product_info_purchase</class>
+    </service>
+    
+    <service id="b2c_cart_object_apps">
+        <class>groupactivity_cart_object_purchase</class>
+    </service>
+    
+    
+    <service id="b2c_order.beforecreate">
+        <class>groupactivity_order_beforecreate</class>
+    </service>
+    
+    
+    
+    <service id="desktop_finder.groupactivity_mdl_orders">
+        <class>groupactivity_finder_orders</class>
+    </service>
+    
+    <service id="site.site_theme_tmpl">
+        <class>groupactivity_theme_tmpl</class>
+    </service>
+    
+    <!--b2c service验证是否可以删除-->
+    <service id="b2c_allow_delete_goods">
+        <class>groupactivity_delete_check</class>
+    </service>
+    
+	
+    <service id="b2c.order_payment_extend.options">
+        <class>groupactivity_order_pay</class>
+    </service>
+    
+
+    <service id="b2c.order.after_delete">
+        <class>groupactivity_b2c_orders</class>
+    </service>
+    
+    <service id="b2c.order.after_restore">
+        <class>groupactivity_b2c_orders</class>
+    </service>
+    
+	<!-- 判断单据是否需要发送已经通知 -->
+	<service id="b2c.rpc_notify_request">
+        <class>groupactivity_order_notify</class>
+    </service>
+	<!-- end -->
+	<!--
+   <service id="b2c_order.create" optname="订单创建后处理团购相关信息">
+        <class>groupactivity_order_create</class>
+   </service>
+   -->
+	<service id="site_view_helper">   
+        <class orderby="22">groupactivity_site_view_helper</class>
+    </service>
+    
+</services>

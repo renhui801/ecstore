@@ -1,0 +1,8 @@
+
+<li class="address-item gb" value='{"addr_id":<{$save_addr.addr_id}>,"area":"<{$save_addr.area|ship_area_id}>"}'>
+  <{$save_addr.addr}>,
+  <{if $save_addr.zip}><{$addr.zip}>,<{/if}>
+  <{$save_addr.name}>,
+  <{if $save_addr.tel}><{$save_addr.tel}>,<{/if}>
+  <{if $save_addr.mobile}><{$save_addr.mobile}><{/if}>
+</li>

@@ -1,0 +1,17 @@
+<app>
+    <name>系统安装工具</name>
+    <description>目前只是系统安装功能，将来会接管所有需要暂停服务的升级维护工作，本模块在数据库无法连接时也可使用。</description>
+
+    <author>
+        <name>shopex开发团队</name>
+        <email>dev@shopex.cn</email>
+        <url>http://www.shopex.cn</url>
+    </author>
+
+    <version>0.1</version>
+    <license>shopex license</license>
+
+   <depends>
+      <app>base</app>
+    </depends>
+</app>

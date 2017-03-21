@@ -1,0 +1,18 @@
+<app>
+    <name>数据联通日志</name>
+    <description>ECstore 网上商店系统接口操作日志</description>
+
+    <author>
+        <name>shopex开发团队</name>
+        <email>dev@shopex.cn</email>
+        <url>http://www.shopex.cn</url>
+    </author>
+
+    <version>1.0</version>
+    <license>shopex license</license>
+    <parent_model_class>dbeav_model</parent_model_class>
+    <optional app="dev">开发者工具</optional>
+    <depends>
+        <app>base</app>
+    </depends>
+</app>

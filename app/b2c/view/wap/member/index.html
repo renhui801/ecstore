@@ -1,0 +1,141 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <div class="a-name">
+            会员中心
+        </div>
+    </div>
+    </header>
+    <div class="section">
+        <div class="mem-info c-fix">
+            <div class="mem-avatar">
+                <{if $member.lv_logo!=''}>
+                    <img src="<{$member.lv_logo|storager:'s'}>">
+                <{else}>
+                    <{img src="sprites/default-avatar.png" alt=""}>
+                <{/if}>
+            </div>
+            <div class="mem-base c-fix">
+                <div class="fix-f">
+                    <div class="d-line c-fix">
+                        <div class="mem-name">
+                            <{$member.uname}>
+                        </div>
+                        <div class="mem-experience">
+                            <a href="<{link app=b2c ctl=wap_member act=security}>">修改密码</a>
+                        </div>
+                    </div>
+                    <div class="mem-level">
+                        <span class="icon orange">
+                             <{$member.levelname}>
+                        </span>
+                        <div class="mem-experience">
+                            经验值：<{$member.experience}>
+                        </div>
+                    </div>
+                    <div class="d-line">
+                        <{if $switch_lv.switch_type == 0 && $switch_lv.show eq 'YES'}>
+                        积分累积至
+                        <span class="f-red"><{$switch_lv.lv_data}></span>
+                        可成为
+                        <{$switch_lv.lv_name}>
+                        <{/if}>
+                    </div>
+                </div>
+            </div>
+            <div class="gb mem-deposit">
+                <div class="d-line box">
+                    <div class="col">
+                        预存款余额：
+                        <span class="f-red"><{$member.advance|cur_odr}></span>
+                    </div>
+                    <div class="col">
+                        <a href="<{link app=b2c ctl='wap_member' full='1' act='deposit'}>">
+                            充值
+                            <i class="arr right"></i>
+                        </a>
+                        &nbsp;&nbsp;
+                        <a href="<{link app=b2c ctl='wap_member' full='1' act='balance'}>">
+                            交易记录
+                            <i class="arr right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="gb integration">
+                <div class="d-line box">
+                    <div class="col">
+                        账户总积分：<{$member.point}>
+                        <br />
+                        <{if $extend_point_html}>
+                        <{$extend_point_html}>
+                        <{/if}>
+                    </div>
+                    <div class="col">
+                        <a href="<{link app=b2c ctl='wap_member'  full='1' act='point_history'}>">
+                            查看历史积分
+                            <i class="arr right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mem-menu">
+                <div class="col2">
+                    <div class="col">
+                        <a href="<{link app=b2c ctl='wap_member' full='1' act='orders'}>" class="btn">
+                            我的订单
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="<{link app=b2c ctl='wap_cart' full='1' act='index'}>" class="btn">
+                            购物车
+                        </a>
+                        <i id="cartNum" class="icon red"></i>
+                    </div>
+                    <div class="col">
+                        <a href="<{link app=b2c ctl='wap_member' full='1' act='receiver'}>" class="btn">
+                            地址管理
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="<{link app=b2c ctl='wap_member' full='1' act='coupon'}>" class="btn">
+                            优惠券
+                        </a>
+                    </div>
+                    <{if $comment_switch_discuss == 'on'}>
+                    <div class="col">
+                        <a href="<{link app=b2c ctl='wap_member' full='1' act='nodiscuss'}>" class="btn">
+                            未评价商品
+                        </a>
+                    </div>
+                    <{/if}>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="mem-fav-list">
+            <a class="title" href="<{link app=b2c ctl=wap_member act=favorite}>">
+                我的收藏
+                <i class="arr right"></i>
+            </a>
+            <{if $favorite}>
+            <div class="box">
+            <{foreach from=$favorite item="favorite" name="favorite"}>
+                <a class="mem-fav-item" href="<{link app=b2c ctl=wap_product act=index arg0=$favorite.spec_desc_info.0.product_id}>">
+                <img style="width:116px; height:120px;overflow:hidden;" src="<{if $favorite.udfimg == 'true'}><{$favorite.thumbnail_pic|default:$defaultImage|storager:'s'}><{else}><{$favorite.image_default_id|default:$defaultImage|storager:'s'}><{/if}>" alt="<{$favorite.name}>" />
+                </a>
+            <{/foreach}>
+            </div>
+            <{else}>
+            <div class="box">暂无收藏</div>
+            <{/if}>
+        </div>
+    </div>
+</div>
+
+<script>
+    var e = $.fn.cookie('S[CART_NUMBER]')?$.fn.cookie('S[CART_NUMBER]'):'';
+    if(e) $("#cartNum").text(e);
+</script>
+

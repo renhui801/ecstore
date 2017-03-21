@@ -1,0 +1,274 @@
+<div class="full-screen">
+  <header>
+    <div class="a-bar">
+      <a href="javascript:history.back()" class="a-back">
+        <i class="arr left"></i>
+        返回
+      </a>
+      <div class="a-name">
+        商品详情
+      </div>
+    </div>
+  </header>
+  <form action="<{link app=b2c ctl=wap_cart act=add arg0=goods}>" method="post" id="buy_form" data-type="ajax">
+    <input type="hidden" name="btype" class="btype"><!-- value="is_fastbuy" 立即购买提交的时候要带上这个值 -->
+    <input type="hidden" name="goods[goods_id]" value="<{$page_product_basic.goods_id}>"/>
+    <input type="hidden" name="goods[product_id]" value="<{$page_product_basic.product_id}>"/ >
+    <input type="hidden" name="min" value="1" class="min-num" />
+    <input type="hidden" name="max" value="<{$product_store.store}>" class="max-num" />
+    <input type="hidden" name="mini_cart" value="true"/>
+
+    <!-- 商品图片 -->
+    <div class="page pt-pic">
+      <{include file='wap/product/info/pic.html'}>
+    </div>
+
+    <!-- 商品标题 -->
+    <h1 class="pt-name">
+      <{$page_product_basic.title}>
+    </h1>
+
+    <!-- 商品价格 -->
+    <div class="col2 pt-price">
+      <{if $page_product_basic.goods_marketable == 'true'}>
+      <{include file='wap/product/info/price.html'}>
+      <{/if}>
+    </div>
+
+    <!-- 促销信息 -->
+    <{include file='wap/product/info/promotion.html'}>
+
+    <!-- 商品规格 -->
+    <div class="pt-sku">
+      <{include file='wap/product/info/spec.html'}>
+    </div>
+
+    <!-- 商品数量 -->
+    <div class="pt-num J-pt-num" style="padding:0 0 8px 10px;">
+      <label for="goods_num">数量：</label>
+      <span class="minus btn gray">-</span>
+      <div class="num">
+        <input type="text" name="goods[num]" id="goods_num" value="1" class="num-ipt">
+      </div>
+      <span class="plus btn gray">+</span>
+      <{if $product_store.store <= 5}><span class="warn-message">余量有限</span><{/if}>
+    </div>
+
+    <!--购买按钮-->
+    <div class="pt-btn">
+      <{include file='wap/product/info/btn.html'}>
+    </div>
+  </form>
+<img src="<{link app=b2c ctl=wap_product act=cron arg=$page_product_basic.goods_id }>" width="1" border="none" height="1">
+  <div class="pt-detail">
+    <div class="tab J-tab">
+      <ul class="trigger-list">
+        <li class="trigger act">
+          基本信息
+        </li>
+        <li class="trigger" data-url="<{link app=b2c ctl=wap_product act=goodsDetailIntro arg0=$page_product_basic.goods_id}>" >
+          商品详情
+        </li>
+        <{if $setting.acomment.switch.discuss == 'on'}>
+        <li class="trigger" data-url="<{link app=b2c ctl=wap_product act=goodsDiscussInit arg0=$page_product_basic.goods_id arg1=$page_product_basic.product_id}>" >
+          用户评论<{$discussCount|default:'0'}>
+        </li>
+        <{/if}>
+        <{if $setting.acomment.switch.ask == 'on'}>
+        <li class="trigger" data-url="<{link app=b2c ctl=wap_product act=goodsConsultInit arg0=$page_product_basic.goods_id arg1=$page_product_basic.product_id}>" >
+          用户咨询<{$askCount|default:'0'}>
+        </li>
+        <{/if}>
+      </ul>
+      <ul class="panel-list">
+        <li class="panel act">
+          <{include file='wap/product/tab/basic_intro.html'}> <!-- 基本信息 -->
+        </li>
+        <li class="panel"> </li>
+        <li class="panel"> </li>
+        <li class="panel"> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+/*图片滚动*/
+var ptSlider = $('#J_pt_slider');
+var inner=ptSlider.find('.slider-list');
+var item = inner.find('.slider-item');
+var sl = item.size();
+var sw = item.width() + parseInt(item.css('margin-left')) + parseInt(item.css('margin-right'));
+var speed = 200;
+var act = 0;
+var x1,x2, direct;
+
+function transformBox(obj,value,time){
+    var time=time?time:0;
+    transl="translate3d("+value+"px,0,0)";
+    obj.css({'-webkit-transform':transl,'-webkit-transition':time+'ms linear'});
+}
+
+inner.css({'width':sl * sw, '-webkit-transform': 'translate3d(50px,0,0)'});
+ptSlider.on('touchstart', function(e) {
+    if(x2) x2 = undefined;
+    x1 = e.touches[0].pageX;
+})
+.on('touchmove', function(e){
+    e.preventDefault();
+    x2 = e.touches[0].pageX;
+    var offset= x2-x1+act*sw;
+    transformBox(inner,offset + 50,0);
+})
+.on('touchend', function(e) {
+    if(x1 > x2) direct = 'left';
+    else direct = 'right';
+    if(Math.abs(x1 - x2) < 30) 
+    transformBox(inner,act * sw + 50,100);
+})
+.swipe(function(e){
+    var offset;
+    if(direct == 'left') {
+        --act;
+    }
+    else {
+        ++act;
+    }
+    if(act == 1){
+        act = 0;
+    }
+    else if(act == -sl){
+        act = - sl + 1;
+    }
+    offset=act*sw;
+    transformBox(inner, offset + 50,speed);
+    $(this).next().children().eq(Math.abs(act)).addClass('act').siblings('.act').removeClass('act');
+});
+/*图片滚动end*/
+
+  var selected = $('#J_all_sku .selected .v');
+  $('#J_sel_sku').on('touchend',function(e){e.preventDefault();}).on('tap',function(e){
+    $(this).addClass('hide').next('.sel-sku-box').removeClass('hide');
+  });
+
+  $('#J_all_sku .close').on('tap',function(e){
+    $('#J_all_sku').addClass('hide');
+    $('#J_sel_sku').removeClass('hide');
+  });
+
+  $('#J_all_price').on('tap',function(e){
+    new Dialog('.all-price');
+  });
+
+// 设置商品数量
+function setQuantity(el,flag){
+    var ipt = el.parent().find('.num-ipt'),
+        max = parseInt(el.parents('form').find('.max-num').val()),
+        min = parseInt(el.parents('form').find('.min-num').val()),
+        val = parseInt(ipt.val());
+
+    switch(flag){
+        case 1:
+            if(!/^\d+$/.test(val)) 
+                ipt.val(min);
+            else if(val > min)
+                ipt.val( val-1 );
+            else if(val == min)
+                popup('此商品最少购买' + min + '件');
+            break;
+        case 2:
+            if(val < max)
+                ipt.val( +val+1 );
+            else if(val == max)
+                popup('此商品最多只能购买' + max + '件');
+            break;
+        case 3:
+            if(!/^\d+$/.test(val)) {
+                ipt.val(min);
+            } else if(val > max){
+                popup('此商品最多只能购买' + max + '件');
+                ipt.val(max);
+            } else if(val < min){
+                popup('此商品最少购买' + min + '件');
+                ipt.val(min);
+            }
+            break;
+    }
+
+}
+function popup(msg) {
+    var tpl = $('<div class="popup">' + msg + '</div>').appendTo(document.body);
+    var timer = setTimeout(function(){
+        tpl.remove();
+    }, 3000);
+}
+
+$('.J-pt-num').on('tap',function(e){
+    var el = $(e.srcElement),
+        n = 0;
+    if( !el.hasClass('btn') )return;
+
+    if( el.hasClass('minus') )n=1;
+    if( el.hasClass('plus') )n=2;
+
+    setQuantity(el,n);
+
+});
+$('.num-ipt').on('change',function(){
+    setQuantity( $(this),3 );
+});
+
+  $('#J_buy_btn').on('click',function(e){
+    var data = $('#buy_form').serialize();
+    $.post($('#buy_form').attr('action'),data,function(re){
+		if(re){
+			try{
+				result = $.parseJSON(re);
+				alert(result.error);
+				} catch (e){
+					new Dialog(re,{'type':'confirm'});
+				}
+
+		}
+		    });
+    return false;
+  });
+  $('#J_fast_buy').on('click',function(e){
+    $('#buy_form').find('.btype').val('is_fastbuy');
+    $('#buy_form').submit();
+    return false;
+  });
+  $('.pt-promotions').on('touchend',function(e){e.preventDefault();}).on('tap',function(){
+    new Dialog('.promotions-panel',{title:'促销活动'});
+  });
+  $('.promotions-panel .trigger').on('tap',function(){
+    if( $(this).hasClass('act') ) return;
+    var n = $(this).addClass('act').siblings().removeClass('act').attr('data-target'),
+    par = $(this).parent().siblings().removeClass('act');
+    !!n ? (par.eq(n-1).addClass('act')) : (par.eq(n+1).addClass('act'));
+  });
+
+    // 初始化购物车的收藏按钮状态
+    $.post('<{link app=b2c ctl=wap_product act=is_fav}>','goods_id=<{$page_product_basic.goods_id}>',function(re){
+      if(re==1){
+        $('.favlist').removeClass('btn-addfav').addClass('btn-faved').html('已收藏');
+      }
+    });
+
+    //收藏商品
+    $('.btn-addfav').bind('click',function(){
+        var $this = $(this);
+        if($this.hasClass('btn-faved')) return;
+        var data = 'gid='+$this.attr('data-gid')+'&type=goods';
+        $.post('<{link app=b2c ctl=wap_member act=ajax_fav}>',data,function(re){
+            //var re = $.parseJSON(re);
+            //if(re.success){
+                //$this.hide().next().show();
+                $this.removeClass('btn-addfav').addClass('btn-faved').html('已收藏');
+            //}
+        });
+        return false;
+    });
+
+})();
+</script>

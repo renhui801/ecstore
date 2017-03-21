@@ -1,0 +1,22 @@
+<ul id="navi">
+    <li class="nav1"><a id="m1" href="<{link app='cps' ctl='site_user' act='index' full='1'}>"></a></li>
+    <li class="nav2"><a id="m2" href="<{link app='cps' ctl='site_agreement' act='index' full='1'}>"></a></li>
+    <li class="nav3"><a id="m3" href="<{link app='cps' ctl='site_info' act='lists' arg0='1' full='1'}>"></a></li>
+    <li class="nav4"><a id="m4" href="<{link app='cps' ctl='site_welcome' act='profitIndex' full='1'}>"></a></li>
+    <li class="nav5"><a id="m5" href="<{link app='cps' ctl='site_welcome' act='gencode' full='1'}>"></a></li>
+    <li class="nav6"><a id="m6" href="<{link app='cps' ctl='site_welcome' act='showUserInfo' full='1'}>"></a></li>
+    <li class="nav7"><a id="m7" href="<{link app='cps' ctl='site_info' act='showHelp' full='1'}>"></a></li>
+</ul>
+<script>
+	var o_a = $('navi').getElements('a');
+	var flag=true;
+    o_a.removeClass('curr');
+    for(var i=0;i<o_a.length;i++){
+
+        if(location.href==o_a[i].href){o_a[i].className='curr';flag=false;break;}
+    }
+    if(flag){
+    	
+    	o_a.className="curr";
+    }
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><{t}>生意经开通成功<{/t}></title>
+<style type="text/css">
+body{font-family:Verdana, Geneva, sans-serif;padding:10px;}
+.success { width:100%;  background:#E6EFC2; border:1px solid #C6D880; margin-bottom:14px;}
+.success-info{ width:100%; padding:0 0 0 6px; font-size:14px; color:#264409; font-weight:bold;line-height:23px;}
+.success-info img{ margin:2px 6px 0;}
+</style>
+</head>
+
+<body>
+<div class="success">
+ <div class="success-info">
+	<table>
+		<tr>
+			<td valign="top">
+				<!--<img src="success-icon.gif" width="22" height="23" />-->
+			 </td>
+			<td valign="top">
+			    <{t}>恭喜你，开通成功！<{/t}>
+			</td>
+		</tr>
+	</table>
+ </div>
+ <div style="text-align:center;font-size:12px;padding:10px" > <a id="refresh_url" href="" target="_top"><{t}>立即刷新状态<{/t}>&raquo;</a></div>
+</div>
+<script type="text/javascript">
+(function(){
+    var refresh_url = function(){
+        var ref = document.getElementById('refresh_url');
+        var tophref = top.location.href;
+        if (tophref.indexOf('app') == -1 ) {
+            var a_href = tophref.replace('#', '');
+            ref.setAttribute('href', a_href);
+        }
+        else {
+            if ( tophref.indexOf( 'index.php' ) == -1 ){
+                var a_href = 'http://' + document.domain + '/index.php/shopadmin/index.php#app=stats&ctl=admin_bussiness&act=index';
+                ref.setAttribute('href', a_href);
+            }
+            else {
+                var a_href = tophref.replace('#', 'index.php#');
+                ref.setAttribute('href', a_href);
+            }
+            
+        }
+    }
+    window.onload = refresh_url();
+})();
+</script>
+</body>
+</html>

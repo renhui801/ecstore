@@ -1,0 +1,24 @@
+<div id="login_<{$widgets_id}>" class="small-signin">
+  <{foreach from=$data.login_content item=login}>
+  <{$login}>
+  <{/foreach}>
+  <{$setting.welcome}>
+  <a href="<{link app=b2c ctl=site_passport act=login}>"><{t app='b2c'}>登录<{/t}></a> | 
+  <a href="<{link app=b2c ctl=site_passport act=signup}>"><{t app='b2c'}>注册<{/t}></a>
+</div>
+<div id="member_<{$widgets_id}>" class="small-member" style="display:none;">
+  <{t app='b2c'}>您好<{/t}><span id="uname_<{$widgets_id}>"></span>！
+  <a href="<{link app=b2c ctl=site_passport act=logout}>"><{t app='b2c'}>退出<{/t}></a>
+</div>
+<script>
+var name = Cookie.read('UNAME') || '';
+if(name){
+    $("uname_<{$widgets_id}>").innerHTML = name;
+    $("member_<{$widgets_id}>").setStyle('display','');
+    $("login_<{$widgets_id}>").setStyle('display','none');
+}
+else{
+    $("login_<{$widgets_id}>").setStyle('display','');
+    $("member_<{$widgets_id}>").setStyle('display','none');
+}
+</script>

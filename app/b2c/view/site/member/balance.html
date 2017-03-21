@@ -1,0 +1,50 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的预存款 -->
+  <div id="member_deposit" class="member-coupon">
+    <div class="member-title">
+      <h2><{t}>我的预存款<{/t}></h2>
+      <div class="member-more"><{t}>您当前的预存款余额为：<{/t}>：<b class="price"><{$total|cur_odr}></b><span class="text-separator">|</span><a href="<{link app=b2c ctl=site_member act=deposit}>">预存款充值</a></div>
+    </div>
+
+    <div class="member-mod">
+      <table class="member-grid">
+        <caption>
+          <h3>预存款交易记录</h3>
+          <a href="<{link app=b2c ctl="site_member" act="download_ddvanceLog"}>" class="btn btn-simple action-download"><span><span><i class="icon">&#x5d;</i><{t}>下载交易记录<{/t}></span></span></a>
+        </caption>
+        <thead>
+          <th><{t}>时间<{/t}></th>
+          <th><{t}>事件<{/t}></th>
+          <th><{t}>存入金额<{/t}></th>
+          <th><{t}>支出金额<{/t}></th>
+          <th><{t}>当前余额<{/t}></th>
+        </thead>
+        <tbody<{if !($browser.name=="IE" && ($brower.ver == 6 || $browser.ver == 7))}> class="first"<{/if}>>
+          <{if count($advlogs)>0}>
+          <{foreach from=$advlogs item=adv name=name}>
+          <tr<{if $smarty.foreach.name.iteration == 1}> class="first"<{/if}>>
+            <td><{$adv.mtime|cdate:FDATE_STIME}></td>
+            <td>
+              <{if $adv.order_id}>
+              <a href="<{link app="b2c" ctl="site_member" act="orderdetail" arg0=$adv.order_id}>"><{$adv.message}></a>
+              <{else}>
+              <{$adv.message}>
+              <{/if}>
+            </td>
+            <td><span class="price"><{if $adv.import_money > 0}><{$adv.import_money|cur_odr}><{else}>-<{/if}></span></td>
+            <td><{if $adv.explode_money > 0}><{$adv.explode_money|cur_odr}><{else}>-<{/if}></td>
+            <td><span class="price"><{$adv.member_advance|cur_odr}></span></td>
+          </tr>
+          <{/foreach}>
+          <{else}>
+          <tr class="no-information first">
+            <td colspan="5">暂无预存款交易记录</td>
+          </tr>
+          <{/if}>
+        </tbody>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+</div>

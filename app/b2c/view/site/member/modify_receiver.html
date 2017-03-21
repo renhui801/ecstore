@@ -1,0 +1,43 @@
+<form action="<{link app=b2c ctl=site_member act=save_rec}>" method="post" class="form-handling" id="member_address_form">
+  <input type="hidden" value="<{$addr_id}>" name="addr_id">
+  <ul>
+    <li class="form-item">
+      <label for="" class="form-label"><em class="text-warn">*</em> <{t}>收货地区<{/t}>：</label>
+      <span class="form-act"><{input type="region" name="area" required="true" value=$area app="ectools" callback="selectArea"}></span>
+    </li>
+    <li class="form-item">
+      <label for="" class="form-label"><em class="text-warn">*</em> 详细地址：</label>
+      <span class="form-act"><span class="hide"><{$area|ship_area}></span><input type="text" name="addr" value="<{$addr}>" id="" size="50" class="x-input action-fill-area" vtype="required"></span>
+    </li>
+    <li class="form-item">
+      <label for="" class="form-label">邮编：</label>
+      <span class="form-act"><input type="text" name="zip" value="<{$zipcode}>" id="" class="x-input"></span>
+    </li>
+    <li class="form-item">
+      <label for="" class="form-label"><em class="text-warn">*</em> 收货人姓名：</label>
+      <span class="form-act"><input type="text" name="name" id="" value="<{$name}>" class="x-input" vtype="required"></span>
+    </li>
+    <li class="form-item">
+      <label for="" class="form-label"><em class="text-warn">*</em> 手机：</label>
+      <span class="form-act">
+        <input type="text" name="mobile" value="<{$phone.mobile}>" id="" class="x-input" vtype="mobile">
+        <label class="form-sub-label"> 或 固定电话：</label>
+        <input type="text" name="tel" value="<{$phone.telephone}>" id="" vtype="tel" data-caution="请填写手机号码或者固定电话">
+      </span>
+    </li>
+    <li class="form-item">
+      <label for="" class="form-label"></label>
+      <span class="form-act">
+        <input type="checkbox" name="def_addr" value="1" id="for_set_default" <{if $default eq "1"}>checked=checked<{/if}>>
+        <label for="for_set_default">设为默认</label>
+      </span>
+    </li>
+    <li class="form-item last">
+      <label for="" class="form-label"></label>
+      <span class="form-act">
+        <button type="submit" class="btn btn-caution" rel="_request"><span><span>确定</span></span></button>
+        <button type="button" class="btn btn-simple action-reset"><span><span>取消</span></span></button>
+      </span>
+    </li>
+  </ul>
+</form>

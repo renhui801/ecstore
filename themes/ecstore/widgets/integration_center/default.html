@@ -1,0 +1,18 @@
+<ul class="goods-list clearfix">
+  <{foreach from=$data item=row key=gid name=giftsrow}>
+  <li class="goods-item clearfix">
+    <{assign var="gimage" value=$row.image_default_id}>
+    <{if $gimage}>
+    <div class="goods-pic">
+      <a href="<{link app=gift ctl=site_gift act=index arg0=$row.gift.product_id}>">
+        <img data-src="<{$gimage|storager:'s'}>" alt="<{$row.gift.name|escape:html}>" data-img-zoom="true"/>
+      </a>
+    </div>
+    <{/if}>
+    <h3 class="goods-name">
+      <a href="<{link app=gift ctl=site_gift act=index arg0=$row.gift.product_id}>" title="<{$row.gift.name}>"><{$row.gift.name}></a>
+    </h3>
+    <div class="need-integ">兑换积分：<i><{$row.gift.consume_score}></i>分</div>
+  </li>
+  <{/foreach}>
+</ul>

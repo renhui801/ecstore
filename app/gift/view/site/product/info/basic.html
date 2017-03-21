@@ -1,0 +1,104 @@
+<{if $setting.buytarget == '2' }>
+  <{assign var='buytarget' value='_blank_cart'}>
+<{elseif $setting.buytarget == '3'}>
+  <{assign var='buytarget' value='_dialog_minicart'}>
+<{/if}>
+<form action="<{link app=b2c ctl=site_cart act=add arg0=gift}>" method="post"<{if $buytarget}> target="<{$buytarget}>"<{/if}>>
+  <input type="hidden" name="goods[goods_id]" value="<{$gift.goods_id}>">
+  <input type="hidden" name="goods[product_id]" value="<{$gift.product.product_id}>">
+  <div class="product-side" style="width:<{$setting.imageDefault.M.width+2}>px;">
+    <{include file='site/product/info/pic.html'}>
+  </div>
+  <div class="product-main clearfix" style="margin-left:<{$setting.imageDefault.M.width+20}>px;">
+    <!-- 商品基本信息 -->
+    <div class="product-information">
+      <div class="product-params">
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td class="label"><{t}>赠品编号<{/t}>：</td>
+              <td><{$gift.bn}></td>
+            </tr>
+            <tr>
+              <td class="label"><{t}>货号<{/t}>：</td>
+              <td width="40%"><{$gift.product.bn}></td>
+              <td class="label"><{t}>销售价<{/t}>：</td>
+              <td width="40%"><{$gift.product.price|cur_odr}></td>
+            </tr>
+            <tr>
+              <td class="label"><{t}>兑换开始时间<{/t}>：</td>
+              <td width="40%"><{$gift.from_time|cdate:SDATE_STIME}></td>
+              <td class="label"><{t}>兑换结束时间<{/t}>：</td>
+              <td width="40%"><{$gift.to_time|cdate:SDATE_STIME}></td>
+            </tr>
+            <tr>
+              <td class="label"><{t}>兑换所需积分<{/t}>：</td>
+              <td class="price" width="40%"><{$gift.consume_score}></td>
+              <td class="label"><{t}>限兑数量<{/t}>：</td>
+              <td width="40%"><{$gift.max_buy_store}><{$gift.goods.unit}></td>
+            </tr>
+            <tr>
+              <td class="label"><{t}>可兑换的会员<{/t}>：</td>
+              <td colspan="3"><{$member_lv}></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- 购买区 -->
+      <div class="product-buy">
+        <{if $gift.spec.goods}>
+        <!-- 商品规格 -->
+        <div id="product_spec" class="product-spec">
+          <ul class="spec-area">
+            <{foreach from=$gift.spec.goods key=key item=spec}>
+            <li class="spec-item">
+              <span class="item-label"><i><{$gift.spec.specification.spec_name.$key}></i>：</span>
+              <span class="item-content">
+                <ul class="clearfix">
+                  <{foreach from=$spec key=item_key item=item}>
+                  <{if $item_key == $gift.spec.product.$key || $item.product_id}>
+                  <li class="spec-attr<{if $item_key==$gift.spec.product.$key}> selected<{/if}>">
+                    <{if $item_key==$gift.spec.product.$key}>
+                    <a href="javascript:void(0);">
+                    <{elseif $item.product_id}>
+                    <a href="<{link app=gift ctl=site_gift act=index arg0=$item.product_id}>" rel="<{$item.product_id}>">
+                    <{/if}>
+                    <{if $gift.spec.specification.spec_type.$key == 'image'}>
+                      <img src="<{$item.spec_image|storager:'s'}>" alt="<{$spec.spec_value}>" title="<{$spec.spec_value}>">
+                    <{else}>
+                      <span><{$item.spec_value}></span>
+                    <{/if}>
+                      <i></i>
+                    </a>
+                  </li>
+                  <{/if}>
+                  <{/foreach}>
+                </ul>
+              </span>
+             </li>
+            <{/foreach}>
+          </ul>
+        </div>
+        <{/if}>
+        <{if $gift.permission == 'true'}>
+        <div class="product-action">
+          <ul>
+            <li class="product-buy-quantity">
+              <label class="item-label" for="for_quantity_input"><{t}>数量<{/t}>：</label>
+              <span class="item-content">
+                <span class="p-quantity"><a href="javascript:void(0);" class="btn-decrease">-</a><input type="text" name="goods[num]" id="for_quantity_input" class="action-quantity-input" value="1" min="1" max=""><a href="javascript:void(0);" class="btn-increase">+</a></span> <{$gift.goods.unit}>
+                <span class="p-store"></span>
+                <input type="hidden" name="stock" value="<{$product_store.store}>">
+              </span>
+            </li>
+            <li class="product-buy-action">
+              <{button type="submit" class="btn-major btn-huge action-addtocart" label="兑换赠品" rel="_request"}>
+            </li>
+          </ul>
+        </div>
+        <{/if}>
+      </div>
+      <div class="info-disabled<{if !$gift.permissionMsg}> hide<{/if}>"><{$gift.permissionMsg}></div>
+    </div>
+  </div>
+</form>

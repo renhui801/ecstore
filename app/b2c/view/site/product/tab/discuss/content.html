@@ -1,0 +1,49 @@
+<{if $page_type != 'tab'}>
+<div class="title"><{t}>共<{/t}><i><{$comments.discussCount|default:'0'}></i> <{t}>个评论<{/t}>。
+  <{$comments.setting.null_notice}>
+  <{if $comments.discussCount}>
+  <a href="javascript:void(0);" onclick="$$('.product-tags .tag-comment').fireEvent('click');window.fireEvent('scroll');location.href='#product_comment';"><{t}>查看全部评论<{/t}> &raquo;</a>
+  <{/if}>
+</div>
+<{else}>
+  <{if !$comments.discussCount}>
+  <{$comments.setting.null_notice}>
+  <{/if}>
+<{/if}>
+<{if $comments.list.discuss}>
+<div class="action-content-list">
+  <ul class="content">
+    <{foreach from=$comments.list.discuss item=comlist name=discusslist}>
+    <li class="comment-item">
+      <input type="hidden" name="id" value="<{$comlist.comment_id}>">
+      <div class="member">
+        <div class="member-avatar">
+          <{if $comlist.member_lv_logo!=''}>
+            <img src="<{$comlist.member_lv_logo|storager:'s'}>">
+          <{else}>
+            <{img src="sprites/default-avatar.png" alt=""}>
+          <{/if}>
+        </div>
+        <div class="member-info">
+          <div class="level"><{if $comments.setting.display_lv == 'on'}><{$comlist.member_lv_name}><{/if}></div>
+          <div class="username"><{if $comlist.addon.hidden_name =='YES' && ($comlist.author_id !=0 || $comlist.author_id !=1)}><{t}>匿名<{/t}><{else}><{$comlist.author}><{/if}></div>
+        </div>
+      </div>
+      <div class="member-discuss">
+        <{if $comments.setting.goods_point_status == 'on'}>
+        <div class="point point-left"><i class="below"></i><i class="above"></i></div>
+        <div class="discuss-label"><span class="stars stars-<{($comlist.goods_point*10)}>"><span class="below"><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i><i class="icon star">/</i></span><span class="above"><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i><i class="icon star">.</i></span></span><span class="time"><{$comlist.time|cdate:'SDATE_STIME'}></span></div>
+        <{/if}>
+        <p class="discuss-content"><{$comlist.comment|nl2br}></p>
+        <{if $comments.setting.switch_reply == 'on'}>
+        <{include file='site/product/tab/discuss/reply.html'}>
+        <{/if}>
+      </div>
+    </li>
+    <{/foreach}>
+  </ul>
+  <{/if}>
+  <{if $comments.discusstotalpage>1 && $page_type == 'tab'}>
+    <{pagers data=$pager}>
+  <{/if}>
+</div>

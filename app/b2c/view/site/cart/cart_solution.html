@@ -1,0 +1,26 @@
+<td colspan="4">
+  <{if $cart_promotion_display == 'true'}>
+  <!-- 订单获得的优惠促销 -->
+  <div class="order-promotion" id="order_promotion"<{if !$aCart.promotion.order}> style="display:none;"<{/if}>>
+    <h3><a href="javascript:void(0);" class="btn-collapse action-toggle">-</a><{t}>订单优惠<{/t}></h3>
+	  <ul class="content">
+	    <{foreach from=$aCart.promotion.order item=item}>
+	    <li><b>[<{$item.desc_tag}>]</b><{$item.name}></li>
+	    <{/foreach}>
+	  </ul>
+  </div>
+  <!-- 未享受到的优惠促销 -->
+  <div id="unused_promotion" class="unused-promotion" <{if !$unuse_rule}>style="display:none;"<{/if}>>
+      <h3><a href="javascript:void(0);" class="btn-collapse action-toggle">-</a><{t}>您还未享受到的优惠<{/t}>
+      <{if $fororder_show == 'true'}>
+      <a href="javascript:void(0);" class="action-fororder"><em><{t}>凑单<{/t}>»</em></a>
+      <{/if}>
+    </h3>
+    <ul class="content">
+      <{foreach from=$unuse_rule item=rule}>
+      <li><b>[<{$rule.desc_tag}>]</b><{$rule.name}></li>
+      <{/foreach}>
+    </ul>
+  </div>
+  <{/if}>
+</td>

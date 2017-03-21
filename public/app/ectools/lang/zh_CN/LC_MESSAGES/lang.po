@@ -1,0 +1,1647 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/admin/payment/notice.php:30
+msgid "支付提示信息设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/admin/payment/notice.php:134
+msgid "当前配置修改成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/admin/payment.php:20
+msgid "收款单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/admin/refund.php:20
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:25
+msgid "退款单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:22
+msgid "货币管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:25
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:26
+msgid "添加货币"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:58
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:96
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/finder/currency.php:45
+msgid "货币修改成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:58
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:61
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:96
+msgid "货币名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:61
+msgid "货币添加成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:66
+msgid "---请选择货币---"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/currency.php:84
+msgid "货币修改失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/payment/cfgs.php:21
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:195
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:14
+msgid "支付方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/payment/cfgs.php:38
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:78
+msgid "全部"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/payment/cfgs.php:39
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:20
+msgid "标准版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/payment/cfgs.php:40
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:21
+msgid "触屏版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/payment/cfgs.php:95
+msgid "支付方式修改成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/payment/cfgs.php:138
+msgid "不需要设置参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/payment.php:21
+msgid "支付单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:39
+msgid "配送地区列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:96
+msgid "添加配送地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:110
+msgid "新建失败，"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:112
+msgid "新建成功，地区名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:126
+msgid "修改失败，"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:130
+msgid "修改成功，地区名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:141
+msgid "配送地区编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:157
+msgid "删除地区成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:159
+msgid "删除地区失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/regions.php:198
+msgid "排序成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/setting.php:27
+msgid "价格精度设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//controller/setting.php:100
+msgid "保存设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis.php:20
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:25
+msgid "ectools统计ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis.php:26
+msgid "对应的service"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis.php:34
+msgid "执行监控间隔时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis.php:43
+msgid "最后修改时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis.php:48
+msgid "ectools app统计表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:19
+msgid "ectools统计日志ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:31
+msgid "类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:38
+msgid "指标"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:45
+msgid "标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:52
+msgid "数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:59
+msgid "时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/analysis_logs.php:94
+msgid "ectools统计日志"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/currency.php:17
+msgid "货币ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/currency.php:27
+msgid "货币名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/currency.php:35
+msgid "货币符号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/currency.php:45
+msgid "货币代码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/currency.php:58
+msgid "汇率"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/currency.php:68
+msgid "默认货币"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/currency.php:86
+msgid "货币表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:24
+msgid "付款单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:35
+msgid "单据类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:41
+msgid "订单支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:42
+msgid "预存款充值"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:43
+msgid "加盟费"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:44
+msgid "消费卡"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:48
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:100
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:115
+msgid "支付类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:60
+msgid "关联退款/付款单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:73
+msgid "金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/order_bills.php:78
+msgid "订单钱款单据主表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:18
+msgid "支付单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:33
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:40
+msgid "支付金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:39
+msgid "支付货币金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:51
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:50
+msgid "会员用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:62
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:126
+msgid "支付成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:63
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:127
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/api.php:113
+msgid "支付失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:64
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:128
+msgid "未支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:65
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:129
+msgid "处理异常"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:66
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:130
+msgid "非法参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:67
+msgid "已付款至担保方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:68
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:132
+msgid "超时"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:69
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:133
+msgid "准备中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:73
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:137
+msgid "支付状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:94
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:109
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:14
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:15
+msgid "在线支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:95
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:110
+msgid "线下支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:96
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:111
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:14
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:15
+msgid "预存款支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:111
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:218
+msgid "支付完成时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:120
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:165
+msgid "操作员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:133
+msgid "支付单唯一编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:146
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:60
+msgid "收款账号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:157
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:72
+msgid "收款银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:167
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:82
+msgid "支付账户"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:176
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:91
+msgid "货币"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:185
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:100
+msgid "支付网关费用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:194
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:278
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:115
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:90
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:90
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:166
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:243
+msgid "支付方式名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:205
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:157
+msgid "支付版本号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:214
+msgid "支付IP"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:222
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:208
+msgid "支付开始时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:233
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:226
+msgid "支付确认时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:242
+msgid "支付注释"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:248
+msgid "支付返回地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:258
+msgid "支付单状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:265
+msgid "支付单交易编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:269
+msgid "支付记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/payments.php:282
+msgid "支付单表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:18
+msgid "退款单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:131
+msgid "处理中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:179
+msgid "退款唯一单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:236
+msgid "备注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:248
+msgid "退款单交易编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/refunds.php:263
+msgid "退款单表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:28
+msgid "区域序号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:35
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:13
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:13
+msgid "地区名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:46
+msgid "数据包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:51
+msgid "地区包的类别, 中国/外国等. 中国大陆的编号目前为mainland"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:57
+msgid "上一级地区的序号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:64
+msgid "序号层级排列结构"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:70
+msgid "地区层级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:76
+msgid "额外参数1"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:82
+msgid "额外参数2"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:88
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:293
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:130
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:94
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:94
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:181
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:258
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:17
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:14
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:14
+msgid "排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//dbschema/regions.php:110
+msgid "地区表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/finder/currency.php:94
+msgid "编辑货币信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/finder/currency.php:94
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:16
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:29
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_sub_treeList.html:26
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:16
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:37
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/finder/payment/cfgs.php:28
+msgid "配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/finder/payments.php:70
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/finder/refunds.php:78
+msgid "无内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/math.php:94
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/math.php:138
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/math.php:382
+msgid "参数不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/math.php:192
+msgid "参数异常！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/pay.php:34
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/refund.php:34
+msgid "此类对象不能被克隆！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/pay.php:49
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/pay.php:152
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payments.php:47
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/refunds.php:42
+msgid "支付单信息不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/pay.php:67
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/create.php:162
+msgid "支付单生成失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/app.php:54
+msgid "人民币"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/app.php:55
+msgid "其他"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/app.php:56
+msgid "商店默认货币"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/app.php:57
+msgid "人民币与其他币种"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/app.php:58
+msgid "新台币"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/app.php:72
+msgid "Key不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/app.php:112
+msgid "购买"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/create.php:115
+msgid "非会员顾客"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:70
+msgid "ShopEx联合快钱推出：免费签约，1%优惠费率，更有超值优惠的信用卡支付。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:70
+msgid "快钱是国内领先的独立第三方支付企业，旨在为各类企业及个人提供安全、便捷和保密的支付清算与账务服务，其推出的支付产品包括但不限于人民币支付，外卡支付，神州行卡支付，联通充值卡支付，VPOS支付等众多支付产品, 支持互联网、手机、电话和POS等多种终端, 以满足各类企业和个人的不同支付需求。截至2009年6月30日，快钱已拥有4100万注册用户和逾31万商业合作伙伴，并荣获中国信息安全产品测评认证中心颁发的“支付清算系统安全技术保障级一级”认证证书和国际PCI安全认证。<b><h3>注：本接口为银行直连，数据显示，可以提升78%的潜在消费者完成购买行为。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:79
+msgid "ShopEx联合快钱推出：免费签约，1%优惠费率，更有超值优惠的信用卡支付。<bR>快钱是国内领先的独立第三方支付企业，旨在为各类企业及个人提供安全、便捷和保密的支付清算与账务服务，其推出的支付产品包括但不限于人民币支付，外卡支付，神州行卡支付，联通充值卡支付，VPOS支付等众多支付产品, 支持互联网、手机、电话和POS等多种终端, 以满足各类企业和个人的不同支付需求。截至2009年6月30日，快钱已拥有4100万注册用户和逾31万商业合作伙伴，并荣获中国信息安全产品测评认证中心颁发的“支付清算系统安全技术保障级一级”认证证书和国际PCI安全认证。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:227
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay/server.php:34
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:286
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:202
+msgid "付款帐号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:253
+msgid "签名认证失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:283
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:171
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:248
+msgid "客户号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:288
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:176
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:253
+msgid "私钥"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:295
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:132
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:96
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:96
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:183
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:260
+msgid "整数值越小,显示越靠前,默认值为1"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:298
+msgid "顾客付款类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:300
+msgid "登录快钱支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:300
+msgid "银行直接支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:316
+msgid "中国工商银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:317
+msgid "招商银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:318
+msgid "中国农业银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:319
+msgid "中国建设银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:320
+msgid "上海浦东发展银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:321
+msgid "交通银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:322
+msgid "中国民生银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:323
+msgid "深圳发展银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:324
+msgid "广东发展银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:325
+msgid "中信银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:326
+msgid "华夏银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:327
+msgid "兴业银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:328
+msgid "广州市农村信用合作社"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:329
+msgid "广州市商业银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:330
+msgid "上海农村商业银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:331
+msgid "中国邮政储蓄"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:332
+msgid "北京银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:333
+msgid "中国银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:334
+msgid "渤海银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:335
+msgid "北京农村商业银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:336
+msgid "中国光大银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:337
+msgid "南京银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:338
+msgid "东亚银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:339
+msgid "宁波银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:340
+msgid "杭州银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:341
+msgid "平安银行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:348
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:135
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:99
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:99
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:186
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:268
+msgid "支持币种"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:353
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:146
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:191
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:273
+msgid "交易费率"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:358
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:151
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:104
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:104
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:196
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:278
+msgid "支付方式简介"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:362
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:155
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:108
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:108
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:200
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:282
+msgid "描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:367
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:160
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:113
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:113
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:205
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:287
+msgid "支付类型(是否在线支付)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:372
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:165
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:118
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:118
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:210
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:292
+msgid "是否开启此支付方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:374
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:167
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:120
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:120
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:212
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:294
+msgid "否"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:374
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:167
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:120
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:120
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:212
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:294
+msgid "是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:410
+msgid "绿卡用户申请快钱支付，费率更低，"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/99bill.php:410
+msgid "点击了解绿卡"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay/server.php:33
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:285
+msgid "支付宝"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay/server.php:100
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:399
+msgid "支付单号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay/server.php:100
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:399
+msgid "签名验证不通过，请确认！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay/server.php:101
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:400
+msgid "本地产生的加密串："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay/server.php:102
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:401
+msgid "支付宝传递打过来的签名串："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:120
+msgid "合作者身份(parterID)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:125
+msgid "交易安全校验码(key)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:140
+msgid "选择接口类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:142
+msgid "使用标准双接口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:142
+msgid "使用担保交易接口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:142
+msgid "使用即时到帐交易接口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:178
+msgid "支付宝（中国）网络技术有限公司是国内领先的独立第三方支付平台，由阿里巴巴集团创办。支付宝致力于为中国电子商务提供“简单、安全、快速”的在线支付解决方案。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:179
+msgid "如何使用支付宝支付？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:231
+msgid "网店订单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:242
+msgid "无留言"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/alipay.php:343
+msgid "立即申请支付宝"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:70
+msgid "预存款支付后台自定义描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/deposit.php:79
+msgid "预存款支付自定义描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:70
+msgid "线下支付后台自定义描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/offline.php:79
+msgid "线下支付客户自定义描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:127
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:138
+msgid "PayPal 是全球最大的在线支付平台，同时也是目前全球贸易网上支付标准，在全球 103个国家和地区支持多达 16种外币，并拥有 1亿 3千万的客户资源，支持流行的国际信用卡支付。外贸网站首选。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:127
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:138
+msgid "本接口需点击【立即申请PAYPAL】链接进行在线签约后方可使用。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/paypal.php:149
+msgid "立即申请PAYPAL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:88
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:98
+msgid "财付通是腾讯公司于2005年9月正式推出专业在线支付平台，致力于为互联网用户和企业提供安全、便捷、专业的在线支付服务。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:98
+msgid "财付通构建全新的综合支付平台，业务覆盖B2B、B2C和C2C各领域，提供卓越的网上支付及清算服务。<br>财付通先后荣膺2006年电子支付平台十佳奖、2006年最佳便捷支付奖、2006年中国电子支付最具增长潜力平台奖和2007年最具竞争力电子支付企业奖等奖项，并于2007年首创获得“国家电子商务专项基金”资金支持。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:98
+msgid "本接口需点击【立即申请财付通担保账户】链接进行在线签约和付费后方可使用。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:98
+msgid "立即申请财付通担保账户"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:98
+msgid "腾讯财付通[担保交易]"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:201
+msgid "腾讯财付通"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:214
+msgid "腾讯财付通签名认证失败,请立即与商店管理员联系"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:226
+msgid "腾讯财付通支付失败,请立即与商店管理员联系"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:263
+msgid "商家支付模式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:265
+msgid "套餐包量商家"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:265
+msgid "单笔支付商家"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:331
+msgid "立即申请财付通"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:331
+msgid "单笔"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/plugin/tenpay.php:331
+msgid "即时账户(适合小商家)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/select.php:151
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:206
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:295
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:297
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:298
+msgid "货到付款"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/payment/update.php:64
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/refund/update.php:59
+msgid "支付单修改失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/refund.php:49
+msgid "退款单信息不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/refund.php:60
+msgid "退款单生成失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/refund.php:78
+msgid "退款单编辑失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/regions/operation.php:158
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/regions/operation.php:232
+msgid "地区名称不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/regions/operation.php:165
+msgid "该地区名称已经存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/regions/operation.php:205
+msgid "上级地区不能为本地区！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/regions/operation.php:214
+msgid "上级地区不能为本地区的子地区！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/regions/operation.php:222
+msgid "参数丢失！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//lib/regions/select.php:29
+msgid "请选择..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:15
+msgid "状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:16
+msgid "应用程序版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:22
+msgid "通用版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:25
+msgid "支持平台"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:86
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:235
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:256
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:272
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:290
+msgid "开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:86
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:194
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:272
+msgid "关闭"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:193
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:196
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payment/cfgs.php:200
+msgid "无支付方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payments.php:126
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/refunds.php:101
+msgid "订单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payments.php:173
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payments.php:182
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/refunds.php:165
+msgid "未知会员或非会员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payments.php:194
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/payments.php:203
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/refunds.php:186
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/refunds.php:195
+msgid "未知操作员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/refunds.php:237
+msgid "未知收款人"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/regions.php:168
+msgid "北京"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/regions.php:169
+msgid "天津"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/regions.php:170
+msgid "上海"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//model/regions.php:171
+msgid "重庆"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:10
+msgid "金额运算精度保留位数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:10
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:12
+msgid "整数取整"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:10
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:12
+msgid "取整到1位小数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:10
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:12
+msgid "取整到2位小数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:10
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:12
+msgid "取整到3位小数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:11
+msgid "金额运算精度取整方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:11
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:13
+msgid "四舍五入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:11
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:13
+msgid "向上取整"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:11
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:13
+msgid "向下取整"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:12
+msgid "金额显示保留位数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:13
+msgid "金额显示取整方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:14
+msgid "地区级数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:15
+msgid "支付成功提示自定义信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools//setting.php:17
+msgid "支付失败提示自定义信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/chart_type_default.html:28
+msgid "成交额统计"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/chart_type_default.html:32
+msgid "2010-09-1至2010-09-02 的日成交量统计信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/chart_type_default.html:40
+msgid "成交量 (单)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/index_view.html:2
+msgid "<{$title}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/index_view.html:13
+msgid "销售统计"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:9
+msgid "日报表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:12
+msgid "月报表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:20
+msgid "时间范围:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:22
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:36
+msgid "至"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:31
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:41
+msgid "年"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:36
+msgid "月 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:46
+msgid "月"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:51
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:46
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:42
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/regionSelect.html:12
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/cfgs/cfgs.html:66
+msgid "确定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:55
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:62
+msgid "昨日"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:56
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:63
+msgid "今日"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:57
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:64
+msgid "本周"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:58
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:65
+msgid "上周"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:59
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:66
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:70
+msgid "本月"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:60
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:67
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:71
+msgid "上月"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:77
+msgid "选择"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:165
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:184
+msgid "选择开始时间必须早于结束时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/analysis/time_header.html:174
+msgid "请录入日期格式yyyy-mm-dd"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:7
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:10
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:7
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:10
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/view_cur.html:6
+msgid "货币:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:19
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:20
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:19
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:20
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/view_cur.html:12
+msgid "货币名称:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:23
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:24
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:23
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:24
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/view_cur.html:16
+msgid "货币符号:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:27
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:28
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:27
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:28
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/view_cur.html:20
+msgid "汇率:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:31
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:31
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/view_cur.html:24
+msgid "默认货币:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/view_cur.html:25
+msgid "不是默认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/add_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/edit_cur.html:32
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/currency/view_cur.html:25
+msgid "默认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:5
+msgid "地区名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:9
+msgid "上级地区："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:11
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:11
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/regionSelect.html:181
+msgid "[无上级]"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:11
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:11
+msgid "点击输入框可以更换地区的上级节点"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:16
+msgid "排序："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:17
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:17
+msgid "数字越小越靠前"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:23
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:23
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:48
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:33
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:60
+msgid "保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_edit.html:24
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:24
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/regionSelect.html:13
+msgid "取消"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:15
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:28
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_sub_treeList.html:24
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_sub_treeList.html:24
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:15
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:35
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:35
+msgid "添加子地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:17
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:30
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_sub_treeList.html:27
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:17
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:38
+msgid "删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:27
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:16
+msgid "排序:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:30
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_sub_treeList.html:27
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:38
+msgid "您确定要删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:33
+msgid "视图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_map.html:43
+msgid "保存排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:5
+msgid "地区名称:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_new.html:9
+msgid "上级地区:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_sub_treeList.html:19
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_sub_treeList.html:26
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:31
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:37
+msgid "编辑地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/area_treeList.html:3
+msgid "添加地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:1
+msgid "地区设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:2
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/cfgs/cfgs.html:2
+msgid "点击查看帮助"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:5
+msgid "对于不同地区，如中国大陆、台湾、香港或者美国等不同的国家地区，软件在语言、会员注册地区、购物流程、订单处理机制等各方面都会有着一些差异。为了解决此问题，ShopEx软件引入本地化这个管理概念，不同地区商家只要使用相应的本地化插件，就会得到一套符合当地情况的设置方案。ShopEx本地化默认包含"中国地区"方案。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:8
+msgid "查看更多区域设置&gt;&gt;"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:13
+msgid "加载中,请稍等..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:13
+msgid "请先点击导入数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:20
+msgid "地区包："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:22
+msgid "地区包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:32
+msgid "确定更改？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:42
+msgid "地区设置："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:44
+msgid "使用一级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:45
+msgid "使用二级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:46
+msgid "使用三级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:47
+msgid "使用四级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:48
+msgid "使用五级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:49
+msgid "使用六级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:50
+msgid "使用七级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:51
+msgid "使用八级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:52
+msgid "使用九级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:53
+msgid "使用十级地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:59
+msgid "更改地区后系统已经存在的地区数据将按照您更改后的设置显示，确认更改地区吗？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:68
+msgid "数据恢复："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:69
+msgid "恢复地区初始数据为"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:74
+msgid "恢复后现在的地区信息将会完全被覆盖，确定要恢复吗？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:75
+msgid "恢复中..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/index.html:76
+msgid "恢复初始数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/regionSelect.html:42
+msgid "全省"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/delivery/regionSelect.html:42
+msgid "部分区域"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/cfgs/cfgs.html:1
+msgid "隐藏显示 支付方式简介"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:7
+msgid "收款单号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:8
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:8
+msgid "订单号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:9
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:9
+msgid "支付方式："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:10
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:10
+msgid "货币："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:13
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:14
+msgid "生成时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:14
+msgid "收款方式："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:14
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:15
+msgid "线下付款"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:15
+msgid "收款帐号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:16
+msgid "收款银行："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:19
+msgid "付款金额："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:20
+msgid "付款时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:21
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:13
+msgid "操作员："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:22
+msgid "付款人："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/payments/payments.html:24
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:24
+msgid "备注："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:7
+msgid "退款单号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:15
+msgid "退款方式："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:16
+msgid "退款帐号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:19
+msgid "退款银行："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:20
+msgid "收款人："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:21
+msgid "退款金额："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/ectools/view/refund/refund.html:22
+msgid "退款时间："
+msgstr ""
+

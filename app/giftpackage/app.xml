@@ -1,0 +1,22 @@
+<app version="1.0">
+  <name>礼包</name>
+
+  <description>shopex 礼包</description>
+
+  <author>
+      <name>shopex开发团队</name>
+      <email>dev@shopex.cn</email>
+      <url>www.shopex.cn</url>
+  </author>
+
+  <version>0.1</version>
+
+  <license>license</license>
+  <depends>
+    <app>desktop</app>
+    <app>content</app>
+    <app>ectools</app>
+    <app>b2c</app>
+  </depends>
+
+</app> 

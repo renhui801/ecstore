@@ -1,0 +1,106 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//controller/admin/setting.php:34
+msgid "时间段保存成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//controller/admin/setting.php:53
+msgid "数据更新成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods.php:14
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods_period.php:14
+msgid "主商品ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods.php:18
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods_period.php:18
+msgid "推荐商品ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods.php:23
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods_period.php:23
+msgid "最后更新时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods.php:34
+msgid "商品推荐表, 用于订单数据统计计算 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//dbschema/goods_period.php:34
+msgid "商品推荐表, 用于前台显示调用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//lib/data/operaction.php:131
+msgid "更新数据失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//lib/data/operaction.php:170
+msgid "recommended_good_period表数据清空失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//lib/data/operaction.php:176
+msgid "recommended_good_period表数据插入失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//widgets/recommended/widgets.php:12
+msgid "APP购买该商品的用户还购买了"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//widgets/recommended/widgets.php:14
+msgid "商品挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//widgets/recommended/widgets.php:15
+msgid "推荐购买挂件，用于展示购买过某些商品的用户还同时购买哪些商品，吸引用户进行购买."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//widgets/recommended/widgets.php:18
+msgid "竖排"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended//widgets/recommended/widgets.php:19
+msgid "横排"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended/view/setting.html:2
+msgid "时间段设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended/view/setting.html:8
+msgid "请设置时间段："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended/view/setting.html:18
+msgid "确定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended/view/setting.html:22
+msgid "立即更新数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended/view/setting.html:26
+msgid "“购买该商品的用户还购买了”默认每个月收集一次订单表中的商品数据，你可以点击“立即收集”，手动收集最新的数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/recommended/view/setting.html:30
+msgid "立即更新"
+msgstr ""
+

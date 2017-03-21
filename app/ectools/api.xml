@@ -1,0 +1,6 @@
+<apilist>
+    <module id='ectools.get_payments' type='payments' class='ectools_api_payment'>
+        <api  function='get_all'> 获取所有开启（激活）的支付方式 </api>
+    </module>
+</apilist>
+ 

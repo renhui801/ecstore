@@ -1,0 +1,68 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <div class="tableform">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr><td style="text-align:left;"><strong><{t}>订单号：<{/t}></strong><{$data.order_id}></td>
+            <td style="text-align:left;"><div style="float:left"><strong><{t}>订单状态：<{/t}></div></strong>
+                <div style="float:left">
+                  <{if $data.order_status == 'active'}>
+                  <{t}>活动订单<{/t}>
+                  <{elseif $data.order_status == 'dead'}>
+                  <{t}>已作废<{/t}>
+                  <{else}>
+                  <{t}>已完成<{/t}>
+                  <{/if}>
+              </div>
+            </td>
+            <td style="text-align:left;"><strong><{t}>投诉时间：<{/t}></strong><{$data.timestamp|cdate}></td>
+            <td style="text-align:left;"><strong><{t}>微信公众账号：<{/t}></strong><{$data.bind_weixin_name}></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="tableform">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr><td style="text-align:left;"><strong><{t}>投诉原因：<{/t}></strong><{$data.reason}></td></tr>
+            <tr><td style="text-align:left;"><div style="float:left"><strong><{t}>用户希望解决方案：<{/t}></div></strong><div style="float:left"><{$data.solution}></div></td></tr>
+            <tr><td style="text-align:left;"><strong><{t}>备注信息+电话：<{/t}></strong><{$data.extinfo}></td></tr>
+            <tr><td style="text-align:left;"><strong><{t}>用户微信昵称：<{/t}></strong><{$data.weixin_nickname}></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="tableform">
+        <h3><{t}>商品信息<{/t}></h3>
+        <table cellpadding="0" class="gridlist" cellspacing="0" width="100%" border="0">
+          <col style="width:19.5%"/>
+          <col style="width:45%"/>
+          <col style="width:10%"/>
+          <thead>
+            <tr>
+              <th><{t}>货品编号<{/t}></th>
+              <th><{t}>货品名称<{/t}></th>
+              <th><{t}>数量<{/t}></th>
+            </tr>
+          </thead>
+          <tbody>
+            <{foreach from=$order_items item=product}>
+            <tr>
+              <td width="19%"><{$product.bn}></td>
+              <td class="textleft" width="30%"><a href="<{$product.link}>" target="_blank"><{$product.name}></a></td>
+              <td class="Colamount"><{$product.nums}></td>
+            </tr>
+            <{/foreach}>
+          </tbody>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>

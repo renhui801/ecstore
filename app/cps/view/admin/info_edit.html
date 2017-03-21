@@ -1,0 +1,12 @@
+<div>
+<h3>编辑联盟消息</h3>
+<div class="tableform" style="line-height: 30px;">
+<form action="index.php?app=cps&ctl=admin_info_detail&act=save&infoId=<{$info.info_id}>" method="post"><input type="hidden" name="i_type" value="<{$info.i_type}>">
+<div><span>消息标题：</span><span><input type="text" name="title" value="<{$info.title}>" size="30" class="x-input"></span></div>
+<div><span>发布时间：</span><span><{input type="time" vtype='required' name="pubtime" value=$info.pubtime style="width:80px" maxlength="30" }></span></div>
+<div><span>是否发布：</span><span><input type="radio" name="ifpub" value="true" <{if $info.ifpub=='true'}>checked="checked"<{/if}>>是 <input type="radio" name="ifpub" value="false" <{if $info.ifpub=='false'}>checked="checked"<{/if}>>否</span></div>
+<div style="width:600px;"><span>消息内容：</span><span><{input type="html" name="content" class="textarea-auto" value=$info.content includeBase=true}></span></div>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确认修改"}></div>
+</form>
+</div>
+</div>

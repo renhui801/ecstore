@@ -1,0 +1,603 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的订单 -->
+  <div id="member_order" class="member-order">
+    <div class="member-notice">
+      <div class="member-notice-content">
+        <div class="member-order-desc">
+          <{t}>订单号<{/t}>：<i class="text-warn"><{$order.order_id}></i>
+          <{t}>订单金额<{/t}>：<i class="text-warn"><{$order.total_amount|cur_odr:$order.currency}></i>
+          <{t}>订单状态<{/t}>：<b><{if $order.status == 'dead'}><{t}>已作废<{/t}><{elseif $order.status == 'finish'}><{t}>已完成<{/t}><{else}><{if $order.pay_status == '0'}><{t}>未付款<{/t}><{elseif $order.pay_status == '1'}><{t}>已支付<{/t}><{elseif $order.pay_status == '2'}><{t}>已付款至担保方<{/t}><{elseif $order.pay_status == '3'}><{t}>部分付款<{/t}><{elseif $order.pay_status == '4'}><{t}>部分退款<{/t}><{else}><{t}>全额退款<{/t}><{/if}> <{if $order.ship_status == '0'}><{t}>[未发货]<{/t}><{elseif $order.ship_status == '1'}><{t}>已发货<{/t}><{elseif $order.ship_status == '2'}><{t}>部分发货<{/t}><{elseif $order.ship_status == '3'}><{t}>部分退货<{/t}><{else}><{t}>已退货<{/t}><{/if}><{/if}></b>
+        </div>
+
+        <div class="member-order-actions">
+          <{if $order.payinfo.pay_app_id != '-1'}>
+          <{if ($order.pay_status == '0' || $order.pay_status == '3') && $order.status != 'dead' && $order.status != 'finish'}>
+          <{if $order.payinfo.pay_app_id != 'offline'}>
+          <a href="<{link app=b2c ctl=site_paycenter arg0=$order.order_id}>" class="btn btn-import"><span><span><{t}>去付款<{/t}></span></span></a>
+          <a href="<{link app=b2c ctl=site_paycenter arg0=$order.order_id}>" class="btn btn-simple"><span><span><{t}>修改支付方式<{/t}></span></span></a>
+          <{else}>
+          <a href="javascript:void(0);" class="btn btn-caution action-paid"><span><span><{t}>我已付款<{/t}></span></span></a>
+          <a href="<{link app=b2c ctl=site_paycenter arg0=$order.order_id}>" class="btn btn-simple"><span><span><{t}>修改支付方式<{/t}></span></span></a>
+          <div id="member_already_paid" style="display:none;">
+            <form action='<{link app=b2c ctl="site_member" act="toadd_order_msg"}>' method="post" class="member-already-paid">
+              <input type="hidden" name="msg[orderid]" value="<{$order.order_id}>"/>
+              <input type="hidden" name="msg[msgType]" value="1"/>
+              <ul>
+                <li class="form-item"><label for="" class="form-label"><em class="warn">*</em> <{t}>付款金额<{/t}>：</label><span class="form-act"><input type="text" name="msg[paymoney]" id="" class="x-input" vtype="required"></span></li>
+                <li class="form-item"><label for="" class="form-label"><em class="warn">*</em> <{t}>付款方式<{/t}>：</label><span class="form-act"><input type="text" name="msg[payments]" id="" class="x-input" vtype="required"></span></li>
+                <li class="form-item"><label for="" class="form-label"><em class="warn">*</em> <{t}>付款时间<{/t}>：</label><span class="form-act"><{input type="datepicker" name="msg[paydate][]" vtype="required"}>&nbsp;
+                    <{input type="select" name="msg[paydate][]" options=$timeHours}>&nbsp;<{t}>时<{/t}>&nbsp;
+                    <{input type="select" name="msg[paydate][]" options=$timeMins}>&nbsp;<{t}>分<{/t}>
+                  </span></li>
+                <li class="form-item"><label for="" class="form-label"><{t}>备注<{/t}>：</label><span class="form-act"><textarea name="msg[message]" id="" cols="30" rows="5" class="x-input"></textarea></span></li>
+                <li class="form-item"><label for="" class="form-label"></label><span class="form-act"><button type="submit" class="btn btn-caution" rel="_request"><span><span><{t}>确　定<{/t}></span></span></button></span></li>
+              </ul>
+            </form>
+          </div>
+          <{/if}>
+          <{/if}>
+          <{if !$archive}>
+          <button type="button" class="btn btn-simple action-leave-message"><span><span><{t}>我要留言<{/t}></span></span></button>
+          <!-- 我要留言弹框 -->
+          <div id="member_message_box" style="display:none;">
+            <form action='<{link app=b2c ctl="site_member" act="toadd_order_msg"}>' class="member-message-box" method="post">
+              <ul>
+                <li class="form-item"><span class="form-label"><{t}>标题<{/t}>：</span><span class="form-act"><input type="text" name="msg[subject]" id="" vtype="required" class="x-input"></span></li>
+                <li class="form-item"><span class="form-label"><{t}>内容<{/t}>：</span><span class="form-act"><textarea name="msg[message]" id="" vtype="required" cols="30" rows="6" class="x-input"></textarea></span></li>
+                <li class="form-item"><span class="form-label"></span><span class="form-act"><button type="submit" class="btn btn-simple action-submit-message" rel="_request"><span><span><{t}>提交留言<{/t}></span></span></button></span></li>
+              </ul>
+              <input type="hidden" name="msg[orderid]" value="<{$order.order_id}>"/>
+            </form>
+          </div>
+          <{/if}>
+          <{/if}>
+        </div>
+        <div class="caption"order>
+          <{if $order.status=='finish'}>
+            <{t}>订单已经处理完成。<{/t}>
+          <{elseif $order.status=='dead'}>
+            <{t}>订单已经作废。<{/t}>
+          <{else}>
+            <{if ($order.pay_status == 0 || $order.pay_status == 3) && $order.ship_status == 0}>
+              <{if $order.payinfo.pay_app_id == 'offline'}>
+                <{t}>说明：您选择了<b><{$order.payment.app_name}></b>付款，请尽快付款，付款后可通过网站留言联系我们。<{/t}>
+              <{elseif $order.payinfo.pay_app_id == '-1'}>
+                <{t}>说明：您选择了<b>货到付款</b>，请等待店家发货。<{/t}>
+              <{else}>
+                <{t}>说明：您选择了<b><{$order.payment.app_name}></b>付款，请尽快付款。<{/t}>
+              <{/if}>
+            <{elseif ($order.pay_status == 1 || $order.pay_status==2) && $order.ship_status == 0}>
+              <{t}>说明：你已支付成功，商家正在为你备货！<{/t}>
+            <{elseif $order.ship_status==1}>
+              <{t}>说明：店家已经发货。<{/t}>
+            <{elseif $order.pay_status=='5' && $order.ship_status != '4'}>
+              <{t}>说明：店家已经退款<{/t}>
+              <{$order.total_amount|cur_odr:$order.currency}><{t}>(说明：金额数字)，请注意查看您的支付账户。<{/t}>
+            <{elseif $order.ship_status == '4' && $order.pay_status!='5'}>
+              <{t}>说明：店家已经处理退货<{/t}>
+            <{elseif $order.pay_status=='5' && $order.ship_status== '4'}>
+              <{t}>说明：店家已经退款<{/t}><{$order.total_amount|cur_odr:$order.currency}><{t}>(说明：金额数字)，请注意查看您的支付账户。<{/t}><br /><{t}>店家已经处理退货<{/t}>
+            <{elseif $order.pay_status=='4'}>
+              <{t}>说明：店家已经退款部分，请确认是否已经收到部分退款项！<{/t}>
+            <{/if}>
+            <{if $order.payment.app_info && $order.payment.app_info != '&nbsp;'}>
+            <!-- 支付说明 -->
+            <{if $order.payment.app_des}>
+            <a href="javascript:void(0);" class="action-payment-guide">支付说明</a>
+            <div id="payment_guide" style="display:none;">
+              <h3 class="title"><{$order.payment.app_display_name}></h3>
+              <p><{$order.payment.app_des}></p>
+            </div>
+            <{/if}>
+            <{/if}>
+          <{/if}>
+        </div>
+        <div class="steps member-order-steps">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td class="step-item step-1 active"><span><q class="icon">&#x50;</q><i>1</i>提交订单</span></td>
+                <{if $order.status=='dead'}>
+                <td class="icon step-arrow">&#x28;</td>
+                <td class="step-item step-1 active"><span><q class="icon">&#x50;</q><i>2</i>订单作废</span></td>
+                <{else}>
+                  <{if $order.payinfo.pay_app_id != '-1'}>
+                  <td class="icon step-arrow">&#x28;</td>
+                  <td class="step-item step-2 <{if $order.pay_status == 1 || $order.pay_status==2}> active <{/if}>"><span><q class="icon">&#x50;</q><i>2</i>付款成功</span></td>
+                  <{/if}>
+                  <td class="icon step-arrow">&#x28;</td>
+                  <td class="step-item step-3 <{if $order.ship_status == '1'}>active<{/if}>"><span><q class="icon">&#x50;</q><i>3</i>发货</span></td>
+                  <td class="icon step-arrow">&#x28;</td>
+                  <td class="step-item step-4 <{if $order.status == 'finish'}>active<{/if}>"><span><q class="icon">&#x50;</q><i>4</i>订单完成</span></td>
+                <{/if}>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <{if $orderlogs}>
+        <{include file="site/member/order_logs.html" app="b2c"}>
+        <{/if}>
+      </div>
+    </div>
+
+    <!-- 订单留言 -->
+    <{if $ordermsg}>
+    <div id="member_order_message" class="member-order-message member-mod">
+      <div class="member-mod-title">
+        <h2>订单留言</h2>
+      </div>
+      <div class="member-mod-content">
+        <ul>
+          <{foreach from=$ordermsg item=msgitem name="ordermsg"}>
+          <li class="<{if $smarty.foreach.ordermsg.iteration == 1}>first<{/if}>">
+            <div class="message-infos"><span class="admin-name"><{$msgitem.author}></span><span class="datetime"><{$msgitem.time|cdate:FDATE_STIME}></span></div>
+            <div class="message-section">
+              <h4 class="message-title"><{$msgitem.title}></h4>
+              <div class="message-text">
+                <p><{$msgitem.comment|nl2br}></p>
+              </div>
+            </div>
+          </li>
+          <{/foreach}>
+        </ul>
+      </div>
+    </div>
+    <{/if}>
+
+    <!-- 订单信息区 -->
+    <div id="order_main" class="order-main order-container">
+      <!-- 收货信息模块 -->
+      <div id="order_shipping" class="order-section order-shipping">
+        <div class="order-section-title"><b>收货信息</b></div>
+        <div class="order-section-content">
+          <!-- 完整收货信息 -->
+          <table class="view-shipping">
+            <tbody>
+              <tr>
+                <th><em>*</em><{t}>收货地区<{/t}>：</th>
+                <td><{$order.consignee.area}></td>
+              </tr>
+              <tr>
+                <th><em>*</em><{t}>收货地址<{/t}>：</th>
+                <td><{$order.consignee.addr}></td>
+              </tr>
+              <{if $order.consignee.zip}>
+              <tr>
+                <th><{t}>邮编<{/t}>：</th>
+                <td><{$order.consignee.zip}></td>
+              </tr>
+              <{/if}>
+              <tr>
+                <th><em>*</em><{t}>收货人姓名<{/t}>：</th>
+                <td><{$order.consignee.name}></td>
+              </tr>
+              <{if $order.consignee.mobile}>
+              <tr>
+                <th><{t}>手机<{/t}>：</th>
+                <td><{$order.consignee.mobile}></td>
+              </tr>
+              <{/if}>
+              <{if $order.consignee.telephone}>
+              <tr>
+                <th><{t}>固定电话<{/t}>：</th>
+                <td><{$order.consignee.telephone}></td>
+              </tr>
+              <{/if}>
+              <tr>
+                <th>送货时间：</th>
+                <{if $order.consignee.r_time}>
+                <td><{$order.consignee.r_time}></td>
+                <{else}>
+                <td>任意时间，任意时间段</td>
+                <{/if}>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 配送方式模块 -->
+      <div id="order_delivery" class="order-section order-delivery">
+        <div class="order-section-title"><b>配送方式</b></div>
+        <div class="order-section-content">
+          <table class="view-delivery">
+            <tbody>
+              <tr>
+                <th><{t}>配送方式<{/t}>：</th>
+                <td><{$order.shipping.shipping_name}></td>
+              </tr>
+              <tr>
+                <th><{t}>运费<{/t}>：</th>
+                <td><{$order.shipping.cost_shipping|cur_odr:$order.currency}></td>
+              </tr>
+				      <{if order.shipping.is_protect == 'true'}>
+              <tr>
+                <th><{t}>其它服务<{/t}>：</th>
+                <td><{t}>物流保价<{/t}></td>
+              </tr>
+				      <{/if}>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 支付方式模块 -->
+      <div id="order_payment" class="order-section order-payment">
+        <div class="order-section-title"><b><{t}>支付方式<{/t}></b></div>
+        <div class="order-section-content">
+          <table class="view-payment">
+            <tbody>
+              <tr>
+                <th><{t}>支付方式<{/t}>：</th>
+                <td><{$order.payment.app_display_name}></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+		  <{if $order.is_tax == 'true' && $order.tax_type != 'false'}>
+      <!-- 发票信息模块 -->
+      <div id="order_invoice" class="order-section order-invoice">
+        <div class="order-section-title"><b><{t}>发票信息<{/t}></b></div>
+        <div class="order-section-content">
+          <table class="view-invoice">
+            <tbody>
+              <tr>
+                <th><{t}>发票类型<{/t}>：</th>
+                <td><{t}><{if $order.tax_type=='personal'}>个人<{else}>公司<{/if}>发票<{/t}></td>
+              </tr>
+              <tr>
+                <th><{t}>发票抬头<{/t}>：</th><td><{$order.tax_title}></td>
+              </tr>
+              <tr>
+                <th><{t}>发票内容<{/t}>：</th><td><{$order.tax_content}></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <{/if}>
+
+      <!-- 商品清单 -->
+      <table id="cart_main" class="cart-main" width="100%">
+        <caption><{t}>商品清单和结算信息<{/t}></caption>
+        <colgroup>
+          <col class="col-2">
+          <col class="col-3">
+          <col class="col-4">
+          <col class="col-5">
+          <col class="col-6">
+          <col class="col-7">
+        </colgroup>
+        <thead>
+          <tr>
+            <th><{t}>商品<{/t}></th>
+            <th><{t}>销售价<{/t}></th>
+            <th><{t}>数量<{/t}></th>
+            <th><{t}>优惠金额<{/t}></th>
+            <th><{t}>积分<{/t}></th>
+            <th><{t}>小计<{/t}></th>
+          </tr>
+        </thead>
+        <{foreach from=$order.goods_items item="item" key="key"}>
+    		<{if $item.product}>
+        <!-- 购物车条目 -->
+        <tbody class="cart-item">
+          <!-- 主商品 -->
+          <tr class="cart-product">
+            <td class="p-info">
+              <div class="p-title"><a href="<{$item.product.link_url}>" target="_blank"><{$item.product.name}>
+      			  <{foreach from=$item.product.minfo item=minfo key=name}>
+      				，<{$minfo.value}>
+      			  <{/foreach}></a></div>
+            </td>
+            <td class="p-price"><{$item.product.g_price|cur_odr:$order.currency}></td>
+            <td><{$item.product.quantity}></td>
+            <td class="p-discount"><{($item.product.g_price-$item.product.price)*$item.product.quantity|cur_odr:$order.currency}></td>
+            <td class="p-integral"><{if $item.product.score}><{$item.product.score}><{else}>-<{/if}></td>
+            <td class="p-subtotal"><{$item.product.amount|cur_odr:$order.currency}></td>
+          </tr>
+
+          <!-- 赠品 -->
+	        <{if $item.gift_items}>
+	        <{foreach from=$item.gift_items item=gifts name="giftsItem"}>
+          <tr class="p-gift">
+			    <td class="p-info">
+  			    <b>[赠品]</b>
+    			    <a href="<{$gifts.link_url}>" target="_blank">
+    				  <{$gifts.name}>
+    					<{foreach from=$gifts.minfo item=minfo key=name}>
+    					<br>，<{$minfo.value}>
+    				  <{/foreach}>
+  				    </a>
+			      </td>
+    			  <td class="p-price"><{$gifts.products.price.price.price|cur_odr:$order.currency}></td>
+    			  <td class="p-num"><{$gifts.quantity}></td>
+    			  <td colspan="3"></td>
+          </tr>
+  		    <{/foreach}>
+  		    <{/if}>
+
+        <!-- 商品促销 -->
+        <{if $order.goods_pmt.[$item.product.products.product_id]}>
+        <tr>
+          <td class="p-promotion" colspan="6">
+            <ul>
+              <{foreach from=$order.goods_pmt.[$item.product.products.product_id] item=goods_pmt_row}>
+              <li>
+                <b>[<{$goods_pmt_row.pmt_tag}>]</b><{$goods_pmt_row.pmt_memo}>
+              </li>
+              <{/foreach}>
+            </ul>
+          </td>
+        </tr>
+        <{/if}>
+
+  		  <!-- 配件 -->
+  		  <{if $item.adjunct}>
+  		  <{foreach from=$item.adjunct item=ajuncts name="ajunctsItem"}>
+          <tr class="p-adjunct">
+            <td class="p-info">
+              <div class="p-title"><b>[<{t}>配件商品<{/t}>]</b>
+        			  <a href="<{$ajuncts.link_url}>" target="_blank">
+        			  <{$ajuncts.name}>
+        			   <{foreach from=$ajuncts.minfo item=minfo key=name}>
+        				<br>，<{$minfo.value}>
+        			   <{/foreach}>
+        			  </a></div>
+            </td>
+            <td class="p-price"><{$ajuncts.price|cur_odr:$order.currency}></td>
+            <td><{$ajuncts.quantity}></td>
+            <td class="p-discount"></td>
+            <td class="p-integral"><{if $ajuncts.score}><{$ajuncts.score}><{else}>-<{/if}></td>
+            <td class="p-subtotal"><{$ajuncts.amount|cur_odr:$order.currency}></td>
+          </tr>
+		      <{/foreach}>
+          <{/if}>
+
+      		<{/if}>
+      		<{/foreach}>
+        </tbody>
+
+        <{if $order.gift.gift_items}>
+        <!-- 积分兑换 -->
+        <tbody class="cart-exchange" id="cart_exchange">
+          <tr class="cart-subtitle">
+            <th colspan="6">积分兑换赠品</th>
+          </tr>
+          <{foreach from=$order.gift.gift_items item=cart_gift}>
+          <tr class="cart-item">
+            <td class="p-info">
+              <div class="p-title"><a target="_blank" href="<{$cart_gift.link_url}>"><{$cart_gift.name}><{if $cart_gift.attr}>(<{$cart_gift.attr}>)<{/if}></a></div>
+            </td>
+            <td class="p-price"><{$cart_gift.price|cur_odr}></td>
+            <td class="p-num"><{$cart_gift.quantity}></td>
+            <td>-</td>
+            <td class="p-integral">-<{$cart_gift.point}></td>
+            <td>-</td>
+          </tr>
+          <{/foreach}>
+        </tbody>
+        <{/if}>
+
+        <{if $order.order.gift_items}>
+        <!-- 订单送赠品 包含优惠券送赠品-->
+        <tbody class="cart-exchange" id="cart_exchange">
+          <tr class="cart-subtitle">
+            <th colspan="6">订单送赠品</th>
+          </tr>
+          <{foreach from=$order.order.gift_items item=cart_gift}>
+          <tr class="cart-item">
+            <td class="p-info">
+              <div class="p-title"><a target="_blank" href="<{$cart_gift.link_url}>"><{$cart_gift.name}><{if $cart_gift.attr}>(<{$cart_gift.attr}>)<{/if}></a></div>
+            </td>
+            <td class="p-price"><{$cart_gift.price|cur_odr}></td>
+            <td class="p-num"><{$cart_gift.quantity}></td>
+            <td>-</td>
+            <td class="p-integral">-</td>
+            <td>-</td>
+          </tr>
+          <{/foreach}>
+        </tbody>
+        <{/if}>
+      </table>
+
+      <{if $order.extends}>
+      <{foreach from=$order.extends item=aExtend name="aExtends"}>
+      <{$aExtend}>
+      <{/foreach}>
+      <{/if}>
+      <!-- 结算信息 -->
+      <table id="order_clearing" class="order-clearing order-clearing-info">
+        <tbody>
+          <tr>
+            <td class="order-infor">
+              <!-- 订单优惠 -->
+              <{if $order.order_pmt}>
+              <div class="order-promotion">
+                <h3>订单优惠：</h3>
+                <ul class="content">
+                  <{foreach from=$order.order_pmt item=order_pmt_row}>
+                  <li>
+                    <b>[<{$order_pmt_row.pmt_tag}>]</b><{$order_pmt_row.pmt_memo}>
+                  </li>
+                  <{/foreach}>
+                </ul>
+              </div>
+              <{/if}>
+              <div class="order-remark"><h3>订单备注：</h3><p><{$order.memo|default:$___b2c='暂无附言'|t:'b2c'}></p></div>
+            </td>
+            <!-- 订单价格 -->
+            <td id="order_price" class="order-price">
+              <div class="inner">
+                <ul>
+                  <li class="goods">
+                    <span class="label"><em><{t}>商品金额<{/t}>：</em></span>
+                    <span class="price">+<{$order.cost_item|cur_odr:$order.currency}></b></span>
+                  </li>
+                  <li class="">
+                    <span class="label"><em>运费：</em></span>
+                    <span class="price"><{$order.shipping.cost_shipping|cur_odr:$order.currency}></span>
+                  </li>
+                  <{if $order.shipping.is_protect == 'true' && $order.shipping.cost_protect > 0}>
+                  <li class="discount">
+                    <span class="label"><em><{t}>保价费用<{/t}>:</em></span>
+                    <span class="price">+<{$order.shipping.cost_protect|cur_odr:$order.currency}></b></span>
+                  </li>
+				          <{/if}>
+          	      <{if $order.payinfo.cost_payment > 0}>
+                  <li class="discount">
+                    <span class="label"><em><{t}>支付费用:<{/t}></em></span>
+                    <span class="price">+<{$order.payinfo.cost_payment|cur_odr:$order.currency}></b></span>
+                  </li>
+				          <{/if}>
+				          <{$discount_html}>
+                  <li class="discount">
+                    <span class="label"><em><{t}>优惠金额:<{/t}></em></span>
+                    <span class="price">-<{$order.pmt_order|cur_odr:$order.currency}></b></span>
+                  </li>
+                  <{if $order.cost_payment > 0}>
+                  <li class="">
+                    <span class="label"><em><{t}>客户承担支付手续费<{/t}>：</em></span>
+                    <span class="price"><{$order.cost_payment|cur_odr:$order.currency}></span>
+                  </li>
+                  <{/if}>
+                  <{if $order.cost_tax>0}>
+                  <li class="">
+                    <span class="label"><em><{t}>开发票所需税金<{/t}>：</em></span>
+                    <span class="price"><{$order.cost_tax|cur_odr:$order.currency}></span>
+                  </li>
+                  <{/if}>
+                  <li class="total">
+                    <span class="label"><i><{if $order.score_g > 0}>(<{t}>订单可得积分<{/t}><{$order.score_g}>)<{/if}></i><em><{t}>总金额<{/t}>：</em></span>
+                    <span class="price"><b><{$order.total_amount|cur_odr:$order.currency}></b></span>
+                  </li>
+      				    <{if $order.payed > 0}>
+      				    <li class="discount">
+                    <span class="label"><em><{t}>已付金额:<{/t}></em></span>
+                    <span class="price"><{$order.payed|cur_odr:$order.currency:false:true}></b></span>
+                  </li>
+				          <{/if}>
+        				  <{if $order.cur_rate != 1}>
+        				  <li class="discount">
+                    <span class="label"><em><{t}>货币汇率:<{/t}></em></span>
+                    <span class="price"><{$order.cur_rate}></b></span>
+                  </li>
+			            <li class="discount">
+                    <span class="label"><em><{t}>货币结算金额:<{/t}></em></span>
+                    <span class="price"><{$order.cur_amount|cur_odr:$order.currency:false:true}></b></span>
+                  </li>
+				          <{/if}>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+Object.merge(validatorMap, {
+    requiredcustom: function(element, v, type, parent){
+        var name = element.name;
+        if(!parent.getElements('input[type=' + type + ']' + name ? '[name="' + name + '"]' : '').some(function(el) {
+            return el.checked && el.value != '0';
+        })) {
+            return showWarn(parent, element.get('data-validatemsg'));
+        }
+        return true;
+    }
+});
+
+function hideWarn(el) {
+    var tips = el.retrieve('tips_instance');
+    tips && tips.hide();
+}
+function showWarn(el, msg) {
+    formTips.warn(msg, el);
+    return false;
+}
+
+$(document.body).addEvents({
+    'mouseenter:relay(.pop-handle)': function(e){
+        var menu = this.getNext('.pop-body');
+        if(menu) {
+            clearTimeout(menu.timer);
+            menu.show();
+        }
+    },
+    'mouseenter:relay(.pop-body)': function(e){
+        clearTimeout(this.timer);
+    },
+    'mouseleave:relay(.pop-wrapper)': function(e) {
+        var menu = this.getElement('.pop-body');
+        menu.timer = menu.hide.delay(200,menu);
+    },
+    //= 我已付款
+    'click:relay(.action-paid)': function(e) {
+        var dialog = new Dialog($('member_already_paid').wrapped(true),{
+            width:480,
+            title: '提交付款信息',
+            modal: true,
+            onLoad: function(){
+                bindDatepicker();
+            },
+            onClose: function(){
+                location.reload();
+            }
+        });
+    },
+    //= 我要留言
+    'click:relay(.action-leave-message)': function (e) {
+        var dialog = new Dialog($('member_message_box').wrapped(), {
+            width: 450,
+            title: '我要留言',
+            modal: true
+        });
+    },
+    'click:relay(.action-payment-guide)': function(e) {
+        Dialog.alert($('payment_guide').innerHTML, {
+            width:500,
+            title: '支付详细说明',
+            confirmText: '关闭窗口'
+        });
+    }
+});
+
+
+function show_delivery_item(el,key,rs){
+    var cont = $('order_' + key);
+    var tpl = '<li><em><{t}>商品名称：<{/t}>{name}</em><i><{t}>数量：<{/t}>{number}</i></li>';
+    var html = ['<li><b><{t}>本次发货商品：<{/t}></b></li>'];
+    if(cont) {
+        cont.setStyle('display', cont.isDisplayed() ? 'none' : '');
+    }else{
+        rs.each(function(item){
+            html.push(tpl.substitute(item));
+        });
+        new Element('ul.notice-inline#order_' + key, {html: html.join('\r\n')}).inject(el.getParent());
+    }
+}
+function show_logistics(el, key, url) {
+    var cont = $('delivery_' + key);
+    var html = ['<p><b><{t}>物流信息：<{/t}></b></p>'];
+    if(cont) {
+        cont.setStyle('display', cont.isDisplayed() ? 'none' : '');
+    }else{
+        new Request({
+            url: url,
+            link: 'ignore',
+            onSuccess: function(rs) {
+                if(rs) {
+                    html.push(rs);
+                }
+                new Element('div.notice-inline#delivery_' + key, {html: html.join('\r\n')}).inject(el.getParent());
+            }
+        }).send();
+    }
+}
+</script>

@@ -1,0 +1,85 @@
+<div class="IndexLoginWrap">
+    <ul id="memberBar_<{$widgets_id}>" style="display:none">
+        <li><{t app='cps'}>欢迎您，<{/t}><span id="uname_<{$widgets_id}>"><{$data.u_name}></span>！</li>
+        <li class="buttonbar">
+            <a href="<{link app=cps ctl=site_welcome act=showUser}>"><{t app='cps'}>[我的账户]<{/t}></a>|<a href="<{link app=cps ctl=site_user act=logout}>"><{t app='cps'}>[退出]<{/t}></a>
+        </li>
+    </ul>
+<div id="loginBar_<{$widgets_id}>">
+    <form action="<{link app=cps ctl=site_user act=verify}>" method="post" class='member-loginform' style="">
+    
+    <table width="96%" border="0" align="center" cellspacing="0">
+  <tr>
+    <td width="27%" height="30" align="right"><{t app='cps'}>用户名：<{/t}></td>
+    <td width="73%" height="30"><input type="text" id="in_login" name="login" class="logintext1" vtype="required" tabindex="1"/></td>
+  </tr>
+  
+   <tr>
+    <td height="30" align="right"><label for="in_passwd"><{t app='cps'}>密&nbsp;&nbsp;&nbsp;码：<{/t}></label></td>
+    <td height="30"><input type="password" id="in_passwd" name="password" class="logintext1" vtype="required" tabindex="2"/></td>
+   </tr>
+   <tr>
+    <td align="right"><label for="in_vcode"><{t app='cps'}>验证码：<{/t}></label></td>
+    <td>  <span id='verifyCodebox_<{$widgets_id}>'>
+                <{input style='width:150px; height:21px; padding:0px; background:none; border:solid 1px #ccc' class="inputstyle"  type="text" maxlength='4' vtype="required&&number" name="loginverifycode" id="in_vcode"  tabindex="3"}>
+     </td>
+    </tr>
+    <tr id="vcodeSpan" style="display: none;">
+        <td></td>
+        <td><span class='verifyCode'>
+                    <img src="#" border="1" title="看不清楚？换个图片" id="LoginimgVerifyCode" class="chgimg"/> <label class="chgimg" style="color:#0076c9; text-decoration: underline;">看不清</label></span>
+            </span></td>
+    </tr>
+    <tr>
+    <td colspan="2" align="right" valign="middle">
+    
+    <table width="96%" border="0" align="center" cellspacing="0">
+    <tr>
+    <td align="right" valign="middle"><{t app='cps'}><input type="submit" id="btn_login" class="login_but" value=""/><{/t}></td>
+    <td align="center" valign="middle">
+    <{t app='cps'}><input type="button" id="registerBtn" class="zc_but" value=""/><{/t}></td>
+    <td align="center" valign="middle">
+   <a style=" color:#0076c9; line-height:35px;" href = "<{link app=cps ctl=site_user act='lost'}>"><{t app='cps'}>忘记密码?<{/t}></a></td></tr></table>
+        </td>
+    </tr>      
+         </table>
+  </form>
+  </div>
+</div>
+<script>
+    $('registerBtn').addEvent('click', function() {
+    	window.location.href = '<{link app="cps" ctl="site_user" act="register"}>';
+    });
+
+    var vcodeShow = false;
+
+    $('in_vcode').addEvent('focus', function() {
+        if (!vcodeShow) {
+            $('vcodeSpan').setStyle('display', '');
+            $('LoginimgVerifyCode').set('src', '<{link app="cps" ctl="site_user" act="verifyCode"}>#' + $time());
+            vcodeShow = true;
+        }
+    });
+    
+    $$('.chgimg').addEvent('click', function() {
+        $('LoginimgVerifyCode').set('src', '<{link app="cps" ctl="site_user" act="verifyCode"}>#' + $time());
+    });
+
+	new Request({
+		url : '<{link app=cps ctl=site_user act=getuname}>',
+		method : 'post',
+		onComplete : function(e) {
+			if (e) {
+				$("uname_<{$widgets_id}>").innerHTML = e;
+				$("memberBar_<{$widgets_id}>").setStyle('display', 'block');
+				if ($("loginBar_<{$widgets_id}>"))
+					$("loginBar_<{$widgets_id}>").setStyle('display', 'none');
+			} else {
+				$("loginBar_<{$widgets_id}>").setStyle('display', 'block');
+				if ($("memberBar_<{$widgets_id}>"))
+					$("memberBar_<{$widgets_id}>").setStyle('display', 'none');
+			}
+		},
+		data : ''
+	}).send();
+</script>

@@ -1,0 +1,50 @@
+<{if $page_product_basic.brand.brand_name}>
+<div class="d-line">
+    <span class="k">品牌：</span>
+    <span class="v"><a href="<{link app=b2c ctl=wap_brand arg0=$page_product_basic.brand.brand_id}>"><{$page_product_basic.brand.brand_name}></a></span>
+</div>
+<{/if}>
+
+<div class="d-line">
+    <span class="k">所属分类：</span>
+    <span class="v"><{$page_product_basic.cat_name}></span>
+</div>
+
+<{if $setting.goodsbn == 'true'}>
+<div class="d-line">
+    <span class="k">货品编号：</span>
+    <span class="v"><{$page_product_basic.product_bn}></span>
+</div>
+<{/if}>
+
+<!-- 商品属性 -->
+<{if $page_product_basic.props != null}>
+    <{if $setting.goodsprop == '0' || $setting.goodsprop == '1'}>
+    商品属性<br />
+    <{foreach from=$page_product_basic.props key=key item=props name=nums}>
+    <div class="d-line">
+        <span class="k"><{$props.name}>：</span>
+        <span class="v"><{$props.value}></span>
+    </div>
+    <{/foreach}>
+    <{/if}>
+<{/if}>
+
+<!-- 详细参数 -->
+<{if $page_product_basic.params != null}>
+    详细参数<br />
+    <{foreach from=$page_product_basic.params key=group item=row}>
+        <{$group}>
+        <{foreach from=$row key=key item=value}>
+        <{if $value != ''}>
+        <div class="d-line">
+            <span class="k"><{$key}>：</span>
+            <span class="v"><{$value|default:'-'}></span>
+        </div>
+        <{/if}>
+        <{/foreach}>
+    <{/foreach}>
+<{/if}>
+
+
+

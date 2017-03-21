@@ -1,0 +1,36 @@
+//@descrip 文章列表模块
+
+.list {
+	color: #333;	
+	padding: 0 15px;
+}
+
+.list li {
+	position: relative;
+	border-bottom: 1px solid #BFBFBF;
+	padding-top: 6px;
+}
+
+.list a {
+	display: block;
+}
+
+.list p {
+	margin: 12px 0;
+}
+
+.list .date {
+	color: #999;
+}
+
+.list .dire {
+	display: inline-block;
+	border:solid #333;
+	border-width: 2px 2px 0 0;
+	position: absolute;
+	right: 0;
+	top: 30px;
+	width: 8px;
+	height: 8px;
+	-webkit-transform: rotate(45deg);
+}

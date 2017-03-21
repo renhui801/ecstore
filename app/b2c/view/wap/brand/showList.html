@@ -1,0 +1,19 @@
+<div class="full-screen">
+    <div class="page">
+        <div class="brands-list c-fix">
+          <{foreach from=$data item=data}>
+          <div class="items">
+            <dl>
+              <dt class="img"><a href="<{link app=b2c ctl=wap_brand act=index arg0=$data.brand_id}>" title="<{t}>了解<{/t}> <{$data.brand_name}>"><img src="<{$data.brand_logo|default:$defaultImage|storager}>" alt="<{$data.brand_name}>"></a></dt>
+              <dd class="intro t-c">
+                <a href="<{link app=b2c ctl=wap_brand act=index arg0=$data.brand_id}>" title="<{t}>了解<{/t}> <{$data.brand_name}>"><{$data.brand_name}></a>
+             </dd>
+            </dl>
+          </div>
+          <{/foreach}>
+        </div>
+        <div class="c-fix">
+        <{wap_pagers data=$pager}>
+        </div>
+    </div>
+</div>

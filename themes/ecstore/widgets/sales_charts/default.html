@@ -1,0 +1,20 @@
+<div class="common-mod sales-charts">
+  <div class="hd"><h2 class="title"><{$setting.block_name}></h2></div>
+  <div class="bd">
+    <ul class="goods-list clearfix">
+      <{foreach from=$data.goodsRows item=row key=gid name=goodsrow}>
+      <li class="goods-item clearfix<{if $smarty.foreach.goodsrow.last}> last<{/if}>">
+        <span class="num-<{$smarty.foreach.goodsrow.iteration}>"></span>
+        <{assign var=pickey value=$setting.gpic_size|default:'goodsPicS' }>
+        <div class="goods-pic">
+          <a href="<{$row.goodsLink}>"><img data-src="<{$row[$pickey]}>" alt="<{$row.goodsName}>" data-img-zoom="true"/></a>
+        </div>
+        <div class="goods-info">
+          <h3 class="goods-name"><a href="<{$row.goodsLink}>"><{$row.goodsName}></a></h3>
+          <div class="goods-price"><{if $setting.texttag}><{$setting.texttag}>：<{/if}><i><{$row.goodsSalePrice|cur}></i></div>
+        </div>
+      </li>
+      <{/foreach}>
+    </ul>
+  </div>
+</div>

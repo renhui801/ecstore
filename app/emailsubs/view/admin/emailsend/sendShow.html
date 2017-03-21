@@ -1,0 +1,50 @@
+<div class="tabs-wrap clearfix">
+	<ul>
+		<li class='tab current'><span><{t}>发送邮件<{/t}></span></li>
+	</ul>
+</div>
+<div class='tableform'>
+<form id='send-emailsubs-form' method='post' action='index.php?app=emailsubs&ctl=admin_emailsend&act=toSend'>
+	<{css src='desktop.css' app='emailsubs'}>
+	<h3 class="title"><span style="display:block; float:left;"><{t}>第一步：选择邮件模板<{/t}> </span><span id="more-tmpl" class="more"> <{t}>更多邮件模板&gt;&gt;<{/t}></span></h3>
+	<{include file='admin/emailsend/emailcont_list.html' app='emailsubs'}>
+    
+	<h3 class="title"><{t}>第二步：选择邮件地址<{/t}></h3>
+	<{include file='admin/emailsend/emailaddr.html' app='emailsubs'}>
+    
+	<h3 class="title"><{t}>第三步：确定发送<{/t}></h3>
+    
+	<div class="table-action">
+		<{button label=$___emailsubs="确定发送"|t:'emailsubs' type="submit"}>
+		<span id='email-test'><a href='javascript:void(0);'><{t}>测试发送<{/t}></a></span>
+	</div>
+ </form>
+</div>
+<script>
+(function(){
+	$E('#send-emailsubs-form #more-tmpl').addEvent('click',function(){
+		var handle = $E('#send-emailsubs-form .emailcont-block');
+		new Dialog('index.php?app=emailsubs&ctl=admin_emailcont&act=getMoreCont',{
+			title:'更多邮件模板',
+			width:600,height:420,resizeable:false,
+			onShow:function(){
+				this.handle=handle;
+			}
+		}); 
+	});
+
+	$E('#send-emailsubs-form #email-test').addEvent('click',function(){
+		var ec_id = 0;
+		$ES('.emailcont-block input[type=radio]').each(function(item){
+			if(item.checked){
+				ec_id = item.value;
+			}
+		});
+		new Dialog('index.php?app=emailsubs&ctl=admin_emailsend&act=emailTest&p[0]='+ec_id,{
+			title:'测试发送',height:300
+		}); 
+	});
+})();
+</script>
+
+ 

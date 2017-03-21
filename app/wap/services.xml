@@ -1,0 +1,29 @@
+<services>
+
+
+    <service id="view_helper">
+        <class>wap_view_helper</class>
+    </service>
+
+    <service id="view_compile_helper">
+        <class>wap_view_compiler</class>
+    </service>
+
+    <service id="desktop_finder.wap_mdl_themes">
+        <class>wap_finder_theme</class>
+    </service>
+
+    <service id="wap_theme_content_detector">
+        <class>wap_application_themewidgets</class>
+    </service>
+
+    <service id="app_content_detector">
+        <class>wap_application_explorer</class>
+        <class>wap_application_module</class>
+    </service>
+
+    <service id="ectools_payment.ectools_mdl_payment_cfgs" optname="支付插件列表">
+        <class>wap_payment_plugin_malipay</class>
+        <class>wap_payment_plugin_mtenpay</class>
+    </service>
+</services>

@@ -1,0 +1,17 @@
+<div>
+<h3>添加消息</h3>
+<div class="tableform" style="line-height: 30px;">
+<form action="index.php?app=cps&ctl=admin_info_detail&act=save" method="post">
+<div><span>消息类型：</span><span><select name="i_type" class="x-input">
+    <{foreach from=$infoTypes item=val key=key}>
+    <option value="<{$key}>"><{$val}></option>
+    <{/foreach}>
+</select></span></div>
+<div><span>消息标题：</span><span><input type="text" name="title" value="" vtype="required" size="30" class="x-input"></span></div>
+<div><span>发布时间：</span><span><{input type="time" vtype='required' name="pubtime" style="width:80px" maxlength="30" }></span></div>
+<div><span>是否发布：</span><span><input type="radio" name="ifpub" value="true" checked="checked">是 <input type="radio" name="ifpub" value="false">否</span></div>
+<div style="width:600px;"><span>消息内容：</span><span><{input type="html" name="content" class="textarea-auto" includeBase=true}></span></div>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="添加消息"}></div>
+</form>
+</div>
+</div>

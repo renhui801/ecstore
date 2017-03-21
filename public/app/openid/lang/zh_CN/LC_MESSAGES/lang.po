@@ -1,0 +1,107 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+#: /Users/bryant/codes/ecstore-release/app/openid//controller/site/trust.php:68
+#: /Users/bryant/codes/ecstore-release/app/openid//controller/site/trust.php:90
+msgid "登录成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//controller/site/trust.php:70
+msgid "登录失败,请联系商店管理员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//controller/site/trust.php:93
+msgid "参数错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:15
+msgid "用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:23
+msgid "openid"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:31
+msgid "第三方标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:36
+msgid "编码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:43
+msgid "昵称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:48
+msgid "真实姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:59
+msgid "未知"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:60
+msgid "男"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:61
+msgid "女"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:63
+msgid "性别"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:68
+msgid "地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//dbschema/openid.php:73
+msgid "头像"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//lib/passport/trust.php:28
+msgid "您已经是登录状态，不需要重新登录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//lib/passport/trust.php:138
+msgid "通行证id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//lib/passport/trust.php:139
+msgid "通行证"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//lib/passport/trust.php:140
+msgid "后台开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//lib/passport/trust.php:141
+msgid "前台开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//lib/passport/trust.php:142
+msgid "版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/openid//task.php:20
+msgid "信任登录ID"
+msgstr ""
+

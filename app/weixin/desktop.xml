@@ -1,0 +1,30 @@
+<desktop>
+    <permissions>
+        <permission id="weixin" display='true'>微信模块</permission>
+    </permissions>
+
+    <workground name="移动" id="wap.workground.theme" controller="admin_theme_manage" action="index" order='70'>
+        <menugroup name="微信商城配置">
+            <menu controller='admin_bind' action='index' permission='weixin' display='true' order='20'>绑定微信公众号</menu>
+            <menu controller='admin_setting' action='index' permission='weixin' display='true' order='30'>基本配置</menu>
+            <menu controller='admin_sso' action='index' permission='weixin' display='true' order='50'>微信免登录</menu>
+        </menugroup>
+        <menugroup name="微信商户功能">
+            <menu controller='admin_business_setting' action='index' permission='weixin' display='true' order='51'>商户功能信息</menu>
+            <menu controller='admin_business_safeguard' action='index' permission='weixin' display='true' order='52'>维权信息</menu>
+            <menu controller='admin_business_alert' action='index' permission='weixin' display='true' order='53'>告警通知数据</menu>
+        </menugroup>
+        <menugroup name="微信消息管理">
+            <menu controller='admin_message_text' action='index' permission='weixin' display='true' order='60'>文字消息列表</menu>
+            <menu controller='admin_message_image' action='index' permission='weixin' display='true' order='70'>图文消息列表</menu>
+        </menugroup>
+        <menugroup name="微信消息互动">
+            <menu controller='admin_autoreply' action='attention' permission='weixin' display='true' order='80'>关注自动回复</menu>
+            <menu controller='admin_autoreply' action='message' permission='weixin' display='true' order='90'>消息自动回复</menu>
+            <menu controller='admin_autoreply' action='keywords' permission='weixin' display='true' order='100'>关键词自动回复</menu>
+        </menugroup>
+        <menugroup name="微信自定义菜单">
+            <menu controller='admin_menu' action='index' permission='weixin' display='true' order='110'>微信自定义菜单</menu>
+        </menugroup>
+    </workground>
+</desktop>

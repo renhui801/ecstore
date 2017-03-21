@@ -1,0 +1,24 @@
+<form action="index.php?app=emailsubs&ctl=admin_emailcont&act=save" method="post" >
+<div class="tableform">
+<h3><{t}>添加邮件模板<{/t}></h3>
+<div class="division">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tbody>
+	<tr>
+		<th><{t}>邮件标题：<{/t}></th>
+		<td><{input type="text" name="ec_title" style="width:360px" value=$emailcont.ec_title required='true' vtype="required"}></td>
+	</tr>
+	<tr>
+		<th><{t}>邮件内容：<{/t}></th>
+		<td><{input type="html" name="ec_content" value=$emailcont.ec_content includeBase=true class="textarea-auto" id='ec_content_textarea'}></td>
+	</tr>
+	<tbody>
+</table>
+</div>
+<div class="table-action">
+	<{button id="emailcont_save_btn" label=$___emailsubs="保存模板"|t:'emailsubs' type="submit"}>
+	<{button id="emailcont_preview_btn" label=$___emailsubs="预览"|t:'emailsubs' type="button" onclick="new Dialog('index.php?app=emailsubs&ctl=admin_emailcont&act=preview&p[0]={$emailcont.ec_id}',{title:'邮件预览',width:800,height:680})"}>
+</div>
+<{input type='hidden' name='ec_id' value=$emailcont.ec_id}>
+</div>
+</form>

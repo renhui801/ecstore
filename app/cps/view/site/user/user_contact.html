@@ -1,0 +1,65 @@
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span><a href="<{link app='cps' ctl='site_welcome' act='showUserInfo'}>">账户信息管理</a></span>&gt;<span class="bold">修改联系方式</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="m2_left">
+<ul id="m2left_nav">
+    <li><a href="<{link app='cps' ctl='site_welcome' act='user_webinfo_edit'}>">修改网站信息</a></li>
+    <li class="curr bg_color1"><a href="<{link app='cps' ctl='site_welcome' act='user_contactinfo_edit'}>">修改联系方式</a></li>
+    <li><a href="<{link app='cps' ctl='site_welcome' act='user_pay_account_edit'}>">修改收款方式</a></li>
+    <li><a href="<{link app='cps' ctl='site_welcome' act='user_password_edit'}>">修改密码</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="m2_right">
+<div class="yj_search3">
+<form action="<{link app='cps' ctl='site_welcome' act='user_contactinfo_edit'}>" method="post">
+<table width="96%" border="0" cellspacing="0">
+    <tbody>
+
+        <tr>
+            <th height="40" align="right" valign="middle">联系人姓名：</th>
+            <td height="40" valign="middle"><label> <input type="text" vtype="required" name="user[realname]" value="<{$user.realname}>" class="logintext2"> </label></td>
+        </tr>
+        <tr>
+            <th height="40" align="right" valign="middle">联系邮箱：</th>
+            <td height="40" valign="middle"><label> <input type="text" vtype="required&&email" name="user[contact][email]" value="<{$user.contact.email}>" class="logintext2"> </label></td>
+        </tr>
+        <tr>
+            <th height="40" align="right" valign="middle">联系电话：</th>
+            <td height="40" valign="middle"><label> <input type="text" name="user[tel]" value="<{$user.tel}>" class="logintext2"> </label></td>
+        </tr>
+        <tr>
+            <th height="40" align="right" valign="middle">联系手机：</th>
+            <td height="40" valign="middle"><label> <input type="text" vtype="required&&unsignedint" name="user[mobile]" value="<{$user.mobile}>" class="logintext2"> </label></td>
+        </tr>
+        <tr>
+            <th height="40" align="right" valign="middle">通讯地址：</th>
+            <td height="40" valign="middle"><label> <input type="text" name="user[addr]" value="<{$user.addr}>" class="logintext2"> </label></td>
+        </tr>
+        <tr>
+            <th height="40" align="right" valign="middle">邮政编码：</th>
+            <td height="40" valign="middle"><label> <input type="text" name="user[zipcode]" value="<{$user.zipcode}>" class="logintext2"> </label></td>
+        </tr>
+        <tr>
+            <th height="40" valign="middle">&nbsp;</th>
+            <td height="40" valign="middle"><label> <input type="submit" name="button" value="确认修改" class="but_bgred"> </label> <label> <input type="reset" name="button2" value="取消" class="but_bglan"> </label></td>
+        </tr>
+    </tbody>
+</table>
+</form>
+<div class="clear"></div>
+</div>
+<!--yj_search--></div>
+<!--m2_right-->
+<div class="clear"></div>
+</div>
+<!--mc_2box-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+<script>
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

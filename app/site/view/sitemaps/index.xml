@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="<{$base_url}>/sitemaps.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <{if $sitemaps}>
+  <{foreach from=$sitemaps item=item}>
+  <!--        <url><loc><{$item.url}></loc><lastmod><{$item.time|date:'Y-m-d'}></lastmod><changefreq><{$item.changefreq}></changefreq><priority><{$item.proirity}></priority></url>-->
+  <url><loc><{link app=$item.app ctl=$item.ctl act=$item.act arg0=$item.arg0 full=true}></loc><lastmod><{$item.time|date:'Y-m-d'}></lastmod><changefreq><{$item.changefreq}></changefreq><priority><{$item.proirity}></priority></url>
+  <{/foreach}>
+  <{/if}>
+</urlset>

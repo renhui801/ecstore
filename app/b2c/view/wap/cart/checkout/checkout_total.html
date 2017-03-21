@@ -1,0 +1,106 @@
+    <div class="d-line">
+        <span class="k">
+            商品金额：
+        </span>
+        <span class="v">
+            <div class="price">
+                <{$order_detail.cost_item|cur_odr:$order_detail.currency}>
+            </div>
+        </span>
+    </div>
+    <div class="d-line">
+        <span class="k">
+            运费：
+        </span>
+        <span class="v">
+            <div class="price">
+                <{$order_detail.cost_freight|cur_odr:$order_detail.currency}>
+            </div>
+        </span>
+    </div>
+    <{if $order_detail.cost_protect > 0}>
+    <div class="d-line">
+        <span class="k">
+            配送保价费：
+        </span>
+        <span class="v">
+            <div class="price">
+                  <{$order_detail.cost_protect|cur_odr:$order_detail.currency}>
+            </div>
+        </span>
+    </div>
+    <{/if}>
+    <{if $order_detail.pmt_order}>
+    <div class="d-line">
+        <span class="k">
+            优惠金额：
+        </span>
+        <span class="v">
+            <div class="price">
+                  <{if $order_detail.pmt_order < 0}>
+                  +<{(0-$order_detail.pmt_order)|cur_odr:$order_detail.currency}>
+                  <{else}>
+                  -<{$order_detail.pmt_order|cur_odr:$order_detail.currency}>
+                  <{/if}>
+            </div>
+        </span>
+    </div>
+    <{/if}>
+    <{if $order_detail.cost_payment > 0}>
+    <div class="d-line">
+        <span class="k">
+            客户承担支付手续费
+        </span>
+        <span class="v">
+            <div class="price">
+                <{$order_detail.cost_payment|cur_odr:$order_detail.currency}>
+            </div>
+        </span>
+    </div>
+    <{/if}>
+    <{if $order_detail.cost_tax>0}>
+    <div class="d-line">
+        <span class="k">
+            开发票所需税金：
+        </span>
+        <span class="v">
+            <div class="price">
+                  <{$order_detail.cost_tax|cur_odr:$order_detail.currency}>
+            </div>
+        </span>
+    </div>
+    <{/if}>
+    <{if $order_detail.totalConsumeScore <> 0}>
+    <div class="d-line">
+        <span class="k">
+            消费积分：
+        </span>
+        <span class="v">
+            <div class="price">
+                  <{$order_detail.totalConsumeScore}>
+            </div>
+        </span>
+    </div>
+    <{/if}>
+    <{if $order_detail.totalGainScore <> 0}>
+          <div class="d-line">
+        <span class="k">
+            订单可得积分：
+        </span>
+        <span class="v">
+            <div class="price">
+                  <{$order_detail.totalGainScore}>
+            </div>
+        </span>
+    </div>
+    <{/if}>
+    <div class="d-line total">
+        <span class="k">
+            总金额：
+        </span>
+        <span class="v">
+            <div class="price">
+                <{$order_detail.total_amount|cur_odr:$order_detail.currency}>
+            </div>
+        </span>
+    </div>

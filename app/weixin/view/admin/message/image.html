@@ -1,0 +1,188 @@
+<form action="index.php?app=weixin&ctl=admin_message_image&act=update" id="catEditor" method="post">
+  <{area inject=".mainHead"}>
+  <h2 class="head-title"><{t}>图文消息列表<{/t}></h2>
+  <div class="gridlist-action">
+    <{assign var=addImageMessage value=$___b2c="添加封面"|t:'b2c'}>
+    <{assign var=editsort value=$___b2c="编辑排序"|t:'b2c'}>
+    <{assign var=savesort value=$___b2c="保存排序"|t:'b2c'}>
+    <{button app="desktop" label=$addImageMessage icon="btn_add.gif" onclick="new Dialog('index.php?app=weixin&ctl=admin_message_image&act=image_view',{title:'{$addImageMessage}',width:580,height:550})" }>
+    <{button app="desktop" tmplabel=$savesort label=$editsort  id="edit-catsort"}>
+
+    <{if $tree_number<=1000}> 
+      <{button app="desktop" label=$___b2c="展开图文"|t:'b2c' id="showCat-handle" icon="btn_unfolded.gif"}> 
+      <{button app="desktop" label=$___b2c="收起图文"|t:'b2c'  id="hideCat-handle" icon="btn_folded.gif" }>
+    <{/if}>
+    &nbsp;
+  </div>
+  <div class="Node">
+    <div class='gridlist-head mainHead '>
+      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="30%"><{t}>图文名称<{/t}></td>
+          <td width="25%"><{t}>图文消息标题<{/t}></td>
+          <td width="8%"><{t}>排序<{/t}></td>
+          <td width="15%"><{t}>操作<{/t}></td>
+      </tr></table>
+    </div>
+  </div>
+  <{/area}>
+  <div class="Node-body">
+    <div id="message_tree" class='gridlist catlist'>
+      <{foreach from=$list item=item name="item"}>
+      <div style="padding:0" depath="<{$item.message_depth}>" class="clear_cat row" message_image_id="<{$item.id}>" pid="<{$item.parent_id}>">
+        <div class='row-line' style="padding:0">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td width="30%" style="vertical-align:top">
+                <div style="padding-left:<{$item.message_depth*15}>px;text-align:left">
+                  <{if $item.has_children=='true'}>
+                  <span class="handle-icon" style='width:12px;line-height:12px; height:12px;overflow:hidden;display:inline-block;padding:0;cursor:pointer'>
+                    <{img src="bundle/handle-hide.gif" alt=$___b2c="收起子图文"|t:'b2c' title=$___b2c="收起子图文"|t:'b2c' class="handle-hide" app='desktop'}>
+                    <{img src="bundle/handle-show.gif" alt=$___b2c="收起子图文"|t:'b2c' title=$___b2c="展开子图文"|t:'b2c' class="handle-show" app='desktop'}>
+                  </span>
+                  <{/if}>
+                  <span class="quiet">
+                  <a href="index.php?app=weixin&ctl=admin_message_image&act=edit_image_view&p[0]=<{$item.id}>" target="dialog::{title:'<{t}>编辑图文消息<{/t}>', width:580, height:550}">
+                    <{$item.name|t:'weixin'}>
+                  </a>
+                  </span>
+                </div>
+              </td>
+
+              <td width="25%" style="vertical-align:top"><span class="quiet"><{$item.title|t:'weixin'}></span></td>
+              <td width="8%" align="center" style="vertical-align:top">
+                <input class="_x_ipt" type="number" size="5"  name="ordernum[<{$item.id}>]" value="<{$item.ordernum|default:0}>" vtype="unsigned" style="display:none"><b><{$item.ordernum|default:0}></b>
+              </td>
+              <td width="15%" style="vertical-align:top">
+                <div class="clearfix">
+                  <div class="span-auto">&nbsp;</div>
+                  <div class="span-auto">&nbsp;</div>
+                  <{if $item.parent_id == '0'}>
+                  <div class="span-auto">
+                    <{assign var="id" value=$item.id}>
+                    <span class="opt" onClick="new Dialog('index.php?app=weixin&ctl=admin_message_image&act=image_view&p[0]=<{$item.id}>', {title:'<{t}>添加图文消息<{/t}>', width:580, height:550})">
+                      <{img src="bundle/addcate.gif" border="0" alt=$___b2c="添加图文"|t:'b2c' app='desktop'}>
+                      <{t}>添加图文<{/t}></span>
+                  </div>
+                  <{else}>
+                  <div class="span-auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                  <{/if}>
+                  <div class="span-auto">
+                    <span class="opt" onClick="new Dialog('index.php?app=weixin&ctl=admin_message_image&act=edit_image_view&p[0]=<{$item.id}>',{title:'<{t}>编辑图文消息<{/t}>', width:580, height:550})"><{img src="bundle/editcate.gif" border="0" alt=$___b2c="编辑"|t:'b2c'  app='desktop'}><{t}>编辑<{/t}></span>
+                  </div>
+                  <div class="span-auto">
+                    <span class="opt" onclick="deleteRow('index.php?app=weixin&ctl=admin_message_image&act=toRemove&p[0]=<{$item.id}>',event)"><{img src="bundle/delecate.gif" border="0" alt=$___b2c="删除"|t:'b2c' app='desktop'}><{t}>删除<{/t}></span>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <{/foreach}> </div></div>
+</form>
+<script>
+
+  function deleteRow(act,event){
+    e=$(new Event(event).stop().target);
+    var row=e.getParent('.row');
+
+    if(confirm('<{t}>您确定要删除该图文？<{/t}>')){
+      W.page(act,{
+        method:'get',
+        update:'messagebox',
+        onComplete:function(re){
+
+          if(re.contains('successSplash')){row.remove();}
+
+        }
+      });
+    }
+  }
+
+void function(){
+  $E('#hideCat-handle').addEvent('click',function(){
+    $ES('#message_tree .clear_cat').each(function(e){
+      if(e.get('depath')>0){
+        e.setStyles({'display':'none'});
+      }
+    });
+    $ES('#message_tree .handle-hide').hide();
+    $ES('#message_tree .handle-show').show();
+  });
+  $E('#showCat-handle').addEvent('click',function(){
+    $ES('#message_tree .clear_cat').each(function(e){
+      if(e.get('depath')>0){
+        e.setStyles({'display':''});
+      }
+    });
+    $ES('#message_tree .handle-hide').show();
+  });
+
+  $('message_tree').addEvent('click',function(e){
+
+    if(!e.target.className.match(/handle-/i))return;
+
+
+    var handle=$(e.stop().target);
+    var eventRow=handle.getParent('.row');
+    var visible=handle.hasClass('handle-show')?'':'none';
+    if(visible=='none'){
+      handle.hide().getNext().show();
+    }else{
+      handle.hide().getPrevious().show();
+
+    }
+    flode(eventRow,visible);
+
+  });
+
+
+
+
+  $('edit-catsort').addEvent('click',function(){
+    var _ctext = this.get('text').trim();
+    if(_ctext=='<{t}>编辑排序<{/t}>'){
+
+      $$('#message_tree input[vtype=unsigned]').each(function(item){
+
+        item.style.cssText = "";
+        item.getNext().setStyle('display','none');
+
+      });
+      this.getElement('span span').set({'text':'<{t}>保存排序<{/t}>','styles':{color:'#ff3300'}})
+    }else{
+      $('catEditor').fireEvent('submit',{stop:function(){}});
+    }
+
+
+
+
+  });
+
+
+  function flode(eventRow,visible){
+    var message_image_id=eventRow.get('message_image_id');
+    var pid=eventRow.get('pid');
+    var depath=eventRow.get('depath');
+
+    eventRow.getAllNext('div[pid='+message_image_id+']').each(function(row){
+      if(visible=='none'){
+        row.hide();
+        var obj=row.getElements('.handle-icon img');
+        if(obj.length>1){
+          flode(row,visible);
+        }
+      }else{
+        row.show();
+        var obj=row.getElements('.handle-icon img');
+        if(obj.length>1){
+          var vis=(obj[0].getStyle('display')=='none'?'none':'inline');
+          flode(row,vis);
+        }
+      }
+
+    });
+  }
+}();
+</script>

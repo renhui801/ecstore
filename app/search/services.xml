@@ -1,0 +1,29 @@
+<services>
+
+    <service id="server.search_server" optname="搜索引擎插件">
+        <class>search_search_sphinx</class>
+        <!--
+        <class>search_search_lucence</class>
+        -->
+    </service>
+
+	<service id="server.search_segment" optname="分词器插件" opttype="select">
+    <!--
+		<class>search_segment_cjk</class>
+    -->
+		<class>search_segment_scws</class>
+	</service>
+
+	<service id="search_pre_filter">
+		<class>search_service_filter_cjk</class>
+	</service>
+
+	<service id="search_token_filter">
+		<class>search_service_filter_lowercase</class>
+	</service>
+
+	<service id="desktop_finder.search_mdl_search">
+    <class>search_finder_search</class>
+  </service>
+
+</services>

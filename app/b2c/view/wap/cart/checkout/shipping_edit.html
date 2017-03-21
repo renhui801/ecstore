@@ -1,0 +1,117 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="<{link app=b2c ctl=wap_cart act=checkout}>" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            添加收货地址
+        </div>
+        <div class="a-right">
+        </div>
+    </div>
+    </header>
+    <div class="address-form">
+        <form action="<{link app=b2c ctl=wap_cart act=shipping_save arg0=$is_fastbuy}>" class="form" method="post" data-type="ajax">
+            <div class="c-g" style="height:auto">
+                <label class="c-l">地区</label>
+                <div class="c">
+                    <{input app=ectools type="region" platform="iswap" name='area' vtype='area' value=$edit_addr.area callback="selectArea"}>
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">收货地址</label>
+                <div class="c">
+                    <input type="hidden" class="text" name="addr_area" />
+                    <input type="text" class="text" name="addr" value="<{$edit_addr.addr}>" required="required" data-caution="请填写收获地址"/>
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">邮编</label>
+                <div class="c">
+                    <input type="text" class="text" name="zip" value="<{$edit_addr.zip}>" <{if $site_checkout_zipcode_required_open == 'true'}> required="required" data-caution="邮编不能为空"<{/if}>/>
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">收货人姓名</label>
+                <div class="c">
+                    <input type="text" class="text" name="name" value="<{$edit_addr.name}>" required="required" data-caution="请填写收获人姓名"/>
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">手机</label>
+                <div class="c">
+                    <input type="text" class="text" name="mobile" value="<{$edit_addr.mobile}>" vtype="mobile" data-caution="请填写手机号码"/>
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">固定电话</label>
+                <div class="c">
+                    <input type="text" class="text" name="tel" value="<{$edit_addr.tel}>" vtype="tel"/>
+                </div>
+            </div>
+            <{if $site_checkout_receivermore_open == 'true'}>
+            <div class="c-g-c">
+                <input type="checkbox" id="J_del_time"/>
+                <label for="J_del_time">送货时间</label>
+            </div>
+            <div class="c-g del-time hide" style="height:auto">
+                <label class="c-l">时间段</label>
+                <div class="c">
+                    <{if $edit_addr.day && $edit_addr.day != '任意日期' && $edit_addr.day != '仅工作日' && $edit_addr.day != '仅休息日'}>
+                    <{assign var='special' value='special'}>
+                    <{assign var='special_val' value=$edit_addr.day}>
+                    <{/if}>
+                    <select class="select" name="day">
+                        <option value="">请选择</option>
+                        <option<{if !$edit_addr.day}> selected="selected"<{elseif $edit_addr.day == '任意日期'}> selected="selected"<{/if}> value="任意日期">任意日期</option>
+                        <option<{if $edit_addr.day == '仅工作日'}> selected="selected"<{/if}> value="仅工作日>">仅工作日</option>
+                        <option<{if $edit_addr.day == '仅休息日'}> selected="selected"<{/if}> value="仅休息日">仅休息日</option>
+                        <option<{if $special == 'special'}> selected="selected"<{/if}> value="special">指定日期</option>
+                    </select>
+                    <span class="special-delivery-day" <{if !$special}>style="display:none;"<{/if}>>
+                    <input type="date" name="special" value=$special_val ></span>
+                    <select name="time" id="" class="action-select-times select">
+                        <option<{if $edit_addr.time == '任意时间段'}> selected<{/if}> value="任意时间段">任意时间段</option>
+                       <option<{if $edit_addr.time == '上午'}> selected<{/if}> value="上午">上午</option>
+                        <option<{if $edit_addr.time == '下午'}> selected<{/if}> value="下午">下午</option>
+                        <option<{if $edit_addr.time == '晚上'}> selected<{/if}> value="晚上">晚上</option>
+                    </select>
+                </div>
+            </div>
+            <{/if}>
+            <div class="c-g-c">
+                <input type="checkbox" name="def_addr" value="1" id="def_addr_check" />
+                <label for="def_addr_check">设为默认收货地址</label>
+            </div>
+            <div class="btn-bar">
+                <button type="submit" class="btn" rel="_request">保存地址</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    (function(){
+        $('.c-g-c').bind('click',function(e){
+            if($(this).find('input[type=checkbox]').prop('checked') == false){
+                $(this).find('input[type=checkbox]').prop('checked',true);
+                if($(this).find('#J_del_time').length > 0){
+                    $('.del-time').removeClass('hide');
+                }
+            }else{
+                $(this).find('input[type=checkbox]').prop('checked',false);
+                if($(this).find('#J_del_time').length > 0){
+                    $('.del-time').addClass('hide');
+                }
+            }
+        });
+        $('select[name="day"]').bind('change',function(e){
+            if($(this).val()=='special'){
+                $('.special-delivery-day').show();
+            }else{
+                $('.special-delivery-day').hide();
+            }
+        });
+    })();
+</script>

@@ -1,0 +1,10 @@
+
+<{foreach from=$shippings item="shipping" key="key" name="shippings"}>
+<li class="shipping-item gb" value='{"id":<{$shipping.dt_id}>,"has_cod":"<{$shipping.has_cod}>","dt_name":"<{$shipping.dt_name}>","money":"<{$shipping.money}>"}'>
+    <div class="col2">
+        <div class="col"><{$shipping.dt_name}></div>
+        <div class="col t-r">运费：<span class="f-red"><{$shipping.money|cur_odr}></span>元</div>
+    </div>
+</li>
+<{/foreach}>
+

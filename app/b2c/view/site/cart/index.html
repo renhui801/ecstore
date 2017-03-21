@@ -1,0 +1,416 @@
+<div id="main">
+  <!-- 购物车开始 -->
+  <div class="cart-title">
+    <h1>
+      <i class="icon">&#x3c;</i>购物车
+    </h1>
+  </div>
+  <{if $is_empty}>
+    <{include file="site/cart/cart_empty.html" app=b2c}>
+  <{else}>
+  <!-- 购物车步骤图 -->
+  <div id="cart_steps" class="steps">
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="step-item step-1 active"><span><q class="icon">&#x50;</q><i>1</i>购物车</span></td>
+          <td class="icon step-arrow">&#x28;</td>
+          <td class="step-item step-2"><a href="<{link app=b2c ctl=site_cart act=checkout}>"><q class="icon">&#x50;</q><i>2</i>填写和提交订单信息</a></td>
+          <td class="icon step-arrow">&#x28;</td>
+          <td class="step-item step-3"><span><q class="icon">&#x50;</q><i>3</i>成功提交订单</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- 购物车主体 -->
+  <div id="cart_container" class="cart-container">
+    <{include file="site/cart/cart_main.html" app=b2c}>
+  </div>
+  <{/if}>
+
+  <!-- 浏览过的商品 -->
+  <{include file="site/cart/view_history.html" app=b2c}>
+</div>
+
+<script type="text/javascript">
+(function() {
+<{if !$is_empty}>
+<{if $money_format}>
+    priceControl.spec = <{$money_format}>;
+<{/if}>
+    var container = $('cart_container');
+    var typeJSON = {
+        'product': ['商品', '购买'],
+        'packs': ['礼包', '购买'],
+        'exchange': ['赠品', '兑换']
+    };
+
+    //= 获取商品属性值
+    function getTypeValue(type) {
+        if(!type) return null;
+        var value = typeJSON[type];
+        if(typeof value == 'string') value = [value, '购买'];
+        return {name:value[0], mode: value[1]};
+    }
+    //== 商品数量输入框正确性检测
+    function inputCheck(input, options) {
+        if(!input) return false;
+        options = options || {};
+        if(isNaN(options.min)) options.min = 1;
+        if(isNaN(options.max)) options.max = 9999;
+        options.type = options.type || 'product';
+        options['default'] = options['default'] || options.min;
+        var info = getTypeValue(options.type);
+        var value = +input.value;
+        var tips = new Tips(input);
+        var pre = '';
+        var msg = '';
+        if(options.store && options.store - value <= 0) {
+            pre = '库存有限，';
+        }
+        if(value < options.min) {
+            input.value = options.min;
+            msg = '此' + info.name + '的最小' + info.mode + '数量为' + options.min + '件';
+        }
+        else if(value > options.max){
+            input.value = options.max;
+            msg = pre + '此' + info.name + '最多只能' + info.mode + options.max + '件';
+        }
+        else if(isNaN(value)) {
+            input.value = options['default'];
+            msg = '只允许输入数字';
+        }
+        if (msg) {
+            tips.show(msg);
+            return false;
+        }
+        tips.hide();
+        //warn.hide();
+        if(options.type == 'packs') {
+            input.getParent('.cart-item').getElements('.p-packs-item .p-num').set('text', value);
+        }
+        input.value = parseInt(value);
+        return true;
+    }
+    //== 获取商品数量值
+    function getQuantity(el, type) {
+        return el.getElement('input[name=' + type + ']').value;
+    }
+    //== 设置商品数量
+    function setQuantity(input, value) {
+        var type = input.getParent('.p-packs') ? 'packs' : input.getParent('.cart-exchange') ? 'exchange' : 'product';
+        var typeName = typeJSON[type];
+        var p = input.getParent('tr');
+        if(!inputCheck(input, {min: getQuantity(p, 'min'), max: getQuantity(p, 'max'), 'default': value, type: type, store: getQuantity(p, 'stock')}) && input.value == value) {
+            return;
+        }
+        new Request({
+            url: '<{link app=b2c act=update ctl=site_cart}>',
+            data: p.toQueryString()+"&response_json=true",
+            onComplete: function(rs){
+                rs = JSON.decode(rs);
+                if(rs.success) {
+                    updateCart(rs, p);
+                }
+            }
+        }).post();
+    }
+    //== 更新购物车信息统一入口
+    function updateCart(rs, p){
+        if(!rs) return;
+		if(!rs.promotion)rs.promotion = {};
+        if(p) {
+            updateGoodsInfo(rs.edit_ajax_data, p);
+            updateGoodsPromotion(rs.promotion.goods, p);
+        }
+        updateOrderInfo(rs.sub_total);
+        updateOrderGift(rs.order_gift);
+        <{if $cart_promotion_display == 'true'}>
+        updateOrderPromotion(rs.promotion.order);
+        updateUnusePromotion(rs.unuse_rule);
+        <{/if}>
+        updateCartInfo();
+    }
+    //== 更新购物车价格/优惠等
+    function updateGoodsInfo(rs,product) {
+        if(!rs) return;
+        try{
+            product.getElement('.p-integral').innerHTML = Number(rs.consume_score) || '-';
+            product.getElement('.p-discount').innerHTML = rs.discount || '-';
+            product.getElement('.p-subtotal').innerHTML = rs.buy_price || '-';
+        }catch(e){}
+    }
+    //== 更新商品促销
+    function updateGoodsPromotion(rs, product) {
+        if(!rs) return;
+        var tmpl = '<li><b>[{desc_tag}]</b>{name}</li>';
+        container.getElements('tbody tr.cart-product').each(function(item){
+            var html = '';
+            var ident = item.getElement('input[name=goods_ident]');
+            if(!ident) return;
+            var promoarea = item.getElement('.p-promotion ul');
+            var identifier = ident.value;
+            var item = rs[identifier];
+            if(item && item.length) {
+                item.each(function(item){
+                    if(item.cart_display) html += tmpl.substitute(item);
+                });
+                promoarea.innerHTML = html;
+            }
+        });
+    }
+    //== 更新订单信息
+    function updateOrderInfo(rs) {
+        if(!rs) return;
+        var order = $('order_price');
+        if(order.getElement('.subtotal-integral')) order.getElement('.subtotal-integral').innerHTML = rs.subtotal_gain_score;
+        if(order.getElement('.discount .price')) {
+            if(rs.discount_amount_order) {
+                order.getElement('.discount').show();
+                order.getElement('.discount .price').innerHTML = rs.discount_amount_order;
+            }
+            else order.getElement('.discount').hide();
+        }
+        order.getElement('.goods .price').innerHTML = rs.subtotal_prefilter_after;
+        order.getElement('.total .price b').innerHTML = rs.promotion_subtotal;
+        // 更新订单总金额存储
+        // Memory.set('cart_total_price', rs.promotion_subtotal);
+    }
+    //== 更新订单赠品区
+    function updateOrderGift(rs) {
+        var giftarea = $('order_gift');
+        var tmpl = '<tr class="cart-item"><td><div class="p-pic"><a href="{url}"><img src="{thumbnail}" alt="{name}"></a></div></td><td class="p-info"><div class="p-title"><a href="{url}">{name}</a></div><div class="p-spec">{spec_info}</div></td><td class="p-price">{price}</td><td class="p-num">{quantity}</td><td colspan="4"></td></tr>';
+        try{
+            giftarea.getElements('.cart-item').destroy();
+        }catch(e){}
+        if(!rs) {
+            return giftarea.hide();
+        }
+        var html = '';
+        var item = rs;
+        if(item && item.length) {
+            item.each(function(item){
+                item.buy_price = item.price.buy_price || priceControl.format(0);
+                html += tmpl.substitute(item);
+            });
+        }
+        giftarea.show().set('html', giftarea.get('html') +html);
+    }
+    <{if $cart_promotion_display == 'true'}>
+    //== 更新订单促销
+    function updateOrderPromotion(rs) {
+        var area = $('order_promotion');
+        if(!rs) area.hide();
+        var tmpl = '<li><b>[{desc_tag}]</b>{name}</li>';
+        var html = '';
+        var promoarea = area.getElement('.content');
+        var item = Object.values(rs);
+        if(item && item.length) {
+            area.show();
+            item.each(function(item){
+                html += tmpl.substitute(item);
+            });
+        }
+        promoarea.innerHTML = html;
+    }
+    //== 更新未使用的促销
+    function updateUnusePromotion(rs){
+        var area = $('unused_promotion');
+        if(!rs) area.hide();
+        var tmpl = '<li><b>[{desc_tag}]</b>{name}</li>';
+        var html = '';
+        var promoarea = area.getElement('.content');
+        var item = Object.values(rs);
+        if(item && item.length) {
+            area.show();
+            item.each(function(item){
+                html += tmpl.substitute(item);
+            });
+        };
+        promoarea.innerHTML = html;
+    }
+    <{/if}>
+
+    //== 为数量选择框绑定事件
+    function bindQuantityEvent(elements, callback) {
+        elements = document.id(elements) || $$(elements);
+        if(!elements || !elements.length) return;
+        var value = '';
+        elements.addEvents({
+            //= 数量按钮
+            'click:relay(.btn-decrease,.btn-increase)': function(e) {
+                var input = this.getParent().getElement('input');
+                value = +input.value;
+                input.value = this.hasClass('btn-decrease') ? value - 1 : value + 1;
+                callback && callback(input, value);
+            },
+            //= 数量输入框
+            'focus:relay(input)': function(e){
+                value = +this.value;
+            },
+            'change:relay(input)': function(e) {
+                callback && callback(this, value);
+            }
+        });
+    }
+    bindQuantityEvent('.p-quantity', setQuantity);
+
+    $('main').addEvents({
+        'click': function(e){
+            var el = $(e.target);
+
+            //==点击document隐藏删除确认框
+            var dtc = $$('.dialog-tips-container')[0];
+            var target = $(document.body).retrieve('dialog-tip_show');
+            if(dtc && dtc.retrieve('instance') && !dtc.contains(el) && target && !target.contains(el)) dtc.retrieve('instance').hide();
+        },
+        //= 移除商品
+        'click:relay(.btn-delete)': function(e) {
+            Dialog.tips(this, '确定将商品从购物车中移除吗？', function(e){
+                if(e) {
+                    var p = this.getParent('tr.p-adjunct') || this.getParent('.cart-item') || this.getParent('tr.item');
+                    new Request({
+                        url:'<{link app=b2c ctl=site_cart act=remove}>',
+                        data: p.toQueryString()+"&response_json=true",
+                        onRequest: function() {
+                            p.mask({html:'处理中...','class':'cover',injectTo:document.body,position:true,effect:false, resize: false});
+                        },
+                        onComplete:function(rs) {
+                            rs = JSON.decode(rs);
+                            if(rs.is_empty) return location.reload();
+                            p.unmask();
+                            if(rs.error) return Message.error(rs.error);
+                            if(p.hasClass('item') && $('cart_exchange').getChildren().length == 2) $('cart_exchange').destroy();
+                            else p.destroy();
+                            updateCart(rs, p);
+                        }
+                    }).post(p.get('data-product'));
+                }
+            }.bind(this));
+            document.body.store('dialog-tip_show', this);
+        },
+        //= 订单优惠收起/展开
+        'click:relay(.action-toggle)': function(e) {
+            e.stop();
+            this.set('text', this.hasClass('btn-collapse') ? '+' : '-').toggleClass('btn-collapse').toggleClass('btn-expand').getParent('h3').getNext('.content').toggle();
+        },
+        //= 凑单
+        'click:relay(.action-fororder)': function(e) {
+            e.stop();
+            var dialog = new Dialog('<{link app=b2c ctl=site_cart act=fororder}>', {
+                title: '凑单商品',
+                width: 960,
+                height: 330,
+                modal:true,
+                async: 'ajax'
+            });
+        },
+        <{if $login == 'nologin' && $env.conf.b2c.site.login_type == 'target'}>
+        'click:relay(.action-settle)': function(e) {
+            e.stop();
+            miniPassport('<{link app=b2c ctl=site_cart act=loginBuy}>', function(dialog){
+                this.removeClass('disabled');
+            }.bind(this));
+        },
+        <{/if}>
+        //= 清空购物车
+        'click:relay(.action-clean)': function(e) {
+            Dialog.confirm('确定清空购物车吗？', function(e){
+                if(e) {
+                    new Request({
+                        url:'<{link app=b2c ctl=site_cart act=remove}>',
+                        data:'obj_type=all&response_json=true',
+                        onRequest: function() {
+                            container.mask({html:'处理中...','class':'cover',position:true,effect:false, resize: false});
+                        },
+                        onSuccess:function(rs) {
+                            rs = JSON.decode(rs);
+                            container.unmask();
+                            if(rs.error) return Message.error(rs.error);
+                            location.reload();
+                        }
+                    }).post();
+                }
+            });
+        }
+    });
+
+    //== 商品图片缩放
+    if(Browser.ie6) {
+        container.getElements('.p-pic img').each(function(img){
+            img.zoomImg(80,80);
+        });
+    }
+<{/if}>
+
+    //浏览历史
+    withBrowserStore(function(browserStore) {
+        var box = $('view_history');
+        // $('clear_history').addEvent('click', function(){browserStore.clear('history');box.hide();});
+        browserStore.get('history', function(rs) {
+            rs = JSON.decode(rs);
+            var min = 1;
+            if (!rs || rs.length <= min) return box.hide();
+
+            var html = '';
+            var template = '<li class="item">';
+            template += '<div class="p-pic">';
+            template += '  <a href="<{link app=b2c ctl=site_product act=index arg0="{goodsId}"}>" target="_blank" title="{goodsName}" data-gid="{goodsId}"><img src="{goodsImg}" alt="{goodsName}" /></a>'.replace('index-', '');
+            template += '</div>';
+            template += '<div class="p-info">';
+            template += '  <h3><a href="<{link app=b2c ctl=site_product act=index arg0="{goodsId}"}>" target="_blank" title="{goodsName}">{goodsName}</a></h3>'.replace('index-', '');
+            template += '  <p class="p-price">{price}</p>';
+            template += '  <a href="<{link app=b2c ctl=site_product act=index arg0="{goodsId}"}>" target="_blank" class="btn btn-major"><span><span><{t}>立即购买<{/t}></span></span></a>'.replace('index-', '');
+            template += '</div>';
+            template += '</li>';
+
+            var max = Math.min(rs.length, <{$setting.max|default:8}>);
+
+            // rs.length > 1 && rs.sort(function(a, b) {
+            //     return b['sortTime'] - a['sortTime'];
+            // });
+
+            rs.each(function(goods, index) {
+                if (index >= min && index <= max) html += template.substitute(goods);
+            });
+
+            box.getElement('ul').innerHTML = html;
+
+            box.getElements('.p-pic a').each(function(item) {
+                var img = item.getElement('img');
+                img.zoomImg(96,96);
+                img.onerror = function(){
+                    imgRequest(item, img, rs, min, max);
+                }
+                if (!img.get('src')) {
+                    imgRequest(item, img, rs, min, max);
+                }
+            });
+        });
+
+        function imgRequest(el, img, rs, min, max) {
+            var gid = el.get('data-gid');
+            new Request.JSON({
+                url: "<{link app=b2c ctl=site_product act=picsJson}>",
+                onComplete: function(data) {
+                    new Asset.image(data, {
+                        onload: function() {
+                            img.src = data;
+                            img.zoomImg(96,96);
+                        },
+                        onerror: function() {
+                            el.set('text', '<{t}>图片加载失败<{/t}>');
+                        }
+                    });
+
+                    rs.map(function(goods, index) {
+                        if (index >= min && index <= max && goods['goodsId'] == gid) return goods['goodsImg'] = data;
+                    });
+
+                    browserStore.set('history', JSON.encode(rs));
+                }
+            }).get({'gids': gid});
+        }
+    });
+})();
+</script>

@@ -1,0 +1,17 @@
+<desktop>
+  <permissions>
+    <permission id="system" display='true' parent='0' workground='system'>系统设置</permission>
+  </permissions>
+  <workground name="系统" id="system.workground.setting" controller="admin_crontab" action="index" order="205">
+    <menugroup name="定时任务">
+      <menu controller="admin_crontab" permission='system' action="index">定时任务</menu>
+      <menu controller="admin_queue" permission='system' action="index">队列管理</menu>
+    </menugroup>
+
+    <menugroup name="数据通道">
+      <menu controller="admin_shopmatrix" permission='system' action="index">数据通道配置</menu>
+    </menugroup>
+
+
+  </workground>
+</desktop>

@@ -1,0 +1,28 @@
+<div class="full-screen">
+    <div class="home-nav-down">
+        <table width="100%">
+            <tr>
+                <td><a href="./">首页</a></td>
+                <td><a href="<{link app=b2c ctl=wap_gallery act=cat}>" class="item bg1">商品分类</a></td>
+                <td><a href="<{link app=b2c ctl=wap_cart act=index}>" class="item bg2">购物车</a></td>
+                <td><a href="<{link app=b2c ctl=wap_member act=favorite}>" class="item bg3">收藏</a></td>
+                <td><a href="<{link app=b2c ctl=wap_member act=orders}>" class="item bg4">订单</a></td>
+                <td><a href="<{link app=b2c ctl=wap_member act=index}>" class="item bg5">会员</a></td>
+            </tr>
+        </table>
+    </div>
+    <div class="home-to-top">
+        <a href="#" class="to-top">返回顶部</a>
+        <div id="footerlogin">
+        <a href="<{link app=b2c ctl=wap_passport act=login}>" class="lnk">登陆</a> | <a href="<{link app=b2c ctl=wap_passport act=signup}>" class="lnk">注册</a>
+        </div>
+        <div id="footerlogout" style="display:none">
+        您好，<span id="footerloginuname"></span>！| <a href="<{link app=b2c ctl=wap_passport act=logout}>" class="lnk">退出</a>
+        </div>
+    </div>
+    <div class="footer">
+        触屏版 | <a href="<{$env.pc_url}>?ignore_ua_check=1" class="lnk">电脑版</a>
+        <{wapfooter}>
+    </div>
+</div>
+<{wap_widgets id="fb"}>

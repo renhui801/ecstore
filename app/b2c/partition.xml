@@ -1,0 +1,65 @@
+<partitions>
+
+    <partition table="archive_orders">
+        <method>range</method>
+        <expr>createtime</expr>
+    </partition>
+
+    <partition table="archive_order_items">
+        <method>hash</method>
+        <expr>order_id</expr>
+        <nums>4</nums>
+    </partition>
+
+    <partition table="archive_order_objects">
+        <method>hash</method>
+        <expr>order_id</expr>
+        <nums>4</nums>
+    </partition>
+
+    <partition table="archive_order_pmt">
+        <method>hash</method>
+        <expr>order_id</expr>
+        <nums>4</nums>
+    </partition>
+
+    <partition table="archive_order_log">
+        <method>range</method>
+        <expr>alttime</expr>
+    </partition>
+
+    <partition table="archive_order_delivery">
+        <method>hash</method>
+        <expr>order_id</expr>
+        <nums>4</nums>
+    </partition>
+
+    <partition table="archive_delivery">
+        <method>range</method>
+        <expr>t_begin</expr>
+    </partition>
+
+    <partition table="archive_delivery_items">
+        <method>hash</method>
+        <expr>delivery_id</expr>
+        <nums>4</nums>
+    </partition>
+
+    <partition table="archive_reship">
+        <method>range</method>
+        <expr>t_begin</expr>
+    </partition>
+
+    <partition table="archive_reship_items">
+        <method>hash</method>
+        <expr>reship_id</expr>
+        <nums>4</nums>
+    </partition>
+
+    <partition table="archive_orders_members">
+        <method>hash</method>
+        <expr>member_id</expr>
+        <nums>4</nums>
+    </partition>
+
+</partitions>

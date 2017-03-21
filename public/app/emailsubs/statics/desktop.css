@@ -1,0 +1,23 @@
+h3.title{ height:30px; line-height:30px; color:#333; margin:10px 0; overflow:hidden;
+text-shadow:#fff 1px 1px 0; border-top:1px #efefef solid;
+background-image: -moz-linear-gradient(top, #fff, #ccc); /* Firefox */
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ccc)); /* Saf4+, Chrome */
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cccccc', GradientType='0'); /* IE*/  }
+.more{ float:right;
+ font-size:12px; display:block; 
+ border:1px #ccc solid; 
+ padding:0 10px; 
+ color:#fff;
+ cursor:pointer;
+ background:#fff;
+ height:20px; line-height:20px;
+ -moz-border-radius:4px; text-shadow:none;
+-webkit-border-radius:4px; margin-top:4px;
+background-image: -moz-linear-gradient(top, #df384d, #95101d); 
+background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #df384d), color-stop(1, #95101d)); 
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#df384d', endColorstr='#95101d', GradientType='0'); }
+.table-action { text-align:left;}
+table.tabblue{ border-collapse:collapse;}
+.dialog-content-body{ background:#fff;}
+.inputstyle, .x-input{ vertical-align:middle;}
+table.tabblue th,table.tabblue td{border: 1px solid #E5EFF8; color: #678197;font-weight: normal; padding:4px 0 4px 5px;text-align: left;}

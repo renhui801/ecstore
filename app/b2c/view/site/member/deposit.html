@@ -1,0 +1,39 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 预存款充值 -->
+  <div id="member_prepaid" class="member-prepaid">
+    <div class="member-title">
+      <h2><{t}>预存款充值<{/t}></h2>
+      <div class="member-more"><{t}>您当前的预存款余额为<{/t}>：<b class="price"><{$total|cur_odr}></b></div>
+    </div>
+
+    <div class="member-mod">
+      <form action="<{link app=b2c ctl=site_paycenter act=dopayment arg0=recharge}>" method="post" target="_paycenter">
+        <input type="hidden" name="payment[member_id]" value="<{$member_id}>" />
+        <input type="hidden" name="payment[return_url]" value="<{$return_url}>" />
+        <table>
+          <col style="width:20%">
+          <col style="width:80%">
+          <tbody>
+            <tr>
+              <td><{t}>输入充值金额<{/t}>：</td>
+              <td><input type="text" name="payment[money]" id="" class="x-input" size="10" vtype="required&&positive" data-caution="请输入金额&&金额只能是大于0的数字"></td>
+            </tr>
+            <tr>
+              <td><{t}>选择支付方式<{/t}>：</td>
+              <td>
+                <ul class="payment-list">
+                  <{foreach from=$payments item="payment" key="key" name="payments"}>
+                    <li class="payment-item"><input type="radio" name="payment[pay_app_id]" value="<{$payment.app_id}>" id="for_pay_<{$payment.app_id}>" vtype="onerequired" <{if $arr_def_payment.app_id && $arr_def_payment.app_id==$payment.app_id}> checked="checked"<{/if}><{if (!$arr_def_payment || !$is_def_payment_match) && $smarty.foreach.payments.first}> checked="checked"<{/if}>>
+                    <label for="for_pay_<{$payment.app_id}>"><{$payment.app_name}><{if $payment.config.method=="1" || $payment.config.method==""}><{if $payment.fee>0}><{t}> (支付费率: +<{/t}><{$payment.fee*100}>%)<{/if}><{else}><{if $payment.config.fee>0}><{t}> (支付费用: +<{/t}><{$payment.config.fee}>)<{/if}><{/if}></label></li>
+                  <{/foreach}>
+                </ul>
+                <button type="submit" class="btn btn-import btn-big"><span><span><{t}>去充值<{/t}></span></span></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>

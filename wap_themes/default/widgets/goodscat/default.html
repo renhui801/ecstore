@@ -1,0 +1,49 @@
+<div class="home-cate" id="home_cate_<{$widgets_id}>">
+    <div class="title">
+    精品分类
+        <a href="<{link app=b2c ctl=wap_gallery act=cat}>" class="more">查看所有分类<i class="arr right"></i>
+        </a>
+    </div>
+    <div class="content">
+        <{foreach from=$data item=cat0}>
+        <div class="item">
+            <a href="<{$cat0.link}>"><{$cat0.title}><i class="arr left"></i></a>
+            <div class="cate">
+                <span>
+                <{foreach from=$cat0.items name=name item=cat1}>
+                <a href="<{$cat1.link}>"><{$cat1.title}></a>
+                <{/foreach}>
+                </span>
+            </div>
+        </div>
+        <{/foreach}>
+    </div>
+</div>
+<script type="text/javascript">
+(function(){
+    var cate = $('#home_cate_<{$widgets_id}> .cate');
+    $.each(cate,function(i){
+        var _this = $(this),
+            span = _this.find('span'),
+            a = _this.find('a'),
+            sl = a.size(),
+            act = 0;
+        span.css({'width':a.length*51,'-webkit-transform':'translate3d(0,0,0)'});
+        _this.swipeLeft(function(e){
+            if(act < sl - 5){
+                act = act + 1;
+                span.animate({
+                    'translate3d':0-(act*51)+'px,0,0'
+                });
+            }
+        }).swipeRight(function(e){
+            if(act != 0){
+                act = act - 1;
+                span.animate({
+                    'translate3d':0-(act*51)+'px,0,0'
+                });
+            }
+        });
+    });
+})();
+</script>

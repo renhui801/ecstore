@@ -1,0 +1,212 @@
+<form method="POST" action="<{$from_submit_url}>" id="groupactivity-from">
+<{input type="hidden" value="{$purchase.act_id}" name="act_id"}>
+<{input type="hidden" value="{$purchase.buy}" name="buy"}>
+<div class="tableform">
+    <div class="division">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+                <th><{t}>团购商品<{/t}></th>
+                <td>
+                     <{input breakpoint="0" type="object" object=goods name="gid" app=b2c cols="name" return_url="{$return_url}" filter='marketable=true' callback='_callback' cols="name,spec_info" value="{$purchase.gid}" textcol="name" view="b2c:admin/goods/rows.html"}>
+                </td>
+                <td><div id="select-product"></div></td>
+            </tr>
+        </table>
+        
+    </div>
+    <div class="division">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" id="groupactivity-admin-table">
+            <tr>
+                <th><em class="red">*</em><{t}>活动开始时间<{/t}></th>
+                <td><{input type="time" required="true" vtype='required' name="start_time" value="{$purchase.start_time}" }>
+                </td>
+            </tr>
+            <tr>
+                <th><em class="red">*</em><{t}>活动结束时间<{/t}></th>
+                <td><{input type="time" required="true" vtype='required' name="end_time" value="{$purchase.end_time}" }>
+                </td>
+            </tr>
+            <tr>
+                <th><em class="red">*</em><{t}>初始销售量<{/t}></th>
+                <td><{input type="text" vtype="required&&unsignedint" required="true" name="start_value" value="{$purchase.start_value}" }><span class="notice-inline">设置初始销售量，使得团购商品已售出数量不再为0，吸引顾客放心参加团购。</span></td>
+            </tr>
+            <tr>
+                <th><em class="red">*</em><{t}>活动最少数量<{/t}></th>
+                <td><{input type="text" vtype="required&&unsignedint" required="true" name="min_buy" value="{$purchase.min_buy}" }></td>
+            </tr>
+            <tr>
+                <th><em class="red">*</em><{t}>活动最多数量<{/t}></th>
+                <td><{input type="text" vtype="required&&digits" required="true" name="max_buy" value="{$purchase.max_buy}"}><span class="notice-inline">达到此数量，团购活动自动结束。</span></td>
+            </tr>
+            
+            <tr <{if $show_score=='false'}>style="display:none;"<{/if}> >
+                <th><{t}>赠送积分数<{/t}></th>
+                <td><{input type="unsigned"  name="score" vtype="unsigned"  value="{$purchase.score}"}><span class="notice-inline">留空则使用系统积分设置。</span></td>
+            </tr>
+            <tr>
+                <th><em class="red">*</em><{t}>价格<{/t}></th>
+                <td>
+                    <{input type="text" name="price"  vtype="required&&positive" value="{$purchase.price}" }>
+                    原始价格:<span id='goods-price'><{$goods.price}></span>
+                </td>
+            </tr>
+            <tr>
+                <th><{t}>邮费优惠<{/t}></th>
+                <td>
+                    <{input type="radio" name="pro_type" options=$data.pro_type value="{$purchase.pro_type}" }>
+                    <div id="groupactivity-pro-type-desc" <{if $purchase.pro_type==2}>style="display:none;"<{/if}>  >
+                        单笔订单购买达到
+                        <{input type="text" vtype="unsigned" value="{$purchase.postage}" name="postage"}>时该订单免运费
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th>活动对象</th>
+                <td>
+                <{if $security_guest_enabled=='true'}>
+                     <label><input type="radio" class="alluser" name="alluser" <{if $purchase.alluser!='false'}>checked="checked"<{/if}> value="true" >所有顾客</label>
+                <{/if}>
+                     <label><input type="radio" class="alluser" name="alluser" <{if $purchase.alluser=='false' || $security_guest_enabled!='true'}>checked="checked"<{/if}> value="false">仅会员</label>
+                </td>
+            </tr>
+            <tr id='alluser' <{if !$purchase.member_lv_ids && $security_guest_enabled=='true'}> style="display:none;"<{/if}> >
+                <th></th>
+                <td>
+                <{foreach from=$member_level item=ml}>
+                    <lable><input type="checkbox" value="<{$ml.member_lv_id}>" <{if is_array($purchase.member_lv_ids)}><{if in_array($ml.member_lv_id,$purchase.member_lv_ids)}>checked="checked"<{/if}> <{/if}> name="member_lv_ids[]" /><{$ml.name}></label>
+                <{/foreach}>
+                    <span id="mleverror"></span>
+                 </td>
+             </tr>
+             <tr id="userlimit" <{if $purchase.alluser!='false'}>style="display:none"<{/if}> >
+                <th>每人限购</th>
+                <td><{input type="text" size='4' name="userlimit" value=$purchase.userlimit required="true" vtype="digits" }></td>
+             </tr>
+             <tr id="orderlimit" <{if $purchase.alluser=='false'}>style="display:none"<{/if}> >
+                <th>每单限购</th>
+                <td><{input type="text" size='4' name="orderlimit" value=$purchase.orderlimit required="true" vtype="digits" }></td>
+             </tr>
+        </table>
+    </div>
+    <div class="division">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+                <th><{t}>活动说明<{/t}></th>
+                <td>
+                  <{input type="html" name="intro" value="{$purchase.intro}"}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="division">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+                <th><{t}>活动开启状态<{/t}></th>
+                <td><{input type="radio" options=$data.act_open value="{$purchase.act_open}" name="act_open" required=true}></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="table-action">
+    <{button label="保存" type="button" id="groupactivity-btn" }>
+    <{button label="取消" id="groupactivity-cancel"}>
+</div>
+<input type="hidden" name="acttype" value="add">
+</form>
+
+
+
+<script>
+groupactivity = {
+    addEvent:function(item,event){
+        item.addEvent(event,function(){
+            groupactivity.setStyle(item);
+        });
+        return groupactivity;
+    },
+    setStyle:function(item){
+        if(item.value==1)
+            $('groupactivity-pro-type-desc').setStyle('display','');
+        else 
+            $('groupactivity-pro-type-desc').setStyle('display','none');
+    }
+    
+}
+
+$$('#groupactivity-from input[name=pro_type]').each(function(item){
+    groupactivity.addEvent(item,'click');
+    <{if !$purchase}>groupactivity.setStyle(item);<{/if}>
+});
+
+
+$('groupactivity-btn').removeEvent('click').addEvent('click',function(){
+    if( !$$('#groupactivity-from input[name=gid]')[0].value ) {
+        MessageBox.error('请选择参加团购的商品！');
+    }
+    else {
+        $('groupactivity-from').fireEvent('submit',new Event(this));
+    }
+});
+
+$('groupactivity-cancel').removeEvent('click').addEvent('click', function(){
+    if(Browser.ie) {
+        location.href="<{$groupactivity_back_url}>";
+    }
+    else {
+        history.back();
+    }
+});
+
+
+function _callback (rs) {
+    if((!rs || !JSON.decode(rs)) && rs.get('value')){
+        new Request.JSON({
+            url:'index.php?app=groupactivity&ctl=admin_purchase&act=get_goods_info',
+            method:'post',
+            data:'data[]='+rs.get('value'),
+            onComplete:function(e){
+                $('groupactivity-admin-table').getElement('input[name=max_buy]').value = e.store;
+                $('goods-price').set('html',e.price);
+            }
+        }).send();
+    }
+    else {
+        var _rs = JSON.decode(rs);
+        $('groupactivity-admin-table').getElement('input[name=max_buy]').value = _rs.store;
+        $('goods-price').set('html',_rs.price);
+    }
+}
+
+
+
+    $ES('.alluser').each(function(item){
+        var _all_user_tr = $('alluser');
+        item.addEvent('click',function(){
+            if( $(this).value=='true' ) {
+                _set_style(1,_all_user_tr);
+            } else {
+                _set_style(0,_all_user_tr);
+            }
+        });
+        if( item.checked ) {
+            if( item.value=='true' ) {
+                _set_style(1,_all_user_tr);
+            } else {
+                _set_style(0,_all_user_tr);
+            }
+        }
+    });
+    
+    function _set_style(val,_all_user_tr) {
+        if( val==1 ) {
+            _all_user_tr.setStyle('display','none');
+            $('userlimit').setStyle('display','none');
+            $('orderlimit').setStyle('display','');
+        } else {
+            _all_user_tr.setStyle('display','');
+            $('userlimit').setStyle('display','');
+            $('orderlimit').setStyle('display','none');
+        }
+    }
+    
+</script>

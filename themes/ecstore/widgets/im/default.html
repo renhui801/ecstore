@@ -1,0 +1,52 @@
+<div id="im_<{$widgets_id}>" class="im clearfix" style="<{$setting.alignselect|default:'left'}>:0;">
+  <div id="im_main_<{$widgets_id}>" class="im-main" style="display:none;">
+    <div class="infobox"><{$setting.titleexp}></div>
+    <textarea class="action-lazyload" style="display:none">
+      <ul class="im-list">
+        <{foreach from=$data item=data key=key}>
+        <li class="im-item">
+          <{if $data.type==1}>
+          <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=<{$data.link}>&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:<{$data.link}>:41 &r=0.8641202345024794" alt="<{$data.info}>" title="<{$data.info}>"></a>
+          <{elseif $data.type==2}>
+          <a href="msnim:chat?contact=<{$data.link}>"><img width="30" height="30" border="0" src="images/msn.png" title="<{$data.info}>"/></a>
+          <{elseif $data.type==3}>
+          <a target="_blank" href="http://amos.im.alisoft.com/msg.aw?v=2&uid=<{$data.link|escape:'url'}>&site=cntaobao&s=1&charset=utf-8"><img border="0" src="http://amos.im.alisoft.com/online.aw?v=2&uid=<{$data.link|escape:'url'}>&site=cntaobao&s=1&charset=utf-8" title="<{$data.info}>"/></a>
+          <{elseif $data.type==4}>
+          <a target="_blank" href="http://scs1.sh1.china.alibaba.com/msg.atc?v=1&uid=<{$data.link}>"><img border="0" src="images/ali.gif" title="<{$data.info}>"/></a>
+          <{elseif $data.type==5}>
+          <a href="callto://<{$data.link}>"><img border="0" src="images/skype.gif" title="<{$data.info}>"/></a>
+          <{/if}>
+        </li>
+        <{/foreach}>
+      </ul>
+    </textarea>
+  </div>
+  <div id="im_bar_<{$widgets_id}>" class="im-bar"><i class="icon">&#x42;</i>在线客服<i class="arrow"></i></div>
+</div>
+
+<script>
+(function(){
+    // var lazy=new LazyLoad();
+    var im = $('im_<{$widgets_id}>');
+    var imMain = $('im_main_<{$widgets_id}>');
+    var timer;
+    im.addEvents({
+        'mouseenter':function(){
+            clearTimeout(timer);
+            imMain.setStyle('display','block');
+            // lazy.loadCustomLazyData(imMain,'textarea');
+        },
+        'mouseleave':function(){
+            timer = function(){imMain.setStyle('display','none');}.delay(1000);
+        }
+    });
+    setImTop();
+    function setImTop(){
+        im.tween('top',$(document.body).getScroll().y+100);
+    }
+
+    window.addEvent('scroll',function(){
+        setImTop();
+    })
+})();
+</script>

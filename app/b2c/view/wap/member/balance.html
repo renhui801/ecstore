@@ -1,0 +1,53 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            预存款充值
+        </div>
+    </div>
+    </header>
+    <div class="deposit">
+        <div class="count">
+            <a href="<{link app=b2c ctl=wap_member act=deposit}>" class="f-r">
+                充值
+                <i class="arr right"></i>
+            </a>
+            目前预存款金额：<em class="f-red"><{$total|cur_odr}></em>
+        </div>
+        <{if count($advlogs)>0}>
+        <table>
+            <tr>
+                <th>事件/时间</th>
+                <th>存入/支出</th>
+                <th>当前余额</th>
+            </tr>
+            <{foreach from=$advlogs item=adv}>
+            <tr>
+                <td>
+                  <{if $adv.order_id}>
+                    <a href="<{link app="b2c" ctl="wap_member" act="orderdetail" arg0=$adv.order_id}>"><{$adv.message}></a>
+                  <{else}>
+                    <{$adv.message}>
+                  <{/if}>
+                  <br />
+                  <{$adv.mtime|cdate:FDATE_STIME}>
+                </td>
+                <td <{if $adv.import_money > 0}>class="f-red"<{/if}> <{if $adv.explode_money > 0}>class="trade"<{/if}>>
+                  <{if $adv.import_money > 0}>+<{$adv.import_money|cur_odr}><{/if}>
+                  <{if $adv.explode_money > 0}>-<{$adv.explode_money|cur_odr}><{/if}>
+                </td>
+                <td><{$adv.member_advance|cur_odr}></td>
+            </tr>
+            <{/foreach}>
+        </table>
+        <{else}>
+        <div>尚无交易历史</div>
+        <{/if}>
+    </div>
+</div>
+<{wap_pagers data=$pager}>
+

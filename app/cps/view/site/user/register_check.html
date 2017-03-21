@@ -1,0 +1,11 @@
+<{css src="style/modify.css" app="cps"}>
+<div class="lightbox">
+  <h2> <i>  <{img src="images/check.png"}> </i><span>您申请的账号正在审核中<BR />请耐心等待</span></h2>
+            <p class="btn-space"> <input id="index" type="button" value="返回首页" class="btn-gray"/></p>
+</div>
+
+<script>
+$('index').addEvent('click', function() {
+    location.href = '<{link app="cps" ctl="site_user" act="index"}>';
+});
+</script>

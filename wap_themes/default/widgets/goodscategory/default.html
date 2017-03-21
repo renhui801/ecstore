@@ -1,0 +1,26 @@
+<div class="goods-cate" id="home_cate_<{$widgets_id}>">
+  <div class="title">
+    精品分类
+    <a href="<{link app=b2c ctl=wap_gallery act=cat}>" class="more">&nbsp;<i class="arr right"></i>
+    </a>
+  </div>
+  <div class="content">
+    <{foreach from=$data item=cat0}>
+    <div class="item">
+      <a href="<{$cat0.link}>"><{$cat0.title}></a>
+      <{if $cat0.items}>
+      <div class="cate">
+        <{foreach from=$cat0.items name=name item=cat1 key=key}>
+        <{if $key>4}>
+        <a href="<{link app=b2c ctl=wap_gallery act=cat arg0=$cat1.parent_id}>" class="more">更多</a>
+        <{break}>
+        <{else}>
+        <a href="<{$cat1.link}>"><{$cat1.title}></a>
+        <{/if}>
+        <{/foreach}>
+      </div>
+      <{/if}>
+    </div>
+    <{/foreach}>
+  </div>
+</div>

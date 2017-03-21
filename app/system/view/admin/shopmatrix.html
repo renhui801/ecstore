@@ -1,0 +1,55 @@
+<div class="tableform">
+    <form method="post" action="index.php?app=system&ctl=admin_shopmatrix&act=save_matrix">
+    <div class="division">
+        <h3><{t}>数据通道配置<{/t}></h3>
+        <hr>
+        <span class="notice">请注意，数据通道切换的前提是现有绑定关系已经全部解除，所以在切换数据通道之前，请手动将所有绑定关系解除。</span>
+        <h4> <{t}>通道类型: <{/t}></h4>
+        <input type="radio" name="matrixtype" value="public" <{if $ck=='public'}>checked <{/if}>>公有矩阵
+        <input type="radio" name ="matrixtype" value="private" <{if $ck=='private'}>checked <{/if}>>集通矩阵
+    </div>
+    <div id="private_set" style="display:none;">
+        <input class="matrixset_id" name="matrixset_id" type="hidden"></td></tr>
+<table>
+    <tr><th>api_url:</th><td><input class="api_url" name="api_url" type="text" size="50"><em>集通矩阵api地址,例如：http://60.191.141.165:9999/spi</em></td></tr>
+    <tr><th>iframe_url:</th><td><input class="iframe_url" name="iframe_url" type="text" size="50"><em>集通矩阵绑定关系iframe地址，例如：http://60.191.141.165:8002/iframe_bind</em></td></tr>
+    <tr><th>token:</th><td><input class="token" name="token" type="text" size="50"><em>集通矩阵token，在私有矩阵顶部授权用户查看</em></td></tr>
+    <tr><th>shopname:</th><td><input class="shopname" name="shopname" type="text" size="50"><em> 当前店铺名称，例如：ecstore_test</em></td></tr>
+    <tr><th>node_id:</th><td><input class="node_id" name="node_id" type="text" size="50" value="<{$node_id}>" disabled="disabled"><em>当前店铺的node_id</em></td></tr>
+    <tr><th>node_type:</th><td><input class="node_type" name="node_type" type="text" size="50" disabled="disabled"><em>当前店铺的节点类型,例如：ecos.b2c</em></td></tr>
+</table>
+    </div>
+    <{button type="submit" id="btn_data_dobackup" class="btn-primary" label=$___desktop="保存"|t:'system'}>
+</form>
+
+</div>
+<script>
+    function setmatrix(el){
+        if(el.value == 'public') {
+            $('private_set').hide().getElements('input').set('value', '');
+        }else {
+            $('private_set').show();
+            new Request({
+                url: 'index.php?app=system&ctl=admin_shopmatrix&act=getmatrix',
+                data: '',
+                method: 'post',
+                onSuccess: function(rs){
+                    rs = JSON.decode(rs);
+                    if(rs.error){
+                        return MessageBox.error(rs.error);
+                    }
+                    
+                    var inputs = $('private_set').getElements('input');
+                    Object.each(rs, function(v, k){
+                        var i = inputs.get('class').indexOf(k);
+                        if(i > -1){
+                            inputs[i].value = v;
+                        }
+                    });
+                }
+            }).send();
+        }
+    }
+    setmatrix($$('input[name=matrixtype]:checked')[0]);
+    $$('input[name=matrixtype]').addEvent('click', function(){setmatrix(this)});
+</script>

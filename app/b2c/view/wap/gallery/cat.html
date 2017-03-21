@@ -1,0 +1,58 @@
+
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <{if $pre_cat.cat_id}>
+        <a href="<{link app=b2c ctl=wap_gallery act=cat arg0=$pre_cat.cat_id}>" class="a-back">
+            <i class="arr left"></i>
+            <{$pre_cat.cat_name}>
+        </a>
+        <{elseif !$cur_cat}>
+        <a href="./" class="a-back">
+            <i class="arr left"></i>
+            首页
+        </a>
+        <{else}>
+            <a href="<{link app=b2c ctl=wap_gallery act=cat}>" class="a-back">
+            <i class="arr left"></i>
+            全部分类
+        </a>
+        <{/if}>
+        <div class="a-name">
+            商品分类
+        </div>
+        <div class="a-right">
+            <div class="a-search"></div>
+        </div>
+    </div>
+    </header>
+    <div class="pt-category">
+        <div class="title">
+            <strong class="f-l"><{if $cur_cat}><{$cur_cat.cat_name}><{else}>全部分类<{/if}></strong>
+            <{if $cur_cat}>
+            <a href="<{link app=b2c ctl=wap_gallery act=index arg0=$cur_cat.cat_id}>" class="f-r">
+                查看全部商品
+                <i class="arr right"></i>
+            </a>
+            <{/if}>
+        </div>
+        <div class="content">
+            <em>分类下子分类</em>
+            <ul class="list c-fix">
+                <{foreach from=$catlist item=item}>
+                <li class="item">
+                    <{if $item.child_count > 0}>
+                    <a href="<{link app=b2c ctl=wap_gallery act=cat arg0=$item.cat_id}>">
+                        <span><{$item.cat_name}></span>  <i class="arr right"></i>
+                    </a>
+                    <{else}>
+                    <a href="<{link app=b2c ctl=wap_gallery act=index arg0=$item.cat_id}>">
+                        <span><{$item.cat_name}></span>
+                    </a>
+                    <{/if}>
+                </li>
+                <{/foreach}>
+            </ul>
+        </div>
+    </div>
+</div>

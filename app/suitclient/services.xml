@@ -1,0 +1,30 @@
+<services>
+	<!-- 检查是否联通 -->
+	<service id="openapi.suit_ping">
+		<class>suitclient_api</class>
+	</service>
+	<!-- 把添加/删除用户功能屏蔽 -->
+	<service id="finder_actions.desktop_mdl_users">
+		<class>suitclient_finder_modify</class>
+	</service>
+	<!-- 屏蔽原来的登录 -->
+	<service id="app_pre_auth_use">
+		<class>suitclient_login_prevent</class>	
+	</service> 
+	<!-- 同步用户 -->
+	<service id="openapi.suituser">
+		<class>suitclient_user_sync</class>
+	</service>
+	<!-- 屏蔽退出 -->
+	<service id="desktop_controller_content.desktop.default.index">
+		<class>suitclient_menu</class>
+	</service>
+	<!-- 退出
+	<service id="passport">
+		<class>suitclient_menu</class>
+	</service>
+	-->
+	<service id="desktop_controller_content.desktop.passport.logout">
+		<class>suitclient_login_out</class>	
+	</service>
+</services>

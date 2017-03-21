@@ -1,0 +1,28 @@
+<div class="main2_head">
+<div class="m2head_7"><span style="font-weight:bold;">帮助中心</span></div>
+<div class="acc_sz"></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="mc_2box20">
+<div class="allfaq">
+<{foreach from=$faqs item=faq}>
+<p><a class="text_color1" href="#faq<{$faq.info_id}>"><{++$i}>、<{$faq.title}></a></p>
+<{/foreach}>
+<div class="clear"></div>
+</div>
+<{foreach from=$faqs item=faq}>
+<a name="#faq<{$faq.info_id}>"></a>
+<div class="faq_one">
+<div class="tit bg_color1 bor_color1" id="faq<{$faq.info_id}>"><{++$j}>、<{$faq.title}></div>
+<div class="answer"><{$faq.content}></div>
+</div>
+<{/foreach}>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<!--mc_2box-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>

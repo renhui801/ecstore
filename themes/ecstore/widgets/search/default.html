@@ -1,0 +1,46 @@
+<{if $env.conf.search.associate_enabled == '1'}>
+<{assign var=associate value="true"}>
+<{/if}>
+<div class="searchbar">
+  <form action="<{link app=b2c ctl=site_search act=result}>" method="post" id="searchbar_<{$widgets_id}>" async="false">
+    <{input type="text" name="search_keywords" placeholder=$data.def_key data-autocompleter=$associate}>
+    <button type="submit" class="btn btn-search"><span><span class="icon">&#x49;</span></span></button>
+  </form>
+<{if $data.search}>
+  <div class="hots">
+    <span><{$setting.hotkey}>：</span>
+    <{foreach from=$data.search item=toplink key=top_key}>
+    <a href="<{$toplink.top_link_url}>"><{$toplink.top_link_title}></a>
+    <{/foreach}>
+  </div>
+<{/if}>
+</div>
+<script>
+(function(scope){
+scope.getElement('button[type=submit]').addEvent('click', function(e){
+    if(scope.getElement('input').value.trim() === '') {
+        e.stop();
+    }
+});
+
+var search_keywords = decodeURIComponent(Memory.get('search_key'));
+if(search_keywords == 'null'){
+      search_keywords = '';
+  }
+//scope.getElement('input[name=search_keywords]').value = search_keywords;
+
+<{if $associate == 'true'}>
+var path ='<{$env.statics_host_url}>/b2c/statics/js<{if !defined("DEBUG_JS") || !DEBUG_JS}>_mini<{/if}>/';
+$LAB.script(path + 'autocompleter.js').wait(function(){
+    var item = scope.getElement('[data-autocompleter]');
+    var options = {};
+    try {
+        options = JSON.decode(item.get('data-autocompleter-options'));
+    }catch (e) {}
+    Object.merge(options, item.retrieve('autocompleter_options', {}));
+
+    new Autocompleter.Request.JSON(item, "<{link app=b2c ctl=site_search act=associate}>", options);
+});
+<{/if}>
+})($('searchbar_<{$widgets_id}>'));
+</script>

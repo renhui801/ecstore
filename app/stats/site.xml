@@ -1,0 +1,12 @@
+<site>
+	<module controller='site_statsajax' >
+        <name>statsajax</name>
+        <title>统计异步数据</title>
+        <disable>false</disable>
+    </module>
+    <module controller='site_openstats'>
+        <name>openstats</name>
+        <title>生意经开通成功</title>
+        <disable>flase</disable>
+    </module>
+</site>

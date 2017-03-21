@@ -1,0 +1,200 @@
+<form action="index.php?app=weixin&ctl=admin_menu&act=update" id="menucatEditor" method="post">
+    <{area inject=".mainHead"}>
+    <h2 class="head-title"><{t}>微信自定义菜单<{/t}></h2>
+    <div class="notice">
+      <{t}>只有具备“会话界面自定义菜单”接口权限的微信公众帐号才可以添加微信自定义菜单，目前为服务号和认证过的订阅号。<{/t}>
+    </div>
+    <div class="gridlist-action finder-action clearfix">
+        <{assign var=addmenucat value=$___a='添加菜单'|t:'weixin'}>
+        <{assign var=editmenusort value=$___b2c="编辑排序"|t:'weixin'}>
+        <{assign var=savemenusort value=$___b2c="保存排序"|t:'weixin'}>
+        <div class="span-auto">
+            <{button app="desktop" label=$___a='添加菜单'|t:'weixin' id="add-rootmenu" icon="btn_add.gif"  }>
+        </div>
+        <div class="span-auto">
+            <{button app="desktop" tmplabel=$savemenusort label=$editmenusort  id="edit-menucatsort"}>
+        </div>
+        <div class="span-auto">
+            <{button app="desktop" label=$___weixin="展开菜单"|t:'weixin'  id="showMenu-handle" icon="btn_unfolded.gif" }>
+        </div>
+        <div class="span-auto">
+            <{button app="desktop" label=$___weixin="收起菜单"|t:'weixin'  icon="btn_folded.gif" id="hideMenu-handle" }>
+        </div>
+        <div class="span-auto">
+            <{button app="desktop" id="set-defaultmenu" label=$___weixin='更新当前菜单到微信'|t:'weixin'}>
+        </div>
+        <div class="span-auto">
+            <label>当前微信公众账号切换:</label>
+            <{input type="select" name="bind_id" required="true" value=$bind_id options=$publicNumber label="name"}>
+            <{if !$publicNumber}><i class="red">您还没有公众号，请去控制面板配置公众账号后再添加自定义菜单!</i><{/if}>
+        </div>
+    </div>
+
+    <div class="gridlist-action finder-action clearfix">
+        <div class="span-auto" id="menu_theme_radio">
+            <{foreach from=$menu_theme_arr key=key item=item}>
+                <{if $menu_theme_id==$key}>
+                    <input type="radio" name="menu_theme" required="true" value="<{$key}>" id="menu_theme_<{$key}>" checked="checked" />
+                <{else}>
+                    <input type="radio" name="menu_theme" required="true" value="<{$key}>" id="menu_theme_<{$key}>" />
+                <{/if}>
+                    <label for="menu_theme_<{$key}>" ><{$item}></label>
+                    <i class="red" <{if $defaultmenu!=$key}>style="display:none;"<{/if}>>(当前默认)</i>&nbsp;&nbsp;
+            <{/foreach}>
+        </div>
+    </div>
+
+    <div class="Node">
+        <div class='gridlist-head finder-header'>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td width="5%"><{t}>菜单ID<{/t}></td>
+                    <td width="15%"><{t}>菜单名称<{/t}></td>
+                    <td width="35%"><{t}>回复内容/事件<{/t}></td>
+                    <td width="15%"><{t}>排序<{/t}></td>
+                    <td width="30%"><{t}>操作<{/t}></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <{/area}>
+
+    <div class="Node-body" id="menus_body">
+        <{include file='admin/menu/list.html'}>
+    </div>
+
+</form>
+
+<script>
+
+function deleteRow(act,event){
+    e=$(new Event(event).stop().target);
+    var row=e.getParent('.row');
+
+    if(confirm('<{t}>您确定要删除该菜单？<{/t}>')){
+        W.page(act,{
+            method:'get',
+            update:'messagebox',
+            onComplete:function(re){
+                if(re.contains('success')){row.remove();}
+            }
+        });
+    }
+}
+
+$$('select[name=bind_id]').addEvent('change', function(e){
+    W.page('index.php?app=weixin&ctl=admin_menu&act=menus&bind_id='+$(this).value,{
+        update:$('menus_body'),
+        onComplete:function(res){
+            new Request.JSON({
+                url:'index.php?app=weixin&ctl=admin_menu&act=get_default_theme_menu',
+                method:'post',
+                data:'bind_id='+$E('select[name=bind_id').get('value'),
+                onComplete:function(ret){
+                    $$('input[name=menu_theme]').each(function(obj){
+                        if(obj.get('value') == ret){
+                            obj.checked=true;
+                            obj.getNext('i.red').show('inline').getSiblings('i.red').hide();
+                        }
+                    });
+                    $('edit-menucatsort').getElement('span span').set({'text':'<{t}>编辑排序<{/t}>','styles':''});
+                }
+            }).send();
+        }
+    });
+});
+
+$$('input[name=menu_theme]').addEvent('change', function(e){
+    var bind_id = $E('select[name=bind_id').get('value');
+    W.page('index.php?app=weixin&ctl=admin_menu&act=menus&bind_id='+bind_id+'&menu_theme='+$(this).value,{
+        update:$('menus_body'),
+        onComplete:function(res){
+            $('edit-menucatsort').getElement('span span').set({'text':'<{t}>编辑排序<{/t}>','styles':''});
+        }
+    });
+});
+
+void function(){
+
+    // 添加一级菜单
+    $('add-rootmenu').addEvent('click',function(){
+        var bind_id = $E('select[name=bind_id]').get('value');
+        var menu_theme = $E('input[name=menu_theme]:checked').get('value');
+        new Dialog('index.php?app=weixin&ctl=admin_menu&act=add&bind_id='+bind_id+'&menu_theme='+menu_theme,
+            {title:'添加菜单',height:0.7,width:0.6}
+        );
+    });
+
+    $E('#hideMenu-handle').addEvent('click',function(){
+        $ES('#menu_tree .clear_cat').each(function(e){
+            if(e.get('depath')>1){
+                e.setStyles({'display':'none'});
+            }
+        });
+        $ES('#menu_tree .handle-hide').hide();
+        $ES('#menu_tree .handle-show').show();
+    });
+
+    $E('#showMenu-handle').addEvent('click',function(){
+        $ES('#menu_tree .clear_cat').each(function(e){
+            if(e.get('depath')>1){
+                e.setStyles({'display':''});
+            }
+        });
+        $ES('#menu_tree .handle-hide').show();
+    });
+
+    $('edit-menucatsort').addEvent('click',function(){
+        var _ctext = this.get('text');
+        if(_ctext.trim()=='<{t}>编辑排序<{/t}>'){
+            $$('#menu_tree input[vtype=unsigned]').each(function(item){
+                item.style.cssText = "";
+                item.getNext().setStyle('display','none');
+            });
+            this.getElement('span span').set({'text':'<{t}>保存排序<{/t}>','styles':{color:'#ff3300'}})
+        }else{
+            var _form=$('menucatEditor');
+            if(!_form)return;
+            var _formActionURL=_form.get('action');
+
+            var bind_id = $E('select[name=bind_id]').get('value');
+            var menu_theme = $E('input[name=menu_theme]:checked').get('value');
+            _form.set('action',_formActionURL+'&bind_id='+bind_id+'&menu_theme='+menu_theme).fireEvent('submit',{stop:function(){}});
+        }
+    });
+
+  function confirmDialog(msg,fn){
+      new Dialog(new Element('div.dialog-confirm',{html:'<div class="content">' + msg + '</div><div class="action"><{button label="确定" type="button" class="btn-primary" return="true"}> &nbsp;&nbsp; <{button type="button" class="btn-secondary" label="取消" isCloseDialogBtn="true"}></div>'}),{title:'<{t}>提示<{/t}>',resizeable:false,width:250,height:110,onLoad:function(){
+          this.dialog.getElement('[return=true]').addEvent('click',function(e){
+              fn&&fn.call(this);
+              this.close();
+          }.bind(this));
+      }});
+  }
+
+  // 设置默认菜单 
+  $('set-defaultmenu').addEvent('click', function(e){
+      e.stop();
+      confirmDialog('<{t}>确定设置当前导航菜单为默认吗?<{/t}>', function(){
+            var bind_id = $E('select[name=bind_id]').get('value');
+            var menu_theme = $E('input[name=menu_theme]:checked').get('value');
+            new Request.JSON({
+                url: 'index.php?app=weixin&ctl=admin_menu&act=defaultmenu&bind_id='+bind_id+'&menu_theme='+menu_theme,
+                method: 'get',
+                onComplete:function(rs){
+                    if(rs.errcode=='true'){
+                        var checked = $('menu_theme_radio').getElement('input:checked');
+                        checked.getNext('i.red').show('inline').getSiblings('i.red').hide();
+                        MessageBox.success(rs.msg);
+                    }else{
+                        MessageBox.error(rs.msg);
+                    }
+                }
+            }).send();
+      }.bind(this));
+  });
+
+
+}();
+
+</script>

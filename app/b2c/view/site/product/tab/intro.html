@@ -1,0 +1,24 @@
+<div class="product-attributes">
+  <ul class="clearfix">
+    <li><{t}>品牌<{/t}>：<a href="<{link app=b2c ctl=site_brand arg0=$page_product_basic.brand.brand_id}>"><{$page_product_basic.brand.brand_name}></a></li>
+    <li><{t}>所属分类<{/t}>：<{$page_product_basic.cat_name}></li>
+    <{if $setting.goodsprop == '0' || $setting.goodsprop == '2'}>
+    <{foreach from=$page_product_basic.props item=props}>
+    <li><{$props.name}>：<{$props.value}></li>
+    <{/foreach}>
+    <{/if}>
+  </ul>
+</div>
+<div class="detail-content">
+  <textarea class="action-lazyload hide"><{$page_product_basic.intro}></textarea>
+</div>
+
+<{if $setting.acomment.switch.discuss == 'on'}>
+<div id="product_comment_init" class="product-comment" data-sync-type="product_comment_init">
+</div>
+<{/if}>
+
+<{if $setting.acomment.switch.ask == 'on'}>
+<div id="product_consult_init" class="product-consult" data-sync-type="product_consult_init">
+</div>
+<{/if}>

@@ -1,0 +1,19 @@
+<{css src='style.css' app='emailsubs'}>
+<div id="MODALPANEL" style="display:none; position: absolute; background: none repeat scroll 0% 0% rgb(51, 51, 51); width:100%;top: 0px; left: 0px; z-index:79900; visibility: visible; opacity: 0.4;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(opacity=40)";"></div>
+<div class="widget-box-app poping-box" id='emailsubs-cancel-body' style='display:none;position:absolute;top:300px;left:500px;'>
+	<h1>温馨提示</h1>
+	<h2><i>&nbsp;</i>邮件退订成功！</h2>
+	<p class="btn-space"> <input name="commit" type="button" value="确定" class="btn-red commit" onclick="$('emailsubs-cancel-body').remove();$('MODALPANEL').remove();"/></p>  
+	 <span class="close"><a onclick="$('emailsubs-cancel-body').remove();$('MODALPANEL').remove();"  href="javascript:void(0);">关闭</a></span>
+</div> 
+
+<script>
+window.addEvent('domready',function(){
+	if(Cookie.read('cancel_emailsubs_sign')==1){
+		var bodyHeignt = window.getScrollSize().y;
+		$('MODALPANEL').setStyle('height',bodyHeignt).show();
+		document.body.adopt($('MODALPANEL')).adopt($('emailsubs-cancel-body').show());
+		Cookie.write('cancel_emailsubs_sign',0);
+	}
+});
+</script>

@@ -1,0 +1,52 @@
+<div class="main2_head">
+<div class="m2head_1"></div>
+</div>
+<div class="main2_content">
+<{if $oldUrl}>
+<div class="bg_color1 bor_color1 " style="padding:8px; margin: 20px; text-align: center; font-size:14px; font-weight:bold;">该版块需要登录，请先登录</div>
+<{/if}>
+<div class="login_box">
+<form method="post" action="<{$callback}>">
+<table width="96%" height="162" border="0" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td width="31%" align="right">用户名：</td>
+            <td><input type="text" vtype="required" name="uname" id="textfield" class="logintext2"></td>
+        </tr>
+        <tr>
+            <td align="right">密码：</td>
+            <td><input type="password" vtype="required" name="password" id="textfield" class="logintext2"></td>
+        </tr>
+        <tr>
+            <td align="right">验证码：</td>
+            <td>
+            <div class="floatdiv"><span id='verifyCodebox'><{input vtype="required&&number" style='background:none; border:solid 1px #ccc; width:95px; ' size="4" maxlength="4" name="verifycode" id="iptlogin"}> 
+            <span class="verifyCode" id="vcodeSpan" style="display: none;"><img id="vcode" title="看不清楚？换个图片" src="#" class="chgimg" /> 
+            <label class="chgimg" style="color:#0076c9; text-decoration: underline;">看不清</label>
+            </span></span></div>            </td>
+          </tr>
+        <tr>
+            <td height="40" valign="middle">&nbsp;</td>
+            <td align="left" valign="middle"><label><input type="submit" name="button" id="button" value="" class="login_but"> &nbsp;&nbsp;</label><a style=" color:#0076c9; text-decoration: underline;" href="<{link app='cps' ctl='site_user' act='lost'}>">忘记密码？</a> <a style=" color:#0076c9; text-decoration: underline;" href="<{link app='cps' ctl='site_user' act='register'}>">注册新用户</a></td>
+          </tr>
+    </tbody>
+</table>
+</form>
+</div>
+</div>
+<div class="clear"></div>
+<script>
+    var vcodeShow = false;
+
+    $('iptlogin').addEvent('focus', function() {
+        if (!vcodeShow) {
+            $('vcodeSpan').setStyle('display', '');
+            $('vcode').set('src', '<{link app="cps" ctl="site_user" act="vCode"}>#' + $time());
+            vcodeShow = true;
+        }
+    });
+    
+    $$('.chgimg').addEvent('click', function() {
+        $('vcode').set('src', '<{link app="cps" ctl="site_user" act="vCode"}>#' + $time());
+    });
+</script>

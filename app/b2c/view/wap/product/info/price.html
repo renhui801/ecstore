@@ -1,0 +1,18 @@
+<!-- 商品价格 -->
+
+<div class="col price">
+    <b class="price"><{$product_price.price|cur_odr}></b>
+</div>
+<div class="col" id="J_all_price">
+    <{if $product_price.mlv_price && $setting.member_price == '1'}>
+    会员最低<b class="f-red"><{$product_price.minprice|cur_odr}></b>起
+      <div style="display:none;" class="all-price">
+        <ul>
+          <{foreach from=$product_price.mlv_price item=item}>
+          <li><{$item.name}>：<{$item.price|cur_odr}></li>
+          <{/foreach}>
+        </ul>
+      </div>
+    <{/if}>
+    <span class="arr right"></span>
+</div>

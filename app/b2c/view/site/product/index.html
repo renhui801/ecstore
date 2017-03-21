@@ -1,0 +1,797 @@
+<div id="main" class="clearfix">
+  <!-- 商品详情 -->
+  <div class="page-maincontent">
+    <div id="product_container" class="product-container clearfix">
+      <{include file='site/product/basic.html'}>
+    </div>
+
+    <!-- 配件套餐 -->
+    <{if $page_goods_adjunct}>
+    <div id="product_adjunct" class="mod product-adjunct" data-sync-type="product_adjunct">
+      <{include file='site/product/tab/adjunct.html'}>
+    </div>
+    <{/if}>
+
+    <div id="product_section">
+      <div id="product_detail" class="product-section product-detail">
+        <h2 class="tags-hd active"><a href="#detail"><{t}>商品详情<{/t}></a></h2>
+        <{include file='site/product/tab/intro.html'}>
+      </div>
+      <{if $page_product_basic.params}>
+      <div id="product_parameters" class="product-section product-parameters" data-sync-type="product_parameters" style="display:none;">
+        <h2 class="tags-hd"><a href="#parameters"><{t}>详细参数<{/t}></a></h2>
+      </div>
+      <{/if}>
+
+      <{if $setting.acomment.switch.discuss == 'on'}>
+      <div id="product_comment" class="product-section product-comment" data-sync-type="product_comment" style="display:none;">
+        <h2 class="tags-hd tag-comment"><a href="#recomment"><{t}>商品评论<{/t}></a></h2>
+      </div>
+      <{/if}>
+
+      <{if $setting.acomment.switch.ask == 'on'}>
+      <div id="product_consult" class="product-section product-consult" data-sync-type="product_consult" style="display:none;">
+          <h2 class="tags-hd tag-consult"><a href="#consult"><{t}>商品咨询<{/t}></a></h2>
+      </div>
+      <{/if}>
+
+      <{if $setting.selllog == 'true'}>
+      <div id="product_saleslog" class="product-section product-saleslog action-content-list" data-sync-type="product_saleslog" style="display:none;">
+          <h2 class="tags-hd"><a href="#saleslog"><{t}>销售记录<{/t}></a></h2>
+      </div>
+      <{/if}>
+      <{if $async_request_list}>
+      <{foreach from=$async_request_list key=key item=row}>
+        <{if $row.is_call == 'ajax'}>
+        <div id="ajax_body_async" class="product-section custom_tab" data-sync-type="ajax_body_async" style="display:none;">
+          <h2 class="tags-hd"><a href="#custom_tab"><{$row.name}></a></h2>
+        </div>
+        <{else}>
+        <{if $row.content}>
+        <div id="<{$key}>" class="product-section custom_tab" style="display:none;">
+          <h2 class="tags-hd"><a href="#custom_tab"><{$row.name}></a></h2>
+          <div class="mod-bottom">
+            <textarea class="action-lazyload hide">
+            <{include file=$row.view app=$row.app}>
+            </textarea>
+          </div>
+        </div>
+        <{/if}>
+        <{/if}>
+      <{/foreach}>
+      <{/if}>
+      <div id="product_related" class="product-related" data-widget-type="Switchable" data-sync-type="product_related">
+      </div>
+    </div>
+  </div>
+</div>
+<{script src="product.js" app="b2c" pdir="js_mini"}>
+<script>
+var main = $('main');
+var container = $('product_container');
+var section = $('product_section');
+<{if $page_goods_adjunct}>
+var adj_container = $('product_adjunct');
+<{/if}>
+<{if $money_format}>priceControl.spec = <{$money_format}>;<{/if}>
+
+//请求库存和价格
+var Router = {
+    price: function(id){
+        return '<{link app=b2c ctl=site_product act=ajax_product_price arg0="' + id + '"}>';
+    },
+    stock: function(id) {
+        return '<{link app=b2c ctl=site_product act=ajax_product_store arg0="' + id + '"}>';
+    },
+    basic: function(id) {
+        return '<{link app=b2c ctl=site_product act=ajax_product_basic arg0="' + id + '"}>';
+    }
+};
+
+
+var Query = function(url, options) {
+    var self = this;
+    this.send = function(url, options) {
+        options = Object.merge({
+            url: url,
+            method: 'post',
+            link: 'chain'
+        }, options || {});
+        return new Request(options).send();
+    };
+    this.update = function (url, update, options) {
+        options = Object.merge({
+            url: url,
+            update: update,
+            method: 'post',
+            link: 'chain'
+        }, options || {});
+        new Request.HTML(options).send();
+    };
+    this.price = function(options) {
+        options = Object.merge({
+            method: 'get',
+            onSuccess:function(rs) {
+                rs = JSON.decode(rs);
+
+                if(rs && Object.getLength(rs)) {
+                    if(rs.error) {
+                        return Message.error(rs.error);
+                    }
+                    <{if $page_goods_adjunct}>
+                    rs.adjoprice = rs.adjamount = rs.price;
+                    rs.adjdiscount = 0;
+                    <{/if}>
+                    Object.each(rs, function(v, k) {
+                        if(typeOf(v) === 'array') {
+                            var s = '';
+                            v.each(function(vi){
+                                s += '<li>' + vi.name + '<{t}>：<{/t}>' + priceControl.format(vi.price) + '</li>';
+                            });
+                            v = '<ul>' + s + '</ul>';
+                        }
+                        else {
+                            v = priceControl.format(v);
+                        }
+                        var el = main.getElement('.action-' + k);
+                        if(el) {
+                            if(!v) el.getParent().hide();
+                            else el.set('html', v);
+                        }
+                    });
+                }
+            }
+        }, options || {});
+        var url = Router.price(options.id);
+        this.send.delay(0, this, [url, options]);
+    };
+    this.stock = function(options) {
+        if(!container.getElement('.product-buy-quantity')) return;
+        options = Object.merge({
+            method: 'get',
+            onSuccess:function(rs) {
+                rs = JSON.decode(rs);
+                if(rs && Object.getLength(rs)) {
+                    if(rs.error) {
+                        return Message.error(rs.error);
+                    }
+                    var tpl = '<span class="p-quantity"><a href="javascript:void(0);" class="btn-decrease">-</a><input type="text" name="goods[num]" class="action-quantity-input" value="1" min="1" max="{store}"><a href="javascript:void(0);" class="btn-increase">+</a></span> <{$page_product_basic.unit}><span class="p-store">{title}</span><input type="hidden" name="stock" value="{store}">';
+                    container.getElement('.product-buy-quantity .item-content').innerHTML = tpl.substitute(rs);
+                    if(!rs.store) {
+                        container.getElement('.action-quantity-input').disabled = true;
+                        container.getElement('.product-buy-quantity').addClass('hide');
+                        container.getElements('.action-buynow, .action-addtocart').addClass('hide');
+                        container.getElement('.action-notify').removeClass('hide');
+                        <{if $setting.scanbuy == 'true' && $page_product_basic.qrcode_image_id}>
+                        container.getElement('.action-scanbuy').hide();
+                        <{/if}>
+                        <{if $page_goods_adjunct}>
+                        adj_container.getElement('.action-addtocart').addClass('hide');
+                        <{/if}>
+                    }
+                    else {
+                        <{if $page_goods_adjunct}>
+                        adj_container.getElement('.action-addtocart').removeClass('hide');
+                        <{/if}>
+                    }
+                    if(!rs.title) {
+                        container.getElements('.p-store').addClass('hide');
+                    }
+                }
+            }
+        }, options || {});
+        var url = Router.stock(options.id);
+        this.send.delay(300, this, [url, options]);
+    };
+};
+Query = new Query;
+
+attachAction('<{$page_product_basic.product_id}>');
+bindQuantityEvent(container,setQuantity);
+
+//== 为数量选择框绑定事件
+function bindQuantityEvent(elements, callback) {
+    elements = document.id(elements) || $$(elements);
+    if(!elements && !elements.length) return;
+    var value = '';
+    elements.addEvents({
+        //= 数量按钮
+        'click:relay(.btn-decrease,.btn-increase)': function(e) {
+            var input = this.getParent().getElement('.action-quantity-input');
+            value = +input.value;
+            input.value = this.hasClass('btn-decrease') ? value - 1 : value + 1;
+            callback && callback(input, value);
+        },
+        //= 数量输入框
+        'focus:relay(.action-quantity-input)': function(e){
+            value = +this.value;
+        },
+        'change:relay(.action-quantity-input)': function(e) {
+            callback && callback(this, value);
+        }
+    });
+}
+//== 获取商品数量值
+function getQuantity(el, type) {
+    return el.getElement('input[name=' + type + ']').value;
+}
+//== 设置商品数量
+function setQuantity(input, value) {
+    var type = 'product';
+    var p = input.getParent('li');
+    inputCheck(input, {min: input.get('min'), max: input.get('max'), 'default': value, store: getQuantity(p, 'stock'), callback: window.quantityCallback});
+}
+//== 商品数量输入框正确性检测
+function inputCheck(input, options) {
+    if(!input) return false;
+    options = options || {};
+    if(isNaN(options.min)) options.min = 1;
+    if(isNaN(options.max)) options.max = 999999;
+    options['default'] = options['default'] || options.min;
+    var value = +input.value;
+    var tips = new Tips(input);
+    var pre = '';
+    var msg = '';
+    if(options.store && options.store - value <= 0) {
+        pre = '库存有限，';
+    }
+    if(value < options.min) {
+        input.value = options.min;
+        msg = '此商品的最小购买数量为' + options.min + '件';
+    }
+    else if(value > options.max){
+        input.value = options.max;
+        msg = pre + '此商品最多只能购买' + options.max + '件';
+    }
+    else if(isNaN(value)) {
+        input.value = options['default'];
+        msg = '只允许输入数字';
+    }
+    if (msg) {
+        tips.show(msg);
+        return false;
+    }
+    tips.hide();
+    if(options.callback) options.callback(input, options['default']);
+    return true;
+}
+<{if $page_goods_adjunct}>
+//== 处理搭配购买
+function quantityCallback(input, value){
+    if(!adj_container) return;
+    if(input) {
+        var info = adj_container.getElement('.info-area');
+        var original = info.getElement('.adj-oprice');
+        var discount = info.getElement('.adj-discount');
+        var amount = info.getElement('.adj-amount');
+        var oprice = getVal(container,'.action-price');
+
+        var price = priceControl.number(oprice) * (input.value - value);
+        price = priceControl.add(getVal(original), price);
+
+        original.set('text', price);
+        amount.set('text', priceControl.diff(original, discount));
+    }
+}
+
+window.addEvent('domready', function(){
+    if(!adj_container) return;
+    // var primary = adj_container.getElement('.primary-goods');
+    var adjunct = adj_container.getElement('.adjunct-list');
+    var gpid = 'input[name="goods[product_id]"]';
+    //miniCart.init();
+    formToCart(adj_container);
+
+    //点击加入购物车判断
+    adj_container.getElement('.action-addtocart').addEvent('click', function(e){
+        // e.stop();
+        this.blur();
+        if(container.getElement('input[name=stock]').value == '') {
+            Dialog.alert('主商品缺货，该套餐无法购买。');
+            return false;
+        }
+        if(!adjunct.getElement('input[name^=goods[adjunct]:checked')) {
+            Dialog.alert('请至少选择一个配件，再购买配件套餐。');
+            return false;
+        }
+    });
+
+    //计算中间区域宽度及item边距，并用于切换
+    var groupWidth, cols;
+    $$('.adjunct-group').each(function(group){
+        groupWidth = adjunct.getSize().x-adjunct.getPatch('padding','border').x - group.getPatch().x;
+        var item = group.getElement('.item');
+        var itemWidth = item.measure(function(){
+            return this.getSize().x + this.getPatch('margin').x;
+        });
+        cols = (groupWidth / itemWidth).toInt();
+        groupWidth = cols * itemWidth;
+        group.setStyles({'margin':'0 auto','width': groupWidth});
+    });
+    new Tabs(adjunct, {
+        eventType: 'click',
+        triggersBox:'.tab-triggers',
+        panels:'.tab-panel',
+        onBeforeSwitch: function() {
+            //图片缩放
+            // primary.getElement('.goods-pic img').zoomImg(100,100);
+            adjunct.getElements('.goods-pic img').each(function(img){img.zoomImg(60,60);});
+        },
+        onSwitch: function(){
+            // 修复ie67下图片不显示bug:reflow
+            if(Browser.ie6 || Browser.ie7) adjunct.getElements('li .goods-pic,li .goods-info h3').show('block');
+        }
+    });
+
+    adjunct.getElements('.adjunct-items').each(function(item){
+        new Switchable(item, {
+          haslrbtn:true,
+          autoplay: false,
+          viewSize: [groupWidth],
+          circular: false,
+          steps: cols,
+          hasTriggers:false,
+          effect: 'scrollx',
+          disableCls: 'over',
+          position:'',
+          isFloat:false,
+          onInit:function(){
+              if(this.content[0].getStyle('width').toInt() <= groupWidth) {
+                  this.prevbtn.setStyle('visibility', 'hidden');
+                  this.nextbtn.setStyle('visibility', 'hidden');
+              }
+          }
+        });
+    });
+
+    //选择高亮并价格数量联动
+    $$('.adjunct-items input[type=checkbox]').addEvent('change', function(){
+        var parent = this.getParent('.item');
+        parent[this.checked?'addClass':'removeClass']('selected');
+        var info = adj_container.getElement('.info-area');
+        calcAdjunctPrice(parent,info,this.checked);
+
+        adj_container.getElement('.action-addtocart').removeClass('disabled');
+    });
+
+    function calcAdjunctPrice(item,area,flag) {
+        var num = getVal(item, '.adj-num', 1);
+        area.getElement('.adj-selected').set('text', getVal(area, '.adj-selected', 1) + (flag ? 1 : -1) * num);
+        var price = item.getElement('.pro-price');
+        var adjp = item.getElement('.adj-price');
+
+        var original = area.getElement('.adj-oprice');
+        var discount = area.getElement('.adj-discount');
+        var amount = area.getElement('.adj-amount');
+
+        original.set('text', priceControl[flag ? 'add' : 'diff'](original, [price||adjp, num]));
+        discount.set('text', priceControl[flag ? 'add' : 'diff'](discount, price ? num * priceControl.diff(price, adjp, 1) : 0));
+        amount.set('text', priceControl.diff(original, discount));
+    }
+});
+<{/if}>
+
+//== 商品详情图片延迟加载，并缩放到合适大小
+var sectionWidth = section.getStyle('width').toInt();
+new DataLazyLoad({containers: section,textarea:'action-lazyload',onCallback:function(){
+    section.getElements('img').each(function(img){
+        img.zoomImg(sectionWidth);
+    });
+}});
+
+//== 异步加载商品详情tab
+var param = {
+    <{if $setting.acomment.switch.discuss == 'on'}>
+    goodsDiscussInit:{update:section,name:'product_comment_init', onSuccess: function(){
+        storeAjaxConfig('product_comment_init','.action-submit-reply', '.reply-list');
+    }},
+    <{/if}>
+    <{if $setting.acomment.switch.ask == 'on'}>
+    goodsConsultInit:{update:section,name:'product_consult_init', onSuccess: function(){
+        storeAjaxConfig('product_consult_init','.action-submit-reply', '.answer-list');
+    }},
+    <{/if}>
+    <{if $page_product_basic.params}>
+    goodsParams:{append:section,name:'product_parameters',require:'product_comment_init'},
+    <{/if}>
+    <{if $setting.acomment.switch.discuss == 'on'}>
+    goodsDiscuss:{append:section,name:'product_comment',require:'product_comment_init', onSuccess: function(){
+        storeAjaxConfig('product_comment','.action-submit-reply', '.reply-list');
+    }},
+    <{/if}>
+    <{if $setting.acomment.switch.ask == 'on'}>
+    goodsConsult:{append:section,name:'product_consult',require:'<{if $setting.acomment.switch.discuss == 'on'}>product_comment<{/if}>', onSuccess: function(){
+        storeAjaxConfig('product_consult','.action-submit-reply', '.answer-list');
+        storeAjaxConfig('product_consult','.action-submit-post', 'consult_content', true);
+    }},
+    <{/if}>
+    <{if $setting.selllog == 'true'}>
+    goodsSellLoglist:{append:section,name:'product_saleslog',require:'product_consult'},
+    <{/if}>
+    goodsLink:{append:section,name:'product_related',require:'<{if $setting.acomment.switch.ask == 'on'}>product_consult<{elseif $setting.acomment.switch.discuss == 'on'}>product_comment<{/if}>'}
+},queue_items = [];
+Object.each(param,function(v,k){
+    queue_items.push(Object.append({
+        url:'<{link app="b2c" ctl="site_product" act="'+k+'" arg=$page_product_basic.goods_id}>'
+    },v));
+});
+
+var lazyload = new LayoutRequest(queue_items);
+
+//== 为商品详情生成tab
+section.getElements('.tags-hd').inject(new Element('.product-tags.clearfix').inject(section,'before'));
+new Tabs('main', {
+    eventType: 'click',
+    triggersBox: '.product-tags',
+    panels: '.product-section',
+    onSwitch: function(e){
+        queue_items.each(function(q){
+            if(q.name === this.panels[e.currentIndex].id) {
+                lazyload.request.call(lazyload, q);
+            }
+        }, this);
+    }
+});
+
+//== 处理评论咨询回复异步请求
+function storeAjaxConfig(cont,handle, area, type){
+    // $(cont).getElements(trigger).each(function(handle){
+        var update;
+        var element = $(cont).getElement(handle);
+        element.retrieve('_ajax_config') || element.store('_ajax_config', {
+            onSuccess:function(rs) {
+                rs = rs[0];
+                if(rs&&rs.success&&rs.data){
+                    update = $(area);
+                    if(!update) {
+                        var active = element.getParent('.mod').getElement('.active-handle');
+                        update = active.getParent(area);
+                        closeReply(element);
+                    }
+                    rs.html = rs.data.stripScripts(function(script){
+                        rs.javascript = script;
+                    });
+                    update.set('html', rs.html);
+                    Browser.exec(rs.javascript);
+
+                    Message.success(rs.success);
+
+                    if(type) location.href = '#' + cont;
+                    resetForm(element.getParent('form'));
+                    storeAjaxConfig(cont,handle, area, type);
+                }
+            }
+        });
+    // });
+}
+//== 重置提交表单
+function resetForm(form) {
+    form.reset();
+    form.blur();
+    try{
+        form.getElement('img.verify-code').addClass('hide');
+    }catch(e){}
+}
+//== 处理商品基本信息交互
+function attachAction(id) {
+    //== 价格和库存异步加载
+    Query.price({id: id});
+    Query.stock({id: id});
+    <{if $page_product_basic.images}>
+    //== 商品相册图放大镜
+    window.addEvent('domready', function(){
+        new AlbumZoom(container, {
+            <{if $env.conf.b2c.site.imgzoom.show=='false'}>
+            zoomable:false,
+            <{/if}>
+            zoomsSize:{
+                x:<{$env.conf.b2c.site.imgzoom.width}>,
+                y:<{$env.conf.b2c.site.imgzoom.height}>
+            }
+        });
+    });
+    <{/if}>
+    <{if $page_product_basic.promotion.goods && $page_product_basic.promotion.order && $setting.show_order_sales == 'true'}>
+    //== 商品/订单促销标签切换
+    new Tabs('product_promotion', {eventType: 'click'});
+    <{/if}>
+}
+
+var ajax;
+var state;
+container.addEvents({
+    'click:relay(.action-slidedown)': function(e){
+        var panel = this.getParent('.switchable-panel');
+        var top = panel.getElement('.panel-top');
+        var cont = this.getParent('.product-promotion');
+        if(!panel.hasClass('unfold')) {
+            top && top.setStyle('height', 'auto');
+            panel.addClass('unfold');
+        }
+        else {
+            top && top.setStyle('height', 82);
+            panel.removeClass('unfold');
+        }
+
+        toggleText(this.getElement('.icon'));
+        toggleText(this.getElement('.text'));
+    },
+    'mouseenter:relay(.action-handle)': function(e){
+        var menu = this.getNext('.pop-body');
+        if(menu) {
+            clearTimeout(menu.timer);
+            this.addClass('active');
+            menu.show();
+        }
+    },
+    'mouseenter:relay(.pop-body)': function(e){
+        clearTimeout(this.timer);
+    },
+    'mouseleave:relay(.pop-wrapper)': function(e) {
+        var menu = this.getElement('.pop-body');
+        menu.timer = (function(){
+            this.getElement('.active').removeClass('active');
+            menu.hide();
+        }).delay(200,this);
+    },
+    'click:relay(.pop-close)': function(e) {
+        this.getParent('.pop-body').hide();
+    },
+    'click:relay(.action-buynow)': function(e) {
+        var form = this.getParent('form');
+        form.getElement('input[name=btype]').value = 'is_fastbuy';
+        form.store('target', form.target).target = '';
+        <{if $login == 'nologin' && $env.conf.b2c.site.login_type == 'target'}>
+        this.retrieve('_ajax_config') || this.store('_ajax_config', {
+            progress: function(rs) {
+                if(rs.error) {
+                    return Message.error(rs.error);
+                }
+                miniPassport('<{link app=b2c ctl=site_cart act=loginBuy arg0="true"}>', function(dialog){
+                    this.removeClass('disabled');
+                }.bind(this));
+            }.bind(this)
+        });
+        <{/if}>
+    },
+    'click:relay(.action-addtocart)': function () {
+        var form = this.getParent('form');
+        var target = form.retrieve('target');
+        form.getElement('input[name=btype]').value = '';
+        if(target) form.target = target;
+    },
+    'click:relay(.action-notify)': function(e) {
+        var dialog = new Dialog($('product_notify').wrapped(), {
+            title:'到货通知',
+            width: 400,
+            modal: {
+                'class': 'cover'
+            },
+            onLoad: function(){
+                var content = this.content;
+                content.getElement('[rel=_request]').store('_ajax_config',{onSuccess:function(rs){
+                    if(rs && rs[0]) {
+                        if(rs[0]['true']) {
+                            content.getElement('.product-notify').innerHTML = '<div class="success"><i class="icon">&#x25;</i>联系方式已经成功提交，到货后会立刻通知您。</div>';
+                            dialog.hide.delay(3000, dialog);
+                        }
+                    }
+                }});
+            }
+        });
+    },
+    'click:relay(.spec-attr)': function(e){
+        if(this.hasClass('selected')) return;
+        var a = this.getElement('a');
+        var url = a.href;
+        var id = a.rel;
+        if(!id) return;
+        if (window.history && history.pushState) {
+            e.stop();
+            /*html5 history manage*/
+            if(ajax){
+                ajax.cancel();
+            }
+            else {
+                state = {title: document.title, html: container.innerHTML, url: location.href, id: id};
+            }
+            ajax = Query.send(Router.basic(id), {
+                method: 'post',
+                onSuccess: function(rs) {
+                    try{
+                        rs = JSON.decode(rs);
+                        if(rs.error) {
+                            return Message.error(rs.error);
+                        }
+                    }catch(e) {
+                        updateBasic(rs, id, url);
+                    }
+                }
+            });
+        }
+    }
+});
+if ('onpopstate' in window) {
+    window.onpopstate = function(event){
+        if(ajax == null) return;
+        var data;
+        if(event && event.state){
+            data = event.state;
+        }else{
+            data = state;
+        }
+        document.title = data.title;
+        updateBasic(data.html, data.id);
+    }
+}
+
+function updateBasic(rs, id, url) {
+    container.innerHTML = rs;
+    attachAction(id);
+    <{if $page_goods_adjunct}>
+    adj_container.getElements('input:checked').set('checked', false);
+    adj_container.getElements('.selected').removeClass('selected');
+    adj_container.getElement('.adj-selected').set('text', 0);
+    <{/if}>
+    url && history.pushState({url: url, title: document.title, html: rs, id:id}, document.title, url);
+    //迷你购物车
+    formToCart();
+}
+
+$(document.body).addEvents({
+    'click:relay(.btn-caution)': function(e) {
+        if(this.hasClass('disabled')) return;
+        var data = this.getParent('.form');
+        if(!validate(data, 'all')) {
+            e.stop();
+            return;
+        }
+    },
+    'click:relay(.inter-handle)': function(e) {
+        e.preventDefault();
+        var parent = this.getParent('.mod');
+        var item = this.getParent('.comment-item') || this.getParent('.consult-item');
+        var action = this.getParent('.reply-action') || this.getParent('.answer-action');
+        var active = action.hasClass('active-handle');
+        var reply = parent.getElement('.action-post-reply');
+        var toggle = parent.getElement('.active-handle');
+        if(toggle) {
+            closeReply(toggle);
+        }
+        var id = item.getElement('input[name=id]').value;
+        reply.getElement('input[name=id]').value = id;
+        reply.removeClass('hide').setStyles({
+            width: action.getSize().x - reply.getPatch('padding','border').x
+        }).position({
+            target:this,
+            from: 'rt',
+            to: 'rb',
+            offset:{
+                y: 8
+            },
+            intoView: true
+        });
+        if(active){
+            closeReply(this);
+            // reply.addClass('hide');
+        }
+        else{
+            openReply(this);
+        }
+
+        /*var parent = this.getParent('.comment-list') || this.getParent('.consult-content');
+        var item = this.getParent('.comment-item') || this.getParent('.consult-item');
+        var cont = item.getElement('.action-post-reply') || this.getParent('.mod').getElement('.action-post-reply').inject(this.getParent(), 'after');
+        var act = this.hasClass('active-handle');
+        var id = item.getElement('input[name=id]').value;
+        parent.getElement('.active-handle') && parent.getElement('.active-handle').removeClass('active-handle');
+        cont.getElement('input[name=id]').value = id;
+        if(act) {
+            cont.addClass('hide');
+        }else {
+            this.addClass('active-handle');
+            cont.removeClass('hide');
+        }*/
+    },
+    'click:relay(.action-close-reply)': function(e) {
+        e && e.preventDefault();
+        closeReply(this);
+    },
+    'focus:relay(.action-code-form)': function(e) {
+        var code = this.getElement('img.verify-code');
+        if(code && !code.isVisible()) {
+            code.removeClass('hide');
+            <{if $valideCode == 'true'}>
+            changeCode(code);
+            <{/if}>
+        }
+    },
+    'click:relay(.auto-change-verify-handle)': function(e){
+        e.stop();
+        changeVerify(this);
+    },
+    'click:relay(.pageview .flip)': function(e){
+        e.stop();
+        Query.update(this.href, this.getParent('.action-content-list'));
+    },
+    'inputchange:relay(.action-filled-textarea)': function(){
+        var p = this.getParent();
+        var max = getVal(p, '.word-limit');
+        var cur = p.getElement('.word-count .current');
+        if(this.value.length > max) {
+            this.value = this.value.substr(0, max);
+            Message.error('<{t}>内容最多输入<{/t}>' + max + '<{t}>字<{/t}>');
+        }
+        cur.set('text', this.value.length);
+    },
+    'click:relay(.action-consult-trigger)': function(e){
+        e.preventDefault();
+    }
+});
+
+function openReply(el) {
+    var parent = el.getParent('.mod');
+    var action = el.getParent('.reply-action') || el.getParent('.answer-action');
+    var reply = parent.getElement('.action-post-reply');
+    reply.removeClass('hide');
+    action.addClass('active-handle');
+    action.setStyle('height', parseInt(action.getStyle('height')) + reply.getSize().y);
+}
+function closeReply(el) {
+    var parent = el.getParent('.comment-list') || el.getParent('.mod');
+    var reply = parent.getElement('.action-post-reply');
+    var action = parent.getElement('.active-handle');
+    reply.addClass('hide');
+    if(action) {
+        action.removeClass('active-handle');
+        action.setStyle('height', '');
+    }
+}
+
+function notice(msg, inject, where, type) {
+    var el = new Element('div.notice' + (type ? '.' + type : ''), {html:msg}).inject(inject, where);
+    el.destroy.delay(3000,el);
+}
+notice.success = function(msg, inject, where) {
+    notice('<q class="icon">&#x25;</q>' + msg, inject, where, 'success');
+};
+
+function getVal(p,c,i) {
+    if(!c) return $(p).get('text');
+    p = $(p).getElement(c).get('text');
+    if(!i) return p;
+    return Number.from(p);
+}
+function toggleText(el, attr) {
+    attr = attr || 'data-toggle';
+    var a = el.get(attr);
+    var b = el.get('text');
+    el.set(attr, b).set('text', a);
+}
+
+withBrowserStore(function(browserStore){
+    browserStore.get('history',function(history){
+        history=JSON.decode(history);
+        if(!history||typeOf(history)!=='array') history=[];
+        if(history.length>=40) history.pop();
+        var newHst = {
+            'goodsId':'<{$page_product_basic.product_id}>',
+            'goodsName':'<{$page_product_basic.title|replace:"'":"\'"}>',
+            'goodsImg':'<{$page_product_basic.image_default_id ? $page_product_basic.image_default_id : $defaultImage|storager:"s"}>',
+            'price':'<{$page_product_basic.price|cur_odr}>',
+            'viewTime':+new Date()
+        };
+        if(history.length) {
+            for(var i = history.length; i --;) {
+                if(history[i]['goodsId'] == newHst['goodsId']) {
+                    history.splice(i, 1);
+                    break;
+                }
+            }
+        }
+        history.unshift(newHst);
+
+        browserStore.set('history', JSON.encode(history));
+    });
+});
+</script>

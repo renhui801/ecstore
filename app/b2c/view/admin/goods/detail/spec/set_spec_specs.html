@@ -1,0 +1,86 @@
+<div class="type-wrap">
+  <ul class="typelist">
+    <{foreach from=$spec item=row name=name}>
+      <li class="<{if $env.foreach.name.first}>act<{/if}>" data-spec-type="<{$row.spec_type}>" data-spec-id="<{$row.spec_id}>"><{$row.spec_name}>(<i><{$row.selectCount}></i>)</li>
+    <{/foreach}>
+  </ul>
+</div>
+<div class="spec-wrap">
+  <{foreach from=$spec item=row name=name}>
+  <div class="switchable" <{if !$env.foreach.name.first}> style="display:none" <{/if}> >
+    <div class="selectAll"><label for="selectAll<{$row.spec_id}>"><input type="checkbox" id="selectAll<{$row.spec_id}>" /> 全选</label></div>
+    <ul class="speclist" data-spec-name="<{$row.spec_name}>" data-spec-type="<{$row.spec_type}>" data-spec-id="<{$row.spec_id}>">
+      <{foreach from=$row.spec_value key=spec_value_id item=spec_value}>
+      <li class="spec-item">
+        <input type="checkbox" id="s<{$spec_value_id}>" title="<{$spec_value.spec_value}>" name="<{$spec_value.private_spec_value_id}>" value="<{$spec_value_id}>" <{if $spec_value.select}>checked="checked"<{if in_array($spec_value_id,$activeSpec)}> onchange="this.checked=!this.checked" disabled<{/if}><{/if}> />
+        <label for="s<{$spec_value_id}>"<{if in_array($spec_value_id,$activeSpec)}> title="尚有未处理订单，此规格不允许删除"<{/if}>>
+          <{if $row.spec_type == 'image'}>
+          <span class="spec-colorbox">
+            <input type="hidden" key="spec_image_<{$spec_value_id}>" value="<{$spec_value.spec_image}>">
+            <img key="spec_img_<{$spec_value_id}>" src="<{$spec_value.spec_image|storager}>">
+          </span>
+          <{/if}>
+          <span class="spec-name"><{$spec_value.spec_value}></span>
+          <input type="text" name="spec[<{$spec_value.spec_value_id}>]" id="" class="x-input" value="<{$spec_value.spec_value}>" disabled></label>
+      </li>
+      <{/foreach}>
+    </ul>
+    <div class="spec-img">
+      <table id="table_<{$row.spec_id}>" class="gridlist">
+        <thead>
+          <tr>
+            <th>规格</th>
+            <{if $row.spec_type == 'image'}><th>规格图片</th><{/if}>
+            <th>关联商品图片</th>
+          </tr>
+        </thead>
+        <tbody>
+          <{foreach from=$selection_spec.[$row.spec_id].option key=spec_id item=spec_value}>
+          <tr data-id="<{$row.spec_id}>_<{$spec_value.spec_value_id}>">
+            <td>
+              <{if $row.spec_type == 'image'}>
+              <span class="spec-colorbox">
+                <img src="<{$row.spec_value.$spec_id.spec_image|storager:s}>">
+              </span>
+              <{/if}>
+              <!-- <span class="spec-name"><{$spec_value.spec_value}></span> -->
+              <input type="text" name="spec_value[<{$row.spec_id}>_<{$spec_value.spec_value_id}>]" id="" class="x-input" value="<{$spec_value.spec_value}>">
+            </td>
+            <{if $row.spec_type == 'image'}>
+            <td>
+              <!-- <input type="hidden" key="spec_image" name="spec[{spec_id}][{{private_spec_value_id}}][spec_image]"> -->
+              <span class="specImage"><img src="<{$spec_value.spec_image_url}>"></span><b class="chooseSpecImage"></b>
+            </td>
+            <{/if}>
+            <td>
+              <!-- <input type="hidden" key="spec_goods_images" name="spec[{spec_id}][{{private_spec_value_id}}][spec_goods_images]"> -->
+              <span class="sel-albums-images lnk">选择图片</span>
+              <span class="sel-imgs-area">
+                <{foreach from=$spec_value.spec_goods_images item=image}>
+                <img src="<{$image.image_url}>">
+                <{/foreach}>
+              </span>
+              <input class="spec_goods_images" type="hidden" value="<{foreach from=$spec_value.spec_goods_images item=image}><{$image.image_id}>,<{/foreach}>">
+            </td>
+          </tr>
+          <{/foreach}>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <{/foreach}>
+</div>
+<{if $selection_spec_json || $products}>
+<script>
+<{if $selection_spec_json}>
+if (Spec !== undefined) {
+    Spec = <{$selection_spec_json}>;
+}
+<{/if}>
+<{if $products}>
+if (Products !== undefined) {
+    Products = <{$products}>;
+}
+<{/if}>
+</script>
+<{/if}>

@@ -1,0 +1,35 @@
+
+<!-- 评分基本信息 -->
+<div class="info">
+    <div class="publish">
+        购买过商品的会员才能评价
+        <a href="<{link app=b2c ctl=wap_member act=nodiscuss}>" class="btn">我要评价</a>
+    </div>
+    <{if $comments.setting.goods_point_status == 'on'}>
+    <em>商品评分</em>
+    <div class="grades">
+        <div class="star big"><b style="width:<{$comments.goods_point.avg_num*20}>%;"></b></div>
+        <span class="num"><{$comments.goods_point.avg_num}></span>分
+    </div>
+    <div class="c-fix">
+        <span class="f-r grade_detail">
+            评分细节
+            <i class="arr right"></i>
+        </span>
+        <span class="gray"><{$comments.total_point_nums}>人打分</span>
+    </div>
+    <{else}>
+    <div class="c-fix"></div>
+    <{/if}>
+</div>
+<!-- 评分细节 -->
+<div id="J_grade_detail" style="padding:15px;display:none;">
+    <{foreach from=$comments._all_point item="_all_point"}>
+    <div class="d-line">
+        <span class="l-k"><{$_all_point.type_name}></span>
+        <div class="l-v">
+        <div class="star big"><b style="width:<{$_all_point.avg*20}>%;"></b></div>
+        </div>
+    </div>
+    <{/foreach}>
+</div>

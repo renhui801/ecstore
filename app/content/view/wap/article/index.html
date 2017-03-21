@@ -1,0 +1,29 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            <{$detail['indexs']['title']|cut:30}>
+        </div>
+        <div class="a-right">
+            <div class="a-search"></div>
+        </div>
+    </div>
+    </header>
+    <div class="mod article-main">
+      <div class="mod-title">
+        <h2><{$detail['indexs']['title']}></h2>
+      </div>
+      <div class="mod-content">
+        <p class="article-time"><{t}>发布日期：<{/t}><{$detail['indexs']['pubtime']|date:'Y-m-d H:i'}></p>
+        <table width="100%">
+          <tr>
+            <td><{$content}></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+</div>

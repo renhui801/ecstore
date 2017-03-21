@@ -1,0 +1,25 @@
+
+<!-- 评分基本信息 -->
+<div class="info">
+    <div class="publish">
+        <a href="<{link app=b2c ctl=wap_product act=toAsk arg0=$goods_id arg1=$product_id}>" class="btn">提交咨询</a>
+    </div>
+    <em>购买商品前或购买后有什么问题，欢迎在此咨询。</em>
+</div>
+
+<{if $page_type=='init'}>
+<div class="count">
+    <a href="<{link app=b2c ctl=wap_product act=goodsConsult arg0=$goods_id arg1=$product_id}>">全部<{$comments.askCount|default:'0'}>条咨询<i class="arr right"></i></a>
+</div>
+<{/if}>
+
+<{if $comments.gask_type}>
+<div class="publish_comment">
+  <div class="consult-type" id="J_choose_type">
+      <span class="active" data-value="<{link app=b2c ctl=wap_comment act=ajax_type_ask arg0=$goods_id art1=$product_id arg2=$gask_type1.type_id}>">全部咨询(<{$comments.askCount|default:'0'}>)</span>
+      <{foreach from=$comments.gask_type item="gask_type1"}>
+      <span data-value="<{link app=b2c ctl=wap_comment act=ajax_type_ask arg0=$goods_id arg1=$product_id arg2=$gask_type1.type_id arg3=$page_type}>"><{$gask_type1.name|cut:'12'}>(<{$gask_type1.total}>)</span>
+      <{/foreach}>
+  </div>
+</div>
+<{/if}>

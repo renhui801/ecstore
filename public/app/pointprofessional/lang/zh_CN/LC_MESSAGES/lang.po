@@ -1,0 +1,228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//controller/site/point.php:24
+msgid "会员中心"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//controller/site/point.php:25
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/member/menuextends.php:32
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:6
+msgid "我的积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//dbschema/member_point_task.php:56
+msgid "购物（订单）"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//dbschema/member_point_task.php:57
+msgid "评论"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//dbschema/member_point_task.php:58
+msgid "管理员充值"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//dbschema/member_point_task.php:80
+msgid "未执行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//dbschema/member_point_task.php:81
+msgid "已执行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//dbschema/member_point_task.php:106
+msgid "积分定时任务临时表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/extension/settings.php:41
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/extension/settings.php:41
+msgid "积分设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/member/lv/extends.php:37
+msgid "不能设置今天以前的时间！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/member/lv/extends.php:43
+msgid "过期时间间隔不能设置为负数！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/member/lv/extends.php:48
+msgid "过期时间间隔不能设置为小数！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/change.php:56
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/change.php:67
+msgid "积分扣除超过会员已有积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/change.php:95
+msgid "订单获得积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/change.php:199
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/change.php:210
+msgid "修改成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/change.php:204
+msgid "修改失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/task/admincharge.php:33
+msgid "管理员充值添加积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/task/admincharge.php:39
+msgid "管理员充值添加积分定时任务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/task/comment.php:33
+msgid "商品评论添加积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/task/comment.php:39
+msgid "商品评论添加积分定时任务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/task/order.php:33
+msgid "订单购物添加积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional//lib/point/task/order.php:39
+msgid "订单购物添加积分定时任务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/admin/member/lv_ext.html:3
+msgid "设置过期时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/admin/member/lv_ext.html:17
+msgid "请选择过期结束日期"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/cart/checkout_total.html:3
+msgid "抵扣积分："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/cart/js/point.js:12
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/cart/js/point.js:44
+msgid "您兑换的积分数目过多！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/cart/js/point.js:48
+msgid "您的积分超过您所拥有的最大积分！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/cart/point_dis.html:6
+msgid "本订单最大可抵扣金额为"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/cart/point_dis.html:6
+msgid "积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/cart/point_dis.html:8
+msgid "1积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/info_obtained_point.html:3
+msgid "冻结积分："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/info_obtained_point.html:3
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/info_point.html:6
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/info_point.html:14
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:8
+msgid "分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/info_point.html:2
+msgid "消费冻结："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/info_point.html:10
+msgid "获取冻结："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:8
+msgid "您当前的有效积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:10
+msgid "兑换优惠券"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:17
+msgid "日期"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:18
+msgid "积分变动"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:19
+msgid "积分有效期"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:20
+msgid "说明"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:31
+msgid "永久有效"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:35
+msgid "已过期"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:43
+msgid "尚未获取到积分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:51
+msgid "积分规则"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:53
+msgid "当积分已达到某一兑换积分标准时，顾客可将累计积分依照网站相应积分及兑换标准兑换回馈商品，网站将即时从用户会员积分中扣减相应积分。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:54
+msgid "各项回馈项目（包含各项商品、服务或抵用券等）及兑换标准及兑换规则均以兑换当时最新回馈活动公告或目录为准。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:55
+msgid "部分兑换商品有数量限制的，兑完为止。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:56
+msgid "公告或目录如有有效期限的，逾期即不得兑换。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/member/point_detail.html:57
+msgid "积分兑换区的商品为只可用积分兑换的商品（如积分价格：100积分）。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/pointprofessional/view/site/order/order_dis.html:3
+msgid "积分抵扣金额:"
+msgstr ""
+

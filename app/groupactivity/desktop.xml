@@ -1,0 +1,21 @@
+<desktop>
+    <permissions>
+        <permission id="groupactivity" display='true'>团购</permission>
+    </permissions>
+
+    <workground name="营销" id="b2c.wrokground.sale" controller="admin_sales_coupon" action="index" order="40">
+        <menugroup name="团购">
+            <menu controller='admin_purchase' action='index' permission='groupactivity' display='true' order='10'>团购活动列表</menu>
+            <menu controller='admin_purchase' action='add' permission='groupactivity' display='false' order='20' >添加团购活动</menu>
+            <menu controller='admin_purchase' action='edit' permission='groupactivity' display='false' order='20' >修改</menu>
+        </menugroup>
+    </workground>
+    
+    <workground name="订单" id="ectools.wrokground.order" controller="admin_order" action="index" order='10'>
+        <menugroup name="订单列表">
+            <menu controller='admin_order' action='index' permission='order' display='false' order='100'>团购订单管理</menu>
+            <menu controller='admin_order' action='index' permission='groupactivity' display='true' order='100'>团购订单管理</menu>
+        </menugroup>
+    </workground>
+    
+</desktop>

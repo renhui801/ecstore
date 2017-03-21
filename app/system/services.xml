@@ -1,0 +1,5 @@
+<services>
+    <service id="desktop_finder.base_mdl_crontab">
+      <class>system_finder_crontab</class>
+    </service>
+</services>  

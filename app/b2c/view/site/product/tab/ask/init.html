@@ -1,0 +1,54 @@
+<div class="consult-title">
+  <{button type="button" class="btn-simple" onclick="$$('.product-tags .tag-consult').fireEvent('click');window.fireEvent('scroll');location.href='#post_consult';" label="我要咨询"}>
+  <em><{$comments.setting.power_message}></em>
+</div>
+<div class="consult-content" id="<{if $page_type == 'tab'}>consult_content<{else}>consult_content_init<{/if}>">
+  <{include file='site/product/tab/ask/content.html'}>
+  <{if $comments.askCount && !$page_type}>
+  <div class="title title-aside"><{t}>共<{/t}> <i><{$comments.askCount|default:'0'}></i> <{t}>个咨询<{/t}>。
+    <a href="javascript:void(0);" onclick="$$('.product-tags .tag-consult').fireEvent('click');location.href='#product_consult';"><{t}>查看全部咨询<{/t}> &raquo;</a>
+  </div>
+  <{/if}>
+</div>
+
+<!-- 咨询回复/评论回复 -->
+<div class="post-answer action-post-reply hide">
+  <form action="<{link app=b2c ctl=site_comment act=toReply}>" method="post" class="action-code-form">
+    <input type="hidden" name="id">
+    <ul>
+      <{if !$comments.setting.power_status}>
+      <{assign var=disable value='disabled'}>
+      <{/if}>
+      <li class="form-item">
+      <div class="form-act-wide<{if !$comments.setting.power_status}> no-permission<{/if}>">
+        <textarea class="action-filled-textarea" name="comment" id="" cols="30" rows="10" <{$disable}> vtype="required" data-caution="请填写回复内容，最多1000字" placeholder="欢迎发表回复，最多1000字。"></textarea>
+        <{if !$comments.setting.power_status}>
+        <div class="mini-mask"><{$comments.setting.power_message}></div>
+        <{/if}>
+        <div class="clearfix">
+          <div class="word-count"><i class="current">0</i>/<i class="word-limit">1000</i></div>
+          <div class="sub-label"></div>
+        </div>
+      </div>
+      </li>
+      <li class="form-item">
+        <{if $comments.setting.login == 'nologin'}>
+        <label for="" class="form-label">联系方式：</label><span class="form-act"><input type="text" vtype="required" name="contact" id="" <{$disable}>> <span class="sub-label">可以是电话、email、qq等</span></span>
+        <{else}>
+        <span class="form-act-wide"><input type="checkbox" name="hidden_name" value="YES" id="" <{$disable}>> <{t}>匿名发表<{/t}></span>
+        <{/if}>
+      </li>
+      <{if $comments.setting.verifyCode == "on"}>
+      <li class="form-item">
+      <label for="answer_verifycode" class="form-label"><{t}>验证码<{/t}>：</label>
+      <span class="form-act">
+        <{input type="vcode" class="verify-input" id="anwser_verifycode" name="replyverifyCode" size="4" disabled=$disable key="REPLYVCODE" a_class="lnklike" img_class="hide"}>
+      </span>
+      </li>
+      <{/if}>
+      <li class="form-item">
+      <span class="form-act"><{button type="submit" class="btn-simple action-submit-reply" disabled=$disable rel="_request" label="提交回复"}><a href="" class="btn-close action-close-reply">取消回复</a></span>
+      </li>
+    </ul>
+  </form>
+</div>

@@ -1,0 +1,37 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 优惠券 -->
+  <div id="member_exchange" class="member-coupon">
+    <div class="member-title">
+      <h2><{t}>兑换优惠券<{/t}></h2>
+      <div class="member-mod-more"><{t}>您当前可使用的积分<{/t}>：<b class="price"><{$member.usage_point}></b><{t}>分<{/t}></div>
+    </div>
+
+    <div class="member-mod">
+      <table class="member-grid">
+        <thead>
+          <th><{t}>名称<{/t}></th>
+          <th><{t}>有效期<{/t}></th>
+          <th><{t}>所需积分<{/t}></th>
+          <th><{t}>操作<{/t}></th>
+        </thead>
+        <{if $couponList}>
+        <tbody<{if !($browser.name=="IE" && ($brower.ver == 6 || $browser.ver == 7))}> class="first"<{/if}>>
+          <{foreach from=$couponList item=item key=key name=name}>
+          <tr<{if $smarty.foreach.name.iteration == 1}> class="first"<{/if}>>
+            <td><{$item.cpns_name}></td>
+            <td><{$item.time.from_time|cdate:FDATE_STIME}> ~ <{$item.time.to_time|cdate:FDATE_STIME}></td>
+            <td><{$item.cpns_point}></td>
+            <td><{if $site_point_usage =='true'}><{if $item.cpns_status}><a href="<{link app=b2c ctl=site_member act=exchange arg0=$item.cpns_id}>" class="action-exchange" rel='_request'><{t}>兑换<{/t}><{else}><{t}> 当前等级或积分不够不能兑换<{/t}><{/if}></a><{else}><{t}>积分只用于抵扣<{/t}><{/if}></a></td>
+          </tr>
+          <{/foreach}>
+        </tbody>
+        <{else}>
+        <tbody>
+          <tr><td colspan="4" class="no-information"><{t}>尚无可兑换的优惠券<{/t}></td></tr>
+        </tbody>
+        <{/if}>
+      </table>
+    </div>
+  </div>
+</div>

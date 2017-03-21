@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<{header}>
+<link rel="stylesheet" href="images/styles.css">
+</head>
+<body data-lazyload-config="{
+  onAfter:function(img){
+    try{if(img.get('data-img-zoom') == 'true') fixImageSize(img);}catch(e){}
+  }
+}">
+<{require file="block/header.html"}>
+<!-- 主内容区 -->
+<div id="container" class="page-container clearfix">
+  <div class="inner-wrap">
+    <div class="section clearfix">
+      <div class="sidebar"></div>
+      <div class="main">
+        <div class="focus">
+          <{widgets id="main_focus"}>
+        </div>
+        <{widgets id="main_slider"}>
+      </div>
+      <div class="aside">
+        <{widgets id="banners"}>
+      </div>
+    </div>
+    <div class="section clearfix">
+      <div class="sidebar">
+        <{widgets id="sb1"}>
+      </div>
+      <div class="main">
+        <div class="common-mod main-mod auto-bind-widget" data-widget-type="Tabs" data-widget-config="{
+          eventType:'mouse'
+        }">
+          <div class="hd">
+            <ul class="switchable-triggerBox clearfix">
+              <li class="switchable-trigger active"><em>精品推荐</em><i class="icon">&#x36;</i></li>
+              <li class="switchable-trigger"><em>促销推荐</em><i class="icon">&#x36;</i></li>
+            </ul>
+          </div>
+          <div class="switchable-panel"><{widgets id="main1_1"}></div>
+          <div class="switchable-panel" style="display:none;"><{widgets id="main1_2"}></div>
+        </div>
+      </div>
+      <div class="aside">
+        <{widgets id="as1"}>
+      </div>
+    </div>
+    <div class="section clearfix">
+      <div class="sidebar">
+        <{widgets id="sb2"}>
+      </div>
+      <div class="main">
+        <div class="common-mod main-mod auto-bind-widget" data-widget-type="Tabs" data-widget-config="{
+          eventType:'mouse'
+        }">
+          <div class="hd">
+            <ul class="switchable-triggerBox clearfix">
+              <li class="switchable-trigger active"><em>新品</em><i class="icon">&#x36;</i></li>
+              <li class="switchable-trigger"><em>热卖</em><i class="icon">&#x36;</i></li>
+              <li class="switchable-trigger"><em>热评</em><i class="icon">&#x36;</i></li>
+            </ul>
+          </div>
+          <div class="switchable-panel"><{widgets id="main2_1"}></div>
+          <div class="switchable-panel" style="display:none;"><{widgets id="main2_2"}></div>
+          <div class="switchable-panel" style="display:none;"><{widgets id="main2_3"}></div>
+        </div>
+        <{widgets id="main2_4"}>
+      </div>
+      <div class="aside">
+        <{widgets id="as2"}>
+      </div>
+    </div>
+    <div class="section clearfix">
+      <div class="section-title clearfix">
+        <div class="section-left">
+          <{widgets id="stl1"}>
+        </div>
+        <div class="section-right">
+          <{widgets id="str1"}>
+        </div>
+      </div>
+      <div class="sidebar">
+        <{widgets id="sb3"}>
+      </div>
+      <div class="main">
+        <div class="switchable-panel"><{widgets id="main3"}></div>
+      </div>
+      <div class="aside">
+        <{widgets id="as3"}>
+      </div>
+    </div>
+    <div class="section clearfix">
+      <div class="section-title clearfix">
+        <div class="section-left">
+          <{widgets id="stl2"}>
+        </div>
+        <div class="section-right">
+          <{widgets id="str2"}>
+        </div>
+      </div>
+      <div class="sidebar">
+        <{widgets id="sb4"}>
+      </div>
+      <div class="main">
+        <div class="switchable-panel"><{widgets id="main4"}></div>
+      </div>
+      <div class="aside">
+        <{widgets id="as4"}>
+      </div>
+    </div>
+    <div class="section clearfix">
+      <div class="section-title clearfix">
+        <div class="section-left">
+          <{widgets id="stl3"}>
+        </div>
+        <div class="section-right">
+          <{widgets id="str3"}>
+        </div>
+      </div>
+      <div class="sidebar">
+        <{widgets id="sb5"}>
+      </div>
+      <div class="main">
+        <div class="switchable-panel"><{widgets id="main5"}></div>
+      </div>
+      <div class="aside">
+        <{widgets id="as5"}>
+      </div>
+    </div>
+
+    <div class="section clearfix">
+      <div class="sidebar">
+        <{widgets id="sb6"}>
+        <div class="common-mod follow-weibo">
+          <div class="hd">
+            <h2 class="title">关注我们</h2>
+          </div>
+          <div class="bd">
+            <div class="add-weibo clearfix">
+              <div class="sina-icon"></div>
+              <div class="sina-v">DEMO</div><a href="http://weibo.com/shopexlic" target="_blank" class="add-weibo-btn"></a>
+            </div>
+            <div class="weibo-info">
+              想了解ECStore最新的资讯信息，赶紧关注我们吧
+              <a href="http://weibo.com/shopexlic" target="_blank">weibo.com/shopexlic</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="common-mod main-mod">
+          <div class="hd">
+            <h2 class="title">积分兑换赠品</h2>
+          </div>
+          <div class="switchable-panel"><{widgets id="main6"}></div>
+        </div>
+      </div>
+      <div class="aside">
+        <{widgets id="as6"}>
+      </div>
+    </div>
+
+    <div class="section">
+      <{widgets id="bot1"}>
+    </div>
+  </div>
+</div>
+<{require file="block/footer.html"}>
+</body>
+</html>

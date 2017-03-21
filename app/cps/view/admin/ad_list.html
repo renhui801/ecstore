@@ -1,0 +1,47 @@
+<div class="finder-title">
+<h2 class="head-title span-auto">已添加广告</h2>
+</div>
+<div id="finder-action-c13da5" class="gridlist-action finder-action clearfix">
+<ul class="finder-action-items flt">
+    <li><a href="index.php?app=cps&ctl=admin_adlink&act=addAdLink"><span>添加广告</span></a></li>
+</ul>
+</div>
+<div style="padding-left: 10px;">
+<div style="padding: 10px 0;"><{foreach from=$data item="link"}> <span class="ad-list-line" style="padding-right: 30px; height:30px; line-height:30px; padding:10px; width:100px; display:block; float:left;"><input id="lnk_<{++$i}>" type="radio" name="link" value="<{$link.link_id}>"><{$link.width}>*<{$link.height}></span> <{/foreach}></div>
+<div>
+<hr />
+</div>
+<div>
+<div style="padding: 10px 0;">图片预览:</div>
+<div style="padding: 5px 0;"><{img id="preview_img" src="images/none_pic.jpg"}></div>
+<div style="padding: 10px 0;">推广链接:<span id="preview_txt" style="padding: 0 10px;"></span> <span><a id="preview_url" href="#" target="_blank">查看</a></span></div>
+</div>
+<div>
+<hr />
+</div>
+<div><a id="edit" href="#"><{button class="btn" label="编辑"}></a> <a id="del" href="#"><{button class="btn" label="删除"}></a></div>
+</div>
+<script>
+var preview = function(id) {
+    var index = id.substr(4) - 1;
+    $('preview_img').set('width', ads[index]['width']);
+    $('preview_img').set('height', ads[index]['height']);
+    $('preview_img').set('src', ads[index]['remote_img_url']);
+    $('preview_txt').set('html', ads[index]['url']);
+    $('preview_url').set('href', ads[index]['url']);
+    $('edit').set('href', 'index.php?app=cps&ctl=admin_adlink&act=editAdLink&linkId=' + ads[index]['link_id']);
+    $('del').set('href', 'index.php?app=cps&ctl=admin_adlink&act=delete&linkId=' + ads[index]['link_id']);
+}
+
+$$('input[name=link]').addEvent('click', function() {
+    preview(this.id);
+});
+
+$('del').addEvent('click', function() {
+    return confirm("确认删除？");
+});
+
+var ads = <{$jsdata}>;
+$('lnk_1').checked = "checked";
+preview('lnk_1');
+</script>

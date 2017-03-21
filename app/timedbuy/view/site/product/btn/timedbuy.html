@@ -1,0 +1,144 @@
+<{if $timedbuy && $timedbuy._buy_status!=3}>
+  <{if ($goods.nostore_sell || count($goods.products)>0 || $goods.store-$goods.freez>0 || $goods.store==='' || $goods.store===null) && $enable == 'true' }>
+    <{css src="timedbuy.css" app="timedbuy"}>
+
+
+    <{if $timedbuy.limit}><span class="buy-limit-storess" style="display:none"><{$timedbuy.limit}> </span><{/if}>
+
+    <{if $timedbuy._buy_status==1 }>
+        <input class="actbtn btn-timedbuy" value="<{t}>立即抢购<{/t}>" type="button" <{if $timedbuy.forenotice.status!=1}>style="display:none;"<{/if}> />
+	<{elseif $timedbuy._buy_status==4}>
+        <input class="actbtn btn-timedbuy-over" value="抢购结束" type="button" />
+    <{else}>
+        <input class="actbtn btn-buy btn-timedbuy-ready updateBtn" value="加入购物车" type="submit" <{if $timedbuy._buy_status!=2}>style="display:none;"<{/if}> />
+
+    <{/if}>
+
+
+
+    <div>
+        <div>
+        <span id="timed-price-js" style="display:none;"><span  class='countdown-price'>抢购价：</span><span class='mlvprice font-red' style="font-size:20px;font-family:Tahoma;"><{$timedbuy.price|cur_odr}></span></span>
+    <{if ($timedbuy._buy_status==1&&$timedbuy.forenotice.status==1) || $timedbuy._buy_status==2}>
+        <div class='leftTime'>
+            <span class="hour font-red"></span>小时
+            <span class="minute font-red"></span>分钟
+            <span class="second font-red"></span>秒
+        </div>
+    <{/if}>
+        </div>
+    </div>
+
+    <{if ($timedbuy._buy_status==1&&$timedbuy.forenotice.status==1) || $timedbuy._buy_status==2}>
+    <script>
+var timeCount = {
+	init:function(timeStart,timeEnd,dom,isReload){
+		this.isReload = isReload || true;
+		var diff = Math.abs((timeStart.getTime() - timeEnd.getTime())/1000);
+		var secondDiff = diff % 60;
+		var minuteDiff = ((diff - secondDiff)/60) % 60;
+		var hourDiff = (diff - secondDiff  - minuteDiff*60) / 3600;
+		var timeDiff = [hourDiff,minuteDiff,secondDiff];
+		this.s = this.calcTime.periodical(1000,this,{
+			time:timeDiff,
+			dom:dom
+		});
+		if(document.getElement('.desc')){
+		this.desc = 10;
+		this.d = this.calcDesc.periodical(100,this);
+		(function(){$('timer').setStyle('display','block')}).delay(1100);
+		}
+	},
+	addZero:function(timeDiff){
+		for(var i=0;i<timeDiff.length;i++){
+			if(timeDiff[i].toString().length<2){
+				timeDiff[i] = "0" + timeDiff[i].toString();
+				return timeDiff;
+			}
+		}
+	},
+	formatToInt : function(timeDiff){
+		for(var i=0;i<timeDiff.length;i++){
+			parseInt(timeDiff[i]);
+		}
+		return timeDiff;
+	},
+	judgeTime : function(timeDiff){
+		if(timeDiff[2]< 0  && timeDiff[1]>0){
+			timeDiff[2] = 59;
+			timeDiff[1]--;
+			return timeDiff;
+			}else if(timeDiff[2] <0 && timeDiff[1]==0 && timeDiff[0]>0){
+			timeDiff[2] = 59;
+			timeDiff[1] = 59;
+			timeDiff[0]--;
+			return timeDiff;
+			}else if(timeDiff[2]==0 && timeDiff[1]==0 && timeDiff[0]==0){
+			$clear(this.s);
+			if(document.getElement('.desc')){ $clear(this.d); document.getElement('.desc').innerHTML = 0; }
+			if(this.isReload) location.reload();
+			return;
+		}
+	},
+	calcTime : function (obj){
+		if(!obj.dom) return;
+		var _timeDiff = obj.time;
+		this.addZero(_timeDiff);
+		this.formatToInt(_timeDiff);
+		_timeDiff[2]--;
+		this.judgeTime(_timeDiff);
+		this.addZero(_timeDiff);
+		var dom = obj.dom;
+		if(dom.second) dom.second.innerHTML = _timeDiff[2];
+		if(dom.minute) dom.minute.innerHTML = _timeDiff[1];
+		if(dom.hour) dom.hour.innerHTML = _timeDiff[0];
+	},
+	calcDesc:function(){
+		this.desc--;
+		document.getElement('.desc').innerHTML = this.desc;
+		if(this.desc == 0)
+		this.desc = 10;
+	}
+};
+        var timeStart = new Date(<{$timedbuy_sales_rule.from_time}>*1000);
+        var timeEnd= new Date(<{$timedbuy_sales_rule.to_time}>*1000);
+        var timeNow;
+        var dom = {
+          second: $$('.leftTime .second')[0],
+          minute:$$('.leftTime .minute')[0],
+          hour:$$('.leftTime .hour')[0]
+        };
+        new Request({
+                url:'<{$request_time_now}>',
+                onComplete:function(re){
+                    timeNow=new Date(re*1000);
+                    if(timeStart.getTime() >= timeNow.getTime()){
+                        try{timeCount.init(timeStart,timeNow,dom)}catch(e){};
+                    }else if(timeEnd.getTime() > timeNow.getTime()){
+                        try{timeCount.init(timeEnd,timeNow,dom)}catch(e){};
+                    } else {
+                    }
+                }
+            }).send();
+    </script>
+    <{/if}>
+
+  <{elseif $enable == 'false'}>
+	<{include file='site/product/btn/buy.html' app=b2c}>
+  <{/if}>
+  <{include file='site/product/btn/notify.html' app=b2c}>
+
+	<div>
+        <div>
+        <span id="timed-price-js" style="display:none;"><span  class='countdown-price'>抢购价：</span><em class='mlvprice font-red font20px'><{$timedbuy.price|cur_odr}></em></span>
+        </div>
+    </div>
+
+
+    <script>
+    if( $('goods-viewer') && $('goods-viewer').getElement('.goodsprice') && $('goods-viewer').getElement('.fix-price') && $('timed-price-js') ){
+        var _cost = $('goods-viewer').getElement('.fix-price').get('html');
+        $('goods-viewer').getElement('.goodsprice').getParent('li').set('html',$('timed-price-js').get('html') + '<del style="margin-left:81px;" class="mktprice1">原价：'+_cost +'</del>');
+    }
+    </script>
+<{/if}>

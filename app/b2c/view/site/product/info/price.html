@@ -1,0 +1,43 @@
+<div class="product-concerns">
+    <ul>
+      <li class="item">
+      <span class="label"><{t}>销售价<{/t}>：</span>
+        <span class="detail">
+            <b class="price"><ins class="action-price"></ins></b>
+            <{if $setting.mktprice == 'true'}><i class="minor"><span class="action-saveprice"></span></i><{/if}>
+        </span>
+      </li>
+      <{if $setting.mktprice == 'true'}>
+      <li class="item">
+      <span class="label"><{t}>市场价<{/t}>：</span>
+        <span class="detail">
+          <i class="minor"><del class="action-mktprice"></del></i>
+        </span>
+      </li>
+      <{/if}>
+      <{if $setting.member_price == '1'}>
+      <li class="item">
+      <span class="label"><{t}>会员价<{/t}>：</span>
+        <span class="detail">
+          <i class="minor"><{t}>最低<{/t}><span class="action-minprice"></span><{t}>起<{/t}></i>
+          <span class="more pop-wrapper">
+            <a href="javascript:void(0);" class="action-handle"><span><{t}>更多会员价<{/t}></span><i class="icon">&#x36;</i></a>
+            <div class="pop-body action-memberprice" style="display:none;">
+            </div>
+          </span>
+        </span>
+      </li>
+      <{/if}>
+      <{if $setting.acomment.switch.discuss == 'on' && $setting.acomment.point_status == 'on'}>
+      <li class="item">
+      <span class="label"><{t}>商品评分<{/t}>：</span>
+        <span class="detail">
+          <em class="stars stars-<{$goods_point.avg_num*10}>">
+            <span class="below"><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i></span><span class="above"><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i></span>
+          </em>
+          <i>(<a href="javascript:void(0);" onclick="$$('.product-tags .tag-comment').fireEvent('click');location.href='#product_comment';"><{t}>共<{/t}><{$total_point_nums}><{t}>人评论<{/t}></a>)</i>
+        </span>
+      </li>
+      <{/if}>
+    </ul>
+</div>

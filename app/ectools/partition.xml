@@ -1,0 +1,19 @@
+<partitions>
+
+    <partition table="archive_order_bills">
+        <method>hash</method>
+        <expr>rel_id</expr>
+        <nums>4</nums>
+    </partition>
+
+    <partition table="archive_payments">
+        <method>range</method>
+        <expr>t_begin</expr>
+    </partition>
+
+    <partition table="archive_refunds">
+        <method>range</method>
+        <expr>t_begin</expr>
+    </partition>
+ 
+</partitions>

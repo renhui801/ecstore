@@ -1,0 +1,47 @@
+<div>
+<div class="tabs-wrap clearfix">
+<ul>
+    <li class="tab current"><span>添加银行</span></li>
+</ul>
+</div>
+<div style="padding: 8px; background-color: #f8f8f8; border: solid 1px #ccc; text-align: center; margin: 10px 0;">选择指定的联盟商开启银行，联盟商只能填写相关的银行信息。</div>
+<form action="index.php?app=cps&ctl=admin_bank&act=addNew" method="post">
+<div class="tableform clearfix">
+<table width="96%" border="0">
+    <tr>
+        <th width="17%">联盟商开户银行：</th>
+        <td width="83%"><span><input type="radio" name="bname" value="中国工商银行" checked>中国工商银行</span> <span><input type="radio" name="bname" value="中国农业银行">中国农业银行</span> <span><input type="radio" name="bname" value="中国银行">中国银行</span> <span><input type="radio" name="bname" value="中国建设银行">中国建设银行</span> <span><input type="radio" name="bname" value="交通银行">交通银行</span></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><span><input type="radio" name="bname" value="深圳发展银行">深圳发展银行</span> <span><input type="radio" name="bname" value="中信实业银行">中信实业银行</span> <span><input type="radio" name="bname" value="中国光大银行">中国光大银行</span> <span><input type="radio" name="bname" value="华夏银行">华夏银行</span> <span><input type="radio" name="bname" value="中国投资银行">中国投资银行</span></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><span><input type="radio" name="bname" value="招商银行">招商银行</span> <span><input type="radio" name="bname" value="广东发展银行">广东发展银行</span> <span><input type="radio" name="bname" value="福建兴业银行">福建兴业银行</span> <span><input type="radio" name="bname" value="上海浦东发展银行">上海浦东发展银行</span> <span><input type="radio" name="bname" value="海南发展银行">海南发展银行</span></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><span><input type="radio" name="bname" value="中国民生银行">中国民生银行</span> <span><input type="radio" name="bname" value="渤海银行">渤海银行</span> <span><input type="radio" name="bname" value="国家开发银行">国家开发银行</span> <span><input type="radio" name="bname" value="中国进出口银行">中国进出口银行</span> <span><input type="radio" name="bname" value="中国农业发展银行">中国农业发展银行</span></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><span><input type="radio" name="bname" value="0">其他</span><span id="otherbname" style="display:none;"><input type="text" name="other" value=""></span></td>
+    </tr>
+</table>
+</div>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确定添加"}></div>
+</form>
+</div>
+<script>
+window.addEvent('domready', function() {
+    $$('input[name=bname]').addEvent('click', function() {
+        if(this.value == 0){
+            $('otherbname').setStyle('display','block');
+        }else{
+            $('otherbname').setStyle('display','none');
+        }
+    });
+
+});
+</script>

@@ -1,0 +1,7 @@
+<cronentries>
+  <cron id="searchrule_misc_task">
+    <description>删除增量索引表拉圾数据(索引名b2c_goods)</description>
+    <schedule>30 2 * * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+</cronentries>

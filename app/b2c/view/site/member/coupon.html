@@ -1,0 +1,35 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 优惠券 -->
+  <div id="member_coupon" class="member-coupon">
+    <div class="member-title">
+      <h2><{t}>我的优惠券<{/t}></h2>
+    </div>
+
+    <div class="member-mod">
+      <table class="member-grid">
+        <thead>
+          <th><{t}>优惠券号码<{/t}></th>
+          <th><{t}>名称<{/t}></th>
+          <th><{t}>有效期<{/t}></th>
+          <th><{t}>状态<{/t}></th>
+        </thead>
+        <tbody<{if !($browser.name=="IE" && ($brower.ver == 6 || $browser.ver == 7))}> class="first"<{/if}>>
+          <{if $coupons}>
+          <{foreach from=$coupons item=item}>
+          <tr>
+            <td><{$item.memc_code}></td>
+            <td><{$item.coupons_info.cpns_name}></td>
+            <td><{$item.time.from_time|cdate:FDATE_STIME}> ~ <{$item.time.to_time|cdate:FDATE_STIME}></td>
+            <td><span class="text-<{if $item.coupons_info.cpns_status}>available<{else}>disabled<{/if}>"><{$item.memc_status}></span></td>
+          </tr>
+          <{/foreach}>
+          <{else}>
+            <tr class="first"><td colspan="4" class="no-information"><{t}>暂无优惠劵<{/t}></td></tr>
+          <{/if}>
+        </tbody>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+</div>

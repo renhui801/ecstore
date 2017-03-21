@@ -1,0 +1,269 @@
+<script>
+var Shop = window['Shop'] || <{$shopDefine|default:'null'}>;
+window.addEvent('domready',function(){
+    var __time_out = 1000;
+    if (Shop.set != undefined&&Shop.set.refer_timeout) __time_out = Shop.set.refer_timeout;
+    var ReferObj ={};
+    Object.append(ReferObj,{
+        serverTime:<{$smarty.now}>,
+        init:function(){
+            var FIRST_REFER=Memory.get('first_refer');
+            var NOW_REFER=Memory.get('now_refer');
+            var nowDate=this.time=this.serverTime*1000;
+            if(!window.location.href.test('#r-')&&!document.referrer||document.referrer.test(document.domain))return;
+            if(window.location.href.test('#r-')) Memory.clean('n');
+            if(!FIRST_REFER){
+
+                if(NOW_REFER){
+                    Memory.set('first_refer',NOW_REFER,this.getTimeOut(JSON.decode(NOW_REFER).DATE));
+                }else{
+                    this.setRefer('first_refer',__time_out);
+                }
+            }
+            this.setRefer('now_refer',__time_out);
+            this.createGUID();
+        },
+        getUid:function(){
+            var lf=window.location.href,pos=lf.indexOf('#r-');
+            return pos!=-1?lf.substr(pos+4):'';
+        },
+        getRefer:function(){
+            return document.referrer?document.referrer:'';
+        },
+        setRefer:function(referName,timeout){
+            var uid=this.getUid(),referrer=this.getRefer();
+            var data={'ID':uid,'REFER':referrer,'DATE':this.time};
+
+            if('now_refer'==referName){
+                var refer=JSON.decode(Memory.get('first_refer'));
+                if(uid!=''&&refer&&refer.ID==''){
+                    var fdata={'ID':uid,'REFER':refer.REFER,'DATE':refer.DATE};
+                    Memory.set('first_refer',JSON.encode(fdata),this.getTimeOut(refer.DATE));
+                }else if(uid==''){
+                    Object.append(data,{'ID':refer.ID});
+                }
+            }
+            Memory.set(referName,JSON.encode(data),__time_out||15);
+        },
+        getTimeOut:function(nowDate){
+            var timeout=nowDate+__time_out*24*3600*1000;
+            var date=new Date(timeout);
+            return date;
+        },
+        createGUID:function(){
+            var GUID = (function(){
+                var S4=function(){
+                    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+                };
+                return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4()).toUpperCase();
+            })();
+            Memory.set('n',GUID,3650);
+        }
+    });
+    ReferObj.init();
+});
+
+<{if $env.conf.b2c.site.login_type == 'target'}>
+(function(){
+// 快速登录框 -by tylerchao.sh@gmail.com
+var url = location.href;
+var signin = '<{link app="b2c" ctl="site_passport" act="login"}>';
+var member = '<{link app="b2c" ctl="site_member" act="index"}>';
+var passport = '<{link app="b2c" ctl="site_passport" act="index"}>';
+var signup = '<{link app="b2c" ctl="site_passport" act="signup"}>';
+document.addEvent('click:relay(a)', function(e){
+    var href = this.href;
+    if(!href) return;
+    if((href.contains(signin) && !url.contains(signin)) || (href.contains(member) && !Memory.get('member'))){
+        e.stop();
+        miniPassport(signin);
+    }
+    else if(href.contains(signup)) {
+        e.stop();
+        miniPassport(signup);
+    }
+});
+
+this.miniPassport = function(url, fn){
+    new Dialog(url, {
+        type: 'notitle',
+        title: false,
+        width: 570,
+        modal: true,
+        component: {
+            container: 'passport-container',
+            header: 'passport-header',
+            close: 'passport-btn-close',
+            body:'passport-body',
+            content: 'passport-content'
+        },
+        onClose:function() {
+            fn && fn(this);
+        },
+        asyncOptions: {
+            data: 'mini_passport=1',
+            onSuccess: function() {
+                var ifm = this.content.getElement('iframe');
+                var ifmWin = ifm.contentWindow || ifm.window;
+                ifm.scrolling = 'no';
+                // this.header.innerHTML = new Element('div').adopt(ifmWin.document.id('signupin_tags').removeClass('hide')).innerHTML + this.headerHTML;
+                var sign = ifmWin.document.id('mini_signin') || ifmWin.document.id('mini_signup');
+                var tags = ifmWin.document.id('signupin_tags');
+                //修正ie67内容区出现滚动条后定位元素跑偏问题
+                if(Browser.ie6 || Browser.ie7) sign.setStyle('position', 'relative');
+                //重新计算iframe高度
+                ifm.style.height = '';
+                ifm.setStyle('height', Math.min(ifmWin.getScrollSize().y,window.getSize().y-this.header.getSize().y-this.content.getPatch().y-this.body.getPatch().y-this.container.getPatch().y));
+                //只针对内容区域出现滚动条
+                sign.setStyle('height', parseInt(ifm.getStyle('height')) - sign.getPatch().y - tags.getSize().y - tags.getPatch('margin').y);
+                //修正ie6内容区出现滚动条后定位元素跑偏问题
+                if((Browser.ie6) && sign.getScrollSize().y == sign.getSize().y) {
+                    sign.setStyle('position', '');
+                }
+
+                this.container.position();
+            }
+        }
+    });
+}
+})();
+<{/if}>
+
+miniCart = {
+    'show':function(target){
+        target = $(target);
+        if (!target) return;
+
+        if(this.dialog){
+            this.hide();
+        }
+
+        var options = {
+                body: 'popup-body',
+                header: 'popup-header',
+                close: 'popup-btn-close',
+                content:'popup-content',
+                title:'<{t}>正在加入购物车<{/t}>',
+                main:'<div class="loading">loading...</div>'
+            }, dialog = this.dialog = new Element('div#mini_cart_dialog.popup-container.mini-cart-dialog',{
+                'html': $('popup_template').get('html').substitute(options),
+                styles:{
+                    display:'block',
+                    zIndex: maxZindex('div', 1)
+                }
+            }).inject(document.body);
+
+        this.title = dialog.getElement('.popup-header h2');
+        this.close = dialog.getElements('.popup-btn-close');
+        this.content = dialog.getElement('.popup-content');
+        this.dialog.addEvent('click:relay(.popup-btn-close)',this.hide.bind(this));
+
+        var setSize = this.setSize = function(){
+            if(!dialog.isDisplayed()) return;
+            dialog.setStyles({
+                top:target.getPosition().y+target.getSize().y,
+                left:target.getPosition().x.limit(0,window.getSize().x-dialog.getSize().x) + window.getScroll().x
+            });
+        };
+
+        setSize();
+        window.addEvent('resize',setSize);
+    },
+    'hide':function(){
+        try{
+            this.dialog.destroy();
+            window.removeEvent('resize',this.setSize);
+        }catch(e){}
+    },
+    'load':function(options){
+        options = options || {};
+        options = Object.merge({
+            method: 'post',
+            onRequest: function(){
+                miniCart.show(options.target);
+            },
+            onSuccess: function(re){
+                if(re) {
+                    this.title.innerHTML = '<{t}>提醒<{/t}>';
+                    this.content.innerHTML = re;
+                }
+
+                updateCartInfo();
+                
+                if(document.getElement('.minicart_box')&&document.getElement('.minicart_box').get('show_gallery')){
+                    document.getElement('.minicart_box').fireEvent('_show'); //迷你购物车
+                }
+                options.callback && options.callback(re);
+            }.bind(this),
+            onFailure: function(xhr){
+                this.title.innerHTML = '<{t}>提醒<{/t}>';
+                this.content.innerHTML = '<div class="minicart-error"><p align="center"><{t}>加入购物车失败。<{/t}><br /><{t}>可能库存不足或提交信息不完整。<{/t}></p></div>';
+            }.bind(this)
+        },options||{});
+        if(!options.url) return false;
+
+        new Request(options).send(options.data ? options.data.toQueryString() + '&mini_cart=true' : 'mini_cart=true');
+    },
+    init:function(target, url, data){
+        var linktocart;
+        if(typeOf(target) == 'element') linktocart = target.getElements('[target=_dialog_minicart]');
+        else if(typeOf(target) == 'elements') linktocart = target;
+        else linktocart = $$('a[target=_dialog_minicart], button[target=_dialog_minicart]');
+        if(linktocart.length){
+            linktocart.addEvent('click',function(e){
+                e.preventDefault();
+                miniCart.load({url: url || this.href, data: data || this.getParent('.goods-item') || this.getParent('li'), target: this});
+            });
+        }
+    }
+};
+
+formToCart = function(container,target) {
+    container = $(container || document.body);
+    target = target || '.action-addtocart';
+    if(!container) return;
+
+    var formtocart = container.getElement('form[target=_dialog_minicart]') || container.getFirst().getParent('form[target=_dialog_minicart]');
+    if(formtocart) {
+        formtocart.addEvent('submit', function(e){
+            e.stop();
+            target = this.getElement(target) || this.getElement('*[type=submit]');
+            miniCart.load({
+                url:this.action,
+                method:this.method,
+                data:this,
+                target: target,
+                callback: function() {
+                    target.removeClass('disabled');
+                }.bind(this)
+            });
+        });
+    };
+}
+
+window.addEvent('domready',function(){
+    miniCart.init();
+    formToCart();
+});
+</script>
+
+<script id="popup_template" type="text/template">
+  <div class="{body}">
+     <div class="{header} clearfix">
+        <h2>{title}</h2>
+        <span><button type="button" title="关闭" class="{close}" hidefocus><i>×</i></button></span>
+    </div>
+    <div class="{content} clearfix">{main}</div>
+  </div>
+</script>
+<script id="message_template" type="text/template">
+  <div class="{body} clearfix">
+    <div class="icon">{icon}</div>
+    <div class="{content}">{main}</div>
+  </div>
+</script>
+<script id="dropmenu_template" type="text/template">
+  <div class="{body}">
+    <div class="{content} clearfix">{main}</div>
+  </div>
+</script>

@@ -1,0 +1,18 @@
+<div class="home-comment">
+    <div class="title">
+        用户评论
+    </div>
+    <ul class="comment-list">
+        <{foreach from=$data item=item key=key}>
+        <li class="comment-item">
+            <a href="<{$item.goodsLink}>">
+                <i class="arr right"></i>
+                <img src="<{$item.goodsPic|storager:'m'}>" alt="<{$item.goodsName}>" class="img"/>
+                <em><{$item.goodsName}></em>
+                <span><{$item.comment}></span>
+            </a>
+        </li>
+        <{/foreach}>
+    </ul>
+</div>
+

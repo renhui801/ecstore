@@ -1,0 +1,99 @@
+<div class="dialog_gift">
+    <div class="gift spec-pic">
+        <img src="<{$goods.image_default_id|default:$image_default_id|storager:'s'}>" >
+        <span>价格:</span><span class="font-red font13px fontbold giftPrice" updateSpec='updateprice'> <{$goods.current_price|cur_odr:$order.currency}></span>
+    </div>
+    <div class="gift_specbox">
+        <div>
+            <{$goodshtml.name}>
+        </div>
+        <div>
+            <{$goodshtml.spec}>
+        </div>
+    </div>
+    <div style="clear:both">
+        <{include file="site/index/addbtn.html"}>
+    </div>
+</div>
+
+<script>
+    (function(){
+
+        var isDebug = '<{if defined("DEBUG_JS") && DEBUG_JS}>js<{else}>js_mini<{/if}>/',
+        path ='<{$env.base_url}>/app/b2c/statics/' + isDebug;
+
+        $LAB.setOptions({BasePath:path}).script('spec.js').wait(function(){
+            var dialog=document.getElement('.dialog_gift').getParent('.popup-container'),spec2image=<{$goods.spec2image}>;
+
+            dialog.getElement('.updateBtn').addEvent('_update_spec',function(el,v){
+                var l = dialog.getElement('.giftPrice').get('text').length;
+                var giftPrice = dialog.getElement('.giftPrice').get('text').substring(1,l);
+                var str='';
+                el.each(function(k,i){
+                    var img=v[i].getElement('img'),text=img?img.title:v[i].get('text');
+                    str+='<li>'+k+':'+text+'</li>';Goods_spec
+                });
+                GiftObj.getObj(dialog.retrieve('_target_'),str,spec.pid,giftPrice);
+                dialog.getElement('.popup-btn-close').fireEvent('click');
+                //dialog.fireEvent('callback',[el,v,spec.pid]).getElement('.dialog-close-btn').fireEvent('click');
+            });
+            var spec=new Goods_spec(dialog);
+
+            //默认选中
+            spec.specItems.each(function(si){
+                var spec=si.getElements('a[specvid]').filter(function(sp){
+                    return !(sp.hasClass('selected') || sp.hasClass('lock'));
+                })[0];
+                spec&&spec.fireEvent('click',{stop:function(){}});
+            });
+        });
+
+
+    /*处理规格下拉模式的换行*/
+    window.addEvent('domready',function(){
+        var handles=$$('.goods-spec .handle');
+        if(!handles.length)return;
+        var tempSelectLineTop=handles[0].getPosition().y;
+        var tempSlipIndex=0;
+        var tempCurrentIndex=-1;
+
+
+        var contents=$$('.goods-spec .content');
+        handles.each(function(select,index,selects){
+
+            var top=select.getPosition().y;
+
+            if(top>tempSelectLineTop+10){
+                $$(contents.slice(tempSlipIndex,index)).inject(select,'before');
+                tempSlipIndex=index;
+                tempSelectLineTop=top;
+            }
+
+            select.addEvent('click',function(e){
+                e.stop();
+                if(tempCurrentIndex>=0&&tempCurrentIndex!=index){
+                    selects[tempCurrentIndex].removeClass('curr');
+                    contents[tempCurrentIndex].removeClass('content-curr');
+                }
+                tempCurrentIndex=index;
+                //this.toggleClass('curr');
+                //contents[index].toggleClass('content-curr');
+
+            });
+        });
+    });
+
+    var fixEmpeyPanel = (function(el){
+        if(!el) return;
+        el.setStyle('display',el.get('text').clean().trim()?'block':'none');
+        return arguments.callee;
+    })($('selector-form'));
+
+    if($('selector-form')){
+        if($('selector-form').style.display!='none'){
+            $$('#selector-form .division').each(fixEmpeyPanel);
+        }
+    }
+    })();
+
+</script>

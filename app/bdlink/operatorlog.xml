@@ -1,0 +1,13 @@
+<root>
+<!-- 模块：营销管理(sales) -->
+    <!-- 推广链接管理 -->
+    <register module="sales" ctl="clink" act="create_link" param="generatecode" prk="id">
+        <operate_type>推广链接</operate_type>
+        <template>推广链接 %s</template>
+    </register>
+
+<!--     <register module="sales" ctl="clink" act="dorecycle" param="id">
+        <operate_type>批量删除 推广链接</operate_type>
+        <template>批量删除 推广链接 %s</template>
+    </register> -->
+</root>

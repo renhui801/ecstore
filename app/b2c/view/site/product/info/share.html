@@ -1,0 +1,65 @@
+<div class="share-recommend" id="share_recommend">
+  <{if $goods_share}>
+  <!-- share -->
+  <span class="share pop-wrapper">
+    <button type="button" class="btn btn-rounded action-handle"><span><span><i class="icon icon-share">&#x58;</i><i class="text"><{t}>分享<{/t}></i><i class="icon arrow">&#x37;</i></span></span></button>
+    <div class="pop-body" style="display:none">
+      <div class="share-mini">
+        <{foreach from=$goods_share item=row}>
+        <a href="<{$row.url}>" target="_blank" class="<{$row.key}>"><i class="icon"></i><{$row.name}></a>
+        <{/foreach}>
+      </div>
+    </div>
+  </span>
+  <{/if}>
+
+  <{if $setting.recommend == 'true'}>
+  <!-- recommend -->
+  <span class="recommend pop-wrapper">
+    <button type="button" class="btn btn-rounded action-handle"><span><span><i class="icon icon-recommend">&#x40;</i><i class="text">推荐</i><i class="icon arrow">&#x37;</i></span></span></button>
+    <div class="pop-body" style="display:none;">
+      <div class="pop-title">
+          <h3><{t}>将商品推荐给好友<{/t}></h3>
+        <div class="close"><button type="button" class="btn pop-close icon">&#xd7;</button></div>
+      </div>
+      <div class="pop-content">
+        <{if $login=='nologin'}>
+        <div class="notice"><{t}>您还没有登录，请先<{/t}>
+            <a href="<{link app=b2c ctl=site_passport act=login}>" class="lnklike"><{t}>登录<{/t}></a> <{t}>或<{/t}>
+            <a href="<{link app=b2c ctl=site_passport act=signup}>" class="lnklike"><{t}>注册<{/t}></a> <{t}>后推荐给好友<{/t}>。</div>
+        <{/if}>
+        <!-- <form action="" method="post"> -->
+          <ul class="form" id="op_recommend_form">
+            <li class="form-item">
+            <label for="" class="form-label"><{t}>发件人<{/t}>：</label>
+            <span class="form-act"><{if $login=='nologin'}><i class="not-login">(登录后显示)</i><{else}><{$member_info.uname}><{/if}></span>
+            </li>
+            <li class="form-item">
+            <label for="" class="form-label"><{t}>收件人<{/t}>：</label>
+              <span class="form-act"><textarea name="email" id="" cols="30" rows="3" placeholder="填写多个地址请用逗号“,”隔开。" vtype="required&amp;&amp;emaillist" data-caution="请填写正确邮箱地址" <{if $login=='nologin'}>disabled<{/if}>></textarea></span>
+            </li>
+            <li class="form-item">
+            <label for="" class="form-label"><{t}>内容<{/t}>：</label>
+              <span class="form-act"><textarea name="content" id="" cols="30" rows="6" vtype="required" data-caution="请填写邮件内容" <{if $login=='nologin'}>disabled<{/if}>></textarea></span>
+            </li>
+            <li class="form-item form-item-last">
+              <label for="" class="form-label"></label>
+              <span class="form-act">
+                <a class="btn btn-caution <{if $login=='nologin'}>disabled<{/if}>" rel="_request" href="<{link app=b2c ctl=site_product act=recommend arg0=$page_product_basic.goods_id arg1=$page_product_basic.product_id}>" data-ajax-config="{method:'post',data:$('op_recommend_form').toQueryString(),onSuccess:function(rs){notice.success('邮件发送成功，可继续推荐给好友', $('op_recommend_form'), 'before');}}"><span><span>发送</span></span></a>
+              </span>
+            </li>
+          </ul>
+        <!-- </form> -->
+      </div>
+    </div>
+  </span>
+  <{/if}>
+
+  <{if $login=='nologin'}>
+  <!-- favarite -->
+  <a href="<{link app=b2c ctl=site_passport act=login}>" class="btn btn-rounded btn-addfav"><span><span><i class="icon icon-fav">&#x2e;</i><i class="text"><{t}>收藏<{/t}></i></span></span></a>
+  <{else}>
+  <a href="javascript:void(0);" class="btn btn-rounded btn-addfav" rel="_favbtn_" data-gid="<{$page_product_basic.goods_id}>" <{if $page_product_basic.is_fav}> style="display:none;"<{/if}>><span><span><i class="icon icon-fav">&#x2e;</i><{t}>收藏<{/t}></span></span></a>
+  <a href="javascript:void(0);" class="btn btn-rounded btn-faved" rev="_favbtn_" <{if !$page_product_basic.is_fav}> style="display:none;"<{/if}>><span><span><{t}>已收藏<{/t}></span></span></a>
+  <{/if}>
+</div>

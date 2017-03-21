@@ -1,0 +1,10 @@
+<{if $purchase.state==2 && $enable == 'true'}>
+<{css src="groupactivity.css" app="groupactivity"}>
+<div class="group-box">
+    <p class="fl"></p>
+    <ul>
+        <li>团购价</li><li class="fontsize24"><{$purchase.price|cur}></li><li class="btn" onclick="location.href='<{$group_url}>'"></li>
+    </ul>
+    <p class="fr"></p>
+</div>
+<{/if}>

@@ -1,0 +1,43 @@
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span class="bold">佣金报表</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="myacc_box">
+<div class="myacc_line">
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">实时业绩查询</div>
+<div class="myacclist_main">
+<div class="myacclist_text">查询业绩，提供实时订单查询功能</div>
+<div class="myacclist_but"><a href="<{link app='cps' ctl='site_welcome' act='profitSearch'}>" class="text_color1">查询我的实时业绩</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">查询订单详情</div>
+<div class="myacclist_main">
+<div class="myacclist_text">只能查询属于您的业绩的订单</div>
+<div class="myacclist_but"><a href="<{link app='cps' ctl='site_welcome' act='orderSearch'}>" class="text_color1">查询我的订单详情</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="clear"></div>
+</div>
+<!--myacc_line-->
+<div class="myacc_line">
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">收益月报表查询</div>
+<div class="myacclist_main">
+<div class="myacclist_text">如果想查看过去各月产生的业绩情况，以及分别赚取了多少佣 金，那么收益月报表就可以支持到该数据的查询</div>
+<div class="myacclist_but"><a href="<{link app='cps' ctl='site_welcome' act='incomeSearch'}>" class="text_color1">查看我的收益月报</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="clear"></div>
+</div>
+<!--myacc_line--></div>
+</div>
+<div class="clear"></div>
+<script>
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

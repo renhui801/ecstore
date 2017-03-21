@@ -1,0 +1,25 @@
+<div id="<{$params.domid}>" class="object-select clearfix" style="display:inline-block;*zoom:1;" <{$addons}> >
+  <div class="label" id="<{$id}>" rel="<{$string}>"><{$string}></div>
+  <div class="handle">&nbsp;</div>
+  <input type="hidden" name="<{$params.name}>" id="list_datas" vtype="<{$params.vtype}>" value="<{if is_array($params.value)}><{$params.value|implode:','}><{else}><{$params.value}><{/if}>" />
+</div>
+<script>
+  $('<{$params.domid}>').getElements('.label,.handle').addEvent('click', function(e){
+    Ex_Loader('modedialog',function(){
+      new finderDialog('<{$url}>', {
+        handle:'handle_<{$params.domid}>',
+        <{if $init}>
+        onInit:<{$init}>,
+        <{/if}>
+        onCallback:function(rs){<{if $callback}><{$callback}>(rs);<{/if}>$('handle_<{$params.domid}>').show();},
+        params:{
+          app:'<{$app}>',
+          url:'<{$return_url}>',
+          type:'<{$params.type}>',
+          name:'data[]',
+          postdata:'app_id=<{$params.app_id}>&<{$object}>'
+        }
+      });
+    });
+  });
+</script>

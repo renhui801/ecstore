@@ -1,0 +1,42 @@
+
+<div class="full-screen">
+    <header>
+        <div class="a-bar">
+            <a href="javascript:history.back()" class="a-back">
+                <i class="arr left"></i>
+                返回
+            </a>
+            <div class="a-name">
+                我已付款，留言
+            </div>
+        </div>
+    </header>
+    <div class="address-form">
+        <form action='<{link app=b2c ctl="wap_member" act="toadd_order_msg"}>' method="post" class="form" data-type="ajax">
+            <input type="hidden" name="msg[orderid]" value="<{$orderId}>"/>
+            <input type="hidden" name="msg[msgType]" value="1"/>
+            <div class="c-g">
+                <label class="c-l"><em class="f-red">*</em> 付款金额：</label>
+                <div class="c"><input type="text" name="msg[paymoney]" class="text" required="required" data-caution="请填写付款金额"></div>
+            </div>
+            <div class="c-g">
+                <label class="c-l"><em class="f-red">*</em> 付款方式：</label>
+                <div class="c"><input type="text" name="msg[payments]" class="text" required="required" data-caution="请填写付款方式"></div>
+            </div>
+            <div class="c-l-g">
+                <label class="c-l"><em class="f-red">*</em> 付款时间：</label>
+                <div class="c"><input type="date" name="msg[paydate][]" required="required" data-caution="请填写付款时间">&nbsp;
+                <{input type="select" name="msg[paydate][]" options=$timeHours}>&nbsp;时&nbsp;
+                <{input type="select" name="msg[paydate][]" options=$timeMins}>&nbsp;分
+                </div>
+            </div>
+            <div class="c-g">
+                <label class="c-l">备注：</label>
+                <div class="c">
+                    <textarea name="msg[message]" cols="30" rows="5" class="text"></textarea>
+                </div>
+            </div>
+            <button type="submit" class="btn" rel="_request">确　定</button>
+        </form>
+    </div>
+</div>

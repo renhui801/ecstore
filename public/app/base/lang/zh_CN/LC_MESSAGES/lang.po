@@ -1,0 +1,946 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:12
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:51
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:55
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:68
+msgid "大于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:12
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:51
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:55
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:68
+msgid "小于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:12
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:17
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:21
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:51
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:55
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:68
+msgid "等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:12
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:51
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:55
+msgid "小于等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:12
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:51
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:55
+msgid "大于等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:12
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:32
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:51
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:55
+msgid "介于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:17
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:21
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:28
+msgid "包含"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:17
+msgid "开头等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:17
+msgid "结尾等于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:17
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:21
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:28
+msgid "不包含"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:32
+msgid "晚于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:32
+msgid "早于"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//datatypes.php:32
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:79
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:88
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:97
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:17
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:151
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:263
+msgid "是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:16
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/kvstore.php:16
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:21
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:20
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:23
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:12
+msgid "序号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:25
+msgid "service类型(service_category和service)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:34
+msgid "应用的app_id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:38
+msgid "service category name - service id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:43
+msgid "optname"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:47
+msgid "class name只有type为service才有"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:53
+msgid "排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:58
+msgid "加载时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:63
+msgid "是否有效"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/app_content.php:67
+msgid "app资源信息表, 记录app的service信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:19
+msgid "程序目录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:25
+msgid "应用程序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:26
+msgid "调试模式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:29
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:33
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:68
+msgid "状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:34
+msgid "已安装, 未启动"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:35
+msgid "已配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:36
+msgid "正在启动"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:37
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:35
+msgid "运行中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:38
+msgid "正在关闭"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:39
+msgid "尚未安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:40
+msgid "已损坏"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:41
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:37
+msgid "已暂停"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:46
+msgid "远程地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:47
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:68
+msgid "说明"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:48
+msgid "当前版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:49
+msgid "最新版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:50
+msgid "作者名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:51
+msgid "作者url"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:52
+msgid "作者邮件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:53
+msgid "目前安装版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:54
+msgid "远程配置信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/apps.php:58
+msgid "系统应用表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/cache_expires.php:16
+msgid "类型,目前两种conf和db两种"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/cache_expires.php:22
+msgid "缓存名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/cache_expires.php:27
+msgid "最后更新时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/cache_expires.php:32
+msgid "应用ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/cache_expires.php:48
+msgid "cache的过期判断-全页缓存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:16
+msgid "定时任务ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:29
+msgid "描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:38
+msgid "开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:47
+msgid "规则"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:55
+msgid "最后执行时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:66
+msgid "app应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:71
+msgid "定时任务类名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:81
+msgid "定时器类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/crontab.php:88
+msgid "定时任务表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/files.php:12
+msgid "文件ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/files.php:13
+msgid "文件路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/files.php:14
+msgid "私有"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/files.php:14
+msgid "共有"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/files.php:14
+msgid "文件类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/files.php:15
+msgid "最后更改时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/files.php:18
+msgid "上传文件存放表, 非图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/kvstore.php:21
+msgid "kvstore类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/kvstore.php:26
+msgid "kvstore存储的键值"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/kvstore.php:30
+msgid "kvstore存储值"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/kvstore.php:34
+msgid "存储修改时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/kvstore.php:39
+msgid "过期时间,0代表不过期"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/kvstore.php:62
+msgid "kvstore存储表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:26
+msgid "名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:36
+msgid "网址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:45
+msgid "api地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:55
+msgid "正常"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:56
+msgid "维护"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:57
+msgid "等待对方确认..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:61
+msgid "关联类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:74
+msgid "验证玛"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/network.php:79
+msgid "网络互联表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:25
+msgid "队列名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:36
+msgid "休眠中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:38
+msgid "执行失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:52
+msgid "执行目标(classname.methodname)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:56
+msgid "任务产生时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:64
+msgid "上次运行时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:71
+msgid "队列长度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:78
+msgid "剩余任务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:85
+msgid "执行游标"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:91
+msgid "任务唯一标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:95
+msgid "永久任务名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:99
+msgid "参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:101
+msgid "参数，通常就是filter"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:108
+msgid "错误信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/queue.php:138
+msgid "队列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:36
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:76
+msgid "成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:37
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:77
+msgid "失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:39
+msgid "响应结果"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:49
+msgid "消息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:56
+msgid "通知时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:65
+#: /Users/bryant/codes/ecstore-release/app/base//model/rpcnotify.php:34
+msgid "已读"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:66
+#: /Users/bryant/codes/ecstore-release/app/base//model/rpcnotify.php:32
+msgid "未读"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:74
+msgid "通知是否未读"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcnotify.php:90
+msgid "ec-rpc的通知"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:18
+msgid "进程序号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:25
+msgid "发出请求"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:26
+msgid "接收的请求"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:28
+msgid "类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:34
+msgid "请求或被请求时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:40
+msgid "连接节点名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:46
+msgid "同步的接口名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:50
+msgid "请求和响应的参数(序列化)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:53
+msgid "回调地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:60
+msgid "请求响应的结果"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:68
+msgid "失败的次数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:81
+msgid "交互状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//dbschema/rpcpoll.php:109
+msgid "ec-rpc连接池表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/cache/secache/model.php:631
+msgid "缓存命中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/cache/secache/model.php:632
+msgid "缓存未命中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/cache/secache.php:33
+msgid "已使用缓存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/component/ui.php:430
+msgid "个未显示"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/controller.php:56
+msgid "操作成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/controller.php:56
+msgid "成功："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/controller.php:60
+msgid "操作失败: 对不起,无法执行您要求的操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/crontab/schedule.php:16
+msgid "1分钟之内不能重复执行"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/db/connections.php:164
+msgid "无法连接数据库:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/db/model.php:162
+msgid "不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:13
+msgid "(标准时-12) 日界线西"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:14
+msgid "(标准时-11) 中途岛、萨摩亚群岛"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:15
+msgid "(标准时-10) 夏威夷"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:16
+msgid "(标准时-9) 阿拉斯加"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:17
+msgid "(标准时-8) 太平洋时间(美国和加拿大)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:18
+msgid "(标准时-7) 山地时间(美国和加拿大)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:19
+msgid "(标准时-6) 中部时间(美国和加拿大)、墨西哥城"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:20
+msgid "(标准时-5) 东部时间(美国和加拿大)、波哥大"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:21
+msgid "(标准时-4) 大西洋时间(加拿大)、加拉加斯"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:22
+msgid "(标准时-3) 巴西、布宜诺斯艾利斯、乔治敦"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:23
+msgid "(标准时-2) 中大西洋"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:24
+msgid "(标准时-1) 亚速尔群岛、佛得角群岛"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:25
+msgid "(格林尼治标准时) 西欧时间、伦敦、卡萨布兰卡"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:26
+msgid "(标准时+1) 中欧时间、安哥拉、利比亚"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:27
+msgid "(标准时+2) 东欧时间、开罗，雅典"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:28
+msgid "(标准时+3) 巴格达、科威特、莫斯科"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:29
+msgid "(标准时+4) 阿布扎比、马斯喀特、巴库"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:30
+msgid "(标准时+5) 叶卡捷琳堡、伊斯兰堡、卡拉奇"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:31
+msgid "(标准时+6) 阿拉木图、 达卡、新亚伯利亚"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:32
+msgid "(标准时+7) 曼谷、河内、雅加达"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:33
+msgid "(北京时间) 北京、重庆、香港、新加坡"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:34
+msgid "(标准时+9) 东京、汉城、大阪、雅库茨克"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:35
+msgid "(标准时+10) 悉尼、关岛"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:36
+msgid "(标准时+11) 马加丹、索罗门群岛"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/location.php:37
+msgid "(标准时+12) 奥克兰、惠灵顿、堪察加半岛"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/rpc/service.php:214
+msgid "该请求已经处理，不能在处理了！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:40
+msgid "应用提供的命令："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:49
+msgid "原生php命令"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:50
+msgid "输入命令如果以分号[;]结尾，则被认为是一条php语句.  例如:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:184
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:490
+msgid "与"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:184
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:490
+msgid "存在冲突"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:186
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:492
+msgid "请手工卸载冲突应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:198
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:221
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:498
+msgid "无法找到应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:252
+msgid "产品名称无法找到！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:438
+msgid "以下应用依赖欲删除的app: "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:439
+msgid "使用 -r 参数按依赖关系全部删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:464
+msgid "以下应用依赖欲暂停的app: "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/buildin.php:465
+msgid "使用 -r 参数按依赖关系全部暂停"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/loader.php:174
+msgid "输入项目编号,或输入井号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/loader.php:174
+msgid "确认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/loader.php:187
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/loader.php:204
+msgid "输入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/loader.php:193
+msgid "选择合适的"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/loader.php:199
+msgid "输入合适的"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/loader.php:199
+msgid "编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/shell/prototype.php:98
+msgid "请输入要执行的指令："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/cachemgr.php:517
+msgid "当前缓存控制器无法显示状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/cachemgr.php:533
+msgid "当前缓存控制器无需优化"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:25
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:819
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:142
+msgid "女"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:26
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:816
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:139
+msgid "男"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:78
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:87
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/modifiers.php:96
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:21
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:154
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:266
+msgid "否"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/utils.php:271
+msgid "因权限原因 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/static/utils.php:271
+msgid "无法删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:479
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:479
+msgid "上一页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:480
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:480
+msgid "已经是第一页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:483
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:483
+msgid "下一页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:484
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:484
+msgid "已经是最后一页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:488
+msgid "随便一页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:530
+msgid "到第"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:531
+msgid "页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:850
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:868
+msgid "低于1"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/helper.php:860
+msgid "超过99"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:122
+msgid "下载"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:129
+msgid "选择上传的文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//lib/view/input.php:129
+msgid "上传"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//model/services.php:23
+#: /Users/bryant/codes/ecstore-release/app/base//model/services.php:54
+#: /Users/bryant/codes/ecstore-release/app/base//model/services.php:59
+msgid "支式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:15
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:28
+msgid "数据库主机"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:16
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:29
+msgid "数据库用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:17
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:30
+msgid "数据库密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:18
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:31
+msgid "数据库名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:19
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:32
+msgid "数据库表前缀"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:21
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:34
+msgid "默认时区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:22
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:35
+msgid "电子邮箱或企业帐号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:23
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:36
+msgid "密码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:66
+msgid "Error: 需要填写数据库主机"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:70
+msgid "Error: 需要填写数据库用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:74
+msgid "Error: 请选择数据库"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:78
+msgid "Error: 数据库前缀不支持以'sdb_'开头的两级划分，可改用例如"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:78
+msgid "为数据库前缀"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:84
+msgid "Error: 数据库连接错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:90
+msgid "Error: 数据库需高于4.1的版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:95
+msgid "Error: 数据库"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:95
+msgid "不存在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:101
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:126
+msgid "Error: 没有找到config文件，ECAE环境下请将base/example下的ecae.config.php改名为config.php放入config文件夹"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:106
+#: /Users/bryant/codes/ecstore-release/app/base//task.php:131
+msgid "Error: Config文件写入错误"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/base//testcase/queue.php:18
+#: /Users/bryant/codes/ecstore-release/app/base//testcase/queue.php:37
+msgid "测试任务"
+msgstr ""
+

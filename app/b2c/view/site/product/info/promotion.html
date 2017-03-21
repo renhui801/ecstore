@@ -1,0 +1,63 @@
+<{if $page_product_basic.promotion.gift}>
+<div class="product-gifts clearfix">
+  <div class="label"><{t}>赠　品<{/t}>：</div>
+    <ul class="detail">
+      <{foreach from=$page_product_basic.promotion.gift item=gift}>
+      <li <{if ($gift.store-$gift.freez)<=0}>class="useless"<{/if}>><img src="<{$gift.image_default_id|storager:'s'}>" alt="<{$gift.name}>" width="24" height="24"><a href="<{link app=gift ctl=site_gift arg0=$gift.product_id}>"><{$gift.name}></a></li>
+      <{/foreach}>
+    </ul>
+</div>
+<{/if}>
+
+<{if $page_product_basic.promotion.goods || ($setting.show_order_sales == 'true' && $page_product_basic.promotion.order)}>
+<div class="product-promotion clearfix auto-switchable" id="product_promotion">
+  <ul class="tabs clearfix switchable-triggerBox">
+    <{if $page_product_basic.promotion.goods}>
+    <li class="active"><em><{t}>商品促销<{/t}></em></li>
+    <{/if}>
+    <{if $setting.show_order_sales == 'true' && $page_product_basic.promotion.order}>
+    <li<{if !$page_product_basic.promotion.goods}> class="active"<{/if}>><em><{t}>订单促销<{/t}></em></li>
+    <{/if}>
+  </ul>
+  <!-- <div class="bd"> -->
+  <{if $page_product_basic.promotion.goods}>
+  <div class="switchable-panel">
+    <div class="panel-top" <{if count($page_product_basic.promotion.goods)>3}>style="height:82px;"<{/if}>>
+      <ul>
+        <{foreach from=$page_product_basic.promotion.goods item=goods}>
+        <li<{if $goods.use != 'true'}> class="useless" title="<{t}>会员等级不符，您不能享受此优惠<{/t}>"<{/if}>>
+          <em class="tag"><{$goods.tag}></em><span class="name"><{$goods.name}></span>
+        </li>
+        <{/foreach}>
+      </ul>
+    </div>
+    <{if count($page_product_basic.promotion.goods)>3}>
+    <div class="panel-bottom">
+      <div class="trigger action-slidedown">
+        <i class="icon" data-toggle="&#x37;">&#x36;</i><span class="text" data-toggle="收起">更多</span>
+      </div>
+    </div>
+    <{/if}>
+  </div>
+  <{/if}>
+  <{if $setting.show_order_sales == 'true' && $page_product_basic.promotion.order}>
+  <div class="switchable-panel" <{if $page_product_basic.promotion.goods}>style="display:none;"<{/if}>>
+    <div class="panel-top" <{if count($page_product_basic.promotion.order)>3=='true'}>style="height:82px;"<{/if}>>
+      <ul>
+        <{foreach from=$page_product_basic.promotion.order item=order}>
+        <li><em class="tag"><{$order.tag}></em><span class="name"><{$order.name}></span></li>
+        <{/foreach}>
+      </ul>
+    </div>
+    <{if count($page_product_basic.promotion.order)>3}>
+    <div class="panel-bottom">
+      <div class="trigger action-slidedown">
+        <i class="icon" data-toggle="&#x37;">&#x36;</i><span class="text" data-toggle="收起">更多</span>
+      </div>
+    </div>
+    <{/if}>
+  </div>
+  <{/if}>
+  <!-- </div> -->
+</div>
+<{/if}>

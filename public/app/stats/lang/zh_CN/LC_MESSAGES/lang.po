@@ -1,0 +1,59 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/stats//controller/admin/bussiness.php:35
+msgid "LICENSE错误！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats//controller/site/statsajax.php:22
+msgid "获取数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats//lib/desktop/widgets/exstatistics.php:30
+msgid "生意经分析"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats//setting.php:10
+msgid "生意经接口是否开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats//setting.php:11
+msgid "生意经接口地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats//setting.php:12
+msgid "生意经是否开通"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats/view/desktop/widgets/exstatistics.html:4
+msgid "更多分析>>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats/view/site/openstats.html:5
+msgid "生意经开通成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats/view/site/openstats.html:23
+msgid "恭喜你，开通成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/stats/view/site/openstats.html:28
+msgid "立即刷新状态"
+msgstr ""
+

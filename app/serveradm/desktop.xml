@@ -1,0 +1,13 @@
+<desktop>
+    <permissions>
+        <permission id="serveradm" display='true'>服务器信息</permission>
+    </permissions>
+    
+    <workground name="XHProf" id="serveradm.wrokground.xhprof" controller="admin_xhprof" action="index" order="70">
+        <menugroup name="XHProf">
+            <menu controller='admin_xhprof' action='index' display='true' order='10'  permission='serveradm'>XHProf列表</menu>
+            <menu controller='admin_xhprof' action='intro' display='true' order='10'  permission='serveradm'>XHProf说明</menu>
+            <menu controller='admin_xhprof' action='doc' display='true' order='10'  permission='serveradm'>XHProf文档</menu>
+        </menugroup>
+	</workground>
+</desktop>

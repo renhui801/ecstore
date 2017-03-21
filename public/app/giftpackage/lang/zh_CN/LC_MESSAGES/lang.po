@@ -1,0 +1,92 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//controller/admin/giftpackage.php:31
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//controller/site/giftpackage.php:30
+msgid "礼包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//controller/admin/giftpackage.php:33
+msgid "添加礼包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//controller/site/giftpackage.php:120
+msgid "加入购物车成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//controller/site/giftpackage.php:128
+msgid "参数错误！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//dbschema/order_ref.php:38
+msgid "订单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//dbschema/order_ref.php:48
+msgid "礼包id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//dbschema/order_ref.php:58
+msgid "数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//dbschema/order_ref.php:65
+msgid "会员 id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//dbschema/order_ref.php:69
+msgid "礼包购买记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//lib/finder/giftpackage.php:20
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//lib/finder/giftpackage.php:21
+msgid "预览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//lib/order/service/giftpackage.php:93
+msgid "礼包库存不足！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//lib/order/service/giftpackage.php:424
+msgid ":"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage//lib/order/service/giftpackage.php:424
+msgid " "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage/view/admin/order/admin_order_edit.html:21
+msgid "删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage/view/admin/page.html:30
+msgid "确定退出?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage/view/admin/page.html:31
+msgid "保存并关闭窗口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/giftpackage/view/site/cart/item/giftpackage_checkout.html:24
+msgid "礼包商品"
+msgstr ""
+

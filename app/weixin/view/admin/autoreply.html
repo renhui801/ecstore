@@ -1,0 +1,90 @@
+<form action="index.php?app=weixin&ctl=admin_autoreply&act=save" id='addimagereply-edit-form' method="POST">
+  <{input type="hidden" name='id' value=$data.id}>
+  <{input type="hidden" name='reply_type' value=$reply_type}>
+  <div class="tableform">
+    <div class="division">
+      <table width="100%" cellspacing="0" cellpadding="0">
+        <tbody>
+          <{if $reply_type == 'keywords'}>
+          <tr>
+            <th><em class="red">*</em><label>关键字:</label></th>
+            <td><{input type="text" name="keywords" required="true" value=$data.keywords}></td>
+          </tr>
+          <{/if}>
+          <tr>
+            <th><em class="red">*</em><label>微信公众账号:</label></th>
+            <td><{input type="select" name="bind_id" required="true" value=$data.bind_id options=$publicNumber label="name"}></td>
+          </tr>
+          <tr>
+            <th><label for="title"><{t}>消息类型:<{/t}></label></th>
+            <td>
+              <input type='radio' class="act-switch" name=message_type value='text' <{if $data.message_type != 'image'}>checked<{/if}>>文字消息
+              <input type='radio' class="act-switch" name=message_type value='image' <{if $data.message_type == 'image'}>checked<{/if}> >图文消息
+            </td>
+          </tr>
+          <tr class="switch-cont text" <{if $data.message_type == 'image'}> style="display:none;"<{/if}> >
+            <th><label for="title"><{t}>绑定文字消息:<{/t}></label></th>
+            <td>
+              <{input type="object" name='message_id[text]' value=$data.text.message_id cols='name' textcol="name" breakpoint=0  object=message_text app=weixin select='radio'}>
+            </td>
+          </tr>
+          <tr class="switch-cont image" <{if $data.message_type != 'image'}> style="display:none;" <{/if}>>
+            <th><label for="title"><{t}>绑定图文消息:<{/t}></label></th>
+            <td>
+              <{input type="object" name='message_id[image]' value=$data.image.message_id cols="name" textcol="name" breakpoint=0 object=message_image filter="parent_id=0&has_children=true" app=weixin select='radio'}>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="table-action">
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <{button class="btn-primary" id="addimagereply-edit-form-submit" type="submit" label=$___weixin="保存"|t:'weixin'}>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>
+<script>
+  (function(){
+    var _form = $('addimagereply-edit-form');
+    var btn =$('addimagereply-edit-form-submit');
+    var finder = finderGroup['<{$env.get._finder.finder_id}>'];
+
+    $$(".act-switch").addEvent('change', function(e) {
+      var val = this.value;
+      if(this.checked) {
+        this.getParent('tbody').getElement('.' + val).show().getSiblings('.switch-cont').hide();
+      }
+    })
+
+    _form.store('target',{
+      onSuccess:function(response){
+        var hash_res_obj = JSON.decode(response);
+
+        if (hash_res_obj.success != undefined && hash_res_obj.success != "")
+    {
+      try{
+        var _dialogIns = btn.getParent('.dialog').retrieve('instance');
+      }catch(e){}
+
+      if(_dialogIns)
+    {
+      _dialogIns.close();
+      window.finderGroup['<{$env.get._finder.finder_id}>'].refresh();
+    }
+    }
+
+      }
+    });
+    btn.addEvent('click',function(){
+      _form.fireEvent('submit',{stop:$empty});
+    });
+
+  })();
+</script>

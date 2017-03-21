@@ -1,0 +1,8 @@
+<partitions>
+
+    <partition table="archive_return_product">
+        <method>range</method>
+        <expr>add_time</expr>
+    </partition>
+
+</partitions>

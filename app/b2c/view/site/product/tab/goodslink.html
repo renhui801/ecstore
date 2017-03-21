@@ -1,0 +1,62 @@
+<{if $page_goodslink}>
+<div class="mod">
+  <div class="mod-title"><h2><{t}>相关商品<{/t}></h2></div>
+  <div class="mod-content">
+    <div class="flip prev over"><a href="" class="icon">&#x34;</a></div>
+    <div class="product-related-content">
+      <ul class="clearfix switchable-content">
+        <{foreach from=$page_goodslink.link key=key item=row}>
+        <li class="goods-item">
+        <div class="goods-pic"><a href="<{link app=b2c ctl=site_product arg0=$page_goodslink.products.[$row.goods_id]}>"><img src="<{$row.image_default_id|storager:'s'}>" alt="<{$row.name}>"></a></div>
+          <div class="goods-info">
+            <h3 class="goods-name"><a href="<{link app=b2c ctl=site_product arg0=$page_goodslink.products.[$row.goods_id]}>"><{$row.name}></a></h3>
+            <p>销售价：
+              <span class="price"><{$row.price}></span>
+            </p>
+          </div>
+        </li>
+        <{/foreach}>
+      </ul>
+    </div>
+    <div class="flip next"><a href="" class="icon">&#x35;</a></div>
+  </div>
+</div>
+<script type="text/javascript">
+//以下相关商品
+(function (){
+    //计算中间区域宽度及item边距，并用于切换
+    var cols;
+    var section = $('product_section');
+    var autoArea = $('product_related');
+    if(!autoArea) return;
+    var group = autoArea.getElement('.product-related-content');
+    var groupWidth = section.getSize().x-section.getPatch('padding','border').x - group.getPatch().x;
+    var item = group.getElement('.goods-item');
+    var itemWidth = item.measure(function(){
+        return this.getSize().x + this.getPatch('margin').x;
+    });
+    cols = (groupWidth / itemWidth).toInt();
+    groupWidth = cols * itemWidth;
+    group.setStyles({'margin':'0 auto','width': groupWidth});
+
+    new Switchable(autoArea, {
+        haslrbtn:true,
+        autoplay: false,
+        viewSize: [groupWidth],
+        circular: false,
+        disableCls: 'over',
+        steps: cols,
+        hasTriggers:false,
+        position: '',
+        effect: 'scrollx',
+        onInit: function() {
+            if(this.content[0].getStyle('width').toInt() <= groupWidth) {
+                this.prevbtn.setStyle('visibility', 'hidden');
+                this.nextbtn.setStyle('visibility', 'hidden');
+                autoArea.setStyle('width', section.getSize().x - section.getPatch('padding', 'border').x - autoArea.getPatch().x);
+            }
+        }
+    });
+})();
+</script>
+<{/if}>

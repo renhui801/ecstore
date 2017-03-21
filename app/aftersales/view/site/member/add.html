@@ -1,0 +1,117 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的评论 -->
+  <div id="member_aftersales" class="member-aftersales">
+    <div class="member-tabs">
+      <a href="<{link app=aftersales ctl=site_member act=afterlist}>" class="active"><em><{t}>申请退换货<{/t}></em></a>
+      <a href="<{link app=aftersales ctl=site_member act=afterrec}>"><em><{t}>退换货记录<{/t}></em></a>
+    </div>
+    <div class="member-mod">
+      <iframe src="about:blank" name="upload" frameborder="0" class="hide"></iframe>
+      <form action="<{link app=aftersales ctl=site_member act=return_save}>" method="post" enctype="multipart/form-data" encoding="multipart/form-data" target="upload">
+        <input type="hidden" name="order_id" value="<{$order_id}>">
+        <h3><span class="label-warning">1</span><{t}>请选择需要退换货的商品以及数量<{/t}></h3>
+        <div id="member_aftersales_goods" class="member-aftersales-goods">
+          <table class="member-grid">
+            <thead>
+              <tr>
+                <th><{t}>申请<{/t}></th>
+                <th><{t}>数量<{/t}></th>
+                <th><{t}>货号<{/t}></th>
+                <th><{t}>商品名称<{/t}></th>
+                <th><{t}>单价<{/t}></th>
+              </tr>
+            </thead>
+            <tbody class="first">
+	            <{foreach from=$order.items item=item key=key name=name}>
+              <tr class="<{if $smarty.foreach.name.iteration == 1}>first<{/if}>">
+                <td class="actions">
+                  <input type="checkbox" name="product_bn[<{$item.products.product_id}>]" value='<{$item.bn}>' id="" class="x-check" vtype="requiredcustom" data-validatormsg="请先选择要退换的商品">
+                  <label for=""><{t}>退换<{/t}></label>
+                </td>
+                <td class="numbers">
+                  <{input type="select" name="product_nums[{$item.products.product_id}]" options=$item.arrNum class="x-select" required=true value=$item.quantity}>
+                </td>
+                <td class="itemno"><{$item.bn}></td>
+                <input type="hidden" name="product_name[<{$item.products.product_id}>]" value=<{$item.name}> >
+                <td class="goods-name"><a href="<{$item.link_url}>"><img width="30px;" src="<{$item.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" title="<{$item.name}>&nbsp;<{$item.attr}>" alt="<{$item.name}>&nbsp;<{$item.attr}>"></a><{$item.name}></td>
+                <input type="hidden" name="product_price[<{$item.products.product_id}>]" value=<{$item.price}> >
+                <td class="price"><{$item.price|cur_odr:$order.currency}></td>
+              </tr>
+              <{/foreach}>
+            </tbody>
+          </table>
+        </div>
+
+        <h3><span class="label-warning">2</span><{t}>填写退换理由，如有必要也可附图说明<{/t}></h3>
+        <ul class="member-content">
+          <li class="form-item">
+            <label for="" class="form-label"><em class="warn">*</em><{t}>类型：<{/t}></label>
+            <span class="form-act">
+              <input type="radio" name="type" value="1" id="return" vtype="required" data-caution="请填写退换理由" checked="checked"><label for="return">退货</label>
+              <input type="radio" name="type" value="2" id="exchange" vtype="required" data-caution="请填写换货理由"><label for="exchange">换货</label>
+            </span>
+          </li>
+          <li class="form-item">
+            <label for="" class="form-label"><em class="warn">*</em><{t}>退换理由：<{/t}></label>
+            <span class="form-act">
+              <input type="text" name="title" id="" class="x-input" placeholder="简单描述退换理由" vtype="required" data-caution="请填写退换理由">
+            </span>
+          </li>
+          <li class="form-item">
+            <label for="" class="form-label"><{t}>详细描述<{/t}>：</label>
+            <span class="form-act">
+              <textarea name="content" id="" class="x-input" cols="50" rows="5" placeholder="请描述遇到的问题以及详细的退换理由，不超过1000字"></textarea>
+            </span>
+          </li>
+          <li class="form-item">
+            <label for="" class="form-label"><{t}>上传图片<{/t}>：</label>
+            <span class="form-act">
+              <input type="hidden" name="MAX_FILE_SIZE" value="2097152" />
+              <input type="file" name="file" id="" accept="image/gif,image/jpg,image/jpeg,image/png">
+              <span class="form-sub-label"><{t}> 图片大小不超过2M，格式为jpg,gif,jpeg,png<{/t}></span>
+            </span>
+          </li>
+          <li class="form-item">
+            <span class="form-act form-act-special">
+              <input type="checkbox" checked="checked" name="agree" id="" class="x-check" vtype="onerequired" data-caution="请先选择同意">
+              <label for="">同意 <a href="javascript:openWindow('<{link app=aftersales ctl=site_member act=read}>', {width:800, height:0.8,position:'center'});">售后服务须知</a></label>
+            </span>
+          </li>
+          <li class="form-item"><span class="form-act">
+              <{button type="submit" class="btn-caution" label="提交申请"}>
+              <a href="<{link app=aftersales ctl=site_member act=afterlist}>" class="btn btn-simple"><span><span><{t}>取消申请<{/t}></span></span></a>
+          </span></li>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+Object.merge(validatorMap, {
+    requiredcustom: function(element, v, type, parent){
+        var name = element.name;
+        if(!parent.getElement('.member-grid').getElements('input[type=' + type + ']').some(function(el) {
+            element.bindEvent = false;
+            return el.checked;
+        })) {
+            return Message.error(element.get('data-validatormsg'));
+        }
+        return true;
+    }
+});
+var submit = $('member_aftersales').getElement('button[type=submit]');
+
+function ajax_callback(type, msg, url) {
+    if(type == 'error') {
+        submit.removeClass('disabled');
+    }
+    return top.Message( msg, type, function(){
+        if(url) location.href = url;
+    });
+}
+$('member_aftersales_goods').getElements('input[type=checkbox]').addEvent('click', function(){
+    this.getParent('tr')[this.checked ? 'addClass' : 'removeClass']('selected');
+});
+</script>
+

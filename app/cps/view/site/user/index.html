@@ -1,0 +1,66 @@
+<div class="main2_head">
+<div class="m2head_6"></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span>
+<p>如没有设置收款账户，请设置 <a href="<{link app='cps' ctl='site_welcome' act='user_pay_account_edit'}>">收款账户</a></p>
+</div>
+</div>
+<div class="main2_content">
+<div class="myacc_box">
+<div class="myacc_line">
+<div class="yongjin bg_color1 bor_color1">上月有效佣金:<span class="text_20 text_color3" style="padding:0px 6px;"><{$grant}></span>元已发放，请查收。 还未发放佣金为<span class="text_20 text_color3" style="padding:0px 6px;"><{$ungrant}></span>元<a class="text_color1" href="<{link app='cps' ctl='site_welcome' act='incomeSearch'}>">查看详情</a></div>
+</div>
+<div class="myacc_line">
+<div class="myacclist">
+<div class="myacclist_top bg_color1"><span><a href="<{link app='cps' ctl='site_info' act='lists' arg0='1'}>">更多</a></span>联盟公告</div>
+<div class="myacclist_main">
+<ul class="mainlist">
+<{foreach from=$notices item=row}>
+    <li><a href="<{link app=cps ctl=site_info act=index arg0=$row.info_id}>"><{$row.title}></a></li>
+<{/foreach}>
+</ul>
+<div class="clear"></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="myacclist">
+<div class="bg_color1 myacclist_top"><span><a href="<{link app='cps' ctl='site_info' act='lists' arg0='2'}>">更多</a></span>常见问题</div>
+<div class="myacclist_main">
+<ul class="mainlist">
+<{foreach from=$faqs item=row}>
+    <li><a href="<{link app=cps ctl=site_info act=index arg0=$row.info_id}>"><{$row.title}></a></li>
+<{/foreach}>
+</ul>
+<div class="clear"></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="clear"></div>
+</div>
+<!--myacc_line-->
+<div class="myacc_line">
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">获取代码</div>
+<div class="myacclist_main">
+<div class="myacclist_text">如果你有网站、博客，可以通过网站联盟获得代码<br>
+宣传商城,从而得到丰厚的佣金.</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app='cps' ctl='site_welcome' act='gencode'}>">立刻获取代码</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">账户信息</div>
+<div class="myacclist_main">
+<div class="myacclist_text">如果你有网站、博客，可以通过网站联盟获得代码<br>
+宣传商城,从而得到丰厚的佣金.</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app='cps' ctl='site_welcome' act='showUserInfo'}>">完善账户信息</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="clear"></div>
+</div>
+<!--myacc_line--></div>
+</div>
+<div class="clear"></div>
+<script>
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

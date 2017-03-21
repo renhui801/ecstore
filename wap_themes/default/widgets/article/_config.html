@@ -1,0 +1,44 @@
+<div class="tableform widgetconfig" >
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <th>标题 </th>
+            <td>
+                <{input type='text' name='title' value=$setting.title }>
+            </td>
+        </tr>
+        <tr>
+            <th><{t app='content'}>选择栏目节点:<{/t}></th>
+            <td>
+                <{input id="select_begin_node" type='select' name='node_id' value=$setting.node_id  vtype='required' caution=$___content='请选节点'|t:'content' rows=$setting.selectmaps valueColumn="node_id" labelColumn="node_name"}>
+                <em class="note"><{t app='content'}>选择节点后只显示此节点下文章<{/t}></em>
+            </td>
+        </tr>
+        <tr>
+            <th><{t app='content'}>展示文章标题数:<{/t}> </th>
+            <td>
+                <select name="limit">
+                    <option value="1" <{if $setting.limit==1}>selected="selected"<{/if}> >1</option>
+                    <option value="2" <{if $setting.limit==2}>selected="selected"<{/if}> >2</option>
+                    <option value="3" <{if $setting.limit==3}>selected="selected"<{/if}> >3</option>
+                    <option value="4" <{if $setting.limit==4}>selected="selected"<{/if}> >4</option>
+                    <option value="5" <{if $setting.limit==5}>selected="selected"<{/if}> >5</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><{t app='content'}>文章标题排序:<{/t}> </th>
+            <td>
+                <select name="order_type">
+                    <{foreach from=$setting.select_order.order_type key=key item=item}>
+                    <option value="<{$key}>" <{if $key==$setting.order_type}>selected="selected"<{/if}> ><{$item}></option>
+                    <{/foreach}>
+                </select>
+                <select name="order">
+                    <{foreach from=$setting.select_order.order key=key item=item}>
+                    <option value="<{$key}>" <{if $key==$setting.order}>selected="selected"<{/if}> ><{$item}></option>
+                    <{/foreach}>
+
+            </td>
+        </tr>
+    </table>
+</div>

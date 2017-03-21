@@ -1,0 +1,103 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/search//controller/search.php:9
+msgid "索引管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//controller/search.php:29
+#: /Users/bryant/codes/ecstore-release/app/search//controller/search.php:38
+#: /Users/bryant/codes/ecstore-release/app/search//controller/search.php:51
+msgid "保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//controller/search.php:74
+msgid "分词器保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//dbschema/associate.php:23
+msgid "联想词"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//dbschema/associate.php:42
+#: /Users/bryant/codes/ecstore-release/app/search//dbschema/delta.php:32
+msgid "更新时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//dbschema/delta.php:23
+msgid "索引名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//lib/finder/search.php:91
+msgid "停用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//lib/finder/search.php:93
+msgid "启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//lib/search/sphinx.php:34
+msgid "无法连接sphinx服务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//lib/search/sphinx.php:157
+msgid "插入只支持实时索引"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//lib/search/sphinx.php:211
+msgid "删除只支持实时索引"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search//lib/search/sphinx.php:272
+msgid "索引名称为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/config/default.html:28
+#: /Users/bryant/codes/ecstore-release/app/search/view/config/widgets.html:21
+msgid "保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/config/widgets.html:3
+msgid "搜索挂件配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/config/widgets.html:10
+msgid "搜索挂件默认文字："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/config/widgets.html:15
+msgid "是否开启联想搜索："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/config/widgets.html:16
+msgid "关闭"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/config/widgets.html:17
+msgid "开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/search/index.html:3
+msgid "请选择分词器"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/search/view/search/index.html:10
+msgid "保存设置"
+msgstr ""
+

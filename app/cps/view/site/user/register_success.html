@@ -1,0 +1,38 @@
+<div class="main2_head">
+<div class="m2head_3"></div>
+</div>
+<div class="main2_content">
+<div class="login_box">
+<table width="96%" border="0" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td colspan="2" rowspan="2" align="right" valign="middle">
+            <p><img src="images/cps_zccg_03.jpg" width="77" height="75"></p>
+            <p>&nbsp;</p>
+            </td>
+            <td width="60%" height="40" valign="middle">
+            <p class="text_20 text_color2">恭喜你，<{$uname}>注册成功</p>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" valign="middle">
+            <p><span id="second">3</span> 秒后自动返回会员中心</p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+<div class="clear"></div>
+<script>
+	var second = 3;
+	var minus = function() {
+		second--;
+		$('second').set('html', second);
+	}
+	var jump = function() {
+		window.location.href = "<{link app='cps' ctl='site_welcome' act='index'}>";
+	}
+	var m = minus.periodical(1000);
+	var j = jump.delay(3000);
+</script>

@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.btnBar .btn-timedbuy{background:url(Customers_pic.gif) no-repeat 0 -71px; width:130px; height:45px;margin-right:10px}
+
+.btnBar .btn-buy{background:url(Customers_pic.gif) no-repeat 0 -331px; width:130px; height:45px;margin-right:10px;font-size:0;text-indent:9999px}
+
+.btnBar .btn-timedbuy-over{background:url(timedbuy_over.gif) no-repeat; width:130px; height:45px;margin-right:10px;font-size:0;text-indent:9999px}
+
+.GoodsInfoWrap .btnBar .btnwrap {height:auto;line-height:auto}
+#goods-viewer .font-red {color: #FF4E00;font-size: 12px}
+.leftTime{height:25px;line-height:20px;clear:both;width:140px;*margin-left:-7px;font-size:12px}

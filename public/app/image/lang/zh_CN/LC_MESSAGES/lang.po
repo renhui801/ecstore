@@ -1,0 +1,509 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:35
+#: /Users/bryant/codes/ecstore-release/app/image/view/imglib.html:3
+msgid "上传新图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:36
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:15
+msgid "上传图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:37
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:38
+msgid "添加网络图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:39
+msgid "水印与缩略图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:40
+msgid "水印与尺寸"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:45
+msgid "图片管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:106
+msgid "图片上传失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:126
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:177
+msgid "图片上传成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:190
+msgid "网络图片地址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:332
+msgid "删除成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:353
+msgid "执行成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:357
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:11
+msgid "大图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:358
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:16
+msgid "中图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:359
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:21
+msgid "小图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:363
+msgid "生成"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//controller/admin/manage.php:378
+msgid "使用水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:15
+msgid "图片ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:23
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:36
+msgid "存储引擎"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:32
+msgid "图片名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:44
+msgid "网址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:52
+msgid "大图唯一标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:56
+msgid "大图URL地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:60
+msgid "中图唯一标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:64
+msgid "中图URL地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:68
+msgid "小图唯一标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:72
+msgid "小图URL地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:75
+msgid "宽度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:81
+msgid "高度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:89
+msgid "有水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:94
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image_attach.php:42
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:34
+msgid "更新时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image.php:107
+msgid "图片表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image_attach.php:18
+msgid "图片关联表ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image_attach.php:25
+msgid "对象id-外键"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image_attach.php:32
+msgid "对象类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image_attach.php:39
+msgid "图片的主键-外键关联image表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//dbschema/image_attach.php:64
+msgid "图片关联表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image//model/image.php:235
+msgid "远程"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:7
+msgid "原图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:30
+msgid "图片信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/image.html:32
+msgid "原始尺寸"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:34
+msgid "图片尺寸设定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:43
+msgid "尺寸"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:44
+msgid "水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:62
+msgid "更换缺省图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:68
+msgid "宽"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:68
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:21
+msgid "高"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:72
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:28
+msgid "无水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:73
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:29
+msgid "图片水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:74
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:30
+msgid "文字水印"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:76
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:36
+msgid "水印文字："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:78
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:38
+msgid "透明度："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:83
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:43
+msgid "水印位置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:86
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:45
+msgid "左上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:87
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:46
+msgid "中上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:88
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:47
+msgid "右上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:91
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:50
+msgid "左中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:92
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:51
+msgid "正中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:93
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:52
+msgid "右中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:96
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:55
+msgid "左下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:97
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:56
+msgid "中下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/finder/imageset.html:98
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:57
+msgid "右下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/gimage.html:4
+msgid "默认图"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/gimage.html:9
+#: /Users/bryant/codes/ecstore-release/app/image/view/gimage.html:9
+msgid "查看路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/gimage.html:9
+#: /Users/bryant/codes/ecstore-release/app/image/view/gimage.html:9
+msgid "删除图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:6
+msgid "从本地选择图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:7
+msgid "从图库选择图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:8
+msgid "互联网上的图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:17
+msgid "从本地计算机浏览图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:23
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:66
+msgid "为图片打上标签(多个标签用空格分隔):"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:26
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:69
+msgid "常用标签："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:40
+msgid "标签:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:51
+msgid "图库"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:53
+msgid "正在载入图库..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:60
+msgid "网络图片链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:85
+msgid "确认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_broswer.html:88
+msgid "取消"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_lib.html:10
+msgid "已选中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_lib.html:20
+msgid "没有发现图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:5
+msgid "当前图库图片数量："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:8
+msgid "上传本地图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:10
+msgid "无法打开图片选择窗口？点此"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:25
+msgid "本次上传的图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:25
+msgid "张"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:32
+msgid "确定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:55
+msgid "张已上传到图库(共"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:55
+msgid "张)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:62
+msgid "nn文件超出大小"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:69
+msgid "文件超出大小限制"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:100
+msgid "正在连接..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:111
+msgid "文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:111
+msgid "上传失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/image_swf_uploader.html:131
+msgid "是否确定删除此图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:1
+msgid "点击查看帮助"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:2
+msgid "商品图片配置 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:3
+msgid "一张商品图片上传后，会自动生成三张图片，分别出现在商店的三类页面，如下："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:3
+msgid "显示在商品列表页、首页商品版块内的图片，我们称为“列表页缩略图”；"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:3
+msgid "显示在商品详细页内的图片，我们称为“商品页详细图”；"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:3
+msgid "显示在商品相册页内的图片，我们称为“商品相册图”；"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:3
+msgid "注意：如果尺寸修改过大，可能导致前台页面显示不正常!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:7
+msgid "<{$item.title}>设定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:11
+msgid "默认图："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:20
+msgid "尺寸："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:21
+msgid "宽 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:26
+msgid "水印："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:33
+msgid "水印设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:37
+msgid "水印图片："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:67
+msgid "效果即时预览："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:72
+msgid "保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imageset.html:80
+msgid "预览效果"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/imglib.html:3
+msgid "选择上传的文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/view_gimages.html:1
+msgid "您可以在本页面下方复制图片的URL，该URL方便您将商品图片粘贴到需要使用该图片的目标位置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/view_gimages.html:8
+msgid "原图："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/view_gimages.html:13
+msgid "大图："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/view_gimages.html:19
+msgid "中图："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/image/view/view_gimages.html:26
+msgid "小图："
+msgstr ""
+

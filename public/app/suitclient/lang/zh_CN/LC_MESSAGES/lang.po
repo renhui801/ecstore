@@ -1,0 +1,49 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/suitclient//dbschema/server.php:9
+msgid "产品ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/suitclient//dbschema/server.php:15
+msgid "url地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/suitclient//dbschema/server.php:22
+msgid "私钥"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/suitclient//dbschema/server.php:28
+msgid "套件联通产品表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/suitclient//lib/finder/modify.php:7
+#: /Users/bryant/codes/ecstore-release/app/suitclient//lib/finder/modify.php:9
+#: /Users/bryant/codes/ecstore-release/app/suitclient//lib/finder/modify.php:10
+msgid "同步管理员"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/suitclient/view/index.html:1
+msgid "请输入套件授权码，以完成套件客户端绑定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/suitclient/view/index.html:20
+msgid "保存"
+msgstr ""
+

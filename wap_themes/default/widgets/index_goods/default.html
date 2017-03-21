@@ -1,0 +1,20 @@
+<div class="home-cate-pt c-fix">
+    <div class="cate-name " style="background-color:<{$setting.bgcolor}>;">
+        <{$setting.block_name}>
+        <{* $setting.block_link *}>
+    </div>
+    <{foreach from=$data.goodsRows item=row key=gid name=goodsrow}>
+    <{assign var=pickey value=$setting.gpic_size|default:'goodsPicS' }>
+    <{if $env.foreach.goodsrow.iteration < 3}>
+    <a class="cate-top" href="<{$row.goodsLink}>">
+        <img src="<{$row[$pickey]}>" alt="<{$row.goodsName}>" />
+    </a>
+    <{else}>
+    <a href="<{$row.goodsLink}>" class="cate-rank">
+        <img src="<{$row[$pickey]}>" alt="<{$row.goodsName}>" />
+    </a>
+    <{/if}>
+    <{/foreach}>
+</div>
+
+

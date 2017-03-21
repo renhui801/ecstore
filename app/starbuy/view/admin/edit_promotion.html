@@ -1,0 +1,182 @@
+<form id="promotion_form" name="promotion_form" action="index.php?app=starbuy&ctl=admin_promotion&act=update_rule"  method="POST" >
+<input type="hidden" name="ruledata['special_id']" value="<{$ruleInfo.special_id}>">
+<div class="tableform">
+<div class="division">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+  <th><em><font color='red'>*</font></em><{t}>规则名称：<{/t}></th>
+  <td><{input type="text" name="ruledata[name]" style="width:120px" required="true" vtype='required' value=$ruleInfo.name}></td>
+</tr>
+<!--
+<tr>
+  <th><{t}>优先级：<{/t}></th>
+  <td><{input type="unsignedint" name="ruledata[ordernum]"  value=$ruleInfo.ordernum maxlength="5" size="3"}></td>
+</tr>
+-->
+<tr>
+  <th><em><font color='red'>*</font></em><{t}>规则描述：<{/t}></th>
+  <td><{input type="textarea"  style=" width:50%" class="inputstyle" name="ruledata[description]" value=$ruleInfo.description rows="8"}></td>
+</tr>
+
+<tr>
+  <th><em><font color='red'>*</font></em><{t}>启用状态：<{/t}></th>
+  <td><{input type="bool" name="ruledata[status]" value=$ruleInfo.status}></td>
+</tr>
+
+<tr>
+  <th><em><font color='red'>*</font></em><{t}>发布时间：<{/t}></th>
+  <td><{input type="time" name="release_time" value=$ruleInfo.release_time vtype="required"}></td>
+</tr>
+
+<tr>
+  <th><em><font color='red'>*</font></em><{t}>开始时间：<{/t}></th>
+  <td><{input type="time" name="begin_time" value=$ruleInfo.begin_time vtype="required"}></td>
+</tr>
+
+<tr>
+  <th><em><font color='red'>*</font></em><{t}>结束时间：<{/t}></th>
+  <td><{input type="time" name="end_time" value=$ruleInfo.end_time vtype="required"}></td>
+</tr>
+
+<tr>
+    <th><{t}>发送开团提醒方式：<{/t}></th>
+    <td id="remind">
+          <{foreach from=$remind_way item=remind key=key}>
+          <label><input type="checkbox" value="<{$key}>" name="ruledata[remind_way][]" <{if ($ruleInfo.remind_way != '') && in_array($key,$ruleInfo.remind_way)}>checked<{/if}>/><{$remind}></label>
+          <{/foreach}>
+    </td>
+</tr>
+
+<tr>
+  <th><{t}> 提前多长时间发送开团提醒：<{/t}></th>
+  <td><{input type="unsignedint" name="ruledata[remind_time]" value=$ruleInfo.remind_time size="5"}>小时</td>
+</tr>
+
+<tr>
+  <th><em><font color='red'>*</font></em><{t}>每人限购：<{/t}></th>
+  <td><{input type="text" name="ruledata[limit]"  value=$ruleInfo.limit size="5"}>件</td>
+</tr>
+
+<tr>
+  <th><{t}>是否显示倒计时：<{/t}></th>
+  <td><{input type="bool" name="ruledata[cdown]" value=$ruleInfo.cdown}></td>
+</tr>
+
+<tr>
+  <th><{t}>是否显示市场价：<{/t}></th>
+  <td><{input type="bool" name="ruledata[mprice]" value=$ruleInfo.mprice}></td>
+</tr>
+
+<tr>
+  <th><{t}>是否开启验证码机制：<{/t}></th>
+  <td><{input type="bool" name="ruledata[vcode]" value=$ruleInfo.vcode}></td>
+</tr>
+
+<tr>
+  <th><{t}>初始销售量：<{/t}></th>
+  <td><{input type="unsignedint" vtype="required" name="ruledata[initial_num]" value=$ruleInfo.initial_num size="5"}> 或 <{button label="随机生成" class="act-random"}></td>
+</tr>
+
+<tr>
+  <th><{t}>是否开启自动关闭订单功能：<{/t}></th>
+  <td><{input type="bool" name="ruledata[iftimeout]" value=$ruleInfo.iftimeout class="act-autoclose"}> &nbsp;
+      <{input type="unsignedint" name="ruledata[timeout]" value=$ruleInfo.timeout size="5" vtype="required" style="display:none"}>
+  </td>
+</tr>
+
+<tr>
+  <th><{t}>促销类型：<{/t}></th>
+  <td>
+      <{foreach from=$promotins_type item=name key=id}>
+      <input type="radio" vtype="requiredradio" name="ruledata[type_id]" value="<{$id}>" <{if $ruleInfo.type_id == $id}> checked<{/if}> class="act-custom"> <{$name}>
+      <{/foreach}>
+      <input type="radio" name="ruledata[type_id]" value="other" class="act-custom"> 自定义
+      <input type="text" vtype="required" name="ruledata[other]" size="5" style="display:none">
+  </td>
+</tr>
+
+<tr>
+  <th><{t}>促销商品：<{/t}></th>
+  <td>
+      <{input type="object" name="ruledata[promotion_pro]" object="products" app="b2c" select="checkbox" vtype="required" textcol="name" cols="name" filter="goods_type=normal" view="starbuy:admin/promotions/new_items.html"  multiple="true" extend=$extend value=$ruleInfo.promotion_pro}>
+  </td>
+</tr>
+
+
+</table>
+</div>
+</div>
+
+<{capture name='footbar'}>
+<table cellspacing="0" cellpadding="0" class="table-action">
+    <tbody><tr valign="middle">
+            <td>
+                <{assign var="___a"  value="关  闭"}>
+                <{assign var="___c"  value=$___b2c='确定退出?'|t:'b2c'}>
+                <{button label=$___b2c="保存并关闭窗口"|t:'b2c' class="btn-primary" type="button" id="submitForm" onclick="submitForm(event,2)"}>
+                <!--<{button label="保  存" class="btn-primary" onclick="submitForm(event,1)"}>-->
+                <{button label=$___content=$___a|t:'content' class="btn-secondary" type="button" onclick="if(confirm('{$___c}'))window.close()"}>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<{/capture}>
+</form>
+
+<script>
+ //   validatorMap['requiredradio'] = [LANG_Validate['requiredonly'], function(element) {
+ //       var parent =  element.getParent('ul'),radio;
+ //       if(element.get('name')) radio = parent.getElements('input[type=radio][name="'+element.get('name')+'"]');
+ //       else radio = parent.getElements('input[type=radio]');
+ //       return radio.some(function(rd) {
+ //           return rd.checked == true;
+ //       });
+ //   }];
+
+    $$('.act-random').addEvent('click', function(e){
+        this.getPrevious('input').set('readonly', true).set('value', Number.random(1, 1000));
+    });
+
+    $$('.act-autoclose').addEvent('click', function(e){
+        if(this.value == 'true') {
+            this.getNext('input[type=text]').show();
+        }
+        else if(this.value == 'false') {
+            this.getNext('input[type=text]').hide();
+        }
+    });
+    $$('.act-custom').addEvent('click', function(e){
+        if(this.value == 'other') {
+            this.getNext('input[type=text]').show();
+        }
+        else {
+            this.getNext('input[type=text]').hide();
+        }
+    });
+    var submitForm = function (event,sign){
+        var _form=$('promotion_form');
+
+        switch (sign){
+            case 1:
+            var target={
+                onComplete:function(){
+                    location.reload();
+            }};
+            break;
+            case 2:
+            var target={
+                onComplete:function(rs){
+                    if(rs&&!!JSON.decode(rs).success){
+                        try{
+                            window.opener.finderGroup['<{$env.get.finder_id}>'].refresh();
+                            window.close();
+                        }catch(e){}
+                    }
+            }};
+            break;
+        }
+        _form.store('target',target);
+        _form.fireEvent('submit',new Event(event));
+    };
+</script>
+

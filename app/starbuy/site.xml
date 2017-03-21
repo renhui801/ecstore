@@ -1,0 +1,39 @@
+<site>
+
+    <module controller='site_special' >
+        <name>special</name>
+        <title>组合促销</title>
+        <disable>false</disable>
+        <allow_menu act='index'>组合促销列表页</allow_menu>
+        <default_menu>
+            <title>团购</title>
+            <act>index</act>
+            <params id="type_id">1</params>
+            <display_order>2</display_order>
+            <hidden>false</hidden>
+        </default_menu>
+    </module>
+
+
+    <module controller='site_team' >
+        <name>team</name>
+        <title>组合促销详细页</title>
+        <disable>false</disable>
+        <allow_seo act="index">
+            <title>组合促销详细页</title>
+            <config id="{ENV_goods_name}">商品名</config>
+            <config id="{ENV_goods_brand}">商品品牌</config>
+            <config id="{ENV_goods_bn}">商品编号</config>
+            <config id="{ENV_goods_cat}">商品分类</config>
+            <config id="{ENV_goods_price}">商品价格</config>
+            <param>
+                <seo_title>{ENV_goods_name}_{ENV_goods_brand}</seo_title>
+                <seo_keywords>{ENV_goods_name}</seo_keywords>
+                <seo_content>{ENV_goods_intro}</seo_content>
+                <seo_nofollow>否</seo_nofollow>
+                <seo_noindex>否</seo_noindex>
+            </param>
+            <hidden>true</hidden>
+        </allow_seo>
+    </module>
+</site>

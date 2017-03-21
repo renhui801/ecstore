@@ -1,0 +1,39 @@
+<services>
+    <service id="desktop_finder.weixin_mdl_bind">
+        <class>weixin_finder_bind</class>
+    </service>
+    <service id="desktop_finder.weixin_mdl_message_text">
+        <class>weixin_finder_message_text</class>
+    </service>
+    <service id="desktop_finder.weixin_mdl_message">
+        <class>weixin_finder_message</class>
+    </service>
+    <service id="desktop_finder.weixin_mdl_safeguard">
+        <class>weixin_finder_safeguard</class>
+    </service>
+    <service id="desktop_finder.weixin_mdl_alert">
+        <class>weixin_finder_alert</class>
+    </service>
+
+
+
+    <service id="html_input">
+        <class>weixin_view_input</class>
+    </service>
+
+    <service id="openapi.weixin">
+        <class>weixin_api</class>
+    </service>
+
+    <service id="ectools_payment.ectools_mdl_payment_cfgs" optname="支付插件列表">
+        <class>weixin_payment_plugin_wxpay</class>
+    </service>
+
+    <service id="b2c.order.delivery.after">
+        <class>weixin_transaction</class>
+    </service>
+
+
+
+
+</services>

@@ -1,0 +1,178 @@
+<div class="group-buy-box <{if $purchase.state eq 1}>coming-soon<{/if}>">
+    <div class="group-price box-item">
+        <span><{$purchase.price|cur_odr}></span>
+    </div>
+    <div class="fixIE6"></div>
+
+    <div class="Numinput">
+     <input type="text" id='inde' class="_x_ipt textcenter" name="goods[num]" size="3" value="1">
+    </div>
+    <span class="store" style="display:none;">
+        <{$purchase.max_buy}>
+    </span>
+    <div class="group-button box-item">
+
+        <button type="<{if $purchase.state eq 2}>submit<{else}>button<{/if}>" class="button<{if $purchase.state=='2'}> updateBtn<{if $goods.spec}> groupSpec<{/if}><{/if}>"><span><span>
+            <{if $purchase.state eq 1}>
+            即将开始
+            <{elseif $purchase.state eq 2}>
+            立即购买
+            <{elseif $purchase.state eq 3}>
+            售完
+            <{elseif $purchase.state eq 4}>
+            结束
+            <{/if}>
+        </span></span></button>
+    </div>
+</div>
+<div class="group-price-box">
+    <ul class="group-price-list">
+        <li class="group-list-price">
+        <span class="key">原价</span>
+        <span class="value"><{$goods.price|cur_odr}></span>
+        </li>
+        <li class="group-discount">
+        <span class="key">折扣</span>
+        <span class="value"><{$sales}></span>
+        </li>
+        <li class="group-save">
+        <span class="key">节省</span>
+        <span class="value"><{$goods.price-$purchase.price|cur_odr}></span>
+        </li>
+    </ul>
+</div>
+<div class="group-quantity-box">
+    <{if $purchase.state=='1'}>
+    <span class="group-status">团购即将开始，敬请期待</span>
+    <{elseif $purchase.state=='2'}>
+    <span class="group-status">团购进行中，</span><span class="group-quantity"><{$purchase.buy}></span>人已经下单
+    <{elseif $purchase.state=='3'}>
+    <span class="group-status">团购已成功，</span><span class="group-quantity"><{$purchase.buy}></span>人已经下单
+    <{elseif $purchase.state=='4'}>
+    <span class="group-quantity"><{$purchase.buy}></span>人已经下单
+    <{/if}>
+</div>
+<div class="group-time-box">
+    <{if $purchase.state=='1'}>
+    <div class="title">距离团购开始：</div>
+    <div class="time">
+        <input type="hidden" id="start_time" value="<{$purchase.start_time}>" >
+        <input type="hidden" id="end_time" value="<{$purchase.end_time}>" >
+        <span><span class="day">0</span>天</span>
+        <span><span class="hour">0</span>时</span>
+        <span><span class="minute">0</span>分</span>
+        <span><span class="second">0</span>秒</span>
+    </div>
+    <{elseif $purchase.state=='2'}>
+    <div class="title">剩余时间：</div>
+    <div class="time">
+        <input type="hidden" id="start_time" value="<{$purchase.start_time}>" >
+        <input type="hidden" id="end_time" value="<{$purchase.end_time}>" >
+        <span><span class="day">0</span>天</span>
+        <span><span class="hour">0</span>时</span>
+        <span><span class="minute">0</span>分</span>
+        <span><span class="second">0</span>秒</span>
+    </div>
+    <{/if}>
+</div>
+<input type="hidden" name="goods[goods_id]" value="<{$goods.goods_id}>">
+<script>
+    var keyCodeFix=[48,49,50,51,52,53,54,55,56,57,96,97,98,99,100,101,102,103,104,105,8,9,46,37,39<{if $goods.type.floatstore}>,110,190<{/if}>]; 
+
+
+    /*购买数量调节*/ 
+
+    var getStore=function(){ 
+        return  $('goods-viewer').getElement('.buy-limit-storess')?$('goods-viewer').getElement('.buy-limit-storess').get('text').toInt():$('goods-viewer').getElement('.group-buy-box .store').get('text').toInt(); 
+    }; 
+
+    $('goods-viewer').getElement('.group-buy-box input[name="goods[num]"]').addEvents({ 
+        'keydown': function(e){ 
+            if(!keyCodeFix.contains(e.code)){ 
+                e.stop(); 
+            } 
+        }, 
+        'keyup': function(e){ 
+            if(getStore()<this.value)this.value=getStore(); 
+            if (!this.value || <{if $goods.type.floatstore==='1'}>this.value.toFloat() < 0<{else}>this.value.toInt() < 1<{/if}>) this.value = 1; 
+        }, 
+        'blur': function(e) { 
+            if (<{if $goods.type.floatstore==='1'}>this.value.toFloat() <= 0<{else}>this.value.toInt() < 1<{/if}>) this.value = 1; 
+            <{if $goods.type.floatstore==='1'}>else this.value = this.value.toFloat();<{/if}> 
+        } 
+    }); 
+    <{if $purchase.state=='2'}>
+    window.addEvent('domready',function(){
+
+        specdialog($$('.group-buy-box'),{
+            url:'<{$request_url}>?goodsnum='+$('inde').value+'&type=fastbuy&form_url='+encodeURIComponent('<{$jump_to_cart_url}>'),
+            specbtn: '.groupSpec'
+        });
+
+        var getStore=function(){
+            return $$('#goods-viewer .group-buy-box .store')[0].get('text').toInt()
+        };
+        GroupRemote = {
+            url: "<{$check_url}>",
+            timer: 30000,
+            stop:function(){
+                clearTimeout(this.delay);
+            },
+            start:function(){
+                this.delay = this.request.delay(this.timer, this);
+            },
+            request:function(){
+                return this.ajax.send();
+            },
+            init:function() {
+                var self = this;
+                this.ajax=  new Request.JSON({
+                    url:this.url,
+                    onSuccess: function(rs){
+                        $$('.group-quantity')[0].set('text',rs.count);
+                        clearTimeout(self.delay);
+                        if(rs.count)
+                        self.delay = self.request.delay(self.timer, self);
+                    },
+                    onCancel: function() {
+
+                        self.delay = self.request.delay(self.timer, self);
+                    },
+                    onFailure: function() {
+
+                        self.delay = self.request.delay(self.timer * 2, self);
+                    }
+                });
+                return this;
+            }
+        };
+
+        GroupRemote.init().start();
+
+    });
+    <{/if}>
+
+    <{if $purchase.state=='2' || $purchase.state=='1'}>
+    var timeStart = new Date(($('start_time').get('value'))*1000);
+    var timeEnd= new Date(($('end_time').get('value'))*1000);
+    var timeNow;
+    var dom = {
+        day: $$('.group-time-box .day')[0],
+        second: $$('.group-time-box .second')[0],
+        minute:$$('.group-time-box .minute')[0],
+        hour:$$('.group-time-box .hour')[0]
+    };
+    new Request({
+        url:'<{$request_time_now}>',
+        onComplete:function(re){
+            timeNow=new Date(re*1000);
+            if(timeStart.getTime() > timeNow.getTime()){
+                try{new timeCount().init(timeStart,timeNow,dom)}catch(e){};
+            }else{
+                try{new timeCount().init(timeEnd,timeNow,dom)}catch(e){};
+            };
+
+        }
+    }).send();
+    <{/if}>
+</script>

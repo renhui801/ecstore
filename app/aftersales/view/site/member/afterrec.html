@@ -1,0 +1,141 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的评论 -->
+  <div id="member_aftersales" class="member-aftersales">
+    <div class="member-tabs">
+      <a href="<{link app=aftersales ctl=site_member act=afterlist}>"><em><{t}>申请退换货<{/t}></em></a>
+      <a href="<{link app=aftersales ctl=site_member act=afterrec}>" class="active"><em><{t}>退换货记录<{/t}></em></a>
+    </div>
+    <div class="member-mod member-aftersales-record">
+      <table class="member-grid">
+        <thead>
+          <tr>
+            <th><{t}>订单号<{/t}></th>
+            <th><{t}>售后服务主题<{/t}></th>
+            <th><{t}>申请时间<{/t}></th>
+            <th><{t}>处理状态<{/t}></th>
+            <th><{t}>操作<{/t}></th>
+          </tr>
+        </thead>
+        <{if count($return_list)>0 }>
+        <{foreach from=$return_list item=list name=name}>
+        <tbody class="<{if $smarty.foreach.name.iteration == 1}>first<{/if}>">
+          <tr>
+            <td class="order"><{$list.order_id}></td>
+            <td class="subject"><{$list.title}></td>
+            <td class="datetime"><{$list.add_time|cdate:'FDATE_FTIME'}></td>
+            <td class="status">
+              <{switch from=$list.status}>
+                <{case value=1}><{t}>申请中<{/t}>
+                <{case value=2}><{t}>审核中<{/t}>
+                <{case value=3}><{t}>审核通过<{/t}>
+                <{case value=4}><{t}>完成<{/t}>
+                <{case value=5}><{t}>审核未通过<{/t}>
+              <{/switch}>
+            </td>
+            <td class="actions"><a href="javascript:void(0);" class="action-view-detail"><{t}>查看<{/t}><i class="icon" data-toggle="&#x37;">&#x36;</i></a></td>
+          </tr>
+          <tr class="view-detail">
+            <td colspan="5">
+              <{if $list.comment}>
+              <div class="aftersales-notice">
+                <p class="title"><{t}>店主反馈<{/t}></p>
+                <{foreach from=$list.comment item=comment}>
+                <p><span class="time"><{$comment.time|cdate:'FDATE_FTIME'}></span><{$comment.content}></p>
+                <{/foreach}>
+              </div>
+              <{/if}>
+              <h3><{t}>需要售后服务的商品<{/t}></h3>
+              <table class="aftersales-grid">
+                <col class="col-1">
+                <col class="col-2">
+                <col class="col-3">
+                <col class="col-4">
+                <thead>
+                  <tr>
+                    <th><{t}>货号<{/t}></th>
+                    <th><{t}>商品名称<{/t}></th>
+                    <th><{t}>单价<{/t}></th>
+                    <th><{t}>数量<{/t}></th>
+                  </tr>
+                </thead>
+                <tbody class="first">
+                  <{foreach from=$list.product_data item=row name=product}>
+                  <tr class="<{if $smarty.foreach.product.iteration==1}>first<{/if}>">
+                    <td align="center"><{$row.bn}></td>
+                    <td><{$row.name}></td>
+                    <td align="center"><{if $row.price}><{$row.price|cur_odr:$order.currency}><{else}>-<{/if}></td>
+                    <td align="center"><{$row.num}></td>
+                  </tr>
+                  <{/foreach}>
+                </tbody>
+              </table>
+              <h3><{t}>退换理由<{/t}></h3>
+              <div class="aftersales-desc">
+                <div class="pic"><a href="<{$list.image_file|default:$defaultImage|storager:'l'}>" class="action-preview"><img src="<{$list.image_file|default:$defaultImage|storager:'s'}>" alt=""></a></div>
+                <div class="desc">
+                  <p class="desc-title"><{$list.title}></p>
+                  <p class="desc-cont"><{$list.content}></p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <{/foreach}>
+        <{else}>
+        <tbody>
+        <tr class="first"><td colspan="5" class="no-information"><{t}>暂无售后服务订单<{/t}></td></tr>
+        </tbody>
+        <{/if}>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+  <{if $env.conf.archive.archive.status =='true'}>
+  <{if $type=='archive'}>
+  如果没有找到想要的退换货记录, 去 <a href="<{link app=aftersales ctl=site_member act=afterrec}>">近三个月</a> 继续查找
+  <{else}>
+  如果没有找到想要的退换货记录, 去 <a href="<{link app=aftersales ctl=site_member act=afterrec arg0='archive'}>">三个月之前</a> 继续查找
+  <{/if}>
+  <{/if}>
+</div>
+<script>
+$('member_aftersales').addEvents({
+    'click:relay(.action-view-detail)': function (e) {
+        var tbody = this.getParent('tbody');
+        var siblings = tbody.getSiblings('.active')[0];
+        var parent = this.getParent('tr');
+        var next = parent.getNext('tr');
+        if(parent.hasClass('active-top')) {
+            parent.removeClass('active-top');
+            next.removeClass('active-bottom');
+            tbody.removeClass('active');
+        }
+        else {
+            parent.addClass('active-top');
+            next.addClass('active-bottom');
+            tbody.addClass('active');
+
+            if(siblings) {
+                siblings.getElements('tr').removeClass('active-top').removeClass('active-bottom');
+            }
+        }
+    },
+    'click:relay(.action-preview)': function (e) {
+        e.stop();
+        var dialog = Dialog.image(this.href, {
+            width:600,
+            height:600,
+            onShow: function() {
+                $(document.body).addEvent('click', function() {
+                    dialog.hide();
+                });
+            },
+            onClose: function() {
+                $(document.body).removeEvents('click');
+            }
+        });
+    }
+})
+</script>
+

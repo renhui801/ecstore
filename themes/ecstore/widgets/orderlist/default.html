@@ -1,0 +1,23 @@
+<div id="order_<{$widgets_id}>" class="common-mod new-order-list auto-bind-widget" data-widget-type="Slide" data-widget-config="{
+    hasTriggers:false,
+    panels: '.order-item',
+    isFloat: false,
+    effect: 'scrolly',
+    duration: <{$data.setting.roll_speed}>,
+    viewStep: <{$data.setting.steps}>
+}" style="height:<{$data.setting.height|default:40}>px;">
+  <ul class="order-list">
+    <{foreach name=outer item=contact from=$data key=key}>
+    <{if $key!=='setting'}>
+    <li class="order-item"> 		
+      <span class="order-name">
+        <{$data.$key.ship_name|cut:6:'***'}>
+      </span>
+      <span class="order-id"><{t}>订单号<{/t}><{$data.$key.order_id|cut:12:'***'}></span>
+      <span class="order-state"><{if $data.$key.ship_status == '0'}><{t}>未发货<{/t}><{elseif $data.$key.ship_status == '1'}><{t}>已发货<{/t}><{elseif $data.$key.ship_status == '2'}><{t}>部分发货<{/t}><{/if}></span>
+      <span class="order-date"><{$data.$key.date}></span>
+    </li>
+    <{/if}>	
+    <{/foreach}>
+  </ul>
+</div>

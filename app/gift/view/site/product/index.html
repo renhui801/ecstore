@@ -1,0 +1,309 @@
+<div id="main" class="page-main clearfix">
+  <!-- 标题简介 -->
+  <div class="product-titles">
+    <h2><{$gift.goods.name}></h2>
+    <p><{$gift.goods.brief}></p>
+  </div>
+  <div id="product_container" class="product-container clearfix">
+    <{include file='site/product/info/basic.html'}>
+  </div>
+
+  <div class="product-tags clearfix">
+    <h2 class="tags-hd active"><a href="#detail">赠品详情</a></h2>
+  </div>
+  <div id="product_section">
+    <div id="product_detail" class="product-section product-detail">
+      <div class="detail-content">
+        <textarea class="action-lazyload hide"><{$gift.goods.intro}></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<{script src="product.js" app="b2c" pdir="js_mini"}>
+<script>
+var main = $('main');
+var container = $('product_container');
+var section = $('product_section');
+<{if $money_format}>priceControl.spec = <{$money_format}>;<{/if}>
+
+//请求库存和价格
+var Router = {
+    stock: function(id) {
+        return '<{link app=gift ctl=site_gift act=ajax_gift_store arg0="' + id + '"}>';
+    },
+    basic: function(id) {
+        return '<{link app=gift ctl=site_gift act=ajax_gift_basic arg0="' + id + '"}>';
+    }
+};
+
+var Query = function(url, options) {
+    var self = this;
+    this.send = function(url, options) {
+        options = Object.merge({
+            url: url,
+            method: 'post',
+            link: 'cancel'
+        }, options || {});
+        return new Request(options).send();
+    };
+    this.update = function (url, update, options) {
+        options = Object.merge({
+            url: url,
+            update: update,
+            method: 'post',
+            link: 'cancel'
+        }, options || {});
+        new Request.HTML(options).send();
+    };
+    this.stock = function(options) {
+        if(!container.getElement('.product-buy-quantity')) return;
+        options = Object.merge({
+            method: 'get',
+            onSuccess:function(rs) {
+                rs = JSON.decode(rs);
+                if(rs && Object.getLength(rs)) {
+                    if(rs.error) {
+                        return Message.error(rs.error);
+                    }
+                    var tpl = '<span class="p-quantity"><a href="javascript:void(0);" class="btn-decrease">-</a><input type="text" name="goods[num]" class="action-quantity-input" value="1" min="1" max="{store}"><a href="javascript:void(0);" class="btn-increase">+</a></span> <{$gift.unit}><span class="p-store">{title}</span><input type="hidden" name="stock" value="{store}">';
+                    container.getElement('.product-buy-quantity .item-content').innerHTML = tpl.substitute(rs);
+                    if(!rs.store) {
+                        container.getElement('.action-quantity-input').disabled = true;
+                        container.getElement('.product-buy-quantity').addClass('hide');
+                        container.getElements('.action-addtocart').addClass('hide');
+                        container.getElement('.info-disabled').set('text', '赠品已经兑换或赠送完毕，请关注赠品动态。').removeClass('hide');
+                    }
+                    if(!rs.title) {
+                        container.getElements('.p-store').addClass('hide');
+                    }
+                }
+            }
+        }, options || {});
+        var url = Router.stock(options.id);
+        this.send(url, options);
+    };
+};
+Query = new Query;
+
+attachAction('<{$gift.product_id}>');
+
+//== 为数量选择框绑定事件
+function bindQuantityEvent(elements, callback) {
+    elements = document.id(elements) || $$(elements);
+    if(!elements && !elements.length) return;
+    var value = '';
+    elements.addEvents({
+        //= 数量按钮
+        'click:relay(.btn-decrease,.btn-increase)': function(e) {
+            var input = this.getParent().getElement('.action-quantity-input');
+            value = +input.value;
+            input.value = this.hasClass('btn-decrease') ? value - 1 : value + 1;
+            callback && callback(input, value);
+        },
+        //= 数量输入框
+        'focus:relay(.action-quantity-input)': function(e){
+            value = +this.value;
+        },
+        'change:relay(.action-quantity-input)': function(e) {
+            callback && callback(this, value);
+        }
+    });
+}
+bindQuantityEvent(container,setQuantity);
+//== 获取赠品数量值
+function getQuantity(el, type) {
+    return el.getElement('input[name=' + type + ']').value;
+}
+//== 设置赠品数量
+function setQuantity(input, value) {
+    var type = 'product';
+    var p = input.getParent('li');
+    inputCheck(input, {min: input.get('min'), max: input.get('max'), 'default': value, store: getQuantity(p, 'stock'), callback: window.quantityCallback});
+}
+//== 赠品数量输入框正确性检测
+function inputCheck(input, options) {
+    if(!input) return false;
+    options = options || {};
+    if(isNaN(options.min)) options.min = 1;
+    if(isNaN(options.max)) options.max = 999999;
+    options['default'] = options['default'] || options.min;
+    var value = +input.value;
+    var tips = new Tips(input);
+    var pre = '';
+    var msg = '';
+    if(options.store && options.store - value <= 0) {
+        pre = '库存有限，';
+    }
+    if(value < options.min) {
+        input.value = options.min;
+        msg = '此赠品的最小购买数量为' + options.min + '件';
+    }
+    else if(value > options.max){
+        input.value = options.max;
+        msg = pre + '此赠品最多只能兑换' + options.max + '件';
+    }
+    else if(isNaN(value)) {
+        input.value = options['default'];
+        msg = '只允许输入数字';
+    }
+    if (msg) {
+        tips.show(msg);
+        return false;
+    }
+    tips.hide();
+    if(options.callback) options.callback(input, options['default']);
+    return true;
+}
+
+//== 赠品详情图片延迟加载，并缩放到合适大小
+var sectionWidth = section.getStyle('width').toInt();
+new DataLazyLoad({containers: section,textarea:'action-lazyload',onCallback:function(){
+    section.getElements('img').each(function(img){
+        img.zoomImg(sectionWidth);
+    });
+}});
+
+
+//== 处理赠品基本信息交互
+function attachAction(id) {
+    <{if $gift.permission == 'true'}>
+    //== 库存异步加载
+    Query.stock({id: id});
+    <{/if}>
+    <{if $gift.images}>
+    //== 赠品相册图放大镜
+    window.addEvent('domready', function(){
+        new AlbumZoom('product_album', {
+            <{if $env.conf.b2c.site.imgzoom.show=='false'}>
+            zoomable:false,
+            <{/if}>
+            zoomsSize:{
+                x:<{$env.conf.b2c.site.imgzoom.width}>,
+                y:<{$env.conf.b2c.site.imgzoom.height}>
+            }
+        });
+    });
+    <{/if}>
+}
+
+var ajax;
+var state;
+container.addEvents({
+    'mouseenter:relay(.handle)': function(e){
+        var menu = this.getNext('.pop-body');
+        if(menu) {
+            clearTimeout(menu.timer);
+            menu.show();
+        }
+    },
+    'mouseenter:relay(.pop-body)': function(e){
+        clearTimeout(this.timer);
+    },
+    'mouseleave:relay(.pop-wrapper)': function(e) {
+        var menu = this.getElement('.pop-body');
+        menu.timer = menu.hide.delay(200,menu);
+    },
+    'click:relay(.pop-close)': function(e) {
+        this.getParent('.pop-body').hide();
+    },
+    'click:relay(.spec-attr)': function(e){
+        if(this.hasClass('selected')) return;
+        var a = this.getElement('a');
+        var url = a.href;
+        var id = a.rel;
+        if(!id) return;
+        if (window.history && history.pushState) {
+            e.stop();
+            /*html5 history manage*/
+            if(ajax){
+                ajax.cancel();
+            }
+            else {
+                state = {title: document.title, html: container.innerHTML, url: location.href, id: id};
+            }
+            ajax = Query.send(Router.basic(id), {
+                method: 'post',
+                onSuccess: function(rs) {
+                    try{
+                        rs = JSON.decode(rs);
+                        if(rs.error) {
+                            return Message.error(rs.error);
+                        }
+                    }catch(e) {
+                        updateBasic(rs, id, url);
+                    }
+                }
+            });
+        }
+    },
+    <{if $login == 'nologin'}>
+    'click:relay(.action-addtocart)': function (e) {
+        var url = '<{link app=b2c ctl=site_passport act=login}>';
+        e.stop();
+        <{if $env.conf.b2c.site.login_type == 'target'}>
+        miniPassport(url, function(dialog){
+            el.removeClass('disabled');
+        });
+        <{elseif $env.conf.b2c.site.login_type == 'href'}>
+        location.href = url;
+        <{/if}>
+    },
+    <{/if}>
+    'click:relay(.btn-caution)': function(e) {
+        if(this.hasClass('disabled')) return;
+        var data = this.getParent('.form');
+        if(!validate(data, 'all')) {
+            e.stop();
+            return;
+        }
+    }
+});
+if ('onpopstate' in window) {
+    window.onpopstate = function(event){
+        if(ajax == null) return;
+        var data;
+        if(event && event.state){
+            data = event.state;
+        }else{
+            data = state;
+        }
+        document.title = data.title;
+        updateBasic(data.html, data.id);
+    }
+}
+
+function updateBasic(rs, id, url) {
+    container.innerHTML = rs;
+    attachAction(id);
+    url && history.pushState({url: url, title: document.title, html: rs, id:id}, document.title, url);
+    //迷你购物车
+    formToCart();
+}
+
+withBrowserStore(function(browserStore){
+    browserStore.get('history',function(history){
+        history=JSON.decode(history);
+        if(!history||typeOf(history)!=='array') history=[];
+        if(history.length>=40) history.pop();
+        var newHst = {
+            'goodsId':'<{$gift.product.product_id}>',
+            'goodsName':'<{$gift.title|replace:"'":"\'"}>',
+            'goodsImg':'<{$gift.goods.image_default_id ? $gift.goods.image_default_id : $setting.defaultImage|storager:"s"}>',
+            'price':'<{$gift.price|cur_odr}>',
+            'viewTime':+new Date()
+        };
+        if(history.length) {
+            for(var i = history.length; i --;) {
+                if(history[i]['goodsId'] == newHst['goodsId']) {
+                    history.splice(i, 1);
+                    break;
+                }
+            }
+        }
+        history.unshift(newHst);
+
+        browserStore.set('history', JSON.encode(history));
+    });
+});
+</script>

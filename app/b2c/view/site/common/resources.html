@@ -1,0 +1,16 @@
+<{if defined("DEBUG_CSS") && DEBUG_CSS}>
+<{css src="base.css" app="b2c"}>
+<{css src="theme.css" app="b2c"}>
+<{else}>
+<{css src="basic.min.css" app="b2c" pdir="css_mini"}>
+<{/if}>
+<{lang_script src="lang.js" app="b2c"}>
+<script>
+var Shop = <{$shopDefine|default:'null'}>;
+</script>
+<{if defined("DEBUG_JS") && DEBUG_JS}>
+    <{script src="browserstore.js" app="b2c"}>
+    <{script src="shoptools.js" app="b2c"}>
+<{else}>
+    <{script src="shop.min.js" app="b2c" pdir="js_mini"}>
+<{/if}>

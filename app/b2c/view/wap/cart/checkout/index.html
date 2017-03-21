@@ -1,0 +1,422 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            购物车
+        </a>
+        <div class="a-name">
+            结算
+        </div>
+        <div class="a-right">
+            <a href="<{link app=b2c ctl=wap_order act=create}>" class="btn red" rel="_request">
+                提交订单
+            </a>
+        </div>
+    </div>
+    </header>
+    <form action="<{link app=b2c ctl=wap_order act=create}>" method="post"  class="form" data-type="ajax">
+        <{if $is_fastbuy}>
+        <input type="hidden" name="isfastbuy" value="true" />
+        <{/if}>
+        <input type="hidden" name="purchase[addr_id]" value="<{$def_addr.addr_id}>" />
+        <input type="hidden" name="purchase[def_area]" value="<{$def_area}>" />
+        <input type="hidden" name="md5_cart_info" value="<{$md5_cart_info}>" />
+        <input type="hidden" name="extends_args" id="extends_args" value='<{$json_args}>' />
+        <{if $point_dis_html}>
+        <input type="hidden" name="point[rate]" value="<{$discount_rate}>">
+        <input type="hidden" name="point[score]" >
+        <{/if}>
+        <div class="section">
+            <div class="d-line c-fix">
+                <span class="l-k">收货地址：</span>
+                <span class="l-v <{if !$def_addr}>hide<{/if}>" id="J_sel_address">
+                    <!-- <input type="hidden" name="address" /> -->
+                    <!-- 如果有默认地址 -->
+                    <{if $def_addr}>
+                      <{$def_addr.area|ship_area}>,
+                      <{$def_addr.addr}>,
+                      <{if $def_addr.zip}><{$def_addr.zip}>,<{/if}>
+                      <{$def_addr.name}>,
+                      <{if $def_addr.tel}><{$def_addr.tel}>,<{/if}>
+                      <{if $def_addr.mobile}><{$def_addr.mobile}><{/if}>
+                      <input type="hidden" name="address" value="<{$def_addr.addr_id}>" />
+                      <i class="arr down"></i>
+                    <{/if}>
+                </span>
+            </div>
+            <ul class="address-list <{if $def_addr}>hide<{/if}>" id="J_address_list">
+                <{include file='wap/cart/checkout/shipping.html' app='b2c'}>
+            </ul>
+            <a href="<{link app=b2c ctl=wap_cart act=shipping_edit arg0=$is_fastbuy}>" class="btn address-btn">
+                添加收货地址
+            </a>
+        </div>
+        <div class="section">
+            <div class="d-line c-fix">
+                <span class="l-k">配送方式：</span>
+                <span class="l-v" id="J_sel_shipping">
+                    <!-- <input type="hidden" name="shipping" /> -->
+                    请先选择收货地址
+                </span>
+            </div>
+        <ul class="shipping-list hide" id="J_shipping_list"> </ul>
+        </div>
+        <div class="section">
+            <div class="d-line c-fix">
+                <span class="l-k">支付方式：</span>
+                <span class="l-v" id="J_sel_pay">
+                    <!-- <input type="hidden" name="payment[pay_app_id]" /> -->
+                    请先选择配送方式
+                </span>
+            </div>
+            <ul class="pay-list hide" id="J_pay_list"></ul>
+        </div>
+        <div class="section">
+            <div class="d-line">
+                <span class="k">商品清单：</span>
+            </div>
+            <{include file='wap/cart/checkout/cart_main.html' app='b2c'}>
+        </div>
+        <div class="section order-msg">
+            <div class="c-g">
+                <input type="text" name="memo" placeholder="订单留言" class="text"/>
+            </div>
+        </div>
+        <div class="section">
+            <div class="col2">
+
+                <{if $point_dis_html}>
+                <div class="col t-c J_point_dis">
+                    积分抵扣
+                    <div id="point_dis" style="display:none;">
+                        <!-- 积分抵扣 -->
+                        <{$point_dis_html}>
+                    </div>
+                    <i class="arr right"></i>
+                </div>
+                <{/if}>
+                <div class="col t-c J_coupon">
+                    使用优惠券<{if $aCart.object.coupon|count > 0 }><{$aCart.object.coupon|count}>张<{/if}>
+                    <div id="usecoupon" style="display:none;">
+                        <{include file='wap/cart/checkout/coupon.html' app='b2c'}>
+                    </div>
+                    <i class="arr right"></i>
+                </div>
+            </div>
+        </div>
+
+        <{if $tax_setting}>
+        <div class="section">
+            <div class="d-line">
+                <span class="l-k">发票信息：</span>
+                <div class="l-v">
+                    <{include file='wap/cart/checkout/invoice.html' app='b2c'}>
+                </div>
+            </div>
+        </div>
+        <{/if}>
+
+        <{if $aCart.promotion.order}>
+        <div class="pre ob">
+            <div class="d-line c-fix" id="J_sel_pre">
+                订单优惠：
+                <{foreach from=$aCart.promotion.order item=item}>
+                <span class="pre-list">
+                    <span class="icon red"><{$item.desc_tag}></span>
+                </span>
+                <{/foreach}>
+                <i class="arr down"></i>
+            </div>
+            <div class="pre-info hide" id="J_pre_info">
+                <{foreach from=$aCart.promotion.order item=item}>
+                <div class="box">
+                    <span class="col f-red">[<{$item.desc}>]</span>
+                    <span class="col"><{$item.name}></span>
+                </div>
+                <{/foreach}>
+            </div>
+        </div>
+        <{/if}>
+
+        <div class="section" id="checkout_total">
+        <{include file='wap/cart/checkout/checkout_total.html' app='b2c'}>
+        </div>
+        <div class="section">
+            <div class="order-btn-bar">
+                <button type="submit" class="btn red" rel="_request">提交订单</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+    (function(){
+        function getTotal(){
+            $.post('<{link app=b2c ctl=wap_cart act=total}>',$('form[class="form"]').serialize(),function(re){
+                $('#checkout_total').html(re);
+            });
+        }
+        function shipping_confirm(data){
+            $.post('<{link app=b2c ctl=wap_cart act=shipping_confirm}>',data,function(re){
+            });
+        }
+        function delivery_confirm(data){
+            $.post('<{link app=b2c ctl=wap_cart act=delivery_confirm}>',data,function(re){
+            });
+        }
+        function payment_confirm(data){
+            $.post('<{link app=b2c ctl=wap_cart act=payment_confirm}>',data,function(re){
+            });
+        }
+        //刷新已经使用优惠券列表
+        function updateCoupon(couponResult){
+            var html = ' ';
+            if(couponResult && couponResult.length) {
+                $.each(couponResult, function(index,item){
+                    html += '<li><span class="del" rel="'+item.obj_ident+'" data-coupon="'+item.cpns_id+'">取消使用</span>'+item.coupon+'-'+item.name+'</li>';
+                });
+            }
+            $('.used').html(html);
+        }
+        var step1 = {
+            open:function(){
+                this.saved = false;
+                step2.saved = false;
+                step3.saved = false;
+                step2.close();
+                step3.close();
+                $('#J_address_list').removeClass('hide');
+                $('#J_sel_address').addClass('hide').html('');
+            },
+            save:function(address_text,address_value){
+                // $('#J_sel_address').html(address_text+'<i class="arr down"></i>');
+                // $('#J_sel_address input[name="address"]').val(address_value);
+                var address_input = '<input type="hidden" name="address" value='+address_value+' />';
+                $('#J_sel_address').html(address_text+address_input+'<i class="arr down"></i>');
+
+                shipping_confirm('address='+$('#J_sel_address input').val());
+                this.close();
+                this.saved = true;
+                step2.open('<{link app=b2c ctl=wap_cart act=delivery_change}>','area='+$.parseJSON($('#J_sel_address input[name="address"]').val()).area);
+            },
+            close:function(){
+                $('#J_address_list').addClass('hide');
+                $('#J_sel_address').removeClass('hide');
+            },
+            saved:false
+        }
+        var step2 = {
+            open:function(url,data){
+                if(step1.saved){
+                    if(url){
+                        this.url = url;
+                    }else{
+                        url = this.url;
+                    }
+                    var self = this;
+                    this.saved = false;
+                    step3.saved = false;
+                    step3.close();
+                    $.post(url,data,function(re){
+                        $('#J_shipping_list').html(re).removeClass('hide');
+                        $('#J_sel_shipping').addClass('hide').html('');
+                        $('#J_shipping_list .shipping-item').bind('click',function(e){
+                            var value = $(this).html();
+                            self.save(value,$(this).attr('value'));
+                        });
+                    });
+                }else{
+                    alert('请选择收货地址');
+                }
+            },
+            save:function(shipping_text,shipping_value){
+                var shipping_input = '<input type="hidden" name="shipping" value='+shipping_value+' />';
+                $('#J_sel_shipping').html(shipping_text+shipping_input+'<i class="arr down"></i>');
+
+                // $('#J_sel_shipping input[name="shipping"]').val(shipping_value);
+                // $('#J_sel_shipping').html($('#J_sel_shipping').html()+shipping_text+'<i class="arr down"></i>');
+                delivery_confirm('shipping='+encodeURIComponent($('#J_sel_shipping input').val()));
+                this.close();
+                this.saved = true;
+                step3.open('<{link app=b2c ctl=wap_cart act=payment_change}>','shipping='+encodeURIComponent($('#J_sel_shipping input[name="shipping"]').val()));
+            },
+            close:function(){
+                $('#J_shipping_list').addClass('hide');
+                $('#J_sel_shipping').removeClass('hide');
+            },
+            saved:false,
+            url:''
+        }
+        var step3 = {
+            open:function(url,data){
+                if(step2.saved){
+                    if(url){
+                        this.url = url;
+                    }else{
+                        url = this.url;
+                    }
+                    var self = this;
+                    this.saved = false;
+                    $.post(url,data,function(re){
+                        $('#J_pay_list').html(re).removeClass('hide');
+                        $('#J_sel_pay').addClass('hide').html('');
+                        $('#J_pay_list .pay-item').bind('click',function(e){
+                            var value = $(this).html();
+                            self.save(value,$(this).attr('value'));
+                        });
+                    });
+                }else{
+                    alert('请选择配送方式');
+                }
+            },
+            save:function(pay_text,pay_value){
+                var pay_input = '<input type="hidden" name="payment[pay_app_id]" value='+pay_value+' />';
+                $('#J_sel_pay').html(pay_text+pay_input+'<i class="arr down"></i>');
+
+                getTotal();
+                this.close();
+                this.saved = true;
+            },
+            close:function(){
+                $('#J_pay_list').addClass('hide');
+                $('#J_sel_pay').removeClass('hide');
+            },
+            saved:false,
+            url:''
+        }
+
+        if('<{$def_addr.addr_id}>'){
+            var step1_item = $('#J_address_list .act');
+            step1.save(step1_item.html(),step1_item.attr('value'));
+        }
+        $('#J_address_list .address-item').bind('click',function(e){
+            step1.save($(this).html(),$(this).attr('value'));
+        });
+        $('#J_sel_address').bind('click',function(e){
+            step1.open();
+        });
+        $('#J_sel_shipping').bind('click',function(e){
+            step2.open();
+        });
+        $('#J_sel_pay').bind('click',function(e){
+            step3.open('<{link app=b2c ctl=wap_cart act=payment_change}>','shipping='+encodeURIComponent($('#J_sel_shipping input[name="shipping"]').val()));
+        });
+        $('#J_sel_pre').bind('click',function(e){
+            $('#J_pre_info').toggleClass('hide');
+            $(this).find('.pre-list').toggleClass('hide');
+        });
+        $('.J_point_dis').bind('click',function(e){
+            new Dialog('#point_dis',{title:'积分抵扣'});
+        });
+        $('.J_coupon').bind('click',function(e){
+            new Dialog('#usecoupon',{title:'使用优惠券'})
+        });
+        $('.coupon-use').on('click',function(event){
+          var o = $(event.target);
+          if( o.hasClass('btn') ){
+          var postdata = 'coupon=' + o.prev().val() + '&response_type=true&is_fastbuy=<{$is_fastbuy}>';
+            $.post('<{link app=b2c ctl=wap_cart act=add arg0=coupon}>',postdata,function(re){
+                var couponResult = $.parseJSON(re);
+                if(!couponResult || couponResult.error){
+                    alert('优惠券添加失败，请检查您的优惠券号码是否填写正确或者明确优惠券适用范围或者是否已被使用过。');
+                    return false;
+                }
+                if(couponResult.data.length) {
+                    if(couponResult.data.length) {
+                        $('.J_coupon').html('使用优惠券'+couponResult.data.length+'张 <i class="arr right"></i>');
+                        updateCoupon(couponResult.data);
+                        getTotal();
+                    } else {
+                        alert('优惠券添加失败，请明确优惠券的适用范围。');
+                        return false;
+                    }
+                    $('input[name="md5_cart_info"]').attr('value',couponResult.md5_cart_info);
+                }
+            });
+          }
+          if( o.hasClass('del') ){
+            var postdata = 'cpn_ident=' + o.attr('rel') + '&response_type=true';
+            $.post('<{link app=b2c ctl=wap_cart act=removeCartCoupon arg0=coupon}>',postdata,function(re){
+                var couponResult = $.parseJSON(re);
+                if(!couponResult.data) {
+                    $('.J_coupon').html('使用优惠券 <i class="arr right"></i>');
+                } else {
+                    $('.J_coupon').html('使用优惠券'+couponResult.data.length+'张 <i class="arr right"></i>');
+                }
+                updateCoupon(couponResult.data);
+                getTotal();
+                $('input[name="md5_cart_info"]').attr('value',couponResult.md5_cart_info);
+            });
+          }
+          if( o.hasClass('trigger') ){
+            if( o.hasClass('act') )return;
+            o.addClass('act').siblings().removeClass('act');
+            $(this).find('.panel').each(function(){
+              if($(this).hasClass('act')){
+                $(this).removeClass('act').siblings('.panel').addClass('act');
+                return false;
+              }
+            });
+          }
+        });
+        //输入抵扣积分，可抵扣金额同步变化
+        $('input[name="point_score"]').on('input',function(event){
+            var rate = $('input[name="point_rate"]').val();
+            var score = parseInt($('input[name="point_score"]').val());
+            var max = parseInt($('input[name="point_score"]').attr('max'));
+            if(isNaN(score) || score>max){
+                var price = max*rate;
+                $('input[name="point_score"]').val(max);
+            }else{
+                var price = rate*score;
+            }
+            $(this).parent().find('i').html(price);
+        });
+        //使用抵扣积分
+        $('.dis-set .btn').on('click',function(){
+            var rate = $('input[name="point_rate"]').val();
+            var score = $('input[name="point_score"]').val();
+            var postdata = 'point[rate]=' + rate + '&point[score]='+score;
+            $.post('<{link app=b2c ctl=wap_tools act=count_digist}>',postdata,function(re){
+                $('.J_point_dis').html( '积分已抵扣&yen;'+re+'元 <i class="arr right"></i>' );
+                $('.dis-set').hide();
+                $('#dispoint').html($('input[name="point_score"]').val());
+                $('#disprice').html(re);
+                $('.dis-reset').show();
+                $('input[name="point[score]"]').val(score);//积分赋值
+                getTotal();
+          });
+        });
+        //更改抵扣积分
+        $('.dis-reset .btn').on('click',function(){
+            $('.dis-reset').hide();
+            $('.dis-set').show();
+            $('input[name="point_score"]').val('');
+
+        });
+
+        //发票信息
+        var fold = $('.fold').clone();
+        $('.fold').remove();
+        $('input[name="payment[tax_type]"]').bind('change',function(e){
+            need = $('input[name="payment[is_tax]"]');
+            if($(this).val()=='false'){
+                var ul = $(this).parents('ul');
+                console.log(ul);
+                $(ul[0]).siblings('.fold').remove();
+            }else{
+                need.val('true');
+                var ul = $(this).parents('ul');
+                $(ul[0]).after(fold.show());
+            }
+            getTotal();
+        });
+
+        $('a[rel="_request"]').on('click',function(){
+            $('button[rel=_request]')[0].click();
+            return false;
+        });
+
+
+    })();
+</script>

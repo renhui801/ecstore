@@ -1,0 +1,22 @@
+<{if $aCart.object.goods}>
+<{foreach from=$aCart.object.goods item=goods key=_obj_key}>
+  <li class="goods-item">
+    <div class="goods-pic">
+      <{assign var="gimage" value=$goods.obj_items.products.0.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic}>
+      <a href="<{link app=b2c ctl=site_product arg0=$goods.obj_items.products.0.product_id}>"><img src="<{$gimage|storager:'s'}>" alt="<{$goods.name|escape:html}>" data-img-zoom="true"></a>
+    </div>
+    <div class="goods-info">
+      <h3 class="goods-name"><a href="<{link app=b2c ctl=site_product arg0=$goods.obj_items.products.0.product_id}>"><{$goods.obj_items.products.0.name}> <{$goods.obj_items.products.0.spec_info|spec_desc}></a></h3>
+      <div class="goods-price">
+        <p><{t}>销售价：<{/t}><span class="p-price"><{$goods.obj_items.products.0.price.buy_price|cur_odr}></span></p>
+        <p><{t}>数量：<{/t}><span class="p-quantity"><{$goods.quantity}></span><a href="<{link app=b2c ctl=site_cart act=removeMiniCart arg0=goods arg1=$goods.obj_ident}>" class="action-delete"><{t}>移除<{/t}></a></p>
+      </div>
+    </div>
+  </li>
+  <{if $item_goods_section}>
+  <{foreach from=$item_goods_section item=section}>
+  <{include file=$section.file app=$section.app}>
+  <{/foreach}>
+  <{/if}>
+<{/foreach}>
+<{/if}>

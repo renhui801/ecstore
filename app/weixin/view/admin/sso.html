@@ -1,0 +1,33 @@
+<div class="tabs-wrap">
+  <ul>
+    <li class="tab current"><span><{t}>微信绑定配置<{/t}></span></li>
+  </ul>
+</div>
+  <form method="post" action="index.php?app=weixin&ctl=admin_sso&act=save_setting" id="whitelist">
+    <div style="text-align:right;padding:3px 30px"></div>
+    <table class="tableform" style="width:99%;">
+    <tbody>
+      <div class="notice">
+        <h3><{t}>微信免登录使用注意事项：<{/t}></h3>
+        <{t}>以下配置，满足您在微信消息交互/微信自定义菜单中配置消息交互式的方式让用户通过点击回复消息中的链接经过免登绑定系统。<{/t}><br/>
+        <{t}>如果您使用微信自定义菜单链接直达的方式让用户直接经过免登绑定系统，则系统不会应用下面的配置。<{/t}><br/>
+        <span class="red"><{t}>如果您使用微信自定义菜单链接直达的方式，则必须绑定服务号，且经过微信认证开通高级接口权限。<{/t}></span>
+      </div>
+      <tr>
+        <th><{t}>未绑定状态友好提示回复文本：<{/t}></th>
+        <td>
+          <{input type="htmllink" url=$bind_url  hrefName='请点击这里进行绑定' name='noBindText' title='添加免登绑定页面' value=$setting.noBindText height='200px' width='300px'}>
+        </td>
+      </tr>
+      <tr>
+        <th><{t}>绑定成功页面友好提示文本：<{/t}></th>
+        <td>
+          <{input type="htmllink" name='bindSuccText' title='添加链接' value=$setting.bindSuccText height='200px' width='300px'}>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-action">
+    <{button type="submit"  label=$___desktop="保存"|t:'site'}>
+  </div>
+</form>

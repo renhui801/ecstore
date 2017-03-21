@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//controller/clink.php:25
+msgid "站外推广链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//controller/clink.php:57
+msgid "推广链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//controller/clink.php:59
+msgid "创建链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//controller/clink.php:68
+#: /Users/bryant/codes/ecstore-release/app/bdlink//controller/clink.php:78
+msgid "操作失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//controller/clink.php:76
+msgid "操作成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//controller/clink.php:86
+msgid "记录已存在！保存后将修改原始记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:14
+msgid "首次来源ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:22
+msgid "首次来源URL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:29
+msgid "首次来源时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:36
+msgid "本次来源ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:43
+msgid "本次来源URL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:50
+msgid "本次来源时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:60
+msgid "target_type所关联的数据ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:66
+msgid "完成指标类型所关联的ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:71
+msgid "推广成功类型, 目前支持会员注册:member, 下单成功:order两种"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/link.php:76
+msgid "外部链接表(包括订单外部链接和会员外部链接)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/list.php:26
+msgid "投放链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/list.php:34
+msgid "创建时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/list.php:42
+msgid "创建用户id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/list.php:48
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:37
+msgid "有效期"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//dbschema/list.php:54
+msgid "站外推广连接表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink//lib/finder/list.php:17
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:3
+msgid "站外推广链接功能帮助您将商品或者商店的网页地址创建为一个站外推广链接，您可以将站外推广链接以图片或者文字方式投放在其他网站上，这样顾客就可以从其他网站上通过这个链接访问您的商店并且购物下订单，系统也会在订单信息里面记录此订单来源。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:10
+msgid "创建站外推广链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:15
+msgid "要推广的网页地址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:15
+msgid "在此处输入您需要推广的页面地址。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:15
+msgid "譬如您想要推广某款畅销商品，就在此处输入此商品的前台页面地址。如果想推广整个商店，则可以输入商店地址。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:15
+msgid "注意：网页地址前需要带有http://"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:18
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/show_link.html:1
+msgid "来源ID："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:18
+msgid "来源就是指您需要将站外推广链接投放的目的地，譬如您需要将站外推广链接放在新浪网进行推广，则可以在来源ID栏输入“sina”，用来标识这个投放目的地"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:18
+msgid "这样当顾客从新浪点击站外推广链接到您商店进行购物后，所生成的订单里面就会用sina这个ID来标识这些订单，您也就可以很清楚的掌握订单的来源，从而判断哪些投放目的地的效果更好"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:22
+msgid "生成站外推广链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:30
+msgid "复制此站外推广链接到投放位置即可"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:42
+msgid "链接有效期："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:42
+msgid "天"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:42
+msgid "此处设置对来源ID进行统计的有效期，默认为15天，指某顾客通过站外推广链接访问了您的商店，如果他在15天内购买了商品或注册会员，则系统会记录该订单或会员的有效来源为该来源ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:42
+msgid "注意：来源ID的保存是以优先访问为原则。譬如一位顾客先是通过标识码为sina的推广链接进入了您的商店，但是并没有购物。如果这位顾客在15天内又再次通过标识码为msn的推广链接进入了您的商店，并且购物下单了。那么此次顾客的购买行为会算做sina推广链接的效果，系统订单来源里面也会显示为sina"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:48
+msgid "保存设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/create_link.html:77
+msgid "您已经将投放链接复制到粘贴板！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/show_link.html:1
+msgid "首次来源ID："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/show_link.html:1
+msgid "首次来源时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/show_link.html:1
+msgid "<{$params.refer_time|cdate:FDATE}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/show_link.html:1
+msgid "首次来源网址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/show_link.html:1
+msgid "来源网址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/bdlink/view/show_link.html:1
+msgid "来源时间："
+msgstr ""
+

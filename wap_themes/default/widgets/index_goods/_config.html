@@ -1,0 +1,68 @@
+
+<div id="goods_exshow_config" class="tableform">
+    <div class="division">
+        <label>
+            <p>最多展示数量：</p>
+            <input type="text"  name="limit"  value="<{$setting.limit}>" />个商品
+        </label>
+        <label>
+            <p>版块标题：</p>
+            <input type="text" name="block_name" value="<{$setting.block_name}>"/>
+        </label>
+        <label>
+            <p>背景</p>
+            <{input type="color" name="bgcolor" value=$setting.bgcolor}>
+        </label>
+    </div>
+    <div class="division">
+        <div class="goods-selector-handle clearfix">
+            <div class="span-auto">
+                <label>
+                    <input type="radio"  name="selector" value="filter"  <{if $setting.selector=="filter"}>checked<{/if}> />&nbsp;范围选择商品
+                </label>
+            </div>
+            <div class="span-auto">
+                <label><input type="radio"  name="selector" value="select"  <{if $setting.selector=="select"}>checked<{/if}> />&nbsp;精确选择商品</label>
+            </div>
+        </div>
+        <div class="division goods-selector">
+            <div data-extend = "filter" <{if $setting.selector=="select"}>style="display:none"<{/if}>>
+                <{input type="goodsfilter"  name="goods_filter"  value=$setting.goods_filter}>
+                <div class="division">
+                    排序规则：
+                    <select  name="goods_order_by">
+                        <{foreach from=$data.goods_order_by item=item}>
+                        <option value="<{$item.condition}>"  <{if $setting.goods_order_by == $item.condition}>selected<{/if}>><{$item.label}></option>
+                        <{/foreach}>
+                    </select>
+                </div>
+            </div>
+            <div data-extend = "select"  <{if $setting.selector=="filter"}>style="display:none;"<{/if}>>
+                <{input type="goods_select"
+                object="goods@b2c"
+                pdt_name="goods_select"
+                pdt_value=$setting.goods_select
+                obj_name="goods_select_linkobj"
+                obj_value=$setting.goods_select_linkobj
+                }>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    $$('#goods_exshow_config .goods-selector-handle input[type=radio]').addEvent('change',function(){
+        var radio  = this;
+        if(!radio.checked)return;
+        $$('#goods_exshow_config .goods-selector [data-extend]').each(function(item){
+
+            if(item.get('data-extend')!=radio.value){
+                item.hide();
+                }else{
+                item.show();
+            }
+
+        });
+
+    });
+</script>

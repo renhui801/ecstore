@@ -1,0 +1,53 @@
+<span class="region" vtype="<{$params.vtype}>">
+<input name="<{$params.name}>" package="<{$params.package}>" id="<{$params.id}>" type="hidden" value="<{$params.value}>" />
+<{foreach from=$area_depth item=item}>
+<{if $item === 0}>
+<select data-level-index="<{$item}>" class="inputstyle"><option value="_NULL_">请选择</option></select>
+<{else}>
+<select data-level-index="<{$item}>" class="inputstyle" style="visibility:hidden"></select>
+<{/if}>
+<{/foreach}>
+</span>
+
+<script>
+//var isDebug = '<{if defined("DEBUG_JS") && DEBUG_JS}>js<{else}>js_mini<{/if}>/',
+var path ='<{$env.statics_host_url}>/ectools/statics/js/';
+var data_path ='<{$env.base_url}>/data/misc/';
+var callback = '';
+<{if $params.callback}>
+    callback = "<{$params.callback}>";
+<{/if}>
+
+function requestRegion(){
+    $.ajax({
+        url:path+'region_zepto.js',
+        dataType:'script',
+        complete:function(){
+            region_sel.init(callback, region_Data);
+            var str = $('.region input')[0].value;
+            if(str&&(str!='area')) {
+                str = str.split(':')[1].split('/');
+                $.each(str,function(i,s){
+                    var sel = $('select[data-level-index]')[i];
+                    var opt = $(sel).children().filter(function(){
+                        return $(this).attr('text')==s;
+                    });
+                    if(sel) region_sel.changeResponse(sel,opt[0]);
+                });
+            }
+        }
+    });
+}
+<{if $env.const.ECAE_MODE}>
+<{$region_data}>
+requestRegion();
+<{else}>
+$.ajax({
+    url:data_path + 'region_data.js',
+    dataType:'script',
+    complete:function(){
+        requestRegion();
+    }
+});
+<{/if}>
+</script>

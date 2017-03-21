@@ -1,0 +1,12 @@
+<div class="member-order-flow">
+  <ul>
+    <{foreach from=$orderlogs item=log}>
+    <li>
+      <em><{$log.alttime|cdate:FDATE_STIME}></em><{$log.log_text}>
+      <{if $log.log_logi_no}>
+      ，物流单号：<a href="<{link app=logisticstrack ctl=site_tracker act=pull arg0=$log.log_logi_no.delivery_id}>" class="action-logistics" onclick="show_logistics(this, <{$log.log_logi_no.delivery_id}>, this.href);return false;"><{$log.log_logi_no.dly_number}></a>
+      <{/if}>
+    </li>
+    <{/foreach}>
+  </ul>
+</div>

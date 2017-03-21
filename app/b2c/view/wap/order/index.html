@@ -1,0 +1,146 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <div class="a-name">
+            订单提交成功
+        </div>
+    </div>
+    </header>
+    <div class="section">
+        <div class="msg">
+            <div class="checkout-success">
+                订单已经提交成功请尽快付款
+            </div>
+        </div>
+    </div>
+    <form action="<{$form_action}>" method="post" id="paycenter_form">
+        <input type="hidden" name="payment[order_id]" value="<{$order.order_id}>">
+        <input type="hidden" name="payment[combination_pay]" value="false">
+        <input type="hidden" name="payment[def_pay][cur_money]" value="<{$order.cur_money}>">
+        <input type="hidden" name="payment[def_pay][pay_app_id]" value="<{$order.payinfo.pay_app_id}>">
+        <input type="hidden" name="payment[memo]" value="<{$order.memo}>">
+    <div class="section">
+        <div class="d-line c-fix">
+            <div class="l-k bold">付款方式：</div>
+            <div class="l-v">
+                <div class="col2">
+                    <div class="col">
+                        <label id="defpay"><{$order.payinfo.pay_name}></label>
+
+                        <{if !($order.payinfo.pay_app_id == '-1' || $order.payinfo.pay_app_id == 'offline')}>
+                          <{if $order.payinfo.pay_app_id == 'deposit'}>
+                            <{if $order.cur_money - $deposit_money < 0}>
+                              <button type="submit" class="btn red">去付款</button>
+                            <{else}>
+                              <button type="submit" class="btn red" disabled="disabled">去付款</button>
+                            <{/if}>
+                          <{else}>
+                          <button type="submit" class="btn red">去付款</button>
+                          <{/if}>
+                        <{/if}>
+                    </div>
+                    <div class="col t-r">
+                        <span id="J_pay_change">
+                            更换支付方式
+                            <i class="arr right"></i>
+                        </span>
+                        <ul id="J_pay_list" style="display:none;">
+                            <{foreach from=$payments item=payment_row}>
+                                <li class="pay-item gb t-c" value='<{$payment_row.app_id}>' app_name='<{$payment_row.app_name}>'>
+                                    <{$payment_row.app_name}>
+                                </li>
+                            <{/foreach}>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <!--付款完成显示-->
+    <div class="section">
+        <div class="col2">
+            <div class="col">
+                订单：<{$order.order_id}>
+            </div>
+            <div class="col">
+                应付金额：<span class="price"><{$order.cur_money|cur:$order.currency}></span>
+            </div>
+        </div>
+    </div>
+    <!--付款完成显示 end-->
+    <div class="section">
+        <table width="100%" class="d-table">
+            <col width="100"/>
+            <col width=""/>
+            <tr>
+                <td class="k">
+                    订单号：
+                </td>
+                <td class="v">
+                    <{$order.order_id}>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">应付金额：</td>
+                <td>
+                    <span class="price">
+                        <{$order.cur_money|cur:$order.currency}>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">已付金额：</td>
+                <td>
+                    <span class="price">
+                        <{$order.payed|cur:$order.currency}>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">订单商品数量：</td>
+                <td class="v">
+                    <{$order.quantity}>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">收货信息：</td>
+                <td class="v">
+                    <{$order.consignee.addr}>（<{t}>收货人<{/t}>：<{$order.consignee.name}>
+                    <{if $order.consignee.mobile}><{t}>手机<{/t}>：<{$order.consignee.mobile}><{/if}>
+                    <{if $order.consignee.zip}><{t}>邮编<{/t}>：<{$order.consignee.zip}><{/if}>）
+                    <{$order.consignee.r_time}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <div class="d-line c-fix">
+            <div class="l-k">您还可以：</div>
+            <div class="l-v">
+                <a href="<{link app=b2c ctl=wap_member act=orderdetail arg0=$order.order_id}>">
+                    查看订单
+                    <i class="arr right"></i>
+                </a>
+                &nbsp;&nbsp;
+                <a href="<{link app='wap' ctl='default' act='index' }>">
+                    继续购物
+                    <i class="arr right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function(){
+        var pay_change;
+        $('#J_pay_change').bind('click',function(e){
+            pay_change = new Dialog('#J_pay_list',{title:'选择支付方式'});
+        });
+        $('#J_pay_list .pay-item').bind('click',function(e){
+            $('input[name="payment[def_pay][pay_app_id]"]').val( $(this).attr('value') );
+            $('#defpay').text( $(this).attr('app_name') );
+            pay_change.close();
+        });
+    })();
+</script>

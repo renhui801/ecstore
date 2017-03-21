@@ -1,0 +1,106 @@
+<{if $mini_passport ==1}>
+<{include file="site/passport/signup/mini_signup.html"}>
+<{else}>
+<{include file="site/passport/signup/signup.html"}>
+<{/if}>
+<script>
+var Query = {
+    send: function(url, element, data, fn){
+        new Request({
+            url: url,
+            link: 'cancel',
+            onSuccess: function(rs) {
+                var tips = element.retrieve('tips_instance', new formTips({
+                    target: element,
+                    where: 'after',
+                    single: true,
+                    store: true,
+                    autohide: false,
+                    destroy: true
+                })).hide();
+                if(rs) {
+                    try{
+                        rs = JSON.decode(rs);
+                    } catch (e) {}
+                    if(rs.error) {
+                        if(typeof rs.error === 'string') tips.show(rs.error, {type: 'error'});
+                    }
+                    else {
+                        if(typeof rs.success === 'string') tips.show(rs.success, {type: 'success',autohide:3});
+                    }
+                    fn&&fn.call(this, rs);
+                }
+            }
+        }).post(data);
+    }
+};
+
+function redirect(url) {
+    if(url) top.location.href = url;
+}
+
+function sendVerify(el, data) {
+    var url = el.href;
+    var textCont = el.getElement('span span');
+    el.addClass('disabled');
+    textCont.innerHTML = el.get('text') + '(<i>0</i>)';
+    var cd = new countdown(textCont.getElement('i'), {
+        start: 120,
+        secondOnly: true,
+        callback: function(e) {
+            el.removeClass('disabled');
+            textCont.innerHTML = '重发验证码';
+        }
+    });
+    Query.send(url, el, data, function(rs) {
+        if(rs.error) {
+            cd.stop();
+            el.removeClass('disabled');
+            textCont.innerHTML = '重发验证码';
+        }
+    });
+}
+
+Module.get(modname).getElement('button[type=submit]').store('_ajax_config', {
+    progress:function(rs){
+        if(rs.error) {
+            <{if $valideCode == 'true'}>
+            changeCode(Module.element(modname, 'img.auto-change-verify-handle'));
+            <{/if}>
+            return top.Message.error(rs.error,function(){
+                redirect(rs.redirect);
+            });
+        }
+        if(rs.success) return top.Message.success(rs.success + '<br><b>系统即将跳转到注册前页面</b>', function(){
+            redirect(rs.redirect);
+        });
+        redirect(rs.redirect);
+    }
+});
+
+Module.get(modname).addEvents({
+    'change:relay(.action-account-check)': function(e) {
+        var self = this;
+        var value = this.value;
+        Query.send('<{link app=b2c ctl=site_passport act=signup_ajax_check_name}>', this, this.name + '=' + this.value, function(rs){
+            if(rs.error) return;
+            if(validatorMap.mobile[1](self, value)) {
+                if(rs.needVerify == 'true') {
+                    Module.element(modname, '.action-need-verify').style.display = '';
+                    Module.element(modname, '.action-verifycode').style.display = 'none';
+                    // sendVerify(Module.element(modname, '.action-get-verifycode'));
+                }
+                return;
+            }
+            Module.element(modname, '.action-need-verify').style.display = 'none';
+            Module.element(modname, '.action-verifycode').style.display = '';
+        });
+    },
+    'click:relay(.action-get-verifycode)': function(e) {
+        e.preventDefault();
+        var el = Module.element(modname, '.action-account-check');
+        if(this.hasClass('disabled')) return false;
+        sendVerify(this, 'uname=' + el.value + '&type=signup');
+    }
+});
+</script>

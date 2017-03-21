@@ -1,0 +1,34 @@
+<site>
+    <explorer id='cps' path='view/site'>网站联盟前台模版</explorer>
+
+    <module controller='site_user'>
+        <name>user</name>
+        <title>网站联盟</title>
+        <disable>false</disable>
+		<allow_menu act='index'>网站联盟</allow_menu>
+        <default_menu>
+            <title>网站联盟</title>
+            <act>index</act>
+            <hidden>false</hidden>
+        </default_menu>
+    </module>
+
+
+    <module controller='site_welcome'>
+        <name>welcome</name>
+        <title>联盟商信息</title>
+        <disable>false</disable>
+    </module>
+
+    <module controller='site_info'>
+        <name>info</name>
+        <title>网站联盟消息</title>
+        <disable>false</disable>
+    </module>
+
+    <module controller='site_agreement'>
+        <name>agreement</name>
+        <title>网站联盟协议</title>
+        <disable>false</disable>
+    </module>
+</site>

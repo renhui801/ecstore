@@ -1,0 +1,64 @@
+<root>
+<!-- 模块：快递单管理(order) -->
+    <!-- 单据管理 -->
+<!--     <register module="order" ctl="admin_payment" act="dorecycle" param="payment_id">
+        <operate_type>批量删除收款单</operate_type>
+        <template>批量删除收款单 %s</template>
+    </register> -->
+
+<!--     <register module="order" ctl="admin_refund" act="dorecycle" param="refund_id">
+        <operate_type>批量删除退款单</operate_type>
+        <template>批量删除退款单 %s</template>
+    </register> -->
+
+
+<!-- 模块：系统管理(system) -->
+    <!-- 支付与货币 -->
+    <register module="system" ctl="payment_cfgs" act="setting" param="setting.pay_name">
+        <operate_type>支付方式管理</operate_type>
+        <template>配置支付方式 %s</template>
+    </register>
+
+    <register module="system" ctl="currency" act="addnew" param="cur_name">
+        <operate_type>添加货币</operate_type>
+        <template>添加货币 %s</template>
+    </register>
+
+<!--     <register module="system" ctl="currency" act="dorecycle" param="cur_id">
+        <operate_type>删除货币</operate_type>
+        <template>批量删除货币 %s</template>
+    </register> -->
+
+    <register module="system" ctl="currency" act="edit" param="cur_name">
+        <operate_type>编辑货币</operate_type>
+        <template>编辑货币 %s</template>
+    </register>
+
+
+<!-- 模块：系统管理(system) -->
+    <!-- 地区管理 -->
+    <register module="system" ctl="regions" act="addDlArea" param="local_name">
+        <operate_type>添加地区</operate_type>
+        <template>添加地区 %s</template>
+    </register>
+
+    <register module="system" ctl="regions" act="saveDlArea" param="local_name">
+        <operate_type>编辑地区</operate_type>
+        <template>编辑地区 %s</template>
+    </register>
+
+    <register module="system" ctl="regionssetting" act="save_regions_package" param="">
+        <operate_type>设置地区包</operate_type>
+        <template>设置地区包</template>
+    </register>
+    
+    <register module="system" ctl="regionssetting" act="save_depth" param="area_depth">
+        <operate_type>设置默认地区层级</operate_type>
+        <template>设置默认地区层级 %s</template>
+    </register>
+
+    <register module="system" ctl="regionssetting" act="setDefault">
+        <operate_type>恢复初始数据</operate_type>
+        <template>恢复初始数据</template>
+    </register>
+</root>

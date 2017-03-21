@@ -1,0 +1,48 @@
+<{foreach from=$comments.list.ask item=comlist}>
+<div class="item">
+  <div class="consult">
+    <div class="content"><{$comlist.comment|nl2br}></div>
+    <div class="box">
+      <div class="person col">
+        <div class="name">
+        <{if $comlist.addon.hidden_name =='YES' && $comlist.author_id!=0}>
+          匿名
+        <{else}>
+          <{$comlist.author}>
+        <{/if}>
+        <{if $comments.setting.display_lv == 'on' && $comlist.addon.hidden_name !='YES'}> 
+          (<{$comlist.member_lv_name|default:'游客'}>)
+        <{/if}>
+        </div>
+      </div>
+      <div class="time col t-r"><{$comlist.time|cdate:'SDATE_STIME'}></div>
+    </div>
+  </div>
+  <{if $comments.setting.switch_reply == 'on'}>
+  <{if $comlist.items}>
+  <div class="reply">
+    <ul class="reply-list">
+    <{foreach from=$comlist.items item=item key=key}>
+    <li class="reply-item">
+      <span class="n"><{$key+1}></span>
+      <span class="c"><{$item.comment|nl2br}></span>
+      <span class="p"><{if $item.author==='管理员'}>管理员<{else}><{$item.author}><{/if}></span>
+      <span class="t"><{$item.time|cdate:'SDATE_STIME'}></span>
+      <i class="arr left"></i>
+    </li>
+    <{/foreach}>
+    </ul>
+  </div>
+  <{/if}>
+  <{/if}>
+</div>
+<{if $comments.setting.switch_reply == 'on'}>
+<a href="<{link app=b2c ctl=wap_product act=toAskReply arg0=$comlist.comment_id arg1=$goods_id arg2=$product_id}>" class="btn">+回复</a>
+<{/if}>
+<{/foreach}>
+
+<{if $comments.asktotalpage>1 && $page_type != 'init'}>
+
+  <{wap_pagers ajax="true" data=$pager}>
+
+<{/if}>

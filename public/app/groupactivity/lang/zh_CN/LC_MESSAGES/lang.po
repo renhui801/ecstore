@@ -1,0 +1,125 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//controller/admin/order.php:27
+msgid "团购订单列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//controller/admin/purchase.php:32
+msgid "团购"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//controller/admin/purchase.php:34
+msgid "添加团购活动"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//controller/site/cart.php:136
+msgid "综合评分"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//lib/finder/purchase.php:29
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//widgets/group_gallery/widgets.php:6
+msgid "团购列表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//widgets/group_gallery/widgets.php:8
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//widgets/groupactivity/widgets.php:8
+msgid "团购相关"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//widgets/group_gallery/widgets.php:20
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//widgets/groupactivity/widgets.php:20
+msgid "默认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity//widgets/groupactivity/widgets.php:6
+msgid "团购挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:8
+msgid "团购商品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:20
+msgid "活动开始时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:25
+msgid "活动结束时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:30
+msgid "初始销售量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:34
+msgid "活动最少数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:38
+msgid "活动最多数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:43
+msgid "赠送积分数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:47
+msgid "价格"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:54
+msgid "邮费优惠"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:94
+msgid "活动说明"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/add.html:104
+msgid "活动开启状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/finder/purchase.html:10
+msgid "前台访问地址 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/finder/purchase.html:13
+msgid "访问此链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/purchase/dialog.html:4
+msgid "应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/admin/purchase/succdialog.html:4
+msgid "确认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/site/product/body/purchase.html:12
+msgid "无邮费优惠."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/groupactivity/view/site/product/info/purchase.html:5
+msgid "当前价格:"
+msgstr ""
+

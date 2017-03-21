@@ -1,0 +1,61 @@
+<div class="mod">
+    <{include file='site/product/tab/ask/init.html'}>
+</div>
+
+<div class="mod post-comment" id="post_consult">
+  <div class="mod-title">
+    <h2>发表咨询</h2>
+  </div>
+  <div class="mod-content">
+    <form action="<{link app=b2c ctl=site_comment act=toComment arg0=ask}>" method="post" class="action-code-form">
+      <input type="hidden" name="goods_id" value="<{$goods_id}>" >
+      <ul>
+        <{if !$comments.setting.power_status}>
+        <{assign var=disable value='disabled'}>
+        <{/if}>
+        <{if $comments.gask_type}>
+        <li class="form-item">
+        <label for="" class="form-label"><{t}>咨询类型<{/t}>：</label>
+        <div class="form-act">
+          <{foreach from=$comments.gask_type item="gask_type" key=key}>
+          <input type="radio" value="<{$gask_type.type_id}>" name="gask_type" id="for_consult_<{$key}>"<{if $disable}> disabled="<{$disable}>"<{/if}> <{if $key == 0}>checked="checked"<{/if}>>
+          <label for="for_consult_<{$key}>"><{$gask_type.name}></label>
+          <{/foreach}>
+        </div>
+        </li>
+        <{/if}>
+        <li class="form-item">
+        <div class="sub-label-side"><{$comments.setting.submit_comment_notice}></div>
+        <div class="form-act-side<{if !$comments.setting.power_status}> no-permission<{/if}>">
+          <textarea class="action-filled-textarea" vtype="required" data-caution="请填写咨询内容，最多1000字" name="comment"<{if $disable}> disabled="<{$disable}>"<{/if}> cols="30" rows="10" placeholder="欢迎发表咨询，最多1000字。"></textarea>
+          <{if !$comments.setting.power_status}>
+          <div class="mini-mask"><{$comments.setting.power_message}></div>
+          <{/if}>
+          <div class="clearfix">
+            <div class="word-count"><i class="current">0</i>/<i class="word-limit">1000</i></div>
+            <div class="sub-label"></div>
+          </div>
+        </div>
+        </li>
+        <li class="form-item">
+          <{if $comments.setting.login eq "nologin"}>
+          <label for="" class="form-label"><{t}>联系方式<{/t}>：</label><span class="form-act"><input type="text" name="contact" id="" <{if $disable}> disabled="<{$disable}>"<{/if}>> <span class="sub-label"><{t}>可以是电话、email、qq等<{/t}></span></span>
+          <{else}>
+          <span class="form-act-wide"><input type="checkbox" name="hidden_name" value="YES" id="" <{if $disable}> disabled="<{$disable}>"<{/if}>> <{t}>匿名发表<{/t}></span>
+          <{/if}>
+        </li>
+        <{if $comments.setting.verifyCode == "on"}>
+        <li class="form-item">
+          <label for="for_ask_verifycode" class="form-label"><{t}>验证码<{/t}>：</label>
+          <span class="form-act">
+            <{input type="vcode" class="verify-input" id="for_ask_verifycode" name="askverifyCode" size="4" disabled=$disable key="ASKVCODE" a_class="lnklike" img_class="hide"}>
+          </span>
+        </li>
+        <{/if}>
+        <li class="form-item form-item-last">
+        <span class="form-act"><{button type="submit" class="btn-simple action-submit-post" disabled=$disable rel="_request" label="提交咨询"}></span>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>

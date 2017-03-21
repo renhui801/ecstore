@@ -1,0 +1,37 @@
+<{if $aCart.object.giftpackage}>
+    <{foreach from=$aCart.object.giftpackage item=giftpackage key=_giftpackage_key}>
+        <!-- 礼包 -->
+        <tbody class="cart-item last">
+          <tr class="p-packs">
+            <td class="p-info">
+              <div class="p-title"><a  target="_blank" href="<{link app=giftpackage ctl=site_giftpackage arg0=$giftpackage.package.id}>"><{$giftpackage.package.name}></a></div>
+            </td>
+            <td class="p-price"><{$giftpackage.package.price|cur_odr}></td>
+            <td class="p-num"><{$giftpackage.quantity}></td>
+            <td class="p-discount">
+                <{if ($giftpackage.subtotal_goods_price-$giftpackage.package.price*$giftpackage.quantity) > 0 }>
+                  <{($giftpackage.subtotal_goods_price-$giftpackage.package.price*$giftpackage.quantity)|cur_odr}>
+              <{else}>
+                  <{0|cur_odr}>
+              <{/if}>
+            </td>
+            <td class="p-integral"><{$giftpackage.subtotal_gain_score}></td>
+            <td class="p-subtotal"><{$giftpackage.subtotal_price|cur_odr}></td>
+          </tr>
+        <{foreach from=$giftpackage.obj_items item=giftpackage_product name=giftpackage}>
+          <tr class="p-packs-item">
+            <td class="p-info">
+                <div class="p-title"><b>[<{t}>礼包商品<{/t}>]</b><a target="_blank" href="<{link app=b2c ctl=site_product act=index arg0=$giftpackage_product.goods_id}>"><{$giftpackage_product.name}>  <{$giftpackage_product.spec_info}></a></div>
+            </td>
+            <td class="p-price"><{$giftpackage_product.price.price|cur_odr}></td>
+            <td class="p-num"><{$giftpackage_product.quantity * $giftpackage.quantity}></td>
+            <td colspan="3"></td>
+          </tr>
+          <{/foreach}>
+        </tbody>
+      <!-- 礼包商品信息 End -->
+    <{/foreach}>
+<{/if}>
+
+
+

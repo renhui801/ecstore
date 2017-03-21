@@ -1,0 +1,97 @@
+<{css src="style/modify.css" app="cps"}>
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span><a href="<{link app='cps' ctl='site_welcome' act='profitIndex'}>">佣金报表</a></span>&gt;<span class="bold">查询订单详情</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="m2_left">
+<ul id="m2left_nav">
+    <li><a href="<{link app='cps' ctl='site_welcome' act='profitSearch'}>">实时业绩查询</a></li>
+    <li class="curr bg_color1"><a href="<{link app='cps' ctl='site_welcome' act='orderSearch'}>">查询订单详情</a></li>
+    <li><a href="<{link app='cps' ctl='site_welcome' act='incomeSearch'}>">收益月报表查询</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="m2_right">
+<div class="yj_search" style="height:auto; overflow:hidden;">
+<form action="<{link app='cps' ctl='site_welcome' act='orderSearch'}>" method="get">
+<table width="99%" border="0" align="left" id="yj_ss">
+    <tbody>
+        <tr>
+            <td colspan="3" valign="middle">只能查询属于您的业绩的订单。</td>
+        </tr>
+        <tr >
+            <td width="7%">订单号：</td>
+            <td width="33%" ><label><input type="text" name="orderId" vtype="required" class="logintext2"><br/></label></td>
+            <td width="60%" ><label>
+              <input type="submit" value="搜索" class="but_bglan" />
+            </label></td>
+        </tr>
+    </tbody>
+</table>
+<div class="clear"></div>
+</form>
+</div><!--yj_yj_search--> 
+<div style="float:left; padding-top:10px; overflow:hidden;">
+<{if $data}>
+<div class="yj_xiangqing">
+<table width="100%" border="0" align="center" cellspacing="0" class="tab1">
+    <tbody>
+    	<col class="td1"/>
+        <col class="td2" />
+        <col class="td3" />
+        <col class="td4" />
+        <col class="td5" />
+        <tr class="bg_color1">
+            <th>订单号</th>
+            <th>下单时间</th>
+            <th>来源</th>
+            <th>订单金额</th>
+            <th>佣金</th>
+            <th>状态</th>
+        </tr>
+        <tr>
+           <td class="tab-td1"><{$data.order_id}></td>
+            <td class="tab-td2"><{$data.addtime}></td>
+            <td class="tab-td3"><span><{$data.refer_url}></span></td>
+            <td class="tab-td4"><{$data.order_cost}>元</td>
+            <td class="tab-td5"><p class="text_red"><{$data.money}>元</p></td>
+            <td class="tab-td6"><{$data.state}></td>
+        </tr>
+        <tr>
+        <td colspan="6">
+        <table width="100%" class="tabnone"><tr>
+        <{foreach from=$goods item=good}>
+                <td width="50%" align="center">
+                    <{if $good.goods_id}>
+                    <a target="_blank" href="product-index-<{$good.goods_id}>.html"><{$good.name}> <{$good.nums}>件</a>
+                    <{else}>
+                    <{$good.name}> <{$good.nums}>件
+                    <{/if}>
+                </td>
+                <{if ++$i%2==0}>
+                    </tr><tr>
+                <{/if}>
+        <{/foreach}>
+        </tr></table>
+        </td>
+        </tr>
+    </tbody>
+</table>
+<div class="clear"></div>
+</div>
+<{elseif $isSearch}>
+<div class="yj_xiangqing bor_color1" style="padding:5px 0 5px 5px;"><div>暂无查到相关记录</div></div>
+<{/if}>
+<div class="clear"></div>
+</div><!--yj_xiangqing-->
+</div><!--m2_right-->
+
+<div class="clear"></div>
+</div><!--mc_2box-->
+<div class="clear"></div>
+</div>
+<script>
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

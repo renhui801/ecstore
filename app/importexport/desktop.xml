@@ -1,0 +1,13 @@
+<desktop>
+  <permissions>
+    <permission id="importexport" display='true' parent='0' workground='system'>队列导入导出</permission>
+  </permissions>
+    <workground name="系统" id="system.workground.setting" controller="admin_export" action="queue_export" order='100'>
+        <menugroup name="队列导入导出">
+            <menu controller='admin_system' action='setting' permission='importexport' display='true' order='10'>存储方式配置</menu>
+            <menu controller='admin_export' action='queue_export' permission='importexport' display='true' order='10'>导出队列</menu>
+            <menu controller='admin_import' action='queue_import' permission='importexport' display='true' order='10'>导入队列</menu>
+        </menugroup>
+    </workground>
+</desktop>
+

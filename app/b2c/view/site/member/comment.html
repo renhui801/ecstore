@@ -1,0 +1,122 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的评论 -->
+  <div id="member_comment" class="member-comment">
+    <div class="member-tabs">
+      <{if $comment_switch_discuss == 'on'}>
+      <a href="<{link app=b2c ctl='site_member' act='comment'}>" <{if $commentType != 'ask'}> class ='active'<{/if}> ><em>我的评论</em></a>
+      <{/if}>
+      <{if $comment_switch_ask == 'on'}>
+      <a href="<{link app=b2c ctl='site_member' act='ask'}>"  <{if $commentType == 'ask'}> class ='active'<{/if}> ><em>我的咨询</em></a>
+      <{/if}>
+    </div>
+    <div class="member-comment-list">
+      <ul>
+        <{if $commentList}>
+        <{foreach from=$commentList item='commentList'}>
+        <!--赠品评论不显示 兼容老数据 2.0后赠品不能评论-->
+        <{if !$goodsList[$commentList.type_id]}><{continue}><{/if}>
+        <!--end-->
+          <{if !$commentList.product_id}>
+            <{assign var='product_id' value=$productList[$commentList.type_id]}>
+          <{else}>
+            <{assign var='product_id' value=$commentList.product_id}>
+          <{/if}>
+        <li class="comment-item">
+          <div class="goods-info">
+            <div class="goods-pic"><a href="<{link app=b2c ctl=site_product arg0=$product_id}>"><img src="<{if $goodsList[$commentList.type_id].udfimg == 'true'}><{$goodsList[$commentList.type_id].thumbnail_pic|storager:'s'}><{else}><{$goodsList[$commentList.type_id].image_default_id|default:$defaultImage|storager:'s'}><{/if}>" alt="<{$goodsList[$commentList.type_id].name}>"></a></div>
+            <a href="<{link app=b2c ctl=site_product arg0=$product_id}>"><h3><{$goodsList[$commentList.type_id].name}></h3></a>
+            <span class="price"><{$goodsList[$commentList.type_id].price|cur_odr}></span>
+          </div>
+          <div class="goods-comment">
+            <div class="comment-infos">
+              <{if $commentType == 'ask'}>
+              <em class="text-minor">[<{$gask_type.[$commentList.gask_type]|default:'商品咨询'}>]</em>
+              <{elseif $point_status == 'on'}>
+              <em class="stars stars-<{$goods_point[$commentList.comment_id]*10}>">
+                <span class="below"><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i><i class="icon star">&#x2f;</i></span><span class="above"><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i><i class="icon star">&#x2e;</i></span>
+              </em>
+              <{/if}>
+              <div class="datetime"><{$commentList.time|cdate:SDATE_STIME}></div>
+            </div>
+            <p class="comments"><{$commentList.comment}></p>
+            <{if $commentList.items}>
+            <div class="reply-action">
+              <span class="inter-handle"><a href="javascript:void(0);" class="action-unfold-reply" rel="<{$commentList.comment_id}>"><span class="text"><{t}>回复<{/t}><{if $commentList.unReadNum}>(<{$commentList.unReadNum}><{t}>新<{/t}>)<{/if}></span> <q class="icon">&#x36;</q></a></span>
+            </div>
+            <{foreach from=$commentList.items item="reply"}>
+            <div class="reply-list">
+              <blockquote class="reply-item <{if $reply.author == '管理员'}>reply-admin<{/if}> <{if $reply.mem_read_status == 'false' }> new<{/if}>">
+                <em class="icon lquote">&#x5b;</em>
+                <div class="reply-label"><span class="infos"><em><{if $reply.addon.hidden_name =='YES' && ($reply.author_id !=0 || $reply.author_id !=1)}><{t}>匿名<{/t}><{else}><{$reply.author}><{/if}></em> <{t}>说<{/t}></span><span class="datetime"><{$reply.time|cdate:SDATE_STIME}></span></div>
+                <p class="reply-content"><{$reply.comment}></p>
+                <em class="icon rquote">&#x5c;</em>
+              </blockquote>
+            </div>
+            <{/foreach}>
+            <{/if}>
+          </div>
+        </li>
+        <{/foreach}>
+        <{else}>
+        <li class="comment-item no-information first"><{t}>暂无商品<{if $commentType == 'ask'}>咨询<{else}>评论<{/if}><{/t}></li>
+        <{/if}>
+      </ul>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+</div>
+<script>
+var Router = {
+  clean: '<{link app=b2c ctl=site_comment act=readReply}>'
+};
+var Query = {
+    options: function(url, data, method, fn){
+        return {
+            url: url,
+            method: method,
+            data: data,
+            link: 'cancel',
+            onSuccess: function(rs) {
+                try {
+                    rs = JSON.decode(rs);
+                }catch(e) {}
+                if(typeOf(fn) === 'function') fn.call(this,rs);
+            }
+        };
+    },
+    send: function(url, data, fn) {
+        new Request(Query.options(url,data, 'post', fn)).send();
+    }
+}
+var container = $('member_comment');
+container.addEvents({
+    'click:relay(.action-unfold-reply)': function(e){
+        var parent = this.getParent('.comment-item');
+        var reply = parent.getElement('.reply-list');
+        var sibling = parent.getSiblings('.unfold')[0];
+        if(parent.hasClass('unfold')) {
+            parent.removeClass('unfold');
+        }
+        else {
+            parent.addClass('unfold');
+            cleanNew.delay(2000, this, [this, parent]);
+            if(sibling) {
+                sibling.removeClass('unfold');
+                cleanNew(sibling, sibling);
+            }
+        }
+    }
+});
+
+function cleanNew(el, parent){
+    var news = parent.getElements('.new');
+    var text = el.getElement('.text');
+    if(news.length && text) {
+        Query.send(Router.clean, 'comment_id=' + el.rel, function(rs){
+            news.removeClass('new');
+            text.set('text', '回复');
+        });
+    }
+}
+</script>

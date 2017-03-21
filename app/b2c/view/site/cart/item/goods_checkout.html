@@ -1,0 +1,71 @@
+<{if $aCart.object.goods}>
+<{foreach from=$aCart.object.goods item=goods key=_obj_key}>
+<tbody class="cart-item">
+  <!-- 主商品 -->
+  <tr class="cart-product<{if !$goods.adjunct}> last<{/if}>">
+	  <td class="p-info">
+		  <div class="p-title"><a target="_blank" href="<{link app=b2c ctl=site_product arg0=$goods.obj_items.products.0.product_id}>"><{$goods.obj_items.products.0.name}> <{$goods.obj_items.products.0.spec_info}></a>
+			  <{if $goods.special_type}>
+			  <span class="p-info">[<{$goods.special_type}>]</span>
+			  <{/if}>
+</div>
+    </td>
+    <td class="p-price"><{$goods.obj_items.products.0.price.price|cur_odr}></td>
+    <td><{$goods.quantity}></td>
+    <td class="p-discount"><{($goods.discount_amount_prefilter)+(($goods.obj_items.products.0.price.price-$goods.obj_items.products.0.price.member_lv_price)*$goods.quantity)|cur_odr}></td>
+    <td class="p-integral">
+      <{if ($goods.obj_items.products.0.gain_score * $goods.quantity)}>
+        <{$goods.obj_items.products.0.gain_score * $goods.quantity}>
+      <{else}>
+        -
+      <{/if}>
+    </td>
+    <td class="p-subtotal"><{$goods.subtotal_prefilter_after|cur_odr}></td>
+  </tr>
+    <!-- 赠品 -->
+  <{foreach from=$goods.gift item=gift key=_gift_key}>
+  <tr class="p-gift">
+    <td class="p-info">
+      <b>[赠品]</b><a target="_blank" href="<{link app=gift ctl=site_gift arg0=$gift.product_id}>"><{$gift.name}><{$gift.spec_desc}></a>
+    </td>
+    <td class="p-price"><{$gift.price.price|cur_odr}></td>
+    <td class="p-num"><{$gift.quantity}></td>
+    <td colspan="3"></td>
+  </tr>
+  <{/foreach}>
+  <!-- 商品促销 -->
+  <tr>
+    <td class="p-promotion" colspan="6">
+      <ul>
+        <{foreach from=$aCart.promotion.goods.[$goods.obj_ident] item=goods_promotion}>
+        <{if $goods_promotion.cart_display}>
+        <li>
+          <b>[<{$goods_promotion.desc_tag}>]</b><{$goods_promotion.name}>
+        </li>
+        <{/if}>
+        <{/foreach}>
+      </ul>
+    </td>
+  </tr>
+  <!-- 配件 -->
+  <{foreach from=$goods.adjunct item=adjunct key=key name=adjunct}>
+  <tr class="p-adjunct<{if $smarty.foreach.adjunct.last}> last<{/if}>">
+    <td class="p-info">
+      <div class="p-title"><b>[<{t}>配件商品<{/t}>]</b><a target="_blank" href="<{link app=b2c ctl=site_product arg0=$adjunct.product_id}>"><{$adjunct.name}> , <{$adjunct.spec_info}></a></div>
+    </td>
+    <td class="p-price"><{$adjunct.json_price.price|cur_odr}></td>
+    <td><{$adjunct.quantity}></td>
+    <td class="p-discount"><{($adjunct.json_price.price-$adjunct.price.price)*$adjunct.quantity|cur_odr}></td>
+    <td class="p-integral">
+          <{if ($adjunct.gain_score * $adjunct.quantity)}>
+              <{$adjunct.gain_score * $adjunct.quantity}>
+          <{else}>
+              -
+          <{/if}>
+    </td>
+    <td class="p-subtotal"><{$adjunct.price.price|cur_odr}></td>
+  </tr>
+  <{/foreach}>
+</tbody>
+<{/foreach}>
+<{/if}>

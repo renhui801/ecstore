@@ -1,0 +1,25 @@
+<{css src="style/modify.css" app="cps"}>
+
+<div class="main2_head">
+<div class="m2head_7"><span class="bold">取回密码第二步：邮箱确认</span></div>
+<div class="acc_sz"></div>
+</div>
+<div class="RegisterWrap clearfix">
+     <p class="intro"><{t}>说明：当你填写邮箱并提交后，密码会自动发到您注册的邮箱里面，请及时收邮件，取回密码！<{/t}></p>
+<div class="form password-return">
+<form name="FORM_TPL_FORGETQUESTION" method="post" action="<{link app='cps' ctl='site_user' act='sendPSW'}>">
+<ul style="line-height:30px;">
+    <li><label><{t}>您的用户名：<{/t}></label> <{$data.login_name}><input type=hidden name=uname value="<{$data.login_name}>" class="logintext1"/></li>
+    <{if $data.question}>
+    <li><label><{t}>取回密码问题：<{/t}></label> <{$data.question}></li>
+    <li><label><{t}>取回密码答案：<{/t}></label> <{input name="pw_answer" class="inputstyle" style="padding:0px; height:22px;width:180px; background:none;"}></li>
+    <{/if}>
+    <li><label><{t}>请输入您的邮箱：<{/t}></label> <{input name="email" class="inputstyle" style="padding:0px; height:22px; width:180px;background:none;"}></li>
+    <li class="button-li" style="padding-top:10px;">
+    <button type="submit" class="but_bgred"><span><span>提交</span></span></button>
+    </li>
+</ul>
+<div class="clear"></div>
+</form>
+</div>
+</div>

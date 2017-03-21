@@ -1,0 +1,18 @@
+<root>
+<!-- 模块：订单管理(order) -->
+    <!-- 售后服务管理 -->
+    <register module="order" ctl="admin_returnproduct" act="save" param="return_id">
+        <operate_type>售后申请表状态修改</operate_type>
+        <template>售后申请表状态修改为 %s</template>
+    </register>
+
+    <register module="order" ctl="admin_returnproduct" act="dorecycle" param="return_id">
+        <operate_type>售后申请表批量删除</operate_type>
+        <template>批量删除售后申请表 %s</template>
+    </register>
+
+    <register module="order" ctl="admin_returnproduct" act="export" param="return_id">
+        <operate_type>售后申请表批量导出</operate_type>
+        <template>批量导出售后申请表 %s</template>
+    </register>
+</root>

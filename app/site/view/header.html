@@ -1,0 +1,21 @@
+<{lang_script src="lang.js" app="site"}>
+<{if defined("DONOTUSE_CSSFRAMEWORK")&&DONOTUSE_CSSFRAMEWORK}>
+<{else}>
+<{css src="typical.css" app="site" pdir="css_mini"}>
+<{/if}>
+<{if defined("DONOTUSE_JSFRAMEWORK")&&DONOTUSE_JSFRAMEWORK}>
+<{else}>
+	<{if defined("DEBUG_JS") && DEBUG_JS}>
+	    <{script src="lab.js" app="site"}>
+	    <{script src="mootools.js" app="site"}>
+	    <{script src="moomore.js" app="site"}>
+	    <{script src="jstools.js" app="site"}>
+	    <{script src="formplus.js" app="site"}>
+	    <{script src="popup.js" app="site"}>
+	    <{script src="switchable.js" app="site"}>
+	<{else}>
+	    <{script src="moo.min.js" app="site" pdir="js_mini"}>
+	    <{script src="ui.min.js" app="site" pdir="js_mini"}>
+	<{/if}>
+<{/if}>
+

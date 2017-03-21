@@ -1,0 +1,134 @@
+<{if $aCart.object.goods}>
+<ul class="pt-list">
+  <{foreach from=$aCart.object.goods item=goods key=_obj_key}>
+  <li class="pt-h-item c-fix">
+    <input type="hidden" name="obj_type" value="goods" />
+    <input type="hidden" name="goods_ident" value="<{$goods.obj_ident}>" />
+    <input type="hidden" name="goods_id" value="<{$goods.obj_items.products.0.goods_id}>" />
+    <input type="hidden" name="min" value="1" class="min-num" />
+    <input type="hidden" name="max" value="<{$goods.store.real}>" class="max-num" />
+    <input type="hidden" name="stock" value="<{$goods.store.store}>" />
+
+    <div href="<{$goods.obj_items.products.0.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" class="pt-h-img"><a href="<{link app=b2c ctl=wap_product act=index arg0=$goods.obj_items.products.0.product_id}>"><img src="<{$goods.obj_items.products.0.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="<{$goods.obj_items.products.0.name}>"></a></div>
+    <div class="pt-h-info">
+      <div class="pt-h-name">
+        <{$goods.obj_items.products.0.name}>
+      </div>
+      <div class="pt-h-other">
+        <{$goods.obj_items.products.0.spec_info}>
+      </div>
+      <div class="pt-h-price">
+        <div class="col2">
+          <div class="col price">
+            <{$goods.subtotal_prefilter_after|cur_odr}>
+          </div>
+          <{if $aCart.promotion.goods.[$goods.obj_ident] || $goods.gift}>
+          <div class="col pre J-pre">
+            商品优惠
+            <i class="arr down"></i>
+            <i class="arr top"></i>
+          </div>
+          <{/if}>
+        </div>
+      </div>
+    </div>
+    <div class="pre-info hide">
+      <!-- 赠品 -->
+      <{foreach from=$goods.gift item=gift key=_gift_key}>
+      <div class="box">
+        <span class="col f-red">赠品</span>
+        <span class="col">
+            <{$gift.name}><{$gift.spec_desc}>
+            <i><{$gift.price.price|cur_odr}> x <{$gift.quantity}></i>
+          </span>
+        </div>
+        <{/foreach}>
+        <!-- 商品促销 -->
+        <{foreach from=$aCart.promotion.goods.[$goods.obj_ident] item=goods_promotion}>
+        <{if $goods_promotion.cart_display}>
+        <div class="box">
+          <span class="col f-red"><{$goods_promotion.desc_tag}></span>
+          <span class="col"><{$goods_promotion.name}></span>
+        </div>
+        <{/if}>
+        <{/foreach}>
+      </div>
+
+      <div class="pt-h-bar c-fix">
+        <div class="pt-num J-pt-num">
+          <span class="minus btn gray">-</span>
+          <div class="num">
+            <input type="text" name="modify_quantity[<{$goods.obj_ident}>][quantity]" value="<{$goods.quantity}>" class="num-ipt">
+          </div>
+          <span class="plus btn gray">+</span><{if $goods.store.store <= 5}><span class="warn-message">余量有限</span><{/if}>
+        </div>
+        <div class="pt-h-del">
+          <a href="<{link app=b2c ctl=wap_cart act=remove}>" class="btn gray J-remove">
+            删除
+          </a>
+        </div>
+        <div class="pt-h-fav">
+        <{if $login=='nologin'}>
+          <a href="<{link app=b2c ctl=wap_passport act=login}>" class="btn">收藏</a>
+        <{else}>
+          <a class="btn btn-addfav favlist" type="button" data-gid="<{$goods.obj_items.products.0.goods_id}>" href="#">收藏</a>
+        <{/if}>
+        </div>
+      </div>
+    </li>
+
+    <!-- 配件 -->
+    <{foreach from=$goods.adjunct item=adjunct key=key name=adjunct}>
+    <li class="pt-h-item c-fix">
+      <input type="hidden" name="obj_type" value="goods">
+      <input type="hidden" name="min" value="<{$adjunct.store.min_buy_store}>"/>
+      <input type="hidden" name="max" value="<{$adjunct.store.real - $cart_buy_nums.[$adjunct.goods_id] + $adjunct.quantity}>" class="max-num"/>
+      <input type="hidden" name="stock" value="<{$adjunct.store.store}>"/>
+      <input type="hidden" name="response_type" value="true" />
+      <div href="<{$adjunct.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" class="pt-h-img">
+        <a href="<{link app=b2c ctl=wap_product arg0=$adjunct.product_id }>">
+          <img src="<{$adjunct.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="">
+        </a>
+      </div>
+      <div class="pt-h-info">
+        <div class="pt-h-name">
+          <{$adjunct.name}>
+        </div>
+        <div class="pt-h-other">
+          <{$adjunct.spec_info}>
+        </div>
+        <div class="pt-h-price">
+          <div class="col2">
+            <div class="col price">
+              <{$adjunct.json_price.price|cur_odr}>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-h-bar c-fix">
+        <div class="pt-num J-pt-num">
+          <span class="minus btn gray">-</span>
+          <div class="num">
+            <input type="text" name="modify_quantity[<{$goods.obj_ident}>][adjunct][<{$adjunct.group_id}>][<{$adjunct.product_id}>][quantity]" id="" value="<{$adjunct.quantity}>">
+          </div>
+          <span class="plus btn gray">+</span><{if $adjunct.store.store <= 5}><span class="warn-message">余量有限</span><{/if}>
+        </div>
+        <div class="pt-h-fav">
+        <{if $login=='nologin'}>
+          <a href="<{link app=b2c ctl=wap_passport act=login}>" class="btn">收藏</a>
+        <{else}>
+          <a class="btn btn-addfav favlist" type="button" data-gid="<{$goods.obj_items.products.0.goods_id}>" href="#">收藏</a>
+        <{/if}>
+        </div>
+        <div class="pt-h-del">
+          <a href="<{link app=b2c ctl='wap_cart' act='remove' arg0='goods'}>" class="btn gray J-remove">
+            删除
+          </a>
+        </div>
+      </div>
+    </li>
+    <{/foreach}>
+    <{/foreach}>
+  </ul>
+  <{/if}>

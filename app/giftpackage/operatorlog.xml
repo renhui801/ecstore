@@ -1,0 +1,14 @@
+<root>
+<!-- 模块：营销管理(sales) -->
+    <!-- 礼包管理 -->
+    <register module="sales" ctl="admin_giftpackage" act="toAdd" param="giftpackage.name" prk="giftpackage.id">
+        <operate_type>礼包</operate_type>
+        <template>礼包 %s</template>
+    </register>
+
+<!--     <register module="sales" ctl="admin_giftpackage" act="dorecycle" param="id">
+        <operate_type>批量删除 礼包</operate_type>
+        <template>批量删除礼包 %s</template>
+    </register> -->
+
+</root>

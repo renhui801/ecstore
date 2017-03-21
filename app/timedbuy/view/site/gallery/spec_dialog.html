@@ -1,0 +1,66 @@
+<form action="<{$form_url}>" method="post" gnotify="<{link app=b2c ctl=site_product act=gnotify}>">
+	<div class="dialog-specbox" id='dialog-spec'>
+		<div class="spec-pic">
+              <{if $product.udfimg == 'true'}>
+                    <{assign var="gimage" value=$goods.thumbnail_pic}>
+                    <{else}>
+                    <{assign var="gimage" value=$goods.image_default_id|default:$defaultImage}>
+              <{/if}>
+
+			<img src="<{$gimage|storager:'s'}>"  width="78" height="82" >
+            <span>价格:</span><span class="font-red font13px fontbold" updateSpec='updateprice'> <{$goods.current_price|cur_odr:$order.currency}></span>
+		</div>
+		<div class="dialog_specauto">
+		<div class="spec_name">
+			<{$goodshtml.name}>
+		</div>
+		<div class="dialog-content">
+			<{$goodshtml.spec}>
+			<input name="goods[goods_id]"  value="<{$goods.goods_id}>" type="hidden" />
+			<input name="goods[product_id]" updateSpec="updatepid"  value="" type="hidden" />
+			<input name="goods[pmt_id]"  value="" type="hidden" />
+			<input name="goods[num]" value="1" type="hidden" />
+			<{if !$goods.nostore_sell}>
+			<span class='goods-store' style="display:none"  updateSpec='text_store'><{$goods.store}></span>
+			<{/if}>
+			<input type="hidden" name="goods[goods_id]" value="<{$goods.goods_id}>" />
+			<input type='hidden' name='goods[product_id]' updateSpec="updatepid" value=''/>
+            <div class="clear"></div>
+		</div>
+		</div>
+		<div style="clear:both" updateSpec="stockout" class="buybtn">
+			<{$goodshtml.button}>
+		</div>
+	</div>
+</form>
+
+<script>
+(function(){
+
+	var spec_update=new Goods_spec($('dialog-spec'),{height:15});
+
+	Goods_spec._selectedUpdate['stockout']=function(el,v,pid,pdata){
+		el.retrieve('default:callback',function(){
+			var storeBtn=$$('.goods-store')[0].getElement(spec_update.contains),store,
+				specBtn=$$('.small-specbtn')[0].getElement(spec_update.contains);
+
+			if(storeBtn&&storeBtn.get('text')==='0')
+			return specBtn.addClass('stockout');
+			specBtn.removeClass('stockout');
+		})();
+	}
+
+	$$('.nostore')[0].getElement(spec_update.contains).addEvent('click',function(){
+		 this.form.action=this.form.get('gnotify');
+         this.form.submit();
+	});
+
+	//默认选中
+	spec_update.specItems.each(function(si){
+		var specs=si.getElements('a[specvid]');
+		specs.filter(function(sp){
+			return (!sp.hasClass('selected')&&!sp.hasClass('lock'));
+        })[0].fireEvent('click',{stop:function(){}});
+	});
+})();
+</script>

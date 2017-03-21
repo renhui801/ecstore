@@ -1,0 +1,31 @@
+<div id="product_spec" class="product-spec">
+  <ul class="spec-area">
+    <{foreach from=$page_product_basic.spec.goods key=key item=spec}>
+    <li class="spec-item">
+      <span class="item-label"><i><{$page_product_basic.spec.specification.spec_name.$key}></i>：</span>
+      <span class="item-content">
+        <ul class="clearfix">
+          <{foreach from=$spec key=item_key item=item}>
+          <{if $item_key == $page_product_basic.spec.product.$key || $item.product_id}>
+          <li class="spec-attr<{if $item_key==$page_product_basic.spec.product.$key}> selected<{/if}>">
+            <{if $item_key==$page_product_basic.spec.product.$key}>
+            <a href="javascript:void(0);">
+            <{elseif $item.product_id}>
+            <a href="<{link app=b2c ctl=site_product act=index arg0=$item.product_id}>" rel="<{$item.product_id}>">
+            <{/if}>
+              <{if $page_product_basic.spec.specification.spec_type.$key == 'image'}>
+              <img src="<{$item.spec_image|storager:'s'}>" alt="<{$item.spec_value}>" title="<{$item.spec_value}>">
+              <{else}>
+              <span><{$item.spec_value}></span>
+              <{/if}>
+              <i></i>
+            </a>
+          </li>
+          <{/if}>
+          <{/foreach}>
+        </ul>
+      </span>
+    </li>
+    <{/foreach}>
+  </ul>
+</div>

@@ -1,0 +1,23 @@
+<div class="slider auto-bind-widget" id="sub_slide" data-widget-type="Slide" data-widget-config="{
+    autoplay:false,
+    effect:'scrollx',
+    hasTriggers:false,
+    panels:'.slide-item',
+    haslrbtn:true,
+    isFloat:false,
+    viewStep:2
+}">
+  <div class="prev"><i class="icon">&#x26;</i></div>
+  <div class="slide-box">
+    <ul class="slide-list">
+      <{foreach from=$data.pic item=parent key=parentId}>
+      <li class="slide-item">
+        <a href="<{$parent.linktarget}>">
+          <img src="<{$parent.link}>" width="310" height="160" title="<{$data.linkinfo}>"/>
+        </a>
+      </li>
+      <{/foreach}>
+    </ul>
+  </div>
+  <div class="next"><i class="icon">&#x27;</i></div>
+</div>

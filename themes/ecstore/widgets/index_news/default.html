@@ -1,0 +1,18 @@
+<div class="common-mod index-news">
+  <{if $data.__shownode&&$data.node_name}>
+  <div class="hd">
+    <h2 class="title">
+      <{if !$data.__stripparenturl}>
+      <a href="<{$data.node_url}>"><span><{$data.node_name}></span></a>
+      <{else}>
+      <{$data.node_name}>
+      <{/if}>
+    </h2>
+  </div> 
+  <{/if}>
+  <div class="bd">
+    <ul class="news-list">
+      <{$data.__html}>
+    </ul>
+  </div>
+</div>

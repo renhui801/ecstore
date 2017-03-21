@@ -1,0 +1,44 @@
+<form method="post" id="click-form" action="<{$action_url}>" target="{update:'messagebox'}">
+    <div class="tableform">
+        <h3><{t}>注册营销配置<{/t}></h3>
+        <div class="division">
+            <div class=" current">
+                <table width="100%" cellspacing="0" cellpadding="0">
+                  <tr> 
+                    <th><{t}>活动开始时间<{/t}></th>
+                    <td><{input name="setting[stime]" type="date" id="-stime" value=$setting.stime}></td>
+                  </tr>
+                  <tr> 
+                    <th><{t}>活动结束时间<{/t}></th>
+                    <td><{input name="setting[etime]" type="date" id="-etime" value=$setting.etime }></td>
+                  </tr>
+                  <tr> 
+                    <th>启用状态</th>
+                    <td><{input type="radio" value=$setting.status name="setting[status]" options=$status separator=' '}></td>
+                  </tr>
+                  <tr>
+                    <th>送优惠券</th>
+                    <td>
+                        <{input type="object" object='coupons@b2c' name="setting[getcoupon]" cols="cpna_name" multiple="true"  value=$setting.getcoupon select="checkbox"  filter=$filter textcol="cpns_name" view="b2c:admin/goods/rows.html"}>
+                    </td>
+                  </tr>
+                  <{if $show_score!='false'}>
+                  <tr>
+                    <th>送积分</th>
+                    <td> <{input type="text" name="setting[getscore]" value=$setting.getscore vtype='unsignedint' }></td>
+                  </tr>
+                  <{/if}>
+                  <{if $is_deposit != 'false'}>
+                  <tr>
+                    <th>送预存款</th>
+                    <td><{input type="text" name="setting[getadvance]" value=$setting.getadvance vtype='positive' }></td>
+                  </tr>
+                  <{/if}>
+                </table>
+            </div>
+        </div>
+        <div class="table-action">
+                 <{button type="submit" label=$___bdlink="保存设置"|t:'bdlink' }>
+        </div>
+    </div>
+</form>

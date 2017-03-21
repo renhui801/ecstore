@@ -1,0 +1,14 @@
+<desktop>
+    <workground name="营销" id="b2c.wrokground.sale" controller="admin_emailcont" action="index" order="40">
+        <menugroup name="邮件订阅">
+            <menu controller='admin_emailsend' action='sendShow' permission='emailsubs' display='true' order='10'>发送邮件</menu>
+            <menu controller='admin_emailcont' action='addNew' permission='emailsubs' display='true' order='20' >添加邮件模板</menu>
+            <menu controller='admin_emailcont' action='index' permission='emailsubs' display='true' order='30' >管理邮件模板</menu>
+			<menu controller='admin_emailcont' action='showEdit' permission='emailsubs' display='false' order='15'>编辑订阅邮件</menu>
+        </menugroup>
+    </workground>
+
+	<permissions>
+		<permission id="emailsubs" display='true'>邮件订阅</permission>
+	</permissions>
+</desktop>

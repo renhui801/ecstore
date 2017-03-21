@@ -1,0 +1,19 @@
+<app version="1.0">
+  <name>推广链接</name>
+
+  <description>shopex 推广系统</description>
+
+  <author>
+      <name>shopex开发团队</name>
+      <email>dev@shopex.cn</email>
+      <url>www.shopex.cn</url>
+  </author>
+
+  <version>0.1</version>
+
+  <license>license</license>
+  <depends>
+    <app>desktop</app>
+  </depends>
+
+</app>

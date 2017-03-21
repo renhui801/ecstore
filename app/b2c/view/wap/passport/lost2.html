@@ -1,0 +1,112 @@
+<div class="full-screen">
+  <header>
+    <div class="a-bar">
+      <a href="javascript:history.back()" class="a-back"><i class="arr left"></i>返回</a>
+      <div class="a-name">找回密码</div>
+    </div>
+  </header>
+  <div class="full-padding" id="lost_content">
+    <form action="<{link app=b2c ctl=wap_passport act=resetpwd_code}>" method="post" class="form<{if $data.mobile && $data.email}> o-f-allof<{/if}><{if $data.mobile}> o-f-mobile<{elseif $data.email}> o-f-email<{/if}>" data-type="ajax" data-update="#lost_content">
+      <input name="forward" type="hidden" value="<{$options.url}>">
+      <{if $data.local}>
+      <div class="c-g">
+        <label for="" class="c-l">
+          <em class="f-red">*</em>用户名：
+        </label>
+        <div class="c">
+          <{$data.local}> 
+        </div>
+      </div>
+      <{/if}>
+      <div class="notice"></div>
+      <div class="c-g">
+        <{if $data.mobile}>
+        <input type="text" name="mobile" readonly class="text acc-mobile" value="<{$data.mobile}>">
+        <{/if}>
+        <{if $data.email}>
+        <input type="text" name="email" readonly class="text acc-email" value="<{$data.email}>">
+        <{/if}>
+      </div>
+      <div class="c-g-c">
+        <label for="" class="f-l">
+          <select name="send_type" id="" class="a-s-verify">
+            <{if $data.mobile}>
+            <option value="mobile">获取短信验证码</option>
+            <{/if}>
+            <{if $data.email}>
+            <option value="email">获取邮箱验证码</option>
+            <{/if}>
+          </select>
+        </label>
+        <{if $data.mobile}>
+        <a href="<{link app=b2c ctl=wap_passport act=send_vcode_sms}>" class="btn orange ib-btn get-mobile-vcode f-r">获取验证码</a>
+        <{/if}>
+        <{if $data.email}>
+        <a href="<{link app=b2c ctl=wap_passport act=send_vcode_email}>" class="btn orange ib-btn get-email-vcode f-r">发送验证码</a>
+        <{/if}>
+      </div>
+      <div class="c-g">
+        <{if $data.mobile}>
+        <input type="text" name="mobilevcode" maxlength="20" placeholder="输入手机短信收到的验证码" class="text o-mobile" data-caution="验证码不能为空">
+        <{/if}>
+        <{if $data.email}>
+        <input type="text" name="emailvcode" maxlength="20" placeholder="输入邮件收到的验证码" class="text o-email" data-caution="验证码不能为空">
+        <{/if}>
+      </div>
+      <div class="notice"></div>
+      <div class="btn-bar">
+        <button type="submit" class="btn orange" rel="_request">下一步</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+var send_type = $('.form .a-s-verify').change(function (e) {
+    send_type = $(this).val();
+    if(send_type == 'mobile') {
+        $(this).parents('.form').addClass('o-f-mobile').removeClass('o-f-email');
+        // $('.acc-mobile, .get-mobile-vcode, .o-mobile').show();
+        // $('.acc-email, .get-email-vcode, .o-email').hide();
+    }
+    else if(send_type == 'email') {
+        $(this).parents('.form').addClass('o-f-email').removeClass('o-f-mobile');
+        // $('.acc-email, .get-email-vcode, .o-email').show();
+        // $('.acc-mobile, .get-mobile-vcode, .o-mobile').hide();
+    }
+}).val();
+$('.form .get-mobile-vcode, .form .get-email-vcode').click(function (e) {
+    e.preventDefault();
+    var el = $('.form .acc-' + send_type);
+    if($(this).hasClass('disabled')) return false;
+    sendVerify(this, 'uname=' + el.val() + '&type=forgot', send_type);
+});
+
+function sendVerify(el, data, type) {
+    var url = el.href;
+    if(type !== 'email') {
+        $(el).addClass('disabled');
+        var cd = new countdown(el, {
+            start: 120,
+            secondOnly: true,
+            callback: function(e) {
+                $(el).removeClass('disabled').html('重发验证码');
+            }
+        });
+    }
+    $.post(url, data, function(rs) {
+        if(rs) {
+            try{
+                rs = $.parseJSON(rs);
+            } catch (e) {}
+            if(rs.error) {
+                if(type !== 'email') {
+                    $(el).removeClass('disabled').html('重发验证码');
+                    clearTimeout(cd.timer);
+                }
+                if(typeof rs.error === 'string') alert(rs.error);
+            }
+            if(typeof rs.success === 'string' && type === 'email') alert(rs.success);
+        }
+    });
+}
+</script>

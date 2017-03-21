@@ -1,0 +1,16 @@
+  <tbody>
+    <tr>
+      <th>配送方式：</th>
+      <td><{$shipping_method.shipping_name}></td>
+    </tr>
+    <tr>
+      <th>运费：</th>
+      <td><{$shipping_method.money|cur}></td>
+    </tr>
+    <{if isset($shipping_method.is_protect) and $shipping_method.is_protect}>
+    <tr>
+      <th>其它服务：</th>
+      <td>物流保价</td>
+    </tr>
+    <{/if}>
+  </tbody>

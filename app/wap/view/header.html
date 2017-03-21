@@ -1,0 +1,15 @@
+<{if defined("DEBUG_CSS") && DEBUG_CSS}>
+    <{css src="styles.css" app="wap"}>
+<{else}>
+    <{css src="styles.css" app="wap" pdir="css_mini"}>
+<{/if}>
+
+<{if defined("DEBUG_JS") && DEBUG_JS}>
+    <{script src="zepto.js" app="wap"}>
+    <{script src="data.js" app="wap"}>
+    <{script src="touch.js" app="wap"}>
+    <{script src="js.js" app="wap"}>
+    <{script src="zepto.cookie.js" app="wap"}>
+<{else}>
+    <{script src="shop.min.js" app="wap" pdir="js_mini"}>
+<{/if}>

@@ -1,0 +1,63 @@
+<div class="cart-fororder" id="cart_fororder">
+  <div class="tab">
+    <ul class="clearfix tab-triggerBox">
+      <{foreach from=$fororder_tab item=tab_name key=key}>
+      <{$tab_name.filter}>
+          <{if $key==0}>
+          <li class="active" rel="<{$tab_name.tab_filter}>"><a href="javascript:void(0);"><em><{$tab_name.tab_name}></em></a></li>
+          <{else}>
+          <li rel="<{$tab_name.tab_filter}>"><a href="javascript:void(0);"><em><{$tab_name.tab_name}></em></a></li>
+          <{/if}>
+      <{/foreach}>
+    </ul>
+  </div>
+  <div class="content tab-content">
+    <{include file="site/cart/cart_fororder_item.html"}>
+  </div>
+</div>
+<script type="text/javascript">
+(function(){
+
+    var container = $('cart_fororder');
+    var handles = container.getElements('.tab li');
+    var content = container.getElement('.content');
+    handles.addEvent('click', function(e){
+        handles.removeClass('active');
+        this.addClass('active');
+
+        new Request.HTML({
+            url: '<{link app=b2c ctl=site_cart act=fororder}>',
+            data: 'tab_name='+this.get('rel'),
+            update: content,
+            onRequest: function(e){
+                //content.innerHTML = 'loading...';
+            },
+            onSuccess: function(rs){
+                loadScript();
+            }
+        }).post();
+    });
+    loadScript();
+
+    function loadScript() {
+        content.getElement('.wrapper').setStyle('height', 256);
+        miniCart.init(container);
+        new Switchable(content, {
+            autoplay: false,
+            isFloat: false,
+            effect: 'scrollx',
+            haslrbtn: true,
+            steps: 8,
+            panels: '.item',
+            circular: false,
+            disableCls: 'over',
+            viewSize: [880,256],
+            onInit: function() {
+                if(this.panels.length < this.options.steps) this['nextbtn'].addClass(this.options.disableCls);
+            }
+        });
+    }
+
+})();
+</script>
+

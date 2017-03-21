@@ -1,0 +1,32 @@
+<div  class="tableform clearfix">
+    <div class="division widgetconfig" >
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <col width="100"/>
+      <col />
+      <tr>
+        <th><{t app='content'}>选择商品:<{/t}> </th>
+        <td>
+            <select id="timedbuy-widget-groups" name='goods_id' vtype="required" style="width:300px;">
+                <option value="">请选择</option>
+            <{foreach from=$setting.goods_list item=item}>
+                <option value="<{$item.goods_id}>" rule_id="<{$item.rule_id}>" rule_name="<{$item.rule_name}>" <{if $item.goods_id==$setting.goods_id}>selected="selected"<{/if}> ><{$item.name}></option>
+            <{/foreach}>
+            </select><div id="timedbuy-widget-groups-name_div">限时抢购规则：<{$setting.rule_name}></div>
+            <input type="hidden" id="timedbuy-widget-groups-hidden" name='rule_id' value="<{$setting.rule_id}>" vtype="required" />
+            <input type="hidden" id="timedbuy-widget-groups-name" name='rule_name' value="<{$setting.rule_name}>" vtype="required" />
+        </td>
+      </tr>
+    </table>
+    </div>
+</div>
+<script>
+    //$('timedbuy-widget-groups-hidden').set('value',$($('timedbuy-widget-groups').options[$('timedbuy-widget-groups').selectedIndex]).get('rule_id'));
+    $('timedbuy-widget-groups').addEvent('click',function(item){
+        $('timedbuy-widget-groups-hidden').set('value',$(this.options[this.selectedIndex]).get('rule_id'));
+        $('timedbuy-widget-groups-name').set('value',$(this.options[this.selectedIndex]).get('rule_name'));
+		if ($(this.options[this.selectedIndex]).get('rule_name'))
+			$('timedbuy-widget-groups-name_div').set('html','<{t}>限时抢购规则：<{/t}>'+$(this.options[this.selectedIndex]).get('rule_name'));
+		else
+			$('timedbuy-widget-groups-name_div').set('html','<{t}>请选择限时抢购的商品！<{/t}>');
+    });
+</script>

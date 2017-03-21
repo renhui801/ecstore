@@ -1,0 +1,8 @@
+<site>
+    <module controller='site_giftpackage' >
+        <name>giftpackage</name>
+        <title>礼包</title>
+        <disable>false</disable>
+    </module>
+    
+</site>

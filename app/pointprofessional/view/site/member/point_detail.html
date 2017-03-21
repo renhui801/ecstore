@@ -1,0 +1,61 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的积分 -->
+  <div id="member_credits" class="member-coupon">
+    <div class="member-title">
+      <h2><{t}>我的积分<{/t}></h2>
+      <div class="member-more">
+        <span class="span-section"><{t}>您当前的有效积分<{/t}>：<b class="price"><{$total}></b><{t}>分<{/t}></span>
+        <{if $extend_point_html}><span class="span-section"><{$extend_point_html}></span><{/if}>
+        <a href="<{link app=b2c ctl=site_member act=couponExchange}>"><{t}>兑换优惠券<{/t}></a> <{$exchange_gift_link}>
+      </div>
+    </div>
+
+    <div class="member-mod">
+      <table class="member-grid">
+        <thead >
+          <th><{t}>日期<{/t}></th>
+          <th><{t}>积分变动<{/t}></th>
+          <th><{t}>积分有效期<{/t}></th>
+          <th><{t}>说明<{/t}></th>
+        </thead>
+        <tbody<{if !($browser.name=="IE" && ($brower.ver == 6 || $browser.ver == 7))}> class="first"<{/if}>>
+          <{if count($historys)>0}>
+          <{foreach from=$historys item="logs" name=name}>
+          <tr class="<{if $logs.expiretime - $smarty.now >= 0}>text-disabled<{/if}><{if $smarty.foreach.name.iteration == 1}> first<{/if}>">
+            <td><{$logs.addtime|cdate:FDATE_STIME}></td>
+            <td><span class="text-<{if ($logs.change_point) > 0}>available<{else}>unavailable<{/if}>"><{if ($logs.change_point) > 0}>+<{/if}><{$logs.change_point}></span></td>
+            <td>
+              <{if ($logs.change_point) > 0}>
+                <{if $logs.expiretime==0}>
+                <{t}>永久有效<{/t}>
+                <{else}>
+                <{if $logs.expiretime - $smarty.now >= 0}>
+                <{$logs.expiretime|cdate:FDATE_STIME}>
+                <{else}><{t}>已过期<{/t}><{/if}>
+                <{/if}>
+              <{else}>-<{/if}>
+            </td>
+            <td><{$logs.reason|escape:'html'}></td>
+          </tr>
+          <{/foreach}>
+          <{else}>
+          <tr class="first"><td colspan="4" class="no-information"><{t}>尚未获取到积分<{/t}></td></tr>
+          <{/if}>
+        </tbody>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+
+    <div class="member-credits-rules">
+      <h3><{t}>积分规则<{/t}></h3>
+      <ol>
+        <li><{t}>当积分已达到某一兑换积分标准时，顾客可将累计积分依照网站相应积分及兑换标准兑换回馈商品，网站将即时从用户会员积分中扣减相应积分。<{/t}></li>
+        <li><{t}>各项回馈项目（包含各项商品、服务或抵用券等）及兑换标准及兑换规则均以兑换当时最新回馈活动公告或目录为准。<{/t}></li>
+        <li><{t}>部分兑换商品有数量限制的，兑完为止。<{/t}></li>
+        <li><{t}>公告或目录如有有效期限的，逾期即不得兑换。<{/t}></li>
+        <li><{t}>积分兑换区的商品为只可用积分兑换的商品（如积分价格：100积分）。<{/t}></li>
+      </ol>
+    </div>
+  </div>
+</div>

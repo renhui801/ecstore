@@ -1,0 +1,77 @@
+<div class="tableform">
+<h3><{t}>缓存管理<{/t}></h3>  
+<{if $enable == 'true'}> 
+<h4><{t}>缓存状态<{/t}></h4>
+<div class="division">
+	<{if $status}>
+   <ul class="list"> 
+	<{foreach from=$status item=item key=key name="item"}>
+	<li>
+		<label><{$key}>：</label><{$item}>
+	</li>
+   <{/foreach}>
+  </ul>
+<{else}>
+<div class="notice"><{t}>无法查看缓存状态<{/t}></div>
+<{/if}>
+</div>
+<h4><{t}>缓存操作<{/t}></h4>
+<div class="division">
+     <{button type="button" href="index.php?app=desktop&ctl=cachemgr&act=optimize" label=$___desktop="优化缓存"|t:'desktop'}> 
+	<{button type="button" href="index.php?app=desktop&ctl=cachemgr&act=clean" label=$___desktop="清空缓存"|t:'desktop'}>
+</div>
+
+<{if count($static_cache) > 0}>
+<h4><{t}>静态缓存<{/t}></h4>
+<div class="notice">
+  请注意: 此设置请慎重!! 如果不明请咨询代理商, 或查看官方文档
+</div>
+<div class="note">
+  此功能可以设置相应页面的静态缓存时间, 单位为秒. 如果设置为0则表示使用cachemgr方案进行缓存.
+</div>
+
+<style>
+.cache,.cache th, .cache td {border:1px solid #ccc}
+.cache th {text-align:left}
+</style>
+<script>
+function cache_change(obj) {
+new Request({
+   url: "index.php?app=desktop&ctl=cachemgr&act=save",
+   update:this.value,
+}).send(obj.name+'=' + obj.value);
+}
+</script>
+<table class="cache">
+<tr>
+<th>名称</th>
+<th>方法名</th>
+<th>缓存时间</th>
+<th>清除缓存</th>
+</tr>
+
+<{foreach from=$static_cache item=item}>
+<tr>
+<td><{$item.name}></td>
+<td><{$item.app}>.<{$item.ctl}>.<{$item.act}></td>
+<td>
+  <input type="text" name="<{$item.app}>.<{$item.ctl}>.<{$item.act}>" onchange="cache_change(this)" value="<{$item.expires}>">
+</td>
+<td>
+
+  <!--
+  <{button type="button" href="index.php?app=desktop&ctl=cachemgr&act=optimize" label=$___desktop="清除"|t:'desktop'}>
+    -->
+</td>
+</tr>
+<{/foreach}>
+</table>
+<{/if}>
+  <{else}>
+  <div class="division">
+    <p class="notice"> <{t}>系统没有启用缓存<{/t}> </p>
+  </div>
+  <{/if}> 
+</div>  
+
+

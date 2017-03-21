@@ -1,0 +1,66 @@
+<div class="tabs-wrap">
+  <ul>
+    <li class="tab current"><span><{t}>微信商城基本配置<{/t}></span></li>
+  </ul>
+</div>
+  <form method="post" action="index.php?app=weixin&ctl=admin_setting&act=save_setting" id="whitelist">
+    <div style="text-align:right;padding:3px 30px"></div>
+    <table class="tableform" style="width:99%;">
+    <tbody>
+      <tr>
+        <th><{t}>微信商城logo：<{/t}></th>
+        <td>
+          <{input type="image" name='weixin_logo' value=$setting.weixin_logo width=100 height=100}>
+          <span class="notice-inline">
+            <{t}>建议图片尺寸100px * 100px,该LOGO将在微信分享传播商城过程中以图标形式显示出来，提高用户体验，增强品牌宣传效果。<{/t}></span>
+        </td>
+      </tr>
+      <tr>
+        <th><{t}>微信商城名称：<{/t}></th>
+        <td>
+          <{input type="text" name='weixin_name' value=$setting.weixin_name size="20"}>
+          <span class="notice-inline"><br>
+            <{t}>该名称将在微信的分享传播过程中以标题文字的形式加在每个页面标题的前面显示出来，提供用户体验，增强品牌宣传效果。<{/t}>
+            </span>
+        </td>
+      </tr>
+      <tr>
+        <th><{t}>微信商城简介：<{/t}></th>
+        <td>
+          <{input type="textarea" name='weixin_brief' value=$setting.weixin_brief cols="50" rows="5"}>
+          <span class="notice-inline"><br>
+            <{t}>该简介将在微信分享传播商城过程中以简短描述的形式显示出来，提供用户体验，增强品牌宣传效果。<{/t}>
+            </span>
+        </td>
+      </tr>
+      <tr>
+        <th><{t}>微信场景转发及分享信息所应用到的页面：<{/t}></th>
+        <td>
+          <!--
+          <label><input type="checkbox" onclick="check_all(this)"/>全选</label><br>
+          -->
+          <span>
+          <{foreach from=$share_page item=item key=key}>
+            <{if isset($select_share_page.$key) }>
+            <{input type="checkbox" vtype="checkboxrequired" name="share_page[]" value=$key checked="checked"}>
+            <{else}>
+            <{input type="checkbox" vtype="checkboxrequired" name="share_page[]" value=$key}>
+            <{/if}>
+            <{$item}>
+          <{/foreach}>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-action">
+    <{button type="submit"  label=$___desktop="保存"|t:'site'}>
+  </div>
+</form>
+<!--
+<script type="text/javascript">
+function check_all(o) {
+  o.getParent().getNext('span').getElements('input[type=checkbox]').set('checked', o.checked);
+}
+</script>
+-->

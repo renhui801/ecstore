@@ -1,0 +1,107 @@
+<div class="division">
+    <form action="<{link app=b2c ctl=admin_sales_fororder act=save_setting}>" class="tableform" method="post" id="form_fororder">
+    <h3>凑单功能配置</h3>
+    <table width="100%">
+      <tbody>
+        <tr>
+          <th>是否开启凑单</th>
+            <td><{input type="radio" value=$fororder.show name="fororder[show]" options=$status separator=' '}></td>
+        </tr>
+        <tr>
+          <th>凑单介格区间商品数量</th>
+          <td><{input type="text" name="fororder[nums]" size="3" value=$fororder.nums vtype="unsignedint"}><i class="message font-gray"> 建议为8的倍数，每个区间调用的最大商品数量。</i></td>
+        </tr>
+        <{foreach from=$fororder.filter item=filter key=key name=fororder}>
+        <tr class="pricearea">
+          <th>价格区间</th>
+          <td>
+              <{if $smarty.foreach.fororder.iteration == 1}><{input type="text" name="fororder[filter][][price_min]" value=$filter.price_min size="3" vtype="unsigned"}>
+              <{else}><{input type="text" name="fororder[filter][][price_min]" value=$filter.price_min size="3" vtype="required&&unsigned"}><{/if}> -
+              <{input type="text" name="fororder[filter][][price_max]" value=$filter.price_max class="priceinput"  vtype="required&&unsigned" onblur="inputCheck(this);" size="3"}>
+              <i class="message font-gray"> 该区间的商品数量为<span class="c-red"><{$filter.goods_nums}></span>件</i>
+            <{if $smarty.foreach.fororder.iteration != 1}>&nbsp; <em class="lnk btn-delete">删除</em><{/if}>
+          </td>
+        </tr>
+          <{/foreach}>
+        <tr>
+          <td colspan="2" height="40" style="text-indent:6em;"><a href="javascript:void(0);" class="lnk btn-add">+增加一个价格区间（最多5个区间）</a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" class="font-gray">
+            <p style="text-indent:6em;">说明：1、请根据需求选择开启或关闭推荐凑单功能。</p>
+            <p style="text-indent:9em;">2、开启凑单功能的情况下，凑单推荐入口及前台展示效果请在购物车内查看。</p>
+            <p style="text-indent:9em;">3、所有字段为必填项，任意价格区间上限值必须大于下限值。</p>
+            <p style="text-indent:9em;">4、第一个价格区间的下限值默认为0，最后一个区间的上限值默认为999999，前台显示效果为“X元以上”、“X元以下”。</p>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="table-action">
+         <{button type="submit" label=$___bdlink="保存设置"|t:'bdlink'}>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript">
+
+  function setDisabled(el) {
+      $('form_fororder').getElements('input[type=text]').set('disabled', el.value == 'false');
+      $$('.btn-add')[el.value == 'true' ? 'removeClass' : 'addClass']('disabled');
+  }
+  setDisabled(document.getElement('input[name="fororder[show]"]:checked'));
+
+  $$('input[name="fororder[show]"]').addEvent('change', function(){
+      setDisabled(this);
+  });
+
+  $('form_fororder').addEvent('click', function(e){
+      e = $(e.target);
+      if(e.hasClass('btn-delete')) {
+          e.getParent('tr').destroy();
+      }
+      else if(e.hasClass('btn-add') && !e.hasClass('disabled')) {
+        if($$('tr.pricearea').length < 5) {
+        new Element('tr.pricearea',{html:'<th>价格区间</th><td><{input type="text" name="fororder[filter][][price_min]" class="priceinput" vtype="required&&unsigned" size="3"}> - <{input type="text" name="fororder[filter][][price_max]" class="priceinput" vtype="requiredi&&unsigned" onblur="inputCheck(this);" size="3"}><i class="message font-gray"> </i>&nbsp; <em class="lnk btn-delete">删除</em></td>'}).inject(e.getParent('tr'), 'before');
+        }
+        else {
+          alert('最多只能添加5个区间，请修改或删除一个区间再添加');
+        }
+      }
+  });
+
+  $('form_fororder').store('target', {
+      onRequest: function(){
+         inputCheck(document.getElement('.priceinput'));
+      }
+  });
+
+  function inputCheck(el) {
+      var p = el.getParent('td');
+      var msg = p.getElement('.message');
+      var els = $$('.priceinput');
+      var prev = p.getElement('input[type=text]');
+
+      if(els.indexOf(el) == 0 && prev.value == '') p.getElement('input[type=text]').value = 0;
+      else if(els.indexOf(el) == els.length - 1 && el.value == '') el.value = 999999;
+      else if(isNaN(el.value) || isNaN(prev.value)) return msg.set('html', '只允许填入数值');
+      else if(Number(el.value) < prev.value) return msg.set('html', '上限值必须大于下限值');
+      else if(el.value == '') return msg.set('html', '请输入每个价格区间值');
+
+      new Request({
+          url: '<{link app=b2c ctl=admin_sales_fororder act=check}>',
+          data: p,
+          onRequest: function(){
+              msg.set('html', '正在计算...');
+          },
+          onComplete: function(rs){
+              rs = JSON.decode(rs);
+              if(rs.success){
+                  msg.set('html', rs.success);
+              }
+          }
+      }).post();
+  }
+
+</script>

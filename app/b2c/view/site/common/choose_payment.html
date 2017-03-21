@@ -1,0 +1,24 @@
+<input type="hidden" name="payment[currency]" value="<{$current_currency}>" />
+<table>
+  <tbody>
+    <{foreach from=$payments item="payment" key="key" name="payments"}>
+    <tr <{if $smarty.foreach.payments.last}>class="last"<{/if}>>
+      <th>
+        <input type="radio" name="payment[pay_app_id]" value='{"pay_app_id":"<{$payment.app_id}>","payment_name":"<{$payment.app_display_name}>"}' id="pay_app_id_<{$payment.app_id}>" class="action-change-payment"<{if $smarty.foreach.payments.first}> vtype="requiredcustom" data-validatemsg="请选择一种支付方式"<{/if}> <{if (isset($arr_def_payment.pay_app_id) and $arr_def_payment.pay_app_id == $payment.app_id) || (isset($pay_app_id) and $pay_app_id == $payment.app_id)}>checked="checked"<{/if}>><label for="pay_app_id_<{$payment.app_id}>" ><{$payment.app_display_name}></label>
+      </th>
+      <td><{$payment.app_pay_brief}></td>
+    </tr>
+    <{/foreach}>
+    <{if $has_cod == 'true'}>
+    <tr class="first">
+      <th><input type="radio" name="payment[pay_app_id]" value='{"pay_app_id":"-1","payment_name":"货到付款"}' id="pay_app_id_0" class="action-change-payment" <{if $arr_def_payment.pay_app_id==-1 || $pay_app_id == -1}>checked="checked"<{/if}> ><label for="pay_app_id_0">货到付款</label></th>
+      <td><{t}>由我们的快递人员在将货物送到时收取货款。<{/t}></td>
+    </tr>
+    <{/if}>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="2"><{button type="button" class="btn-caution action-confirm-payment" label=$___b2c=确认支付方式|t:b2c}></th>
+    </tr>
+  </tfoot>
+</table>

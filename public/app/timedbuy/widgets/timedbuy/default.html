@@ -1,0 +1,170 @@
+<{if $data.goods}>
+<div id="x-gruup_<{$widgets_id}>">
+<input type="hidden" class="from_time" value="<{$data.from_time}>" />
+<input type="hidden" class="to_time"   value="<{$data.to_time}>" />
+
+<form action="<{link app=b2c act=add ctl=site_cart arg0=goods arg1=quick}>" method="POST">
+   <div class="x-group GoodsSearchWrap">
+      <div class="x-group_img"><img src="<{$data.image|storager:'s'}>"></div>
+      <div class="items-list itemsList" product="<{$data.goods.goods_id}>" url="<{$data.request_url}>"  >
+                     <Input type="hidden" name="goods[goods_id]" value="<{$data.goods.goods_id}>" />
+                     <Input type="hidden" name="goods[num]" value="1" />
+             <h4><a  title="<{$data.goods.name}>" href="<{link app=b2c ctl=site_product act=index arg0=$data.goods.goods_id }>"><{$data.goods.name}></a></h4>
+           <div class="x-group_back clearfix">
+               <span class="group_price1">原价:<b><{$data.goods.price|cur}></b></span>
+               <span class="group_price2">折扣:<{$data.sales}>折</span>
+           </div>
+           <div class="x-group_button">
+
+          <div class="x-group_price"><span><{$data.price|cur}></span></div>
+				<{if $data._buy_status === 4}>
+				<!--{已卖光}-->
+				<{else}>
+                <a class="x-group_btn rushshop" href="<{link app=b2c ctl=site_product act=index arg0=$data.goods.goods_id }>" target="_blank_timed_timedbuy">抢购</a>
+				<{/if}>
+           </div>
+        <{if $data.from_time > time()}>
+            <p style="text-align:center;"><strong>即将开始</strong></p>
+        <{else}>
+            <{if $data.to_time < time()}>
+                <p style="text-align:center;"><strong>活动已结束</strong></p>
+            <{else}>
+		   <{if $data._buy_status === 4}>
+				<p style="text-align:center;"><strong>已卖光</strong></p>
+			<{else}>
+           <div id="groupactivity-widgets-time" class="x-group_time">
+                 <h6>剩余时间:</h6>
+                 <span class="hour">0</span>小时
+                 <span class="minute">0</span>分钟
+                 <span class="second">0</span>秒
+           </div>
+		   <{/if}>
+            <{/if}>
+        <{/if}>
+       </div>
+  </div>
+  </form>
+</div>
+
+
+<style>
+.x-group{width:250px; overflow:hidden; background:#ececec;}
+.x-group .x-group_img{width:122px;height:122px; overflow:hidden;margin:25px auto 0;}
+.x-group .x-group_img img{width:120px;height:120px;border:1px solid #cccccc; }
+.x-group h4{height:40px; line-height:20px; font-size:12px; color:#505050;font-weight:100;margin:0 auto 25px;overflow:hidden;color:#636363;width:122px;}
+.x-group h6{height:25px;line-height:25px;font-weight:100;color:#636363;}
+.x-group span{color:#636363; line-height:30px;}
+.x-group .group_price1{float:left;}
+.x-group .group_price2{float:right;}
+.x-group .group_price1 b{text-decoration:line-through;font-weight:100;}
+.x-group_button{ width:145px;height:34px; background:url(images/group_bg.gif) no-repeat; margin:0 auto 15px;position:relative}
+.x-group_price,.x-group_button a{position:absolute;}
+.x-group_price span{font-size:20px; font-family:Arial;color:#ffffff;}
+.x-group_price{height:34px; line-height:34px; top:0;left:10px;}
+.x-group_button a{display:block;width:40px;height:19px; top:10px;right:10px;cursor:pointer;background:url(images/group_btn.gif) no-repeat;border:none; text-indent:-9999px; overflow:hidden;padding:0 !important;}
+.x-group_button a.rushshop{background:url(images/rushshop_btn.gif) no-repeat;}
+.x-group_time{text-align:center;color:#636363; width:145px; margin:0 auto 8px;}
+.x-group_time span{font-size:16px;font-weight:bolder;}
+.x-group .items-list{padding:0 0 10px 0;border:none;}
+.x-group_back{width:145px; margin:0 auto 5px;height:30px; line-height:30px;}
+</style>
+
+<script>
+
+ (function(){
+var timeCount = {
+	init:function(timeStart,timeEnd,dom,isReload){
+		this.isReload = isReload || true;
+		var diff = Math.abs((timeStart.getTime() - timeEnd.getTime())/1000);
+		var secondDiff = diff % 60;
+		var minuteDiff = ((diff - secondDiff)/60) % 60;
+		var hourDiff = (diff - secondDiff  - minuteDiff*60) / 3600;
+		var timeDiff = [hourDiff,minuteDiff,secondDiff];
+		this.s = this.calcTime.periodical(1000,this,{
+			time:timeDiff,
+			dom:dom
+		});
+		if(document.getElement('.desc')){
+		this.desc = 10;
+		this.d = this.calcDesc.periodical(100,this);
+		(function(){$('timer').setStyle('display','block')}).delay(1100);
+		}
+	},
+	addZero:function(timeDiff){
+		for(var i=0;i<timeDiff.length;i++){
+			if(timeDiff[i].toString().length<2){
+				timeDiff[i] = "0" + timeDiff[i].toString();
+				return timeDiff;
+			}
+		}
+	},
+	formatToInt : function(timeDiff){
+		for(var i=0;i<timeDiff.length;i++){
+			parseInt(timeDiff[i]);
+		}
+		return timeDiff;
+	},
+	judgeTime : function(timeDiff){
+		if(timeDiff[2]< 0  && timeDiff[1]>0){
+			timeDiff[2] = 59;
+			timeDiff[1]--;
+			return timeDiff;
+			}else if(timeDiff[2] <0 && timeDiff[1]==0 && timeDiff[0]>0){
+			timeDiff[2] = 59;
+			timeDiff[1] = 59;
+			timeDiff[0]--;
+			return timeDiff;
+			}else if(timeDiff[2]==0 && timeDiff[1]==0 && timeDiff[0]==0){
+			$clear(this.s);
+			if(document.getElement('.desc')){ $clear(this.d); document.getElement('.desc').innerHTML = 0; }
+			if(this.isReload) location.reload();
+			return;
+		}
+	},
+	calcTime : function (obj){
+		if(!obj.dom) return;
+		var _timeDiff = obj.time;
+		this.addZero(_timeDiff);
+		this.formatToInt(_timeDiff);
+		_timeDiff[2]--;
+		this.judgeTime(_timeDiff);
+		this.addZero(_timeDiff);
+		var dom = obj.dom;
+		if(dom.second) dom.second.innerHTML = _timeDiff[2];
+		if(dom.minute) dom.minute.innerHTML = _timeDiff[1];
+		if(dom.hour) dom.hour.innerHTML = _timeDiff[0];
+	},
+	calcDesc:function(){
+		this.desc--;
+		document.getElement('.desc').innerHTML = this.desc;
+		if(this.desc == 0)
+		this.desc = 10;
+	}
+};
+
+    var timebuyStart = new Date(($('x-gruup_<{$widgets_id}>').getElement('.from_time').get('value'))*1000);
+    var timebuyEnd = new Date(($('x-gruup_<{$widgets_id}>').getElement('.to_time').get('value'))*1000);
+    var timebuyNow;
+    if($('x-gruup_<{$widgets_id}>').getElement('.second')){
+    var dom = {
+      second: $('x-gruup_<{$widgets_id}>').getElement('.second'),
+      minute:$('x-gruup_<{$widgets_id}>').getElement('.minute'),
+      hour:$('x-gruup_<{$widgets_id}>').getElement('.hour')
+    };
+    }
+    new Request({
+            url:'<{$data.request_time_now}>',
+            onComplete:function(re){
+                timebuyNow=new Date(re*1000);
+                if(timebuyEnd.getTime() > timebuyNow.getTime()){
+          try{timeCount.init(timebuyEnd,timebuyNow,dom,false)}catch(e){};
+                } else {
+                    $('x-gruup_<{$widgets_id}>').getElement('.x-group_time').set('text','抢购已结束');
+                }
+            }
+    }).send();
+})()
+</script>
+<{else}>
+<!--抢购已结束 或 商品信息错误！-->
+<{/if}>

@@ -1,0 +1,442 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:18
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:36
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:29
+msgid "申请中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:19
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:85
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:37
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:125
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:87
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:89
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:30
+msgid "审核中"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:20
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:86
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:38
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:133
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:92
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:94
+msgid "接受申请"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:21
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:87
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:39
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:141
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:97
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:99
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:32
+msgid "完成"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:22
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:88
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:40
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/finder/return/product.php:149
+#: /Users/bryant/codes/ecstore-release/app/aftersales//model/return/product.php:88
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:102
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:104
+msgid "拒绝"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:30
+msgid "售后服务管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:80
+msgid "发送成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:85
+msgid "发送失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/admin/returnproduct.php:108
+msgid "设置成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:27
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:72
+msgid "会员中心"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:28
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:7
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:7
+msgid "退换货记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:38
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:82
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:130
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:266
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:380
+msgid "售后服务应用不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:43
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:87
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:135
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:271
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:385
+msgid "售后服务信息没有取到！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:47
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:91
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:139
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:276
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:390
+msgid "售后服务信息没有开启！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:73
+#: /Users/bryant/codes/ecstore-release/app/aftersales//lib/member/menuextends.php:39
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:6
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterlist.html:6
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:6
+msgid "申请退换货"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:152
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:159
+msgid "订单无效！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:281
+msgid "您没有选择商品，请先选择商品！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:286
+msgid "请填写退货理由"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:292
+msgid "上传文件不能超过300M！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:302
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:303
+msgid "您只能上传以下类型文件: "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:323
+msgid "请先查看售后服务须知并且同意"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:364
+msgid "提交成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//controller/site/member.php:398
+msgid "售后服务申请单不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:24
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterlist.html:13
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:13
+msgid "订单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:35
+msgid "申请人"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:47
+msgid "退货记录流水号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:54
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:55
+msgid "退货记录流水号标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:72
+msgid "售后服务标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:78
+msgid "退货内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:84
+msgid "未操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:89
+msgid "已收货"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:90
+msgid "已质检"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:91
+msgid "补差价"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:92
+msgid "已拒绝退款"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:96
+msgid "退货记录状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:100
+#: /Users/bryant/codes/ecstore-release/app/aftersales//setting.php:10
+msgid "售后服务状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:106
+msgid "附件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:116
+msgid "退货货品记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:122
+msgid "管理员备注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:128
+msgid "售后处理时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:141
+msgid "是否有效"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//dbschema/return_product.php:146
+msgid "售后申请"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//model/return/product.php:60
+msgid "状态保存失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//setting.php:10
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:12
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:15
+msgid "关闭"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//setting.php:10
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:11
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:14
+msgid "开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales//setting.php:11
+msgid "服务须知"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/actions.html:1
+msgid "处理售后单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:4
+msgid "买家说"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:8
+msgid "订单编号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:9
+msgid "订单状态："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:10
+msgid "提出申请的时间："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:11
+msgid "我的反馈："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:20
+msgid "申请售后服务的商品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:28
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:20
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:56
+msgid "货号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:29
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:21
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:57
+msgid "商品名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:30
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:19
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:59
+msgid "数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:45
+msgid "附件下载"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:47
+msgid "请点击下载该附件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:50
+msgid "详细说明"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:57
+msgid "给用户留言"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/return_product/detail.html:66
+msgid "发送"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:3
+msgid "售后服务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:8
+msgid "售后服务状态："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:16
+msgid "服务开启后，商店顾客可以用此功能方便地提交退货信息，商店管理员可以对退货商品进行管理、留言处理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:21
+msgid "服务须知："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/admin/setting/return_product.html:30
+msgid "保存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:13
+msgid "请选择需要退换货的商品以及数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:18
+msgid "申请"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:22
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:58
+msgid "单价"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:30
+msgid "退换"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:46
+msgid "填写退换理由，如有必要也可附图说明"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:49
+msgid "退换理由："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:55
+msgid "详细描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:61
+msgid "上传图片"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:65
+msgid " 图片大小不超过2M，格式为jpg,gif,jpeg,png"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/add.html:76
+msgid "取消申请"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterlist.html:14
+msgid "下单时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterlist.html:15
+msgid "总金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterlist.html:16
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:17
+msgid "操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterlist.html:26
+msgid "申请售后服务"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterlist.html:30
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:87
+msgid "暂无售后服务订单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:14
+msgid "售后服务主题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:15
+msgid "申请时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:16
+msgid "处理状态"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:31
+msgid "审核通过"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:33
+msgid "审核未通过"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:36
+msgid "查看"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:42
+msgid "店主反馈"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:48
+msgid "需要售后服务的商品"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/aftersales/view/site/member/afterrec.html:73
+msgid "退换理由"
+msgstr ""
+

@@ -1,0 +1,8 @@
+<root>
+<!-- 模块：营销管理(sales) -->
+    <!-- 赠品管理 -->
+<!--     <register module="sales" ctl="admin_gift" act="dorecycle" param="product_id">
+        <operate_type>批量删除 赠品</operate_type>
+        <template>批量删除赠品 %s</template>
+    </register> -->
+</root>

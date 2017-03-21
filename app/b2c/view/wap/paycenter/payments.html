@@ -1,0 +1,190 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <div class="a-name">
+            订单付款
+        </div>
+    </div>
+    </header>
+    <{if $newOrder == 'true'}>
+    <div class="section">
+        <div class="msg">
+            <div class="checkout-success">
+                订单已经提交成功请尽快付款
+            </div>
+        </div>
+    </div>
+    <{/if}>
+    <form action="<{$form_action}>" method="post" id="paycenter_form">
+        <input type="hidden" name="payment[order_id]" value="<{$order.order_id}>">
+        <input type="hidden" name="payment[combination_pay]" value="false">
+        <input type="hidden" name="payment[def_pay][cur_money]" value="<{$order.cur_money}>">
+        <input type="hidden" name="payment[def_pay][pay_app_id]" value="<{$order.payinfo.pay_app_id}>">
+        <input type="hidden" name="payment[memo]" value="<{$order.memo}>">
+        <div class="section">
+            <div class="d-line c-fix">
+                <div class="l-k bold">付款方式：</div>
+                <div class="l-v">
+                    <div class="col2">
+                        <div class="col">
+                            <div>
+                            <span id="J_defpay"><{$order.payinfo.pay_app_id|payname}></span>
+                            <!-- 预存款支付 -->
+                            <{if $order.payinfo.pay_app_id=='deposit'}>
+                                ,余额：<span class="price"><{$deposit_money|cur_odr:$order.currency}></span>
+                                <input type="hidden" name="payment[combination_pay]" value="false">
+                                <{if $deposit_money-$order.total_amount < 0}> 
+                                    <em>您需要为<a href="<{link app=b2c ctl=wap_member act=deposit}>" class="btn red">预存款充值</a></em>
+                                <{/if}>
+                            <{/if}>
+                            </div>
+
+                            <!-- 非货到付款或线下支付显示去付款 -->
+                            <{if !($order.payinfo.pay_app_id == '-1' || $order.payinfo.pay_app_id == 'offline')}>
+                                <{if $order.payinfo.pay_app_id == 'deposit'}>
+                                    <{if $order.cur_money - $deposit_money <= 0}>
+                                        <button type="submit" class="btn red">去付款</button>
+                                    <{/if}>
+                                <{else}>
+                                    <{if $order.payinfo.platform =='iscommon' || $order.payinfo.platform =='iswap'}>
+                                        <button type="submit" class="btn red">去付款</button>
+                                    <{else}>
+                                        <label class="f-red">(支付方式不支持手机版，请选择其他支付方式支付！)</label>
+                                    <{/if}>
+                                <{/if}>
+                            <{/if}>
+                        </div>
+                        <div class="col t-r">
+                            <{if $order.payinfo.pay_app_id != '-1'}>
+                              <span id="J_pay_change">
+                                更换支付方式
+                              <i class="arr right"></i>
+                              </span>
+                            <{/if}>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--付款完成显示-->
+    <div class="section">
+        <div class="col2">
+            <div class="col">
+                订单：<{$order.order_id}>
+            </div>
+            <div class="col">
+                应付金额：<span class="price"><{$order.cur_money|cur:$order.currency}></span>
+            </div>
+        </div>
+    </div>
+    <!--付款完成显示 end-->
+    <div class="section">
+        <table width="100%" class="d-table">
+            <col width="100"/>
+            <col width=""/>
+            <tr>
+                <td class="k">
+                    订单号：
+                </td>
+                <td class="v">
+                    <{$order.order_id}>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">应付金额：</td>
+                <td>
+                    <span class="price">
+                        <{$order.cur_money|cur:$order.currency}>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">已付金额：</td>
+                <td>
+                    <span class="price">
+                        <{$order.payed|cur:$order.currency}>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">订单商品数量：</td>
+                <td class="v">
+                    <{$order.quantity}>
+                </td>
+            </tr>
+            <tr>
+                <td class="k">收货信息：</td>
+                <td class="v">
+                    收货人:<{$order.consignee.name}><br />
+                    地区:<{$order.consignee.area|ship_area}><br />
+                    详细地址:<{$order.consignee.addr}><br />
+                    <{if $order.consignee.mobile}>手机:<{$order.consignee.mobile}><br /><{/if}>
+                    <{if $order.consignee.telephone}>电话:<{$order.consignee.telephone}><br /><{/if}>
+                    <{if $order.consignee.zip}>邮编：<{$order.consignee.zip}><br /><{/if}>
+                    配送时间:<{$order.consignee.r_time}>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <div class="d-line c-fix">
+            <div class="l-k">您还可以：</div>
+            <div class="l-v">
+                <a href="<{link app=b2c ctl=wap_member act=orderdetail arg0=$order.order_id}>">
+                    查看订单
+                    <i class="arr right"></i>
+                </a>
+                &nbsp;&nbsp;
+                <a href="<{link app='wap' ctl='default' act='index' }>">
+                    继续购物
+                    <i class="arr right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    (function(){
+        var pay_change;
+        $('#J_pay_change').bind('click',function(e){
+            var data='shipping[shipping_id]=<{$order.shipping.shipping_id}>&payment[def_pay][pay_app_id]=<{$order.payinfo.pay_app_id}>';
+            $.post('order-select_payment.html',data,function(re){
+              pay_change = new Dialog(re);
+
+                $('#J_pay_list').bind('click',function(e){
+                    var el = $(e.target);
+                    if(el.hasClass('pay-item')) {
+                      $('input[name="payment[def_pay][pay_app_id]"]').val( el.attr('payment_app_id') );
+                      $('#J_defpay').text( el.attr('payment_app_name') );
+                      $.post(
+                        '<{link app=b2c ctl=wap_order act=payment_change}>',
+                        'payment[pay_app_id]=' + encodeURIComponent( el.attr('value') )+ '&order_id=<{$order.order_id}>&payment[currency]=',
+                        function(re){
+                          location.reload();
+                      });
+                    }
+                });
+                
+            });
+        });
+    })();
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

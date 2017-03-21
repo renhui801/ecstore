@@ -1,0 +1,171 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 未评论商品 -->
+  <div class="member-title">
+    <h2>未评论商品</h2>
+  </div>
+  <div id="member_nocomment" class="member-nocomment member-mod">
+    <table class="member-grid">
+      <thead>
+        <tr>
+          <th colspan="2"><{t}>商品<{/t}></th>
+          <th><{t}>购买时间<{/t}></th>
+          <th><{t}>操作<{/t}></th>
+        </tr>
+      </thead>
+      <{if $list && $goods}>
+      <{foreach from=$list item=item name=name}>
+      <{if $goods.[$item.goods_id]}>
+      <tbody <{if $smarty.foreach.name.iteration == '1'}>class="first"<{/if}>>
+        <tr>
+          <td><div class="goods-pic"><a href="<{link app=b2c ctl=site_product arg0=$item.product_id}>"><img src="<{$goods.[$item.goods_id].image_default_id|storager:'s'}>" alt="<{$goods.[$item.goods_id].name}>"></a></div></td>
+          <td class="goods-name"><a href="<{link app=b2c ctl=site_product arg0=$item.product_id}>"><{$goods.[$item.goods_id].name}></a></td>
+          <td class="datetime"><{$item.createtime|cdate:SDATE_STIME}></td>
+          <td class="actions"><button type="button" class="btn btn-simple action-show-comment active" rel="{goods_id:'<{$item.goods_id}>',order_id:'<{$item.order_id}>',product_id:'<{$item.product_id}>'}"><span><span><{t}>评论<{/t}><i class="icon">&#x36;</i></span></span></button></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="comment-cell">
+          </td>
+        </tr>
+      </tbody>
+      <{/if}>
+      <{/foreach}>
+      <tfoot>
+        <tr>
+          <td colspan="4" class="comment-cell">
+            <form action="<{link app=b2c ctl=site_comment act=toComment arg0=discuss}>" method="post" id="post_comment" class="post-comment action-code-form">
+              <input type="hidden" name="goods_id">
+              <input type="hidden" name="product_id">
+              <input type="hidden" name="order_id">
+              <ul class="scores-list" id="scores_list">
+                <{foreach from=$comment_goods_type item=comment_goods_type}>
+                <li class="scores-item">
+                  <span class="label"><{$comment_goods_type.name}></span>
+                  <em class="stars stars-5">
+                    <span class="rating"><i class="icon star-1">&#x2e;</i><i class="icon star-2">&#x2e;</i><i class="icon star-3">&#x2e;</i><i class="icon star-4">&#x2e;</i><i class="icon star-5">&#x2e;</i></span>
+                  </em>
+                  <b class="score">5</b>
+                  <input type="hidden" class="action-score" name="point_type[<{$comment_goods_type.type_id}>][point]" value="5">
+                </li>
+                <{/foreach}>
+              </ul>
+              <ul>
+                <li class="form-item">
+                  <div class="sub-label-side"><{$submit_comment_notice}></div>
+                  <div class="form-act-side">
+                    <textarea class="action-fill-textarea" name="comment" id="" cols="30" rows="10" vtype="required" placeholder="欢迎发表回复，最多1000字。" data-caution="请填写回复内容，最多1000字"></textarea>
+                    <div class="word-count"><i class="current">0</i>/<i class="word-limit">1000</i></div>
+                  </div>
+                </li>
+                <li class="form-item">
+                  <span class="form-act-wide"><input type="checkbox" name="hidden_name" value="YES" id="for_hidden_name"> <label for="for_hidden_name"><{t}>匿名发表<{/t}></label></span>
+                </li>
+                <{if $verifyCode == 'on'}>
+                <li class="form-item">
+                  <label for="for_discuss_verifycode" class="form-label"><{t}>验证码<{/t}>：</label>
+                  <span class="form-act">
+                    <{input type="vcode" class="verify-input" id="for_discuss_verifycode" data-caution="请填写验证码" name="discussverifyCode" size="4" key="DISSVCODE"}>
+                  </span>
+                </li>
+                <{/if}>
+                <li class="form-item form-item-action">
+                  <span class="form-act"><button type="submit" class="btn btn-caution btn-big action-comment" rel="_request"><span><span><{t}>提交评论<{/t}></span></span></button></span>
+                </li>
+              </ul>
+            </form>
+          </td>
+        </tr>
+      </tfoot>
+      <{else}>
+      <tbody class="first">
+        <tr><td colspan="4" class="no-information"><{t}>暂无未评论商品<{/t}></td></tr>
+      </tbody>
+      <{/if}>
+    </table>
+  </div>
+    <{pagers data=$pager}>
+    <!-- 说明：由于三个月后的订单将被归档，所以请在下单三个月内对完成订单的商品进行评价，超过三个月将无法进行评价！ -->
+</div>
+<{if $list}>
+<script>
+var container = $('member_nocomment');
+var post = $('post_comment');
+var content = container.getElement('tbody');
+if(content) {
+    post.setStyle('width', post.getSize().x - post.getPatch('padding', 'border').x);
+    openComment(content, content.getElement('.action-show-comment'));
+    starGrade(post);
+}
+container.addEvents({
+    'submit:relay(.post-comment)': function(e) {
+        e.stop();
+    },
+    'reset:relay(.post-comment)': function(e) {
+        e.stop();
+    },
+    'click:relay(.action-show-comment)': function(e) {
+        var parent = this.getParent('tbody');
+        var sibling = parent.getSiblings('.active')[0];
+        sibling && closeComment(sibling);
+        if(parent.hasClass('active')) {
+            closeComment(parent, this);
+            post.addClass('hide');
+        }
+        else openComment(parent, this);
+    },
+    'focus:relay(.action-code-form)': function(e) {
+        var code = this.getElement('img.verify-code');
+        if(code && !code.isVisible()) {
+            code.removeClass('hide');
+            <{if $valideCode == 'true'}>
+            changeCode(code);
+            <{/if}>
+        }
+    },
+    'inputchange:relay(.action-fill-textarea)': function(){
+        var parent = this.getParent();
+        var max = parent.getElement('.word-limit').get('text');
+        var cur = parent.getElement('.current');
+        if(this.value.length > max) {
+            this.value = this.value.substr(0, max);
+            Message.error('内容超限，最多输入 ' + max + ' 字');
+        }
+        cur.set('text', this.value.length);
+    }
+});
+
+function openComment(content, el) {
+    var target = content.getElement('.comment-cell');
+    post.removeClass('hide').position({
+        target: target,
+        from: 'lt',
+        to: 'lt'
+    });
+    target.setStyle('height', post.getSize().y);
+    content.addClass('active');
+    resetForm(post);
+    var id = JSON.decode(el.get('rel'));
+    if(id){
+      post.getElement('input[name=goods_id]').value = id.goods_id;
+      post.getElement('input[name=product_id]').value = id.product_id;
+      post.getElement('input[name=order_id]').value = id.order_id;
+    }
+}
+
+function closeComment(content) {
+    var target = content.getElement('.comment-cell');
+    target.setStyle('height', '');
+    content.removeClass('active');
+}
+
+function resetForm(form) {
+    starGrade(form, 5);
+    form.getElements('input[type=text],textarea').set('value', '');
+    form.getElements('input:checked').set('checked', false);
+    form.blur();
+    try{
+        form.getElement('img.verify-code').addClass('hide');
+    }catch(e){}
+}
+</script>
+<{/if}>

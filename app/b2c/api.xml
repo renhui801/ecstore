@@ -1,0 +1,137 @@
+<apilist>
+    <!-- 优惠券相关接口 -->
+    <module id='b2c.coupon' type='coupon' class='b2c_apiv_apis_response_coupon'>
+        <api  function='get_coupon_list' > 获取优惠劵列表 </api>
+        <api  function='get_coupon_number' > 获取优惠券，只有B类优惠券需要调用 </api>
+        <api  function='get_coupon_use_log' > 获取优惠券使用记录 </api>
+        <api  function='create_coupon_to_member' > 对指定会员发放指定的B类优惠券 </api>
+    </module>
+
+    <!-- 订单相关接口 -->
+    <module id='b2c.order.basic' type='order' class='b2c_apiv_apis_response_orders'>
+        <api function='create' > 添加单笔交易 </api>
+    </module>
+
+    <module id='b2c.order'  type='order'  class='b2c_apiv_apis_response_orders'>
+        <api function='leave_message' > 添加订单留言 </api>
+        <api function='detail' > 获取单笔交易的详细信息 </api>
+        <api function='remark' > 修改一笔交易备注 </api>
+        <api function='status_update' > 订单状态更新 </api>
+        <api function='update' > 订单修改信息 </api>
+        <api function='ship_status_update' > 订单发货状态更新接口 </api>
+        <api function='update_items' > 修改订单明细 </api>
+        <api function='search' > 获取订单列表接口 </api>
+        <api function='iframe_url' > 获取订单编辑iframe_url</api>
+    </module>
+
+    <module id='b2c.order' type='order' class='b2c_apiv_apis_response_order_order'>
+        <api function='check_cost' > 确认订单价格统计接口 </api>
+        <api function='get_wap_order_detail' > 根据订单id获取详情</api>
+    </module>
+
+    <module id='b2c.aftersale' type='order' class='b2c_apiv_apis_response_order_aftersale'>
+        <api function='create' > 添加一笔交易的售后申请 </api>
+        <api function='update' > 更新交易售后申请状态 </api>
+    </module>
+
+    <module id='b2c.payment' type='order' class='b2c_apiv_apis_response_order_payment'>
+        <api function='create' > 创建支付单 </api>
+    </module>
+
+    <module id='b2c.refund' type='order' class='b2c_apiv_apis_response_order_refund'>
+        <api function='create' > 创建退款单 </api>
+        <api function='update' > 修改退款单 </api>
+    </module>
+
+    <module id='b2c.reship' type='order' class='b2c_apiv_apis_response_order_reship'>
+        <api function='create' > 创建退货单 </api>
+        <api function='update' > 修改退货单 </api>
+    </module>
+
+    <module id='b2c.delivery' type='order' class='b2c_apiv_apis_response_order_delivery'>
+        <api function='create' > 创建发货单 </api>
+        <api function='update' > 修改发货单 </api>
+    </module>
+
+    <!-- 会员相关接口 -->
+    <!-- 会员相关接口CRM start-->
+    <module id='b2c.member' type='member' class='b2c_apiv_apis_response_member'>
+        <api function='init' > 初始化会员信息 </api>
+        <api function='get_member_lv_list' > 获取到会员等级列表 </api>
+    </module>
+    <!-- 会员相关接口CRM end-->
+
+    <!-- 会员相关接口移动APP start-->
+    <module id='b2c.member' type='member' class='b2c_apiv_apis_response_member_passport'>
+        <api function='get_encrypt_params'> 获取会员加密密码参数 </api>
+        <api function='signin'> 会员登录接口 </api>
+        <api function='send_signup_sms'> 发送注册的手机号短信验证码 </api>
+        <api function='signup'> 会员注册接口 </api>
+        <api function='change_password'> 修改密码接口 </api>
+        <api function='lost_send_vcode'> 找回密码1，根据手机号码发送验证码 </api>
+        <api function='lost_verify_vcode'> 找回密码2，验证码验证 </api>
+        <api function='lost_reset_password'> 找回密码3，设定新密码 </api>
+    </module>
+
+    <module id='b2c.member' type='member' class='b2c_apiv_apis_response_member_user'>
+        <api function='get_address'> 根据会员查询收货地址 </api>
+        <api function='get_member_info'> 获取用户基本信息 </api>
+        <api function='get_fav'> 根据用户id获取商品收藏列表 </api>
+        <api function='get_order_list'> 根据用户id调取其订单列表 </api>
+        <api function='save_address'> 保存会员新建的收货地址</api>
+    </module>
+
+    <module id='b2c.member' type='member' class='b2c_apiv_apis_response_member_cart'>
+        <api function='add_cart'> 添加购物车信息</api>
+        <api function='get_cart_info'> 根据会员ID获取购物车信息 </api>
+        <api function='update_cart'> 更新购物车信息</api>
+        <api function='remove_cart'> 删除购物车信息</api>
+        <api function='get_dlytype'> 根据地区ID，获取在次购物车中配送方式和配送价格 </api>
+    </module>
+
+    <module id='b2c.member' type='member' class='b2c_apiv_apis_response_member_comments'>
+        <api function='is_discuss' >根据商品id查询能否评论</api>
+        <api function='add_comments' >添加商品评论列表 </api>
+        <api function='get_cat_comments' >根据商品id获取商品评论列表 </api>
+        <api function='get_point_params' >获取评分参数 </api>
+    </module>
+    <!-- 会员相关接口移动APP end -->
+
+    <module id='b2c.goods' type='goods' class='b2c_apiv_apis_response_goods_product'>
+        <api function='get_store'> 获取货品库存 </api>
+        <api function='get_lv_price'> 获取货品的会员价格 </api>
+    </module>
+
+    <module id='b2c.goods' type='goods' class='b2c_apiv_apis_response_goods_goods'>
+        <api function='get_goods_intro'> 根据商品ID,获取单个商品详情 </api>
+        <api function='search_properties_goods'> 根据筛选条件查询商品 </api>
+        <api function='get_goods_detail'> 根据商品id获取商品详细信息 </api>
+    </module>
+
+    <module id='b2c.goods' type='goods' class='b2c_apiv_apis_response_goods_cat'>
+        <api function='get_cat_list' >商品分类,按上级分类ID获取下级分类列表 </api>
+    </module>
+
+    <module id='b2c.goods' type='goods' class='b2c_apiv_apis_response_goods_type'>
+        <api function='get_type_detial' >商品类型id获取商品类型详情 </api>
+    </module>
+
+    <!-- 商品相关接口 -->
+    <module id='b2c.goods' type='goods' class='b2c_apiv_apis_response_goods'>
+        <api function='get_item' > 根据传入的id获取对应的单个商品的数据 </api>
+        <api function='get_all_list' > 获取店铺内出售中的商品列表 </api>
+    </module>
+
+    <module id='b2c.goods.basic' type='goods' class='b2c_apiv_apis_response_goods'>
+        <api function='get_cat' > 获取商品分类 </api>
+        <api function='get_specs' > 获取商品规格 </api>
+    </module>
+
+    <module id='b2c.update_store' type='goods' class='b2c_apiv_apis_response_goods_store'>
+        <api function='updateStore' > 批量更新库存接口 </api>
+    </module>
+
+    <module id='b2c.brand' type='goods' class='b2c_apiv_apis_response_goods_brand'>
+        <api function='get_brand_detail' > 获取品牌详情 </api>
+    </module>
+</apilist>

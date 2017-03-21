@@ -1,0 +1,86 @@
+<script type="text/javascript">
+function copycode(copyText){
+    if (window.clipboardData){
+        window.clipboardData.setData("Text", copyText);
+    }else{
+        prompt('<{t}>请按 ctrl+c 复制：<{/t}>',copyText);
+    }
+}
+</script>
+
+<div class="tabs-wrap">
+  <ul>
+    <li class="tab current"><span><{t}>商户功能基本信息<{/t}></span></li>
+  </ul>
+</div>
+<div class="notice">
+  <{t}>如果你正在签约公众平台商户功能，请将下面"支付授权目录，支付请求实例，支付回调URL，维权通知URL，告警通知URL"中的内容复制粘贴至<{/t}><br/>
+  <span class="red"><{t}>微信公众平台 -> 微信支付 -> 支付申请 的申请表单填写项中 <{/t}></span>
+  <br/><{t}>完成商户功能的申请。<{/t}>
+</div>
+
+
+<div style="text-align:right;padding:3px 30px"></div>
+<table class="tableform" style="width:99%;">
+  <hr/>
+  <span><h3>JS API 网页支付</h3></span>
+  <tbody>
+    <tr>
+      <th><{t}>支付授权目录：<{/t}></th>
+      <td>
+        <span><{$env.base_full_url}>/index.php/openapi/wap/</span>
+        <{button onclick="copycode(this.getPrevious().innerHTML)" label="复制"}>
+      </td>
+    </tr>
+    <tr>
+      <th><{t}>支付请求实例：<{/t}></th>
+      <td>
+        <span><{$env.base_full_url}>/index.php/openapi/weixin/wxpay</span>
+        <{button onclick="copycode(this.getPrevious().innerHTML)" label="复制"}>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="tableform" style="width:99%;">
+  <hr/>
+  <span><h3>Native原生支付</h3></span>
+  <tbody>
+    <tr>
+      <th><{t}>支付回调URL：<{/t}></th>
+      <td>
+        <span><{$env.base_full_url}>/index.php/openapi/weixin/feedback</span>
+        <{button onclick="copycode(this.getPrevious().innerHTML)" label="复制"}>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="tableform" style="width:99%;">
+  <hr/>
+  <tbody>
+    <tr>
+      <th><{t}>维权通知URL：<{/t}></th>
+      <td>
+        <span><{$env.base_full_url}>/index.php/openapi/weixin/safeguard</span>
+        <{button onclick="copycode(this.getPrevious().innerHTML)" label="复制"}>
+      </td>
+    </tr>
+    <tr>
+      <th><{t}>告警通知URL：<{/t}></th>
+      <td>
+        <span><{$env.base_full_url}>/index.php/openapi/weixin/alert</span>
+        <{button onclick="copycode(this.getPrevious().innerHTML)" label="复制"}>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<table class="tableform" style="width:99%;">
+  <hr/>
+  <tbody>
+    <tr>
+      <th><a target="dialog::{width:0.6,height:0.7,title:'支付方式配置'}" href="index.php?app=ectools&ctl=payment_cfgs&act=setting&p[0]=<{$wxpay_classname}>"><{t}>微信支付设置<{/t}></a>：</th>
+      <td>
+        <{t}>点击此项将进入控制面板->支付与货币->支付方式管理->微信支付配置界面<{/t}>
+      </td>
+    </tr>
+  </tbody>
+</table>

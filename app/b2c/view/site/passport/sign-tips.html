@@ -1,0 +1,33 @@
+<div class="signup-success clearfix" id="signup_success">
+  <i class="icon icon-success">&#x25;</i>
+  <form action="<{link app=b2c ctl=site_passport act=save_local_uname}>" method="post" class="descrip">
+    <p><{t}>恭喜<{/t}> <{if $data.mobile}><{$data.mobile}><{else}><{$data.email}><{/if}> <{t}>已经注册成功<{/t}> !</p>
+    <div class="tips-actions">
+      <a href="./" class="btn btn-simple"><span><span>继续购物</span></span></a>
+      <a href="<{$url}>" class="btn btn-simple"><span><span>返回注册前页面</span></span></a>
+      <a href="<{link app=b2c ctl=site_member act=index}>" class="btn btn-simple"><span><span>进入会员中心</span></span></a>
+    </div>
+    <div class="tips-controls">
+      <label for="">设置用户名：</label>
+      <{input type="text" name="local_uname" id=""}><{button class="btn-caution" rel="_request" type="submit" label="保存"}>
+    </div>
+    <div class="alert-tip">如果您不填写用户名，则系统讲使用您的手机号码或者邮箱做为用户名，并在首页或者评论咨询等地方显示<em>注意：用户名只能设置一次</em></div>
+    <div class="alert-tip">建议您立即进行邮箱验证，使账户更安全购物更放心，<a href="<{link app=b2c ctl=site_member act=securitycenter}>">点击</a> 进行邮箱验证！</div>
+  </form>
+</div>
+<script>
+var module = $('signup_success');
+module.getElement('button[type=submit]').store('_ajax_config', {
+    progress:function(rs){
+        if(typeof rs.error === 'string') {
+            return Message.error(rs.error);
+        }
+        if(typeof rs.success === 'string') {
+            Message.success(rs.success);
+            module.getElements('input, button').set('disabled', true);
+        }
+        if(rs.redirect) location.href = rs.redirect;
+    }
+});
+
+</script>

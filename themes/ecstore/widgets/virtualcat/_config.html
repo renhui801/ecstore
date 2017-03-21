@@ -1,0 +1,25 @@
+<div id="cat-config">
+  <div class="tableform widgetconfig">
+    <div class="division">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th><{t app="b2c"}>选择显示节点：<{/t}></th>
+          <td>
+            <select name="virtualcat_id[]" multiple size="5" vtype="required">
+              <{foreach from=$data item=item key=key}>
+              <{if $item.pid != '0'}><{continue}><{/if}>
+              <option value="<{$item.cat_id}>" <{if in_array($item.cat_id,$setting.virtualcat_id)}>selected<{/if}>><{$item.cat_name}></option>
+              <{/foreach}>
+    			  </select>
+    		    <{t app="b2c"}>设置后仅显示当前所选节点以及所属的子节点<{/t}>
+          </td>
+        </tr>
+        <tr>
+          <th><{t app="b2c"}>分类显示深度：<{/t}></th>
+          <td><select name="showCatDepth"><option value="1" <{if $setting.showCatDepth=="1"}>selected="selected"<{/if}>><{t app="b2c"}>仅显示一级分类<{/t}></option> <option value="2" <{if $setting.showCatDepth=="2"}>selected="selected"<{/if}>><{t app="b2c"}>显示二级分类<{/t}></option> <option value="3" <{if $setting.showCatDepth=="3"}>selected="selected"<{/if}>><{t app="b2c"}>显示三级分类<{/t}></option>
+            </select></td>
+        </tr>
+  		</table>
+    </div>
+  </div>
+</div>

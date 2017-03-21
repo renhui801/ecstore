@@ -1,0 +1,23 @@
+<div class="main2_head">
+<div class="m2head_8"></div>
+<div class="acc_sz"></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="mc_2box20">
+<ul id="lmside_list">
+    <{foreach from=$infos item=article key=key}>
+    <li><a href="<{link app=cps ctl=site_info act=index arg0=$article.info_id}>"><{$article.title}></a></li>
+    <{/foreach}>
+</ul>
+<div class="clear"></div>
+<div class="yema"><{pagers data=$pager}></div>
+<!--yema-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+<!--mc_2box-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>

@@ -1,0 +1,184 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            我的订单
+        </div>
+    </div>
+    </header>
+    <div class="full-padding">
+        <ul class="mem-order-list">
+            <{foreach from=$orders item="order" name=orders key="key"}>
+            <li class="mem-order-item">
+            <div class="icon orange">
+                <{switch from=$order.status}>
+                <{case value='finish'}><{t}>已完成<{/t}>
+                <{case value='dead'}><{t}>已作废<{/t}>
+                <{case}>
+                <{switch from=$order.pay_status}>
+                <{case value='1'}><{t}>已付款<{/t}>
+                <{switch from=$order.ship_status}>
+                <{case value='1'}><{t}>[已发货]<{/t}>
+                <{case value='2'}><{t}>[部分发货]<{/t}>
+                <{case value='3'}><{t}>[部分退货]<{/t}>
+                <{case value='4'}><{t}>[已退货]<{/t}>
+                <{case}><{t}>[正在备货]<{/t}>
+                <{/switch}>
+                <{case value='2'}><{t}>已付款至担保方<{/t}>
+                <{case value='3'}><{t}>等待补款<{/t}>
+                <{switch from=$order.ship_status}>
+                <{case value='1'}><{t}>[已发货]<{/t}>
+                <{case value='2'}><{t}>[部分发货]<{/t}>
+                <{case value='3'}><{t}>[部分退货]<{/t}>
+                <{case value='4'}><{t}>[已退货]<{/t}>
+                <{/switch}>
+                <{case value='4'}><{t}>部分退款<{/t}>
+                <{switch from=$order.ship_status}>
+                <{case value='0'}><{t}>[未发货]<{/t}>
+                <{case value='1'}><{t}>[已发货]<{/t}>
+                <{case value='2'}><{t}>[部分发货]<{/t}>
+                <{case value='3'}><{t}>[部分退货]<{/t}>
+                <{case value='4'}><{t}>[已退货]<{/t}>
+                <{/switch}>
+                <{case value='5'}><{t}>已退款<{/t}>
+                <{switch from=$order.ship_status}>
+                <{case value='0'}><{t}>[未发货]<{/t}>
+                <{case value='1'}><{t}>[已发货]<{/t}>
+                <{case value='2'}><{t}>[部分发货]<{/t}>
+                <{case value='3'}><{t}>[部分退货]<{/t}>
+                <{case value='4'}><{t}>[已退货]<{/t}>
+                <{/switch}>
+                <{case}><{t}>等待付款<{/t}>
+                <{switch from=$order.ship_status}>
+                <{case value='1'}><{t}>[已发货]<{/t}>
+                <{case value='2'}><{t}>[部分发货]<{/t}>
+                <{case value='3'}><{t}>[部分退货]<{/t}>
+                <{case value='4'}><{t}>[已退货]<{/t}>
+                <{/switch}>
+                <{/switch}>
+                <{/switch}>
+            </div>
+            <div class="gb">
+                <div class="col2">
+                    <div class="col">
+                        <div class="d-line">
+                            <div class="l-k">订单号：</div>
+                            <div class="l-v"><{$order.order_id}></div>
+                        </div>
+                        <div class="d-line">
+                            <div class="l-k">应付金额：</div>
+                            <div class="l-v">
+                                <span class="price"><{$order.cur_amount|cur_odr:$order.currency:false:true}></span>
+                            </div>
+                        </div>
+                        <div class="d-line">
+                            <div class="l-k">支付方式：</div>
+                            <div class="l-v">
+                                <{$order.payinfo.pay_app_id|pay_name}>
+                            </div>
+                        </div>
+                        <div class="d-line">
+                            <div class="l-k">订单时间：</div>
+                            <div class="l-v">
+                                <{$order.createtime|cdate:FDATE_STIME}>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col d-line">
+                        <div class="t-r">
+                            <{if $order.status == 'active' && ($order.pay_status=='0' || $order.pay_status=='3')}>
+                            <{if $order.payinfo.pay_app_id != '-1'}>
+                            <a href="<{link app=b2c ctl=wap_paycenter act=index arg0=$order.order_id}>" >
+                                去付款
+                                <i class="arr right"></i>
+                            </a>
+                            <{/if}>
+                            <{/if}>
+                        </div>
+                        <div class="t-r">
+                            <a href="<{link app=b2c ctl="wap_member" act="orderdetail" arg0=$order.order_id}>">
+                                查看订单
+                                <i class="arr right"></i>
+                            </a>
+                        </div>
+                        <{if $order.status == 'active' && $order.pay_status == '0' && $order.ship_status == '0' }>
+                        <div class="t-r">
+                            <a href="<{link app=b2c ctl="wap_member" act="cancel" arg0=$order.order_id}>">
+                               取消订单 
+                                <i class="arr right"></i>
+                            </a>
+                        </div>
+                        <{/if}>
+                    </div>
+                </div>
+            </div>
+            <ul class="mem-order-pt c-fix">
+                <!-- goods -->
+                <{if $order.goods_items}>
+                    <{foreach from=$order.goods_items item=item_goods name=goods_item}>
+                        <!-- goods -->
+                        <{if $item_goods.product}>
+                        <li class="mem-pt-item">
+                            <a href='<{$item_goods.product.link_url}>' title="<{$item_goods.product.quantity}>--<{$item_goods.product.name}>">
+                            <img src='<{$item_goods.product.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>' />
+                            </a>
+                            <i class="num"><{$item_goods.product.quantity}></i>
+                        </li>
+                        <{/if}>
+                        <!-- adjunct -->
+                        <{if $item_goods.adjunct_items}>
+                            <{foreach from=$item_goods.adjunct_items item=item_adjunct name=adjunct_item}>
+                            <li class="mem-pt-item">
+                                <a href='<{$item_adjunct.link_url}>' title="<{$item_adjunct.quantity}>--<{$item_adjunct.name}>--配件">
+                                <img src="<{$item_adjunct.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>"/>
+                                </a>
+                                <i class="num"><{$item_adjunct.quantity}></i>
+                                <i class="icon red">配件</i>
+                            </li>
+                            <{/foreach}>
+                        <{/if}>
+                        <!-- gift -->
+                        <{if $item_goods.gift_items}>
+                            <{foreach from=$item_goods.gift_items item=item_gift name=gift_item}>
+                            <li class="mem-pt-item">
+                                <a href='#' title="<{$item_gift.quantity}>-- <{$item_gift.name}>--赠品">
+                                <img src="<{$item_gift.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>"/>
+                                </a>
+                                <i class="num"><{$item_gift.quantity}></i>
+                                <i class="icon red">赠品</i>
+                            </li>
+                            <{/foreach}>
+                        <{/if}>
+                    <{/foreach}>
+                <{/if}>
+
+                <!-- gift -->
+                <{if $order.gift_items}>
+                    <{foreach from=$order.gift_items item=item_gift name=gift_item}>
+                    <li class="mem-pt-item">
+                        <a href='#' title="<{$item_gift.quantity}>--<{$item_gift.name}>--赠">
+                        <img src="<{$item_gift.thumbnail_pic|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>"/>
+                        </a>
+                        <i class="num"><{$item_gift.quantity}></i>
+                        <i class="icon red">赠品</i>
+                     </li>
+                    <{/foreach}>
+                <{/if}>
+
+                <!-- extends -->
+                <{if $order.extends_items}>
+                    <{foreach from=$order.extends_items item=item_extends name=item_extends}>
+                        <{$item_extends}>
+                    <{/foreach}>
+                <{/if}>
+            </ul>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+</div>
+<{wap_pagers data=$pager}>

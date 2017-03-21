@@ -1,0 +1,15 @@
+<desktop>
+    <permissions>
+        <permission id="setting_api_log" display='true' workground='system'>同步日志管理</permission>
+    </permissions>
+    <workground name="系统" id="system.workground.setting" controller="admin_crontab" action="index" order="205">
+        <menugroup name="同步日志管理">
+            <menu controller='admin_apilog' action='index' params='p[0]:all' permission='setting_api_log' display='true' order='5000100'>所有</menu>
+            <menu controller='admin_apilog' action='index' params='p[0]:success' permission='setting_api_log' display='true' order='5000200'>成功</menu>
+            <menu controller='admin_apilog' action='index' params='p[0]:running' permission='setting_api_log' display='true' order='5000300'>运行中</menu>
+            <menu controller='admin_apilog' action='index' params='p[0]:fail|p[1]:request' permission='setting_api_log' display='true' order='5000400'>请求失败</menu>
+            <menu controller='admin_apilog' action='index' params='p[0]:fail|p[1]:response' permission='setting_api_log' display='true' order='5000500'>响应失败</menu>
+            <menu controller='admin_apilog' action='index' params='p[0]:sending' permission='setting_api_log' display='true' order='5000600'>发起中</menu>
+        </menugroup>
+    </workground>
+</desktop>

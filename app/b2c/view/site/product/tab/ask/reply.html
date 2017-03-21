@@ -1,0 +1,18 @@
+<!-- 回答列表 -->
+<div class="answer-list action-reply">
+  <p class="clearfix answer-action"><i><{t}>已有<{/t}><{$comlist.items|count}><{t}>条回复<{/t}></i>
+  <span class="inter-handle"><a href="javascript:void(0);">[<{t}>回复<{/t}>]</a><em><i class="arrow arrow-top"><i class="above"></i></i></em></span>
+  </p>
+  <{if $comlist.items}>
+  <span class="icon icon-answer">&#x57;</span>
+  <{foreach from=$comlist.items item=item}>
+  <input type="hidden" name="id" value="<{$item.comment_id}>">
+  <blockquote class="answer-item <{if $item.author==='管理员'}>answer-admin<{/if}>">
+    <em class="icon lquote">&#x5b;</em>
+    <div class="clearfix"><span class="infos"><em><{if $item.addon.hidden_name =='YES' && $item.author_id!=0}>匿名</em><{else}><{$item.author}></em> <{t}>说<{/t}><{/if}></span><span class="time"><{$item.time|cdate:'SDATE_STIME'}></span></div>
+    <p class="answer-content"><{$item.comment|nl2br}></p>
+    <em class="icon rquote">&#x5c;</em>
+  </blockquote>
+  <{/foreach}>
+  <{/if}>
+</div>

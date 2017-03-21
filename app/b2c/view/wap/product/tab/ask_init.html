@@ -1,0 +1,30 @@
+<!-- 用户评论 -->
+<div class="pt-comment">
+    <{include file='wap/product/tab/ask/init.html'}>
+    <{include file='wap/product/tab/ask/content.html'}>
+</div>
+<script>
+
+$('.comment-content').on('click', '.pageview a', function(e){
+    e.preventDefault();
+    var url = $(this).attr('href');
+    if(url) $(this).parents('.list').load(url);
+})
+.on('change', '.pageview select', function(e){
+    var url = this.options[this.selectedIndex].value;
+    if(url) $(this).parents('.list').load(url);
+});
+
+<{if $comments.gask_type}>
+$('#J_choose_type span').bind('click',function(e){
+    if($(this).attr('data-value') && $(this).attr('data-value') != 'true'){
+      $.post($(this).attr('data-value'),function(re){
+        $('.list').eq($(this).index()).html(re).addClass('active');
+      }.bind(this));
+      $(this).attr('data-value','true');
+    }
+    $(this).add($('.list').eq($(this).index())).addClass('active').siblings('.active').removeClass('active');
+});
+<{/if}>
+
+</script>

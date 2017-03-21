@@ -1,0 +1,114 @@
+<div class="tableform" id="picAddress">
+    <div class="widgetconfig">
+        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tbody>
+                <tr>
+                    <th><{t app='b2c'}>团购标题：<{/t}></th>
+                    <td>
+                        <{input type="text" name="ad_pic_title" vtype="required" value="{$setting.ad_pic_title}"}>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellspacing="0" cellpadding="0" border="0" width="100%" style="border-top:1px solid #ccc;">
+            <tbody>
+                <tr>
+                    <th><{t app='b2c'}>团购banner尺寸：<{/t}></th>
+                    <td><{t app='b2c'}>宽<{/t}>
+                        <input type="text" name="ad_pic_width" value="<{$setting.ad_pic_width}>" style="width:40px">px <{t app='b2c'}>高<{/t}><input type="text" name="ad_pic_height" style="width:40px" value="<{$setting.ad_pic_height}>">px
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="piccontent">
+        <{foreach from=$setting.pic item=data key=key}>
+        <table  width="100%" cellpadding="0" cellspacing="0">
+            <tr>
+                <th><{t app="b2c"}>图片地址:<{/t}></th>
+                <td>
+                    <input type=hidden name=pic[<{$data.id}>][id] value="<{$data.id}>">
+                    <input name='pic[<{$data.id}>][link]' class="imgsrc" id="pic[<{$data.id}>][link]"  value="<{$data.link}>">
+                    <input type=button value=上传图片 class="uploadbtn">
+                </td>
+                <th><{t app="b2c"}>链接地址:<{/t}></th>
+                <td>
+                    <input name="pic[<{$data.id}>][linktarget]" value="<{$data.linktarget}>">
+                </td>
+            </tr>
+            <tr>
+                <th><{t app="b2c"}>描述:<{/t}></th>
+                <td>
+                    <input name="pic[<{$data.id}>][linkinfo]" value="<{$data.linkinfo}>">
+                </td>
+                <th><{t app="b2c"}>删除该图片及描述:<{/t}></th>
+                <td><span onclick="$(this).getParent('table').destroy()"><{img src="bundle/delecate.gif" style="cursor:pointer;" alt=$___b2c="删除"|t:'b2c'            
+                        title=$___b2c="删除"|t:'b2c' app="desktop"}></span></td>
+            </tr>
+        </table>
+        <{/foreach}>
+    </div> 
+    <{button label=$___b2c="添加商品"|t:'b2c' class="addimage" app="desktop" icon="btn_add.gif"}>
+</div>
+<script>
+  //  function addPic(){
+  //      var url='index.php?app=desktop&act=alertpages&goto='+encodeURIComponent("index.php?app=image&ctl=admin_manage&act=image_broswer&type=big");
+  //      Ex_Loader('modedialog',function(){
+  //          return new imgDialog(url,{onCallback:function(image_id,image_src){
+  //                  $('ad_pic').value=image_src;
+  //          }})	;
+  //      });
+  //  }
+
+
+    (function(){              
+//      var options = [];
+//      new Request({
+//          url: '<{link app=starbuy ctl=admin_promotion act=_ajax_group_products}>',
+//          onSuccess: function(rs) {
+//              rs = JSON.decode(rs);
+//              rs.each(function(r){
+//                  options.push('<option value="' + r.url + '">' + r.name + '</option>');
+//              });
+//          }
+//      }).post();
+
+        var tag_type='table',tag_class='pic_items';
+
+        document.getElement(".addimage").addEvent('click',function(){
+
+            var i=new Date().getTime();
+
+            var tpl='<tr><th><{t app="b2c"}>图片地址:<{/t}></th>'+
+                '<td><input type=hidden name=pic['+i+'][id] value="'+i+'"><input name="pic['+i+'][link]" class="imgsrc">'+
+                '<input type=button value=<{t app="b2c"}>上传图片<{/t}> class="uploadbtn" id="pic['+i+']"></td>'+
+                '<th><{t app="b2c"}>链接地址:<{/t}></th>'+
+//                '<td><select name="pic['+i+'][linktarget]">'+options+'</td></tr>'+
+                '<td><input name="pic['+i+'][linktarget]"></td></tr>'+
+                '<tr><th><{t app="b2c"}>描述:<{/t}></th>'+
+                '<td><input name="pic['+i+'][linkinfo]"></td>'+
+                '<th><{t app="b2c"}>删除该图片及描述:<{/t}></th>'+
+                '<td><span onclick="$(this).getParent(\'table\').destroy()">'+
+                '<{img src="bundle/delecate.gif" style="cursor:pointer;" alt=$___b2c="删除"|t:'b2c' title=$___b2c="删除"|t:'b2c' app="desktop"}></span></td>'+
+            '</tr>';           
+
+            $('picAddress').getElement('.piccontent').adopt(new Element(tag_type,{'html':tpl,'width':'100%','class':tag_class}));
+
+            $('pic['+i+']').addEvent('click',function(e){bindevent(this)});
+        });        
+
+        $$(".piccontent .uploadbtn").addEvent('click',function(e){bindevent(this)});
+        $$(".small_piccontent .uploadbtn").addEvent('click',function(e){bindevent(this)});
+
+        function bindevent(el){
+            var target=$(el).getParent(tag_type).getElement('.imgsrc');
+            var url='index.php?app=desktop&act=alertpages&goto='+encodeURIComponent("index.php?app=image&ctl=admin_manage&act=image_broswer&type=big");
+            Ex_Loader('modedialog',function(){
+                return new imgDialog(url,{onCallback:function(image_id,image_src){
+                        target.value=image_src;
+                }});
+            });
+        }
+
+    })();
+</script>

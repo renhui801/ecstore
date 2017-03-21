@@ -1,0 +1,50 @@
+<{if $def_radio}><div id="def_radio" style="display:none;"><{$def_radio}></div><{/if}>
+<script>
+	window.addEvent('domready', function(){
+		var lastSel = document.getElement('input[name^=purchase[def_area]]');
+
+		if( lastSel && lastSel.get('value') != '' && lastSel.get('value') != '_NULL_' ){
+			Order.setShippingFromArea(lastSel);
+		}
+	});
+</script>
+<table width="100%" cellspacing="0" cellpadding="0" border="0" class="tableform">
+	<tbody>
+		<tr>
+			 <th><em class="font-red">*</em><{t}>收货地区：<{/t}></th>
+			 <td><{$def_arr_addr.addr_region|region}></td>
+		</tr>
+		<tr>
+			 <th><em class="font-red">*</em><{t}>收货地址：<{/t}></th>
+			 <td><{$def_arr_addr.addr}></td>
+		</tr>
+		<{if $def_arr_addr.zip}>
+		<tr>
+           <th><{if $site_checkout_zipcode_required_open=='true'}><em class="font-red">*</em><{/if}>
+			<{t}>邮编：<{/t}></th>
+			<td><{$def_arr_addr.zip}></td>
+		</tr>
+		<{/if}>
+		<tr>
+			<th><em class="font-red">*</em><{t}>收货人姓名：<{/t}></th>
+			<td><{$def_arr_addr.name}></td>
+		</tr>
+		<tr>
+			<th><em class="font-red">*</em><{t}>手机：<{/t}></th>
+			<td><{$def_arr_addr.mobile}></td>
+		</tr>
+		<{if $def_arr_addr.tel}>
+		<tr>
+			<th><{t}>固定电话：<{/t}> </th>
+			<td><{$def_arr_addr.tel}></td>
+		</tr>
+		<{/if}>
+		<{if $site_checkout_receivermore_open == 'true'}>
+		<tr>
+			<th><{t}>送货时间：<{/t}> </th>
+			<td><{if !$def_arr_addr.time}>任意日期任意时间段<{else}><{if $def_arr_addr.day != 'specal'}><{$def_arr_addr.day}><{/if}><{$def_arr_addr.specal_day}><{$def_arr_addr.time}><{/if}></td>
+		</tr>
+		<{/if}>
+	</tbody>
+</table>
+

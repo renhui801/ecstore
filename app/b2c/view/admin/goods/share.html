@@ -1,0 +1,60 @@
+<form method="POST" action="index.php?app=b2c&ctl=admin_goods_share&act=save" class="tableform" id="form_share_api_setting">
+<div class="division">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+    <{input type='hidden' name='name' value=$setting.name}>
+    <tr>
+	  <th><em class="c-red">*</em><{t}>是否开启：<{/t}></th>
+      <td><{t}>开启<{/t}> <input type="radio" name="status" size="20"  value='1' <{if $setting.status == '1'}> checked =true <{/if}>>
+          <{t}>关闭<{/t}> <input type="radio" name="status" size="20"  value='0' <{if $setting.status == '0'}> checked =true <{/if}>></td>
+	</tr>
+    <{if $setting.name == 'sina' || $setting.name == 'tencent'}>
+	<tr>
+	  <th><em class="c-red"></em><{t}>appkey：<{/t}></th>
+	  <td><{input type="text" name="appkey" size="20"  value=$setting.appkey}></td>
+	</tr>
+    <{/if}>
+	<tr>
+	  <th><em class="c-red"></em><{t}>排序：<{/t}></th>
+	  <td><{input type="text" name="order_by" size="3"  value=$setting.order_by}></td>
+	</tr>
+</table>
+</div>
+</form>
+     <div class="table-action">
+	<{button type="button" label=$___b2c="保存"|t:'b2c' id="share_api_setting"}>
+</div>
+
+<script>
+(function(){
+	var _form = $('form_share_api_setting');
+	var btn =$('share_api_setting');
+	var finder = finderGroup['<{$env.get._finder.finder_id}>'];
+
+	_form.store('target',{
+		onSuccess:function(response){
+			var hash_res_obj = JSON.decode(response);
+
+			if (hash_res_obj.success != undefined && hash_res_obj.success != "")
+			{
+				try{
+					var _dialogIns = btn.getParent('.dialog').retrieve('instance');
+				}catch(e){}
+
+				if(_dialogIns)
+				{
+					_dialogIns.close();
+					window.finderGroup['<{$env.get._finder.finder_id}>'].refresh();
+				}
+			}
+
+		}
+	});
+
+	    btn.addEvent('click',function(){
+		    _form.fireEvent('submit',{stop:$empty});
+		});
+
+})();
+
+</script>
+

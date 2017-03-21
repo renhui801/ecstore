@@ -1,0 +1,581 @@
+<div id="main" class="clearfix">
+  <!-- 商品列表开始 -->
+  <div class="page-maincontent">
+    <div class="filter-container">
+      <div class="filter-title clearfix">
+        <h3>筛选商品</h3>
+        <div class="gallery-total-info">
+          (共<b><{$total}></b>件商品)
+        </div>
+      </div>
+      <div class="brand-info">
+        <div class="brand-logo">
+          <img src="<{$brand_data.brand_logo|storager:'s'}>" alt="<{$brand_data.brand_name}>" />
+        </div>
+        <div class="brand-desc">
+          <h2 class="brand-name"><{$brand_data.brand_name}>
+            <{if $brand_data.brand_url}>(<a href="<{$brand_data.brand_url}>" target="_blank"><{$brand_data.brand_url}></a>)<{/if}>
+          </h2>
+          <p><{$brand_data.brand_desc}></p>
+        </div>
+      </div>
+    </div>
+    <!-- 排序状态条 -->
+    <div id="gallery_sortbar" class="gallery-sortbar clearfix">
+      <div class="gallery-sort">
+        <a href="javascript:void(0);" class="action-sort <{if !$orderby_sql}>active<{/if}>" data-sort=""><em>默认</em></a>
+        <{if $orderby_sql == 'price desc' || $orderby_sql == 'price asc'}>
+        <a href="" class="<{$orderby_sql|replace:' ':'-'}> action-sort active" data-sort="<{$orderby_sql}>"><em>价格<span class="icon desc">&#x2a;</span><span class="icon asc">&#x2b;</span></em></a>
+        <{else}>
+        <a href="" class="price-desc action-sort" data-sort="price desc"><em>价格<span class="icon desc">&#x2a;</span><span class="icon asc">&#x2b;</span></em></a>
+        <{/if}>
+        <a href="" class="action-sort <{if $orderby_sql == 'buy_w_count desc'}> active <{/if}>" data-sort="buy_w_count desc"><em>销量<span class="icon">&#x2a;</span></em></a>
+        <label for="for_orderby">排序：</label><select name="orderBy" id="for_orderby" class="action-orderby">
+          <{foreach from=$screen.orderBy item=orderBy}>
+          <option value="<{$orderBy.sql}>" <{if $orderBy.sql == $orderby_sql}>selected<{/if}> > <{$orderBy.label}></option>
+          <{/foreach}>
+        </select>
+      </div>
+      <div class="gallery-showmode">
+        <input type="hidden" name="showtype" value="<{$showtype}>">
+        <a href="javascript:void(0);" class="grid-show action-showmode <{if $showtype == 'grid'}>active<{/if}>" data-show-type="grid"><i class="icon">&#x59;</i>大图</a>
+        <a href="javascript:void(0);" class="list-show action-showmode <{if $showtype == 'list'}>active<{/if}>" data-show-type="list"><i class="icon">&#x5a;</i>列表</a>
+        <{if $env.conf.b2c.gallery.display.stock_goods == 'true'}>
+        <input type="checkbox" name="is_store" id="" class="action-available" <{if $is_store}>checked<{/if}> >
+        <label for=""><{t}>仅显示有货<{/t}></label>
+        <{/if}>
+      </div>
+      <div class="mini-pageview">
+        <span class="page-count"><span class="page-current"><{$page}></span>/<span class="page-total"><{$pagetotal}></span></span>
+        <span class="page-action"><a href="javascript:void(0);" class="flip prev<{if $page==1}> over<{/if}>"><i class="icon">&#x34;</i></a><a href="javascript:void(0);" class="flip next<{if $pagetotal==1}> over<{/if}>"><i class="icon">&#x35;</i></a></span>
+      </div>
+      <{if $screen.tags.goods}>
+      <div class="sortbar-filter-tags">
+        <label for=""><{t}>筛选<{/t}>：</label>
+        <{foreach from=$screen.tags.goods item=tag_g_row}>
+        <input type="checkbox" name="gTag[]" id="" class="action-gtags" value="<{$tag_g_row.tag_id}>" <{$tag_g_row.active}>>
+        <label for=""><{$tag_g_row.tag_name}></label>
+        <{/foreach}>
+      </div>
+      <{/if}>
+    </div>
+    <div id="gallery_show" class="gallery-show">
+      <{if $goodsData}>
+        <{if $showtype == 'grid'}>
+          <{include file='site/gallery/type/grid.html'}>
+        <{else}>
+          <{include file='site/gallery/type/list.html'}>
+        <{/if}>
+      <{else}>
+        <{$env.conf.site.errorpage.search}>
+      <{/if}>
+    </div>
+    <div id="product_notify" class="product-notify" style="display:none;">
+      <p class="desc"><{t}>该货品暂时缺货，请在下面输入您的邮箱地址或手机号码，当我们有现货供应时，我们会发送邮件通知您！<{/t}></p>
+      <form class="form" method="post" action="<{link app=b2c ctl=site_product act=toNotify}>">
+        <input type="hidden" name="item[0][goods_id]" value="">
+        <input type="hidden" name="item[0][product_id]" value="">
+        <ul>
+          <li class="form-item">
+            <label for="email" class="form-label"><{t}>邮箱地址<{/t}>：</label>
+            <span class="form-act">
+              <{input type="text" name="email" id="" size="30" vtype="required&&email"}>
+            </span>
+          </li>
+          <li class="form-item">
+            <label for="cellphone" class="form-label"><{t}>手机号码<{/t}>：</label>
+            <span class="form-act">
+              <{input type="text" name="cellphone" id="" size="30" vtype="required"}>
+            </span>
+          </li>
+          <li class="form-item form-item-last">
+            <label class="form-label"></label>
+            <span class="form-act">
+              <{button type="submit" class="btn-caution" label=$___b2c="提交"|t:'b2c' rel="_request"}>
+            </span>
+          </li>
+        </ul>
+      </form>
+    </div>
+  </div>
+  <!-- 商品对比浮层 -->
+  <div id="gallery_compare" class="gallery-compare">
+    <div class="fold"><a href="javascript:void(0);" class="handle-expan action-unfold-compare">展开</a>商品对比</div>
+    <div class="unfold">
+      <form action="<{link app=b2c ctl=site_gallery act=diff}>" method="post" target="_blank" async="false">
+      <div class="header clearfix">
+        <h3>商品对比</h3>
+        <span class="handle-collapse action-fold-compare"><a href="javascript:void(0);">收起</a><i class="icon">&#x36;</i></span>
+      </div>
+      <div class="content">
+        <div class="none-compare">
+          无对比商品<br>最多可对比<i>5</i>个商品
+        </div>
+      </div>
+      <div class="footer hide"><button type="submit" class="btn btn-simple action-goods-compare"><span><span>对　比</span></span></button><a href="javascript:void(0);" class="action-clear-compare">清空</a></div>
+      </form>
+    </div>
+    <script type="text/plain" class="compare-template">
+      <li class="compare-item clearfix">
+        <input type="hidden" name="type_id" value="{type_id}">
+        <input type="hidden" name="goods_id[]" value="{goods_id}">
+        <div class="goods-pic"><img class="action-goods-img" src="{img}" alt="{name}"></div>
+        <div class="goods-intro clearfix">
+        <h3 class="goods-name">{name}</h3>
+        <div class="goods-price">{price}</div>
+        <div class="goods-action"><a href="javascript:void(0);" class="action-del-compare">删除</a></div>
+        </div>
+      </li>
+    </script>
+    <script type="text/plain" class="none-template">
+      <div class="none-compare">
+        无对比商品<br>最多可对比<i>5</i>个商品
+      </div>
+    </script>
+  </div>
+  <!-- /商品对比浮层 -->
+</div>
+
+<{assign var='imageset' value=$env.conf.image.image.set}>
+<script>
+var Router = {
+    'filter': {
+        query: '<{link app=b2c ctl=site_gallery act=ajax_get_goods}>'
+    }
+};
+
+var Query = function(url, data, update, options) {
+    var self = this;
+    this.update = function(url, data, update, options) {
+        if(typeof(update) == 'object') {
+            update = Module.gallery.show;
+        }
+        options = Object.merge({
+            url: url,
+            link: 'ignore',
+            update: update
+        }, options || {});
+        new Request.HTML(options).post(data);
+    };
+    this.filter = function(data, fn){
+        var url = Router.filter.query;
+        // var mask = new Mask({
+        //     width: '100%',
+        //     height: '100%',
+        //     'class': 'mini-mask',
+        //     'html': '<span class="mask-loading"></span>',
+        //     'effect': false,
+        //     position: true,
+        //     pins: true
+        // });
+        // if(Browser.ie) {
+        //     mask.element.setStyle('background-color', Browser.version == 9 ? 'rgba(255,255,255,0.1)' : '');
+        // }
+        self.update(url,data,Module.gallery.show, {
+            onRequest:function() {
+                // mask.show();
+            },
+            onSuccess:function(rs){
+                // mask.hide();
+                new DataLazyLoad({img:'data-src', lazyDataType:'img',onAfter:function(img){
+                    if(Browser.ie6) fixImageSize(img);
+                }});
+                setGridSize(Module.gallery.show.getElements('.gallery-grid .goods-item'), ['.goods-name', '.promotion-tags'], 4);
+                updateNum();
+                miniCart.init();
+                fn&&fn(rs);
+            }
+        });
+    };
+    this.addtocart = function(url, data, target) {
+        var form = $('_addtocart_submitform') || new Element('form#_addtocart_submitform',{
+            action: url,
+            method: 'post',
+            target: target,
+            style: 'display:none'
+        }).inject(document.body);
+        var formElements = Array.from(data).invoke('clone', false);
+        form.empty().adopt(formElements).submit();
+    };
+};
+Query = new Query;
+
+Module = new Module('gallery', ['sortbar', 'show', 'compare']);
+
+Module.gallery.sortbar.addEvents({
+    'click:relay(.action-sort)':function(e){
+        e.preventDefault();
+        if(this.hasClass('active')) {
+            toggleOrderby(this);
+        }
+        else toggleActive(this);
+        var sel = Module.element('gallery.sortbar', '.action-orderby');
+        sel.value = this.get('data-sort') || '';
+        Query.filter(getData());
+    },
+    'change:relay(.action-orderby)':function(e) {
+        var sort = Module.elements('gallery.sortbar','.action-sort');
+        var hl = sort.every(function(s){
+            var sort = s.get('data-sort');
+            var order = this.value;
+            if(order.indexOf('price') === 0 && sort.indexOf('price') === 0) {
+                if(order !== sort) {
+                    toggleOrderby(s);
+                }
+                toggleActive(s);
+                return false;
+            }
+            if(sort == order) {
+                toggleActive(s);
+                return false;
+            }
+            return true;
+        }, this);
+        if(hl) sort.removeClass('active');
+        Query.filter(getData());
+    },
+    'click:relay(.action-showmode)':function(e){
+        e.preventDefault();
+        if(this.hasClass('active')) return;
+        toggleActive(this);
+        Module.element('gallery.sortbar','input[name=showtype]').value = this.get('data-show-type');
+        Query.filter(getData());
+    },
+    'change:relay(.action-gtags,.action-available)':function(e) {
+        Query.filter(getData());
+    },
+    'click:relay(a.flip:not(.over))':function(e){
+        e.preventDefault();
+        var self = this;
+        Query.filter(getData(this), function(e){
+            self.getSiblings('.over').removeClass('over');
+            var page = getFlipPage();
+            var parent = self.getParent();
+            if(page <= 1) parent.getElement('.prev').addClass('over');
+            else if(page >= getPage().total) parent.getElement('.next').addClass('over');
+        });
+    }
+});
+Module.gallery.show.addEvents({
+    'click:relay(.action-addtocart)':function(e){
+        if(this.target != '_dialog_minicart') {
+            var item = this.getParent('.goods-item');
+            var num = item.getElement('.action-quantity-input');
+            if(!num) return;
+            var ginfo = {
+                gid: item.getElement('[name="goods[goods_id]"]').value,
+                pid: item.getElement('[name="goods[product_id]"]').value,
+                num: num.value
+            }
+            var url = '<{link app=b2c ctl=site_cart act=add arg0=goods arg1="{gid}" arg2="{pid}" arg3="{num}"}>';
+            this.href = url.substitute(ginfo);
+
+            // Query.addtocart(this.href, data, this.target);
+        }
+    },
+    'click:relay(.action-notify)': function(e) {
+        var id = this.get('rel').split('::');
+        var dialog = new Dialog($('product_notify').wrapped(), {
+            title:'到货通知',
+            width: 400,
+            modal: {
+                'class': 'cover'
+            },
+            onLoad: function(){
+                var content = this.content;
+                var holder = content.getElements('input[type=hidden]');
+                var handle = content.getElement('[rel=_request]');
+                holder[0].value = id[0];
+                holder[1].value = id[1];
+                handle && handle.store('_ajax_config',{
+                    onSuccess:function(rs){
+                        if(rs && rs[0]) {
+                            if(rs[0]['true']) {
+                                content.getElement('.product-notify').innerHTML = '<div class="success">联系方式已经成功提交，到货后会立刻通知您。</div>';
+                                dialog.hide.delay(3000, dialog);
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    },
+    'click:relay(.action-compare)': function(e) {
+        var container = Module.gallery.compare;
+        var content = container.getElement('.content');
+        var ul = content.getElement('ul');
+        var footer = container.getElement('.footer');
+        var cpr = container.getElement('.compare-template').innerHTML;
+        var non = container.getElement('.none-template').innerHTML;
+        var info = JSON.decode(this.get('data-compare'));
+        var html = cpr.substitute(info);
+        var tips = new Tips(this);
+        var last;
+        if(!ul){
+            content.innerHTML = '<ul>' + html + '</ul>';
+            showCompareFoot();
+            last = content.getElement('.compare-item');
+        }
+        else {
+            var items = ul.getElements('.compare-item');
+            var j = items.length;
+            if(j == 5) {
+                return tips.show('只能对比5个商品，请删除之后再添加。');
+            }
+            for(var i = 0; i < j; i ++){
+                var item = items[i];
+                var rs = JSON.decode(item.get('data-compare'));
+                var type_id = item.getElement('input[name=type_id]').value;
+                var goods_id = item.getElement('input[name^=goods_id]').value;
+                if(info.type_id != type_id) {
+                    return tips.show('只能对比同类商品！');
+                }
+                if(info.goods_id == goods_id) {
+                    return tips.show('该商品已加入对比栏。');
+                }
+            }
+            tips.hide();
+            last = new Element('ul', {html: html}).getFirst().inject(ul);
+        }
+        clearTimeout(container.timer);
+        showCompare(container);
+        if(Browser.ie6) {
+          last.getElement('.action-goods-img').zoomImg(60, 60);
+        }
+        this.addClass('stat-compared');
+        hideCompare(container, 3000);
+    },
+    'click:relay(a.flip:not(.over))':function(e){
+        e.preventDefault();
+        Query.filter(getData(this), function(e){
+            try{
+                new Fx.Scroll(document.body, {link:'cancel', duration: 0}).toElementEdge(Module.gallery.sortbar);
+            }catch(e){}
+        });
+    }
+});
+
+Module.gallery.compare.addEvents({
+    'click:relay(.action-unfold-compare)': function(e) {
+        showCompare();
+    },
+    'click:relay(.action-fold-compare)': function(e) {
+        hideCompare();
+    },
+    'click:relay(.action-del-compare)': function(e) {
+        e.preventDefault();
+        var ul = this.getParent('ul');
+        if(ul.getChildren().length > 1) {
+            this.getParent('.compare-item').destroy();
+        }
+        else clearCompare();
+    },
+    'click:relay(.action-goods-compare)':function(e){
+        var item = Module.gallery.compare.getElements('.compare-item');
+        if(item.length < 2) {
+            e.stop();
+            var tips = new Tips(this);
+            return tips.show('对比最少需要有2件商品');
+        }
+        /*
+        var data = Module.gallery.compare.getElements("[data-compare]").get("data-compare");
+        var rs = {goods_id:[]};
+        data.length && data.each(function(d,i){
+            rs.goods_id[i] = JSON.decode(d).goods_id;
+        });
+        Object.toQueryString(rs);
+        */
+    },
+    'click:relay(.action-clear-compare)': function(e) {
+        e.preventDefault();
+        clearCompare();
+    },
+    'mouseleave': function(e) {
+        hideCompare(this, 3000);
+    }
+});
+
+function getData(el) {
+    var brand = 'brand_id[]=<{$brand_data.brand_id}>';
+    var filter = [brand];
+    var page = 'page=' + getFlipPage(el);
+    var data = filter.concat(decodeURI(Module.gallery.sortbar.toQueryString()), page);
+    data = data.join('&');
+    data && Memory.set('brand.filter', data);
+    return data;
+}
+
+//延迟加载图片
+new DataLazyLoad({
+    img:'data-src',
+    lazyDataType:'img',
+    onAfter:function(img){
+        //ie6下缩放图片
+        if(Browser.ie6) fixImageSize(img);
+    }
+});
+//商品列表固定4列计算每列宽度并处理列高
+setGridSize(Module.gallery.show.getElements('.gallery-grid .goods-item'), ['.goods-name', '.promotion-tags'], 4);
+if(Browser.ie6) {
+    //ie6下对比栏fixed
+    Module.gallery.compare.fixed('top');
+}
+
+function getFlipPage(el) {
+    var page = getPage().current;
+    if(el) {
+        if(el.hasClass('next')) page += 1;
+        else if(el.hasClass('prev')) page -= 1;
+        else page = el.get('text');
+    }
+    return page;
+}
+function getPage() {
+    var pagedata = {};
+    var pagelimit = '<{$pageLimit|default:20}>';
+    try {
+        pagedata = JSON.decode(Module.gallery.show.getElement('.action-pagedata').value) || {};
+    }catch(e){}
+    return {
+        sum: pagedata.total || 0,
+        current: pagedata.pagecurrent || 1,
+        total: pagedata.pagetotal || 1
+    };
+}
+
+function updateNum() {
+    var page = getPage();
+    Module.element('gallery.sortbar', '.page-current').innerHTML = page.current;
+    Module.element('gallery.sortbar', '.page-total').innerHTML = page.total;
+    var prev = Module.element('gallery.sortbar', '.page-action .prev');
+    var next = Module.element('gallery.sortbar', '.page-action .next');
+    if(page.total == 1) {
+        prev.addClass('over');
+        next.addClass('over');
+    }
+    else if(page.total > 1){
+        next.removeClass('over');
+        if(page.total == page.current) {
+            prev.removeClass('over');
+            next.addClass('over');
+        }
+        else {
+            if(page.current == 1) {
+                prev.addClass('over');
+            }
+            else {
+                prev.removeClass('over');
+            }
+            next.removeClass('over');
+        }
+    }
+}
+
+function toggleActive(el, cls) {
+    if(!el) return;
+    cls = cls || 'active';
+    el.addClass(cls).getSiblings('.'+cls).removeClass(cls);
+}
+
+function toggleOrderby(el){
+    //if(!el.hasClass('active')) return;
+    if(el.hasClass('price-desc')) {
+        el.swapClass('price-desc', 'price-asc');
+        el.set('data-sort', 'price asc');
+    }
+    else if(el.hasClass('price-asc')) {
+        el.swapClass('price-asc', 'price-desc');
+        el.set('data-sort', 'price desc');
+    }
+}
+
+//== 为数量选择框绑定事件
+bindQuantityEvent(Module.gallery.show,setQuantity);
+
+function bindQuantityEvent(elements, callback) {
+    elements = document.id(elements) || $$(elements);
+    if(!elements && !elements.length) return;
+    var value = '';
+    elements.addEvents({
+        //= 数量按钮
+        'click:relay(.btn-decrease,.btn-increase)': function(e) {
+            var input = this.getParent().getElement('.action-quantity-input');
+            value = +input.value;
+            input.value = this.hasClass('btn-decrease') ? value - 1 : value + 1;
+            callback && callback(input, value);
+        },
+        //= 数量输入框
+        'focus:relay(.action-quantity-input)': function(e){
+            value = +this.value;
+        },
+        'change:relay(.action-quantity-input)': function(e) {
+            callback && callback(this, value);
+        }
+    });
+}
+//== 获取商品数量值
+function getQuantity(el, type) {
+    return el.getElement('input[name=' + type + ']').value;
+}
+//== 设置商品数量
+function setQuantity(input, value) {
+    var type = 'product';
+    inputCheck(input, {min: input.get('min'), max: input.get('max'), 'default': value});
+}
+//== 商品数量输入框正确性检测
+function inputCheck(input, options) {
+    if(!input) return false;
+    options = options || {};
+    if(isNaN(options.min)) options.min = 1;
+    if(isNaN(options.max)) options.max = 9999;
+    options['default'] = options['default'] || options.min;
+    var value = +input.value;
+    var tips = new Tips(input);
+    var pre = '';
+    var msg = '';
+    if(options.store && options.store - value <= 0) {
+        pre = '库存有限，';
+    }
+    if(value < options.min) {
+        input.value = options.min;
+        msg = '此商品的最小购买数量为' + options.min + '件';
+    }
+    else if(value > options.max){
+        input.value = options.max;
+        msg = pre + '此商品最多只能购买' + options.max + '件';
+    }
+    else if(isNaN(value)) {
+        input.value = options['default'];
+        msg = '只允许输入数字';
+    }
+    if (msg) {
+        tips.show(msg);
+        return false;
+    }
+    tips.hide();
+    return true;
+}
+
+// 商品对比
+function showCompare(o) {
+    (o || Module.gallery.compare).addClass('gallery-compare-unfold');
+}
+function hideCompare(o, delay) {
+    o = o || Module.gallery.compare;
+    if(delay && o.hasClass('gallery-compare-unfold')) {
+        o.timer = hideCompare.delay(delay, o, o);
+    }
+    else o.removeClass('gallery-compare-unfold');
+}
+function clearCompare() {
+    var content = Module.element('gallery.compare', '.content');
+    content.innerHTML = Module.element('gallery.compare', '.none-template').innerHTML;
+    hideCompareFoot();
+}
+function showCompareFoot() {
+    Module.element('gallery.compare', '.footer').removeClass('hide');
+}
+function hideCompareFoot() {
+    Module.element('gallery.compare', '.footer').addClass('hide');
+}
+</script>

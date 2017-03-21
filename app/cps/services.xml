@@ -1,0 +1,83 @@
+<services>
+    <service id="desktop_finder.cps_mdl_users" optname="后台联盟商列表页处理">
+        <class>cps_finder_users</class>
+    </service>
+
+    <service id="desktop_finder.cps_mdl_usermonthprofit" optname="后台月度佣金列表页处理">
+        <class>cps_finder_usermonthprofit</class>
+    </service>
+
+    <service id="desktop_finder.cps_mdl_info" optname="后台联盟公告与帮助中心列表页处理">
+        <class>cps_finder_info</class>
+    </service>
+
+    <service id="b2c_save_post_om" optname="推广来源信息与会员与订单关联关系">
+        <class>cps_linklog</class>
+    </service>
+
+    <service id="site.site_theme_tmpl" optname="扩展网站联盟前端展示的模板页面">
+        <class>cps_theme_tmpl</class>
+    </service>
+
+    <service id="b2c_order.create" optname="订单完成后事件生成订单佣金记录">
+        <class>cps_user_orderprofit</class>
+        <class>cps_thirdparty_create</class>
+    </service>
+
+    <service id="firevent_type" optname="扩展邮件动作">
+        <class>cps_service_firevent_action</class>
+    </service>
+
+    <service id="b2c_messenger_tpl_appid" optname="扩展邮件动作后台管理模板">
+        <class>cps_messenger_tpl</class>
+    </service>
+
+    <service id="message_contact" optname="扩展消息发送读取的邮箱手机号信息">
+        <class>cps_messenger_contact</class>
+    </service>
+<!--
+    <service id="b2c_order_finish_after" optname="订单完成处理">
+        <class>cps_user_orderfinish</class>
+        <class>cps_thirdparty_finish</class>
+    </service>
+-->
+    <service id="b2c_order_cancel_finish" optname="订单作废完成处理">
+        <class>cps_user_ordercancel</class>
+        <class>cps_thirdparty_cancel</class>
+    </service>
+<!--
+    <service id="autotask" optname="自动任务">
+        <class>cps_auto_statistics</class>
+        <class>cps_auto_orderprofitstatus</class>
+    </service>
+-->
+    <service id="autotask">
+        <class>cps_misc_orderprofitstatus_task</class>
+        <class>cps_misc_statistics_task</class>
+    </service>
+
+    <service id="site_theme.post_install" optname="模板安装执行">
+        <class>cps_theme_inst</class>
+    </service>
+
+    <service id="openapi.cps_track" optname="第三方CPS传入参数接口">
+        <class>cps_thirdparty_track</class>
+    </service>
+
+    <service id="openapi.cps_query" optname="第三方CPS订单查询">
+        <class>cps_thirdparty_query</class>
+    </service>
+
+    <service id="b2c.footer.shop.set.extends">
+        <class>cps_site_view_helper</class>
+    </service>
+
+    <service id="b2c_mdl_orders.filter">
+		<class>cps_service_order_filter</class>
+    </service>
+
+    <service id="b2c_mdl_members.filter">
+		<class>cps_service_member_filter</class>
+    </service>
+
+</services>

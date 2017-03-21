@@ -1,0 +1,24 @@
+<form action="<{link app=b2c ctl=wap_passport act=resetpassword }>" method="post" class="form" data-type="ajax">
+  <input type="hidden" name="key" value="<{$data.key}>">
+  <input type="hidden" name="account" value="<{$data.account}>">
+  <div class="c-g">
+    <label for="" class="c-l">
+      <em class="f-red">*</em>新密码：
+    </label>
+    <div class="c">
+      <input type="password" name="login_password" placeholder="6-20个字符" class="text" required="required" data-caution="密码不能为空">
+    </div>
+  </div>
+  <div class="c-g">
+    <label for="" class="c-l">
+      <em class="f-red">*</em>确认密码：
+    </label>
+    <div class="c">
+      <input type="password" name="psw_confirm" placeholder="再次输入新密码" class="text" required="required" data-caution="密码不能为空">
+    </div>
+  </div>
+  <div class="notice"></div>
+  <div class="btn-bar">
+    <button type="submit" class="btn orange">下一步</button>
+  </div>
+</form>

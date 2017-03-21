@@ -1,0 +1,28 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td>
+      <div class="tableform">
+        <h3><{t}>告警消息<{/t}></h3>
+        <table cellpadding="0" class="gridlist" cellspacing="0" width="100%" border="0">
+          <col style="width:19.5%"/>
+          <col style="width:45%"/>
+          <col style="width:10%"/>
+          <thead>
+            <tr>
+              <th><{t}>错误描述<{/t}></th>
+              <th><{t}>错误详情<{/t}></th>
+              <th><{t}>时间<{/t}></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td width="19%"><{$data.description}></td>
+              <td class="textleft" width="30%"><{$data.alarmContent}></td>
+              <td class="Colamount"><{$data.timestamp|cdate}></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </td>
+  </tr>
+</table>

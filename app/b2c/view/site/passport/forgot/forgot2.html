@@ -1,0 +1,56 @@
+<!-- 找回密码 -->
+<{if $send_status == 'true'}>
+<div class="been-send">为保障您的账户安全，请先验证您的身份</div>
+<form action="<{link app=b2c ctl=site_passport act=resetpwd_code}>" method="post">
+  <ul>
+    <{if $data.email || $data.mobile}>
+    <li class="form-item">
+      <label for="" class="form-label">选择验证方式：</label>
+      <span class="form-act">
+        <{if $data.mobile}>
+        <label for="for_verify_mobile" class="form-sub-label">
+          <input type="radio" name="send_type" checked id="for_verify_mobile" class="action-verify-method" value="mobile">
+          <input type="hidden" name="mobile" value="<{$data.mobile}>">
+          手机验证
+        </label>
+        <{/if}>
+        <{if $data.email}>
+        <label for="for_verify_email" class="form-sub-label">
+          <input type="radio" name="send_type" id="for_verify_email" <{if !$data.mobile}>checked<{/if}> class="action-verify-method" value="email"> 
+          邮箱验证
+          <input type="hidden" name="email" value="<{$data.email}>">
+        </label>
+        <{/if}>
+      </span>
+    </li>
+    <{/if}>
+    <{if $data.mobile}>
+    <li class="form-item op-verify-mobile">
+      <label for="" class="form-label">手机号码：</label>
+      <span class="form-act"><{$data.mobile}><a href="<{link app=b2c ctl=site_passport act=send_vcode_sms}>" data-mobile="<{$data.mobile}>" class="btn btn-caution action-get-verifycode"><span><span>获取验证码</span></span></a></span>
+    </li>
+    <li class="form-item op-verify-mobile">
+      <label for="" class="form-label">填写验证码：</label>
+      <span class="form-act"><{input type="text" name="mobilevcode" id="" vtype="required"}></span>
+      <span class="caution-content"><{$msg}></span>
+    </li>
+    <{/if}>
+    <{if $data.email}>
+    <li class="form-item op-verify-email <{if $data.mobile}>hide<{/if}>">
+      <label for="" class="form-label">邮箱地址：</label>
+      <span class="form-act"><{$data.email}> <a href="<{link app=b2c ctl=site_passport act=send_vcode_email}>" class="btn btn-caution action-resend-email" rel="_request" data-params="{uname:'<{$data.email}>',type:'forgot'}"  data-ajax-config="{loadtip:'发送中...'}"><span><span>发送验证邮件</span></span></a></span></li>
+    <li class="form-item op-verify-email <{if $data.mobile}>hide<{/if}>">
+      <label for="" class="form-label">填写验证码：</label>
+      <span class="form-act"><{input type="text" name="emailvcode" id="" vtype="required"}></span>
+      <span class="caution-content"><{$msg}></span>
+    </li>
+    <{/if}>
+    <li class="form-item-normal">
+      <span class="form-act"><{button type="submit" label=$___b2c="下一步"|t:'b2c' class="btn-caution btn-big" rel="_request" data-ajax-config="{onSuccess:function(rs){changeStep(rs, 3, function(e){passwordStrength.init($$('form .auto-password-check-handle'));});}}"}></span>
+    </li>
+  </ul>
+</form>
+<{else}>
+<!-- <div class="been-send">发生错误，请重试。</div> -->
+<div class="been-send"><i class="icon icon-warning">$</i> 由于您并未验证手机或者邮箱，无法自助找回密码，请联系网站客服！</div>
+<{/if}>

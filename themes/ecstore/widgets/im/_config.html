@@ -1,0 +1,133 @@
+<script>
+    function imItemMoveTo(v,e){
+        var row =$(e).getParent('.row');
+        var pre=row.getPrevious('.row');
+        var next=row.getNext('.row');
+        if(pre&&v<0){
+            row.injectBefore(pre);
+        }
+        if(next&&v>0){
+            row.injectAfter(next);
+        }
+    }
+    var addItem=function(y){
+        var i=new Date();
+        var type;
+        var str;
+        switch(y){
+            case 1:
+            type=1;
+            str='QQ:';
+            break;
+            case 2:
+            type=2;
+            str='MSN:';
+            break;
+            case 3:
+            type=3;
+            str='<{t app="b2c"}>阿里旺旺:<{/t}>';
+            break;
+            case 4:
+            type=4;
+            str='Ali Talk:';
+            break;
+            case 5:
+            type=5;
+            str='Skype:';
+            break;
+        }
+
+
+        var rowLine=[
+        '<div class="row-line">',
+            '<input type="hidden" value="{type}" name="im[{id}][type]"/>',
+            '<input type="hidden" value="{id}" name="im[{id}][i]"/>',
+            '<div style="text-align: right;" class="span-7">',
+                '<span class="im-info">{str}</span>',
+                ' <input value="" name="im[{id}][link]" class="x-input"/>',
+            '</div>',
+            '<div class="span-6">',
+                '<{t app="b2c"}>文字说明:<{/t}><input value="" name="im[{id}][info]" class="x-input"/>',
+            '</div>',
+            '<div class="span-2">',
+                '<{img src="bundle/icon_asc.gif" app="desktop" onclick="imItemMoveTo(-1,this)" style="cursor: pointer;" title=$___b2c="向上移动"|t:"b2c:" class="asc"}>&nbsp;&nbsp;',
+                '<{img src="bundle/icon_desc.gif" app="desktop" onclick="imItemMoveTo(1,this)" style="cursor: pointer;" title=$___b2c="向下移动"|t:"b2c:" class="asc"}>&nbsp;&nbsp;',
+                '<{img src="bundle/delecate.gif" app="desktop" style="cursor:pointer;" alt=$___b2c="删除"|t:"b2c:" title=$___b2c="删除"|t:"b2c:" onclick="$(this).getParent(\'.row\').destroy();"}>',
+                '</div>',
+            '</div>'].join('');
+
+        $('im').adopt(new Element('div',{'class':'row'}).set('html',rowLine.substitute({
+            id:i,
+            type:type,
+            str:str
+        })));
+    }
+</script>
+<style>
+    .tag-label{cursor:pointer;}
+</style>
+<div class="tableform">
+    <div class="division">
+        <table cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <th><{t app="b2c"}>跟随方式<{/t}></th>
+                <td>
+                    <select name="alignselect" class="inputstyle">
+                        <option value='left' <{if $setting.alignselect=='left'}>selected<{/if}>><{t app="b2c"}>左<{/t}></option>
+                        <option value='right' <{if $setting.alignselect=='right'}>selected<{/if}>><{t app="b2c"}>右<{/t}></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th><{t app="b2c"}>标题说明文字<{/t}></th>
+                <{assign var=param1 value=$___b2="我们营业的时间<br>9:00-18:00"|t:'b2c'}>
+                <td><textarea name="titleexp" class="x-input"><{$setting.titleexp|default:$param1}></textarea> </td>
+            </tr>
+        </table>
+    </div>
+    <div class="division">
+        <div class='action-bar'>
+            <span><{t app="b2c"}>添加:<{/t}></span>
+            <span  class="tag-label" onclick="addItem(1);">QQ</span>
+            <span  class="tag-label" onclick="addItem(2);">MSN</span>
+            <span  class="tag-label" onclick="addItem(3);"><{t app="b2c"}>阿里旺旺<{/t}></span>
+            <span  class="tag-label" onclick="addItem(4);">Ali Talk</span>
+            <span  class="tag-label" onclick="addItem(5);">Skype</span>
+        </div>
+        <div class="finder">
+            <div class="finder-list" id="im">
+                <{foreach from=$setting.im item=data key=key}>
+                <div class='row'>
+                    <div class='row-line'>
+                        <input type=hidden name="im[<{$data.i}>][type]" value="<{$data.type}>">
+                        <input type=hidden name="im[<{$data.i}>][i]" value="<{$data.i}>">
+                        <div class='span-7' style='text-align:right'>
+                            <{if $data.type==1}>
+                            <span class="im-info">QQ:</span>
+                            <{elseif $data.type==2}>
+                            <span class="im-info">MSN:</span>
+                            <{elseif $data.type==3}>
+                            <span class="im-info"><{t app="b2c"}>阿里旺旺:<{/t}></span>
+                            <{elseif $data.type==4}>
+                            <span class="im-info">Ali Talk:</span>
+                            <{elseif $data.type==5}>
+                            <span class="im-info">Skype:</span>
+                            <{/if}>
+                            <input name="im[<{$data.i}>][link]" value="<{$data.link}>" class="x-input">
+                        </div>
+                        <div class='span-6'>
+                            文字说明:<input name="im[<{$data.i}>][info]" value="<{$data.info}>" class="x-input">
+                        </div>
+                        <div class='span-2'>
+                            <{img src="bundle/icon_asc.gif" app="desktop" onclick="imItemMoveTo(-1,this)" style="cursor: pointer;" title=$___b2c="向上移动"|t:"b2c:" class="asc"}>&nbsp;
+                            <{img src="bundle/icon_desc.gif" app="desktop" onclick="imItemMoveTo(1,this)" style="cursor: pointer;" title=$___b2c="向下移动"|t:"b2c:" class="asc"}>&nbsp;
+                            <!-- <{img src="bundle/icon_desc.gif" app="desktop" onclick="imItemMoveTo(1,this)" style="cursor: pointer;" title=$___b2c="向下移动"|t:"b2c:" class="desc"}> -->
+                            <{img src="bundle/delecate.gif" app="desktop" style="cursor:pointer;" alt=$___b2c="删除"|t:"b2c:" title=$___b2c="删除"|t:"b2c:" onclick="$(this).getParent('.row').destroy();"}>
+                        </div>
+                    </div>
+                </div>
+                <{/foreach}>
+            </div>
+        </div>
+    </div>
+</div>

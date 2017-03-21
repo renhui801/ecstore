@@ -1,0 +1,24 @@
+<div id="ord_<{$widgets_id}>" class="common-mod new-order-list" style='height:<{$setting.height|default:40}>px'>
+  <ul class="order-list">
+    <{foreach name=outer item=contact from=$data key=key}>
+    <li class="order-item">    
+      <span class="order-id"><{t app="b2c"}>订单<{/t}><{$data.$key.order_id|cut:12:'***'}></span>
+      <span class="order-name"><{$data.$key.transport}></span>
+      <span class="order-id"><{t app="b2c"}>发货单号<{/t}><{$data.$key.delivery_id}></span>
+    </li>
+    <{/foreach}>
+  </ul>
+</div>
+
+<script>
+    new Slide('ord_<{$widgets_id}>',{
+        content:'.order-list',
+        steps:<{$setting.steps|default:1}>,
+        hasTriggers:false,
+        interval:3000,
+        duration:<{$setting.roll_speed|default:200}>,
+        effect:'scrolly',
+        autoplay:true,
+        viewStep:<{$setting.pageNum}>
+    });
+</script>

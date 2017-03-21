@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//controller/site/tracker.php:17
+msgid "ecstore缺少发货单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:17
+msgid "最后拉取时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:24
+msgid "关联单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:28
+msgid "拉取次数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:33
+msgid "物流公司"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:38
+msgid "物流单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:43
+msgid "物流记录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:47
+msgid "物流状态记录表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//dbschema/logistic_log.php:62
+msgid "物流跟踪表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/extension/settings.php:11
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/extension/settings.php:11
+msgid "其他设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:36
+msgid "创建"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:45
+msgid "修改"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:54
+msgid "支付"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:63
+msgid "退款"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:72
+msgid "发货"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:92
+msgid "退货"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:112
+msgid "完成"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/orderlog.php:123
+msgid "作废"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/puller.php:43
+msgid "必要参数发货单号不能为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/puller.php:67
+msgid "不支持该物流公司查询"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack//lib/puller.php:102
+msgid "中心不能提供数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack/view/admin/logistic_detail.html:4
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack/view/site/logistic_detail.html:4
+msgid "时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack/view/admin/logistic_detail.html:4
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack/view/site/logistic_detail.html:4
+msgid "地点和跟踪进度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack/view/admin/logistic_detail.html:16
+#: /Users/bryant/codes/ecstore-release/app/logisticstrack/view/site/logistic_detail.html:16
+msgid "不能提供物流状态："
+msgstr ""
+

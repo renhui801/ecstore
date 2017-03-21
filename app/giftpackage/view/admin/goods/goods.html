@@ -1,0 +1,4 @@
+<{foreach item=item from=$goods}>
+<{if !is_array($item)}><{continue;}><{/if}>
+<li><div class="del" goods_id="<{$item.goods_id}>" title="<{$item.name}>" style="visibility:hidden;"></div><img width="45" src="<{$item.image_default_id|default:$image_default_id|storager:'s'}>" /></li>
+<{/foreach}>

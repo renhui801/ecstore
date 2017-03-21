@@ -1,0 +1,14 @@
+<cronentries>
+  <cron id="starbuy_tasks_specialremind">
+    <description>活动提醒检测</description>
+    <schedule>0 * * * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+
+<cron id="starbuy_tasks_cancelorder">
+    <description>取消过期订单</description>
+    <schedule>0 * * * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+
+</cronentries>

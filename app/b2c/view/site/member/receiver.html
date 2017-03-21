@@ -1,0 +1,195 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的订单 -->
+  <div id="member_address" class="member-address">
+    <div id="member_address_title" class="member-title">
+      <h2 class="address-prompt"><b><{t}>已有<{/t}><i class="warn"><{$num}></i><{t}>收货地址<{/t}></b> <span class="small">(<{t}>最多添加10个收货地址<{/t}>)</span></h2>
+      <div class="address-actions"><button type="button" class="btn btn-simple action-add-address"><span><span><{t}>添加收货地址<{/t}><i class="icon">&#x36;</i></span></span></button></div>
+    </div>
+
+    <!-- 修改收货地址 -->
+    <div id="member_address_submit" class="member-address-submit">
+    <{include file='site/member/modify_receiver.html'}>
+    </div>
+
+    <!-- 收货地址列表 -->
+    <div id="member_address_list" class="member-address-list">
+      <table class="member-grid">
+        <thead>
+          <tr>
+            <th><{t}>地址<{/t}></th>
+            <th><{t}>收货人<{/t}></th>
+            <th><{t}>联系电话<{/t}></th>
+            <th><{t}>操作<{/t}></th>
+          </tr>
+        </thead>
+        <{if $receiver}>
+        <tbody<{if !($browser.name=="IE" && ($brower.ver == 6 || $browser.ver == 7))}> class="first"<{/if}>>
+          <{foreach from=$receiver item=item name=name}>
+          <tr class="<{if $item.def_addr == '1'}> highlight<{/if}><{if $smarty.foreach.name.iteration == 1}> first<{/if}>">
+            <td class="shipping-address"><{$item.area|ship_area}> <{$item.addr}></td>
+            <td class="shipping-name"><{$item.name}></td>
+            <td class="shipping-contact"><{if $item.mobile}><{$item.mobile}><{else}><{$item.tel}><{/if}></td>
+            <td class="actions">
+              <span class="edit-text">正在编辑...</span>
+              <span class="edit-act">
+                <a href="<{link app=b2c ctl=site_member act=set_default arg0=$item.addr_id}>" class="action-set-default">设为默认</a>
+                <span class="label-default">默认地址</span>
+                <a href="<{link app=b2c ctl=site_member act=modify_receiver arg0=$item.addr_id}>" class="action-edit">编辑</a>
+                <a href="<{link app=b2c ctl=site_member act=del_rec arg0=$item.addr_id}>" class="action-delete">删除</a>
+              </span>
+            </td>
+          </tr>
+          <{/foreach}>
+        </tbody>
+        <{else}>
+        <tbody>
+          <tr><td colspan="4" class="no-information"><{t}>暂无收货地址<{/t}></td></tr>
+        </tbody>
+        <{/if}>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+Object.merge(validatorMap, {
+    requiredone: function(element, v, type, parent){
+        return parent.getElements('input[type=' + type + '][vtype='+ element.get('vtype') +']').some(function(el){
+            return el.value.trim() != '';
+        });
+    }
+});
+
+var Query = {
+    options: function(url, data, method, fn){
+        if(typeOf(data) == 'object') {
+            data.request = true;
+        }
+        else if(typeOf(data) == 'element') {
+            data = data.toQueryString() + '&response_json=true';
+        }
+        else if(typeOf(data) == 'string') {
+            data = data + '&response_json=true';
+        }
+        else if(!data) {
+            data = 'response_json=true';
+        }
+        return {
+            url: url,
+            method: method,
+            data: data,
+            link: 'cancel',
+            onSuccess: function(rs) {
+                try {
+                    rs = JSON.decode(rs);
+                }catch(e) {}
+                if(rs && rs.error) return Message.error(rs.error);
+                if(typeOf(fn) === 'function') fn.call(this,rs);
+            },
+            onFailure: function(e) {
+                Message.error('网络错误，请重试。');
+            }
+        };
+    },
+    load: function(url, update, data, fn) {
+        new Request.HTML(Object.merge(Query.options(url, data, 'post', fn), {
+            update: update
+        })).send();
+    },
+    send: function(url, data, fn) {
+        new Request(Query.options(url,data, 'post', fn)).send();
+    }
+}
+
+var address = $('member_address');
+var address_submit = $('member_address_submit');
+var address_title = $('member_address_title');
+var address_list = $('member_address_list');
+address.addEvents({
+    'click:relay(.action-reset)': function(e){
+        if(address_submit.hasClass('address-edit')) {
+            address_submit.removeClass('address-edit');
+            resetForm();
+            address_list.unmask().getElement('.editing').removeClass('editing');
+        }
+        else {
+            closeAddress(address_title.getElement('.active'));
+        }
+    },
+    'click:relay(.action-add-address)': function(e) {
+        if(address_list.getElements('tbody tr').length >= 10) {
+            var tips = new Tips(this, '最多添加10个收货地址，请删除后再添加').show();
+        }
+        else {
+            tips && tips.hide();
+            if(address_submit.hasClass('address-edit')) return;
+            this.hasClass('active') ? closeAddress(this) : openAddress(this);
+        }
+    },
+    'click:relay(.action-set-default)': function(e){
+        e.preventDefault();
+        var el = this;
+        Query.send(this.href, null, function(rs) {
+            var def = el.getParent('tbody').getElement('.highlight');
+            def && def.removeClass('highlight');
+            el.getParent('tr').addClass('highlight');
+        });
+    },
+    'click:relay(.action-edit)': function(e){
+        e.preventDefault();
+        // var handle = address_title.getElement('.action-add-address');
+        // openAddress();
+        if(address_submit.hasClass('address-add')) {
+            closeAddress(address_title.getElement('.active'));
+        }
+        address_submit.addClass('address-edit');
+        this.getParent('tr').addClass('editing');
+        address_list.mask({
+            'class': 'cover',
+            'effect': false,
+            position: true
+        });
+        Query.load(this.href, address_submit);
+    },
+    'click:relay(.action-delete)': function(e){
+        e.preventDefault();
+        var self = this;
+        Dialog.confirm('您确定要删除此收货地址吗？', function(e){
+            if(e) {
+                Query.send(self.href, null, function(rs) {
+                    self.getParent('tr').destroy();
+                    address.getElement('.address-prompt .warn').innerHTML -= 1;
+                });
+            }
+        });
+    }
+});
+
+function closeAddress(el) {
+    address_submit.removeClass('address-add');
+    resetForm();
+    el && el.removeClass('active');
+}
+function openAddress(el) {
+    address_submit.addClass('address-add');
+    el && el.addClass('active');
+}
+function resetForm(){
+    address_submit.getElements('input').set('value', '');
+    address_submit.getElement('select').set('value', '_NULL_').fireEvent('change');
+}
+function selectArea(sels){
+    var selected = '';
+    var filled = address_submit.getElement('.action-fill-area');
+    sels.each(function(s){
+        if(s.isDisplayed()) {
+            var text = s[s.selectedIndex].text.trim();
+            if(['<{t}>北京<{/t}>','<{t}>天津<{/t}>','<{t}>上海<{/t}>','<{t}>重庆<{/t}>'].indexOf(text)>-1) return;
+            selected += text;
+        }
+    });
+
+    filled.value = filled.value.replace(selected, '');
+}
+</script>

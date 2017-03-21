@@ -1,0 +1,22 @@
+<div id="order_invoice" class="order-section order-invoice">
+    <ul>
+        <li><input type="radio" name="payment[tax_type]" id="action_invoice_false" value="false" checked="checked"> <label for="action_invoice_false">不需要发票</label></li>
+        <li><input type="radio" name="payment[tax_type]" id="action_invoice_personal" value="personal" > <label for="action_invoice_personal">个人发票 <{if $tax_setting.personal_tax_ratio}>(税率<{$tax_setting.personal_tax_ratio*100}>%)<{/if}></label></li>
+        <li><input type="radio" name="payment[tax_type]" id="action_invoice_company" value="company" > <label for="action_invoice_company">公司发票 <{if $tax_setting.company_tax_ratio}>(税率<{$tax_setting.company_tax_ratio*100}>%)<{/if}></label></li>
+    </ul>
+    <div class="fold" style="display:none;">
+        <div>
+            <input type="hidden" name="payment[is_tax]" value="false">
+            <label for="tax_company">发票抬头：</label>
+            <div class="c-g">
+                <input type="text" name="payment[tax_company]" id="tax_company" required="required" placeholder="请填写发票抬头" class="text" data-caution="请填写发票抬头">
+            </div>
+        </div>
+        <{if $tax_setting.tax_content}>
+        <div>
+            <label for="tax_content">发票内容：</label>
+            <{input type='select' options=$tax_setting.tax_content name="payment[tax_content]" id="tax_content" required="required" data-caution="请选择发票内容"}>
+        </div>
+        <{/if}>
+    </div>
+</div>

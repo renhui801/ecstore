@@ -1,0 +1,872 @@
+<div id="main">
+  <!-- checkout开始 -->
+  <div class="cart-title">
+    <h1>
+      <i class="icon">&#x3c;</i>购物车
+    </h1>
+  </div>
+  <!-- checkout步骤图 -->
+  <div id="cart_steps" class="steps">
+    <table width="100%">
+      <tbody>
+        <tr>
+          <td class="step-item step-1 active"><a href="<{link app=b2c ctl=site_cart}>"><q class="icon">&#x50;</q><i>1</i>购物车</a></td>
+          <td class="icon step-arrow">&#x28;</td>
+          <td class="step-item step-2 active"><span><q class="icon">&#x50;</q><i>2</i>填写和提交订单信息</span></td>
+          <td class="icon step-arrow">&#x28;</td>
+          <td class="step-item step-3"><a href="javascript:void(0);"><q class="icon">&#x50;</q><i>3</i>成功提交订单</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- checkout主体 -->
+  <div id="order_container" class="order-container">
+      <div class="title"><h2><{t}>填写和提交订单信息<{/t}></h2></div>
+    <!-- checkout内容 -->
+    <form action="<{link app=b2c ctl='site_order' act='create'}>" method="post">
+      <{if $is_fastbuy}>
+        <input type="hidden" name="isfastbuy" value="true" />
+      <{/if}>
+      <input type="hidden" name="purchase[addr_id]" value="<{$def_addr.addr_id}>" />
+      <input type="hidden" name="purchase[def_area]" value="<{$def_area}>" />
+      <input type="hidden" name="md5_cart_info" value="<{$md5_cart_info}>" />
+      <input type="hidden" name="extends_args" id="op_extends_args" value="<{$json_args}>" />
+
+      <!-- 订单信息填写 -->
+      <div id="order_main" class="order-main">
+        <{if $minfo}>
+        <{include file='site/cart/checkout/goods.html' app='b2c'}>
+        <{/if}>
+
+        <{include file='site/cart/checkout/shipping.html' app='b2c'}>
+
+        <{include file='site/cart/checkout/delivery.html' app='b2c'}>
+
+        <{include file='site/cart/checkout/payment.html' app='b2c'}>
+
+        <{if $tax_setting}>
+        <{include file='site/cart/checkout/invoice.html' app='b2c'}>
+        <{/if}>
+
+        <{include file='site/cart/checkout/cart_main.html' app='b2c'}>
+      </div>
+
+      <!-- 结算信息 -->
+      <table id="order_clearing" class="order-clearing">
+        <caption>结算信息</caption>
+        <tbody>
+          <tr>
+            <td class="order-infor">
+              <{if $aCart.promotion.order}>
+              <!-- 订单优惠 -->
+              <div class="order-promotion" id="order_promotion">
+                <h3><a href="javascript:void(0);" class="btn-collapse action-toggle">-</a>订单优惠</h3>
+                <ul class="content">
+                  <{foreach from=$aCart.promotion.order item=item}>
+                  <li><b>[<{$item.desc_tag}>]</b><{$item.name}></li>
+                  <{/foreach}>
+                </ul>
+              </div>
+              <{/if}>
+
+              <{include file='site/cart/checkout/coupon.html' app='b2c'}>
+
+              <{if $point_dis_html}>
+              <!-- 积分抵扣 -->
+              <{$point_dis_html}>
+              <{/if}>
+
+              <div id="order_remark" class="order-remark"><label for="">订单备注：</label><textarea name="memo" class="action-remark-textarea" cols="60" rows="3" placeholder="请在此填写您对该订单或商品的特殊要求或说明，最多300字。"></textarea></div>
+            </td>
+
+            <!-- 订单价格 -->
+            <td id="order_price" class="order-price">
+             <{include file='site/cart/checkout/checkout_total.html' app='b2c'}>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript">
+<{if $money_format}>priceControl.spec = <{$money_format}>;<{/if}>
+var Order = function() {
+    var self = this;
+    // this.member = !!Memory.get('member');
+    <{if $minfo}>
+    this.goods = {
+        module: $('order_goods'),
+        confirm: 'cart-goods_confirm.html',
+        minfo: Cookie.read('checkout_b2c_goods_buy_info'),
+        filled: function(json, input) {
+            json = JSON.decode(json || self.goods.minfo);
+            if(input !== true) {
+                self.goods.module.getElements('.view-goods .memo').each(function(el, i){
+                    if(json[i].name == 'minfo[product_id][]') {
+                        json.erase(json[i]);
+                    }
+                    el.set('html', json[i].value);
+                });
+            } else {
+                self.goods.module.getElements('.fill-goods [name^=minfo[]').each(function(el, i){
+                    if(el.name != 'minfo[product_id][]' && json[i].name == el.name) {
+                        el.set('value', json[i].value);
+                    }
+                });
+            }
+            return self;
+        },
+        fold: function() {
+            if(self.goods.minfo) {
+                var mod = self.goods;
+                mod.edit.removeClass('fold');
+                mod.view.removeClass('fold');
+                mod.fill.addClass('fold');
+                self.goods.filled(self.goods.minfo, true).goods.filled();
+            }
+            return self;
+        }
+    };
+    Object.append(this.goods, {
+        edit: this.goods.module.getElement('.action-edit-goods'),
+        view: this.goods.module.getElement('.view-goods'),
+        fill: this.goods.module.getElement('.fill-goods')
+    });
+    <{/if}>
+    this.shipping = {
+        module: $('order_shipping'),
+        load: 'cart-shipping_edit.html',
+        save: 'cart-shipping_save.html',
+        remove: 'cart-shipping_delete.html',
+        confirm: 'cart-shipping_confirm.html'
+    };
+    Object.append(this.shipping, {
+        edit: this.shipping.module.getElement('.action-edit-shipping'),
+        view: this.shipping.module.getElement('.view-shipping'),
+        fill: this.shipping.module.getElement('.fill-shipping'),
+        change: this.shipping.module.getElement('.change-shipping')
+    });
+    this.delivery = {
+        module: $('order_delivery'),
+        list: 'cart-delivery_change.html',
+        confirm: 'cart-delivery_confirm.html'
+    };
+    Object.append(this.delivery, {
+        edit: this.delivery.module.getElement('.action-edit-delivery'),
+        view: this.delivery.module.getElement('.view-delivery'),
+        change: this.delivery.module.getElement('.change-delivery')
+    });
+    this.payment = {
+        module: $('order_payment'),
+        list: 'cart-payment_change.html',
+        confirm: 'cart-payment_confirm.html'
+    };
+    Object.append(this.payment, {
+        edit: this.payment.module.getElement('.action-edit-payment'),
+        view: this.payment.module.getElement('.view-payment'),
+        change: this.payment.module.getElement('.change-payment')
+    })
+    <{if $tax_setting}>
+    this.invoice = {
+        module: $('order_invoice')
+    };
+    <{/if}>
+    this.coupon = {
+        module: $('order_coupon'),
+        add: '<{link app=b2c ctl=cart act=add arg0=coupon}>',
+        remove: 'cart-removeCartCoupon-coupon.html'
+    };
+    <{if $point_dis_html}>
+    this.deduction = {
+        module: $('order_deduction'),
+        use: 'tools-count_digist.html'
+    };
+    <{/if}>
+    this.isFastbuy = '<{if $is_fastbuy}>&isfastbuy=true<{/if}>';
+    this.total = {
+        module: $('order_price'),
+        url: 'cart-total.html',
+        update: function(callback) {
+            var data = self.shipping.change.toQueryString() + '&' + self.delivery.change.toQueryString() + '&' + self.payment.change.toQueryString() + (self.invoice ? '&' + self.invoice.module.toQueryString() : '') + (self.deduction ? '&' + self.deduction.module.toQueryString() : '') + self.isFastbuy + '&extends_args=' + encodeURIComponent($('op_extends_args').value);
+            self.update(self.total.url, data, self.total.module, callback);
+        }
+    };
+    this.update = function(url, data, update, callback) {
+        var Update = new Class({
+            Extends: Request,
+            options: {
+                url: url,
+                update: update,
+                method: 'post',
+                evalScripts: true,
+                link: 'cancel',
+                headers: {
+                    Accept: 'text/html, application/xml, text/xml, */*'
+                }
+            },
+            success: function(text){
+                var options = this.options;
+                var response = this.response;
+                var json;
+                try{
+                    json = JSON.validate(text) ? JSON.decode(text, this.options.secure) : null;
+                    if(json && json.error) return Message.error(json.error);
+                }catch(e){}
+                response.html = text.stripScripts(function(script){
+                    response.javascript = script;
+                });
+                if (options.update){
+                    options.update.set('html', response.html);
+                    Browser.exec(response.javascript);
+                }
+                callback && callback(response.html, response.javascript);
+            }
+        });
+        new Update(url, update, callback).send(data);
+    };
+    this.send = function(url, data, callback, update) {
+        url = url || self[url];
+        new Request({
+            url: url,
+            link: 'cancel',
+            onComplete: function(rs){
+                var json;
+                try{
+                    json = JSON.validate(rs) ? JSON.decode(rs) : null;
+                    if(json && json.error) return Message.error(json.error);
+                }catch(e){}
+                callback && callback.call(this, rs, json);
+            }
+        }).send(data);
+    };
+}
+var order = new Order();
+
+Object.merge(validatorMap, {
+    onesecond: function(element, v, type, parent){
+        return parent.getElements('input[type=' + type + '][vtype='+ element.get('vtype') +']').some(function(el){
+            el.onblur = function(){validate(this)};
+            return el.value.trim() != '';
+        });
+    },
+    requiredcustom: function(element, v, type, parent){
+        var name = element.name;
+        if(!parent.getElements('input[type=' + type + ']' + name ? '[name="' + name + '"]' : '').some(function(el) {
+            return el.checked == true && el.value != '0';
+        })) {
+            showWarn(element, element.get('data-validatemsg'));
+            return false;
+        }
+        return true;
+    }
+});
+
+function selectArea(sels) {
+    var selected = '';
+    sels.each(function(s){
+        if(s.isDisplayed()) {
+            var text = s[s.selectedIndex].text.trim().clean();
+            if(['<{t}>北京<{/t}>','<{t}>天津<{/t}>','<{t}>上海<{/t}>','<{t}>重庆<{/t}>'].indexOf(text)>-1) return;
+            selected += text;
+        }
+    });
+    // var arr = $('change_shipping').getElement('.action-change-shipping:checked');
+    // if(arr) {
+    //     var val = JSON.decode(arr.value);
+    //     val.area = sels[0].getParent().getElement('input[name=area]').value;
+    //     arr.value = JSON.encode(val);
+    // }
+
+    $('op_splice_area').innerHTML = selected;
+    //$('addr_area').value = selected;
+    //$('address').value = $('address').value.replace(selected, '');
+};
+
+function hideWarn(el, self) {
+    el = self ? el : el.getParent('.order-section-content');
+    el.retrieve('tips_instance', {hide: function(){}}).hide();
+}
+function showWarn(el, msg) {
+    formTips.warn(msg, el.getParent('.order-section-content')).toElement().setStyle('margin-left', '4%');
+    return false;
+}
+
+<{if $minfo}>
+order.goods.fold();
+<{/if}>
+order.total.update();
+
+$('main').addEvents({
+    'click': function(e){
+        var el = $(e.target);
+
+        //= 点击document隐藏删除确认框
+        var dtc = $$('.dialog-tips-container')[0];
+        var target = $(document.body).retrieve('dialog-tip:show');
+        var element;
+        if(dtc && !dtc.contains(el) && target && !target.contains(el)) dtc.retrieve('instance').hide();
+
+        if(el.getParent('.order-section')) {
+            el.getParent('.order-section').removeClass('highlight');
+            el.getParent('.order-section-content') && hideWarn(el);
+        }
+        //修复FF点击select闪烁的问题
+        if(el.getParent('.fill-shipping') && el.getParent('li') && (el.match('option') || el.match('select') || el.match('input[type=text]'))) {
+            e.preventDefault();
+        }
+    },
+    //= 商品必填
+    'click:relay(.action-confirm-goods)': function(e) {
+        if(validate(this.getParent('.fill-goods'), 'all')) {
+            loadGoods(this);
+        }
+    },
+    //= 修改商品必填信息
+    'click:relay(.action-edit-goods)': function(e) {
+        e.stop();
+        fold('goods', this);
+    },
+    //= 修改/取消修改
+    'click:relay(.action-edit-shipping)': function(e) {
+        e.stop();
+        if(this.hasClass('action-cancel')) {
+            var id = order.shipping.view.getElement('input[name=def_addr_id]').value;
+            var radio = $('for_shipping_'+id);
+            if(radio){
+                switchSelected(radio.set('checked', true));
+                radio.getParent('li').getElement('label').set('html', radio.getParent('li').retrieve('html:source'));
+            }
+        }
+        fold('shipping', this);
+        fold('delivery', 'notice', this.hasClass('action-cancel'));
+        fold('payment', 'notice', this.hasClass('action-cancel'));
+    },
+    'click:relay(.action-edit-delivery)': function(e) {
+        e.stop();
+        fold('shipping', false);
+        order.shipping.edit[!this.hasClass('action-cancel') ? 'addClass' : 'removeClass']('fold');
+        fold('delivery', !this.hasClass('action-cancel'));
+        fold('payment', 'notice', this.hasClass('action-cancel'));
+    },
+    'click:relay(.action-edit-payment)': function(e) {
+        e.stop();
+        fold('shipping', false);
+        fold('delivery', false);
+        fold('payment', !this.hasClass('action-cancel'));
+    },
+    //= 添加到常用地址
+    'click:relay(.action-add-address)': function(e) {
+        e.stop();
+        var parent = this.getParent('.fill-shipping');
+        if(validate(parent, 'all')) {
+            addShipping(this);
+        }
+    },
+    //= 编辑地址
+    'click:relay(.action-edit-address)': function(e) {
+        switchSelected(this, true);
+    },
+    //= 保存修改
+    'click:relay(.action-save-address)': function(e) {
+        e.stop();
+        var parent = this.getParent('li');
+        if(validate(parent, 'all')) {
+            var checked = parent.getElement('.action-change-shipping');
+            var area = parent.getElement('input[name=area]').value;
+            var val = JSON.decode(checked.value);
+            val.area = area.substr(area.lastIndexOf(':'));
+            checked.value = JSON.encode(val);
+            saveShipping(this);
+        }
+    },
+    //= 删除地址
+    'click:relay(.action-delete-address)': function(e) {
+        e.stop();
+        var msg = '<{t}>删除后不可恢复，确认删除此收货地址吗？<{/t}>';
+        if(this.getParent('li').get('rel') == 'inuse') msg = '<{t}>此地址为修改前正在使用的收货地址，<{/t}>' + msg;
+        Dialog.confirm(msg, function(e){
+            e && deleteAddress(this);
+        }.bind(this));
+    },
+    //= 确认收货地址
+    'click:relay(.action-confirm-shipping)': function(e) {
+        var parent = this.getParent('.change-shipping') || this.getParent('.fill-shipping');
+        var li = parent.getElement('li.selected');
+        if (li) {
+            var checked = li.getElement('.action-change-shipping:checked');
+            var fill = li.getElement('.fill-shipping');
+
+            if(fill){
+                if(validate(fill, 'all')) {
+                    var val = JSON.decode(checked.value);
+                    var area = fill.getElement('input[name=area]').value;
+                    val.area = area.substr(area.lastIndexOf(':'));
+                    checked.value = JSON.encode(val);
+                    addShipping(checked, 'confirm');
+                }
+            }
+            else {
+                loadShipping(checked, 'confirm');
+            }
+            hideWarn(parent, true);
+        }
+        else if(validate(parent, 'all')) {
+            addShipping(this, 'confirm');
+        }
+    },
+    //= 确认配送方式
+    'click:relay(.action-confirm-delivery)': function(e) {
+        if(validate(this.getParent('.change-delivery'), 'all')) {
+            order.shipping.edit.removeClass('fold');
+            hideWarn(this);
+            loadDelivery(this);
+        }
+    },
+    //= 确认支付方式
+    'click:relay(.action-confirm-payment)': function(e) {
+        if(validate(this.getParent('.change-payment'), 'all')) {
+            hideWarn(this);
+            loadPayment(this);
+        }
+    },
+    //= 订单优惠收起/展开
+    'click:relay(.action-toggle)': function(e) {
+        e.stop();
+        this.set('text', this.hasClass('btn-collapse') ? '+' : '-').toggleClass('btn-collapse').toggleClass('btn-expand').getParent('h3').getNext('.content').toggle();
+    },
+    //= 使用订单优惠券
+    'click:relay(.action-confirm-coupon)': function(e) {
+        var parent = this.getParent('.item');
+        var p = order.coupon.module;
+        var ul = p.getElement('.usedlist');
+        var cpn = ul.getElements('.action-cancel-coupon');
+        var coupon = parent.getElement('select') || parent.getElement('input[type=text]');
+        var value = coupon.value;
+        if(coupon.match('select')) {
+            var cpn_id = coupon.getSelected().get('data-coupon');
+        }
+        if(!value) return;
+        if(cpn.length) {
+            if(cpn.get('rel').indexOf(value) > -1 || cpn.get('data-code').indexOf(value) > -1 || cpn.get('data-coupon').indexOf(cpn_id) > -1) {
+                coupon.value = '';
+                return Dialog.alert('此优惠券已被使用！');
+            }
+        }
+        new Request({
+            url: '<{link app=b2c ctl=site_cart act=add arg0=coupon}>',
+            link: 'cancel',
+            onRequest: function() {
+                p.getElements('input, select, button').set('disabled', true);
+            },
+            onComplete: function(rs) {
+                rs = JSON.decode(rs);
+                p.getElements('input, button').set('disabled', false);
+                if(p.getElement('select').options.length > 1) p.getElement('select').disabled = false;
+                if(rs.error){
+                    return Dialog.alert('优惠券添加失败，' + rs.error);
+                }
+                var data = rs.data;
+                if(data) {
+                    if(data.length) {
+                        p.getElement('.used').removeClass('fold');
+
+                        updateCoupon(ul, data);
+
+                        coupon.value = '';
+                        order.total.update();
+                    } else {
+                        Dialog.alert('优惠券添加失败，请明确优惠券的适用范围。');
+                    }
+                    p.getParent('form').getElement('input[name=md5_cart_info]').value = rs.md5_cart_info;
+                }
+            }
+        }).post(parent.toQueryString() + '&is_fastbuy=<{$is_fastbuy}>&response_json=true');
+    },
+    //= 取消优惠券
+    'click:relay(.action-cancel-coupon)': function(e) {
+        e.stop();
+        var p = order.coupon.module;
+        var select = p.getElement('select');
+        var data = 'cpn_ident=' + this.get('rel') + '&is_fastbuy=<{$is_fastbuy}>&response_json=true';
+        order.send(order.coupon.remove, data, function(rs, json){
+            var ul = p.getElement('.usedlist');
+            var data = json.data;
+            updateCoupon(ul, data);
+            if(!data) {
+                p.getElement('.used').addClass('fold');
+            }
+            p.getParent('form').getElement('input[name=md5_cart_info]').value = json.md5_cart_info;
+            order.total.update();
+        });
+    },
+    //= 使用积分
+    'click:relay(.action-confirm-score)': function(e) {
+        var parent = this.getParent('.scoreinput');
+        var value = parent.getElement('.action-input-score').value;
+        if(!value) return;
+        order.send(order.deduction.use, parent, function(rs){
+            rs = {
+                price: priceControl.format(rs),
+                score: value
+            };
+            var tpl = '抵扣积分：<strong>{score}</strong> 抵扣金额：<b>{price}</b> <a href="javascript:void(0);" class="lnklike action-cancel-score">[取消使用]</a>';
+            parent.addClass('fold');
+            var xtip = $('xtips_container');
+            if(xtip && xtip.isVisible()) xtip.retrieve('tips').hide();
+            parent.getNext('.usedscore').set('html',tpl.substitute(rs)).removeClass('fold');
+            order.total.update();
+        });
+    },
+    //= 取消积分
+    'click:relay(.action-cancel-score)': function(e) {
+        e.stop();
+        var p = order.deduction.module;
+        p.getElement('.usedscore').addClass('fold');
+        p.getElement('.scoreinput').removeClass('fold');
+        p.getElement('.action-input-score').value = '';
+        setPrice(0);
+        order.total.update();
+    },
+    //= 提交订单
+    'click:relay(.action-submit-order)': function(e) {
+        if(!validateOrder()) {
+            e.stop();
+        }
+    },
+    //= 配送时间
+    'change:relay(.action-assign-times)': function(e){
+        var p = this.getParent();
+        p.getElement('.assign-times')[this.checked ? 'show' : 'hide']();
+        if(!this.checked) {
+            p.getElement('.action-select-special').value = '任意日期';
+            p.getElement('.action-select-times').value = '任意时间段';
+        }
+    },
+    //= 指定配送时间
+    'change:relay(.action-select-special)': function(e){
+        this.getParent().getElement('.special-delivery-day')[this[this.selectedIndex].value == 'special' ? 'show' : 'hide']();
+    },
+    //= 选择/添加新收货地址
+    'change:relay(.action-change-shipping)': function(e){
+        var cond = this.value == 0;
+        var li = this.getParent('li');
+        var update = li.getElement('address');
+        if(cond && li.getAllPrevious().length >= 10) {
+            e.stop();
+            li.getParent().getElement('li.selected .action-change-shipping').checked = true;
+            return formTips.warn('最多添加10条，想要使用新收货地址，请先删除一条收货地址', update, {where: 'after', store: this.getParent('.change-shipping')});
+        }
+        switchSelected(this, cond);
+    },
+    //= 选择配送方式
+    'change:relay(.action-change-delivery)': function(e){
+        var parent = this.getParent('tr');
+        if(parent.getSiblings('.sub').length) {
+            parent.getSiblings('.sub').getElement('input[name=is_protect]').set('disabled', true);
+            $(parent.id + '_sub') && $(parent.id + '_sub').getElement('input[name=is_protect]').set('disabled', false);
+        }
+    },
+    //= 选择支付方式
+    'change:relay(.action-change-payment)': function(e){
+        var selected = this.getParent('tr').addClass('selected').getSiblings('tr.selected')[0];
+        selected && selected.removeClass('selected');
+    },
+    //= 选择发票
+    'change:relay(.action-select-invoice)': function(e){
+        var cont = this.getParent('tr').getAllNext('tr');
+        var need = this.getParent('.order-section-content').getElement('input[name="payment[is_tax]"]');
+        cont[this.value == 'false' ? 'addClass' : 'removeClass']('fold');
+        need.value = this.value == 'false' ? 'false' : 'true';
+        order.total.update();
+    }
+});
+
+//= 折叠/展开指定项
+function fold(type, isfold, mod) {
+    if(!type) return;
+    type = type + '';
+    var parent = order[type].module;
+    var fill = parent.getElements('[class^=fill-]')
+    var change = parent.getElement('[class^=change-]');
+    var view = parent.getElement('[class^=view-]');
+    var edit = parent.getElement('[class^=action-edit-]');
+    var notice = parent.getElement('.notice');
+    if(typeOf(isfold)=='element') {
+        if(type == 'goods') {
+            mod = 'fill';
+        }
+        fold(type, !isfold.hasClass('action-cancel'), mod);
+    }
+    else if(isfold === false) {
+        view.removeClass('fold');
+        fill && fill.addClass('fold');
+        change && change.addClass('fold');
+        notice && notice.addClass('fold');
+        edit&&(edit.removeClass('fold').removeClass('action-cancel').innerHTML = '[修改]');
+    }
+    else if(isfold == 'notice' && notice) {
+        if(mod) {
+            Memory.set(type + '.stat', !edit || edit.hasClass('fold') ? notice && !notice.hasClass('fold') ? 'none' : 'noselect' : edit && edit.hasClass('action-cancel') ? 'editing' : 'view');
+        }
+        var stat = Memory.get(type + '.stat');
+        if(!stat || stat === 'none') return;
+        if(notice.hasClass('fold')) {
+            notice.removeClass('fold');
+            hideWarn(notice);
+            parent.removeClass('highlight');
+            view.addClass('fold');
+            change&&change.addClass('fold');
+            edit&&edit.addClass('fold');
+        }
+        else {
+            notice.addClass('fold');
+            if(stat == 'view') {
+                view.removeClass('fold');
+            }
+            else {
+                change&&change.removeClass('fold');
+            }
+            if(stat != 'noselect') {
+                edit&&edit.removeClass('fold');
+            }
+        }
+    }
+    else {
+        var who = mod !== 'fill' ? change : fill;
+        who && who.removeClass('fold');
+        view.addClass('fold');
+        notice && notice.addClass('fold');
+        edit&&(edit.addClass('action-cancel').innerHTML = '[取消修改]');
+    }
+}
+
+//= 载入商品必填
+function  loadGoods(el) {
+    var parent = order.goods.module;
+    var data = parent.getElement('.fill-goods');
+    var view = parent.getElement('.view-goods');
+    var goods_info = data.toJSON(true);
+
+    fold('goods', false);
+    Cookie.write('checkout_b2c_goods_buy_info', goods_info, {path:Shop.base_url});
+    order.goods.filled(goods_info);
+}
+//设当前选中状态
+function switchSelected(el, load) {
+    var parent = (el.match('li') ? el : el.getParent('li')).addClass('selected');
+    var label = parent.getElement('label');
+    parent.retrieve('html:source') || label && parent.store('html:source', label.innerHTML);
+    if(el.match('li') || el.hasClass('action-edit-address')) {
+        if(Browser.ie) order.shipping.change.getElement('.action-change-shipping:checked').checked = false;
+        parent.getElement('.action-change-shipping').checked = true;
+    }
+    load && loadShipping(el);
+    var selected = parent.getSiblings('li.selected')[0];
+    if(selected) {
+        selected.removeClass('selected').retrieve('html:source') && selected.getElement('label').set('html', selected.retrieve('html:source'));
+    }
+}
+//= 保存收货地址
+function saveShipping(el) {
+    var parent = el.getParent('li');
+    var update = parent.getElement('label');
+    order.update(order.shipping.save, parent, update, function(rs){
+        switchSelected(parent);
+        if(parent.hasClass('selected')) {
+            order.shipping.edit.addClass('fold');
+            order.delivery.edit.addClass('fold');
+            order.payment.edit.addClass('fold');
+        }
+    });
+}
+//= 添加收货地址
+function addShipping(el, method) {
+    var method = method || 'save';
+    var parent = el.getParent('li') || el.getParent('.fill-shipping');
+    var update = parent.getElement('label') || el.getParent('.order-section-content').getElement('.view-shipping');
+    var li;
+    order.send(order.shipping.save, parent, function(rs){
+        if(el.match('input')) {
+            if(el.value == 0) {
+                addAddress(update,parent,rs,true);
+            }
+            else {
+                update.set('html', rs);
+            }
+        }
+        else {
+            addAddress(update,parent,rs);
+        }
+        if(method == 'confirm') {
+            loadShipping(el.getParent('.order-section-content').getElement('.change-shipping .action-change-shipping:checked'), 'confirm');
+            fold('shipping');
+        }
+    });
+}
+function addAddress(update, parent, rs, unfold) {
+    var li;
+    if(update.tagName == 'LABEL') {
+        li = new Element('li', {html: rs}).inject(parent, 'before');
+        update.set('html', parent.retrieve('html:source'));
+    }
+    else if(update.tagName == 'TABLE') {
+        var inject = parent.addClass('fold').getParent().getElement('.change-shipping');
+        li = new Element('li', {html: rs}).inject(inject, 'top');
+        unfold&&inject.removeClass('fold');
+    }
+    switchSelected(li);
+    order.shipping.edit.addClass('fold');
+}
+//= 删除收货地址
+function deleteAddress(el) {
+    var parent = el.getParent('li');
+    var change = order.shipping.change;
+    var data = parent.getElement('.action-change-shipping');
+    order.send(order.shipping.remove, data.name+'='+data.value, function(rs){
+        hideWarn(change, true);
+        if(parent.hasClass('selected')) {
+            order.shipping.edit.addClass('fold');
+            //order.delivery.edit.addClass('fold');
+            //order.payment.edit.addClass('fold');
+        }
+        parent.destroy();
+        var cases = change.getElement('.action-change-shipping');
+        if(cases.value == 0) {
+            order.shipping.edit.addClass('fold');
+            cases.checked = true;
+            switchSelected(cases, true);
+        }
+    });
+}
+//= 载入填写收货信息区域
+function loadShipping(el, method) {
+    method = method || 'load';
+    var parent;
+    var update;
+    if(method == 'load') {
+        parent = el.getParent('li');
+        update = parent.getElement('label');
+    }
+    else {
+        parent = el.getParent('.change-shipping') || el.getParent('.fill-shipping');
+        update = parent.getParent().getElement('.view-shipping');
+    }
+    order.update(order.shipping[method], parent, update, function(rs){
+        bindDatepicker();
+        if(method == 'confirm') {
+            fold('shipping', false);
+
+            var region = 'area=' + (parent.getElement('li.selected') ? JSON.decode(parent.getElement('li.selected').getElement('.action-change-shipping').value).area : parent.getElement('input[name=area]').value);
+            linkage('delivery', region);
+        }
+    });
+}
+function loadDelivery(el) {
+    var mod = order.delivery;
+    var data = mod.change;
+    var update = mod.view;
+    order.update(mod.confirm, data.toQueryString() + order.isFastbuy, update, function(rs){
+        fold('delivery', false);
+        linkage('payment', data);
+    });
+}
+function loadPayment(el) {
+    var mod = order.payment;
+    var data = mod.change;
+    var update = mod.view;
+    order.update(mod.confirm, data, update, function(rs){
+        fold('payment', false);
+        order.total.update();
+    });
+}
+function linkage(next, data){
+    var mod = order[next];
+    var notice = mod.module.getElement('.notice');
+    var change = mod.change;
+    var view = mod.view;
+    var edit = mod.edit;
+    order.update(mod.list, data, change, function(rs){
+        showWarn(change, mod.module.get('data-linkagemsg'));
+        fold(next);
+        edit.addClass('fold');
+    });
+}
+function setPrice(el, rate) {
+    var area = order.deduction.module;
+    var value = typeOf(el) == 'element' ? priceControl.format(el.value * rate) : el;
+    area.getElement('.action-deduct-price').set('text', value);
+}
+
+function updateCoupon(el, data){
+    var tpl = '<li><i title="{name}">{coupon}-{name}</i><a href="javascript:void(0);" class="lnklike action-cancel-coupon" rel="{obj_ident}" data-coupon="{cpns_id}">[取消使用]</a></li>';
+    var html = '';
+    if(data && data.length) {
+        data.each(function(d){
+            html += tpl.substitute(d);
+        });
+    }
+    el.innerHTML = html;
+}
+
+function validateOrder(){
+    var error = ['goods', 'shipping', 'delivery', 'payment'].some(function(view, i){
+        var mod = order[view];
+        if(!mod) return;
+        if(mod.module && mod.view.hasClass('fold')) {
+            mod.module.addClass('highlight');
+            Dialog.alert(mod.module.get('data-validatemsg'), function(){
+                new Fx.Scroll(window,{duration:250, link:'ignore'}).toElementEdge(mod.module);
+            });
+            return true;
+        }
+        mod.module.removeClass('highlight');
+    });
+    if(error) return false;
+    return true;
+}
+
+if(order.deduction) {
+    var inputscore = order.deduction.module.getElement('.action-input-score');
+    var inputscorevalue = '';
+    //= 积分输入
+    inputscore.addEvents({
+        'inputchange': function(e){
+            var parent = this.getParent('.content');
+            var max = Math.min(parent.getElement('.action-max-score').get('text'), parent.getElement('.action-user-score').get('text'));
+            var rate = parent.getElement('input[name="point[rate]"]').value;
+            var price = parent.getElement('.action-deduct-price');
+            if(this.value == 0) {
+                this.value == '';
+                return;
+            }
+            if(isNaN(this.value)) {
+                this.value = inputscorevalue;
+                //setPrice(0);
+                return;
+            }
+            if(!this.value.test(/^(0|[1-9][0-9]*)?$/)) {
+                this.value = this.value.substr(0, this.value.length - 1);
+                return;
+            }
+            if(Number(this.value) > max) {
+                inputscorevalue = this.value = max;
+                setPrice(this, rate);
+                return this.tips('本次能使用的最大积分为' + max);
+            }
+            inputscorevalue = this.value;
+            setPrice(this, rate);
+        },
+        'enter': function(e){
+            e.stop();
+        }
+    });
+}
+//= 最大字符300
+var textarea = $('order_clearing').getElement('.action-remark-textarea').addEvent('inputchange', function(e){
+    if(this.value.length > 300) {
+        this.tips('订单备注最多输入300字').value = this.value.substr(0, 300);
+    }
+});
+</script>

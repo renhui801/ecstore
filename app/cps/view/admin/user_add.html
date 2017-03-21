@@ -1,0 +1,101 @@
+<{css src="style/modify.css" app="cps" }>
+
+<script Language="Javascript">
+var cobj=document.getElementById("tabcss").rows;
+ for (i=0;i< cobj.length ;i++) {
+(i%2==0)?(cobj[i].style.background = "#ffffff"):(cobj[i].style.background = "#F4F9FE");
+}
+var cobj=document.getElementById("tabcss2").rows;
+ for (i=0;i< cobj.length ;i++) {
+(i%2==0)?(cobj[i].style.background = "#ffffff"):(cobj[i].style.background = "#F4F9FE");
+}
+
+</script>
+
+<div>
+<div class="tabs-wrap clearfix">
+<ul>
+    <li class="tab current"><span>添加联盟商</span></li>
+</ul>
+</div>
+<div class="tableform clearfix">
+
+
+<form action="index.php?app=cps&ctl=admin_users&act=add" method="post">
+ <h3 class="title">基本信息</h3> 
+ <table width="96%" border="0" id="tabcss" class="tabblue">
+    
+    <tr>
+        <th width="10%">用户名：</th>
+        <td><input name="user[u_name]" value=""  type="text" class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>联系人姓名：</th>
+        <td><input name="user[realname]" value=""  type="text" class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>联系电话：</th>
+        <td><input name="user[mobile]" value="" type="text" class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>E-mail：</th>
+        <td><input name="user[email]" value=""  type="text" class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>密码：</th>
+        <td><input name="user[password]" value=""  type="password" class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>确认密码：</th>
+        <td><input name="user[passwd_confirm]" value=""  type="password"  class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>网站链接：</th>
+        <td><input name="web[weburl]" value="http://" type="text" class="x-input long-width" /></td>
+    </tr>
+    <tr>
+        <th>网站类型：</th>
+        <td><select class="x-input" name="web[webtype]">
+            <{foreach from=$webTypes item=val key=key}>
+            <option value="<{$key}>"><{$val}></option>
+            <{/foreach}>
+        </select></td>
+    </tr>
+    </table>
+    
+  <h3 class="title">收款账户</h3>    
+  <table width="96%" border="0" id="tabcss2" class="tabblue">  
+      
+    <tr>
+        <th width="10%">账户类型：</th>
+        <td><select class="x-input" name="u_type">
+            <{foreach from=$data item=val key=key}>
+            <option value="<{$key}>"><{$val}></option>
+            <{/foreach}>
+        </select></td>
+    </tr>
+    <tr>
+        <th>银行账号：</th>
+        <td><input name="account[account]" value=""  type="text" class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>开户银行：</th>
+        <td><select class="x-input" name="account[acc_bank]">
+            <{foreach from=$banks item=val}>
+            <option value="<{$val['b_name']}>"><{$val['b_name']}></option>
+            <{/foreach}>
+        </select></td>
+    </tr>
+    <tr>
+        <th>开户支行：</th>
+        <td><input name="account[acc_bname]" value=""  type="text" class="x-input" /></td>
+    </tr>
+    <tr>
+        <th>开户人姓名：</th>
+        <td><input name="account[acc_person]" value=""  type="text" class="x-input" /></td>
+    </tr>
+</table>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确定添加"}></div>
+</form>
+</div>
+</div>

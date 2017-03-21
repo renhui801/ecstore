@@ -1,0 +1,7 @@
+<div class="minicart-infos">
+  <p><q class="icon">&#x25;</q><span class="caution-content"><{t}>加入购物车成功。<{/t}><br><{t}>目前选购商品共<{/t}><em><{$cartCount}></em><{t}>种<{/t}><em><{$cartNumber}></em><{t}>件<{/t}>。<{t}>合计：<{/t}><i class="price"><{if $cartTotalPrice < 0}><{0|cur_odr}><{else}><{$cartTotalPrice|cur_odr}><{/if}></i></span></p>
+  <div class="actions">
+    <{button type="button" class="btn-simple popup-btn-close" label=$__b2c="继续购物"|t:b2c}>
+    <a class="btn btn-major" href="<{link app=b2c ctl=site_cart act=index}>"><span><span><{t}>进入购物车<{/t}></span></span></a>
+  </div>
+</div>

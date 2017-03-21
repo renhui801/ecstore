@@ -1,0 +1,19 @@
+<form name="emailsubs" method='post' action="<{link app=emailsubs ctl=site_emailaddr act=addNew}>" >
+<div class="widget-box-app">
+	<h1>资讯订阅</h1>
+	<p>我们会将最新的资讯定期发送到您的E-mail</p>
+	<table cellpadding="0" cellspacing="0" border="0" style="margin:10px 0;">
+		<tr>
+			<td>
+            <div class="mustinput">
+ <{input type='text' vtype="email&&required" class="_x_ipt inputstyle" name="email" id="printIn" value="请输入email地址" onfocus="if(this.value=='请输入email地址'){this.value=''}" onblur="if(this.value==''){this.value='请输入email地址'}"}>
+         </div>
+  			</td>
+			<td>
+				<input name="subscript" type="submit" value="订阅" class="btn-red subscript" />
+			</td>
+		</tr>
+	</table>
+</div>
+</form>
+<{css src='emailsubs.css' app='emailsubs'}>

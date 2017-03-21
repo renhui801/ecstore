@@ -1,0 +1,8 @@
+<cronentries>
+  <cron id="site_tasks_createsitemaps">
+    <description>生成整站sitemaps</description>
+    <schedule>20 2 * * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+</cronentries>
+

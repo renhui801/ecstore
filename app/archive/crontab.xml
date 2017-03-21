@@ -1,0 +1,8 @@
+<cronentries>
+  <cron id="archive_tasks_partition">
+    <description>维护数据表分区</description>
+    <!-- <schedule>0 0 1 1,4,7,10 *</schedule> --><!-- 每季度检查一次 -->
+    <schedule>0 1 1 * *</schedule><!-- 每月1日1点检查一次 -->
+    <enabled>true</enabled>
+  </cron>
+</cronentries>

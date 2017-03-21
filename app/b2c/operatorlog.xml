@@ -1,0 +1,374 @@
+<root>
+<!-- 模块：商品管理(goods) -->
+    <!-- 商品个体操作 -->
+    <!-- <register module="goods" ctl="admin_goods_editor" act="toAdd" param="goods.name,goods.goods_id"> -->
+    <!--     <operate_type>添加/编辑 商品</operate_type> -->
+    <!--     <template>添加新商品 %s,ID(%s)</template> -->
+    <!-- </register> -->
+
+    <register module="goods" ctl="admin_goods" act="to_import" param="">
+        <operate_type>商品导入</operate_type>
+        <template>通过csv方式，导入商品</template>
+    </register>
+
+    <register module="goods" ctl="admin_goods" act="export" param="goods_id">
+        <operate_type>商品导出</operate_type>
+        <template>导出商品 %s</template>
+    </register>
+
+<!--     <register module="goods" ctl="admin_goods" act="dorecycle" param="goods_id">
+        <operate_type>商品删除</operate_type>
+        <template>批量删除商品 %s</template>
+    </register> -->
+
+
+<!-- 模块：商品管理(goods) -->
+    <!-- 商品批量操作 -->
+    <register module="goods" ctl="admin_goods" act="enable" param="goods_id">
+        <operate_type>批量商品上架</operate_type>
+        <template>商品 %s 上架</template>
+    </register>
+
+    <register module="goods" ctl="admin_goods" act="disable" param="goods_id">
+        <operate_type>批量商品下架</operate_type>
+        <template>商品 %s 下架</template>
+    </register>
+
+    <!-- 统一／分别调价 -->
+    <!-- 统一／分别调库存 -->
+    <!-- 统一调名称、简介、品牌、排序、重量、分类 -->
+
+    <register module="goods" ctl="admin_goods" act="nextImage" param="goods_id">
+        <operate_type>重新生成图片</operate_type>
+        <template>商品 %s 重新生成图片</template>
+    </register>
+
+<!--     <register module="goods" ctl="admin_goods" act="settag" general="true">
+        <operate_type>设置商品标签</operate_type>
+        <template>商品 %s 批量设置商品标签 %s</template>
+    </register> -->
+
+
+<!-- 模块：商品管理(goods) -->
+    <!-- 商品分类 -->
+    <register module="goods" ctl="admin_goods_cat" act="toRemove" param="p.0" method="get">
+        <operate_type>删除 商品分类</operate_type>
+        <template>删除商品分类 %s</template>
+    </register>
+
+    <register module="goods" ctl="admin_goods_cat" act="update" param="p_order">
+        <operate_type>批量编辑商品分类排序</operate_type>
+        <template>批量编辑商品分类 %s 的分类排序</template>
+    </register>
+
+
+<!-- 模块：商品管理(goods) -->
+    <!-- 商品类型 -->
+    <register module="goods" ctl="admin_goods_type" act="save" param="gtype.name" prk="gtype.type_id">
+        <operate_type>商品类型</operate_type>
+        <template>商品类型 %s </template>
+    </register>
+
+    <register module="goods" ctl="admin_goods_type" act="fetchsave" param="gtypename">
+        <operate_type>添加 自定义商品类型</operate_type>
+        <template>添加 自定义商品类型 %s </template>
+    </register>
+
+<!--     <register module="goods" ctl="admin_goods_type" act="dorecycle" param="type_id">
+        <operate_type>批量删除 商品类型</operate_type>
+        <template>批量删除商品类型 %s</template>
+    </register> -->
+
+
+<!-- 模块：商品管理(goods) -->
+    <!-- 商品规格 -->
+    <register module="goods" ctl="admin_specification" act="save" param="spec.spec_name" prk="spec.spec_id">
+        <operate_type>商品规格</operate_type>
+        <template>商品规格 %s</template>
+    </register>
+
+<!--     <register module="goods" ctl="admin_specification" act="dorecycle" param="spec_id">
+        <operate_type>删除 商品规格</operate_type>
+        <template>批量删除商品规格 %s</template>
+    </register> -->
+
+
+<!-- 模块：商品管理(goods) -->
+    <!-- 商品品牌 -->
+<!--     <register module="goods" ctl="admin_brand" act="save" param="brand_name" prk="brand_id">
+        <operate_type>商品品牌</operate_type>
+        <template>商品品牌 %s</template>
+    </register> -->
+
+<!--     <register module="goods" ctl="admin_brand" act="dorecycle" param="brand_id">
+        <operate_type>批量删除 商品品牌</operate_type>
+        <template>批量删除 商品品牌 %s</template>
+    </register> -->
+
+
+<!-- 模块：商品管理(goods) -->
+    <!-- 商品虚拟分类 -->
+     <register module="goods" ctl="admin_goods_virtualcat" act="toRemove" param="p" method="get">
+        <operate_type>删除 虚拟分类</operate_type>
+        <template>批量删除 虚拟分类 %s</template>
+    </register>
+
+    <register module="goods" ctl="admin_goods_virtualcat" act="update" param="p_order">
+        <operate_type>批量编辑虚拟分类排序</operate_type>
+        <template>批量编辑虚拟分类 %s 的分类排序</template>
+    </register>
+
+
+<!-- 模块：订单管理(order) -->
+    <!-- 订单个体操作 -->
+    <register module="order" ctl="admin_order" act="docreate" param="order_id">
+        <operate_type>添加订单</operate_type>
+        <template>添加新订单 %s</template>
+    </register>
+
+    <!-- 编辑订单  -->
+
+    <register module="order" ctl="admin_order" act="dopay" param="order_id">
+        <operate_type>订单支付</operate_type>
+        <template>订单 %s 支付</template>
+    </register>
+
+    <register module="order" ctl="admin_order" act="dodelivery" param="order_id">
+        <operate_type>订单发货</operate_type>
+        <template>订单 %s 发货</template>
+    </register>
+
+    <register module="order" ctl="admin_order" act="dofinish" param="p" method="get">
+        <operate_type>订单完成</operate_type>
+        <template>订单 %s 完成</template>
+    </register>
+
+    <register module="order" ctl="admin_order" act="dorefund" param="order_id">
+        <operate_type>订单退款</operate_type>
+        <template>订单 %s 退款</template>
+    </register>
+
+    <register module="order" ctl="admin_order" act="doreship" param="order_id">
+        <operate_type>订单退货</operate_type>
+        <template>订单 %s 退货</template>
+    </register>
+
+    <register module="order" ctl="admin_order" act="docancel" param="p" method="get">
+        <operate_type>订单作废</operate_type>
+        <template>订单 %s 作废</template>
+    </register>
+
+    <register module="order" ctl="admin_order" act="dodelete" param="p" method="get">
+        <operate_type>订单删除</operate_type>
+        <template>订单 %s 删除</template>
+    </register>
+
+<!-- 模块：快递单管理(order) -->
+    <!-- 单据管理 -->
+<!--     <register module="order" ctl="admin_delivery" act="dorecycle" param="delivery_id">
+        <operate_type>批量删除发货单</operate_type>
+        <template>批量删除发货单 %s</template>
+    </register> -->
+
+<!--     <register module="order" ctl="admin_reship" act="dorecycle" param="reship_id">
+        <operate_type>批量删除退货单</operate_type>
+        <template>批量删除退货单 %s</template>
+    </register> -->
+
+<!-- 模块：订单管理(order) -->
+    <!-- 订单批量操作 -->
+    <register module="order" ctl="admin_order" act="toprint" param="order_id">
+        <operate_type>订单打印</operate_type>
+        <template>批量打印订单 %s</template>
+    </register>
+
+    <register module="order" ctl="admin_order" act="export" param="order_id">
+        <operate_type>订单导出</operate_type>
+        <template>批量导出订单 %s</template>
+    </register>
+
+<!--     <register module="order" ctl="admin_order" act="settag" param="filter,tag.name">
+        <operate_type>设置订单标签</operate_type>
+        <template>订单 %s 批量设置订单标签 %s</template>
+    </register> -->
+
+
+<!-- 模块：会员管理(member) -->
+    <!-- 模块：会员个体操作 -->
+    <register module="member" ctl="admin_member" act="add" param="pam_account.login_name">
+        <operate_type>添加会员</operate_type>
+        <template>添加新会员 %s</template>
+    </register>
+    <register module="member" ctl="admin_member" act="chkpassword" param="member_id">
+        <operate_type>修改会员密码</operate_type>
+        <template>会员ID %s 修改密码</template>
+    </register>
+    <!-- 会员编辑＠todo -->
+
+
+<!-- 模块：会员管理(member) -->
+    <!-- 会员批量操作 -->
+    <register module="member" ctl="admin_member" act="insert_queue" param="">
+        <operate_type>群发邮件</operate_type>
+        <template>群发邮件</template>
+    </register>
+
+    <register module="member" ctl="admin_member" act="msg_queue" param="">
+        <operate_type>群发站内信</operate_type>
+        <template>群发站内信</template>
+    </register>
+
+    <register module="member" ctl="admin_member" act="sms_queue" param="">
+        <operate_type>群发短信</operate_type>
+        <template>群发短信</template>
+    </register>
+
+<!--     <register module="member" ctl="admin_member" act="settag" param="filter,tag.name">
+        <operate_type>设置会员标签</operate_type>
+        <template>会员 %s 批量设置会员标签 %s</template>
+    </register> -->
+
+<!--     <register module="member" ctl="admin_member" act="dorecycle" param="member_id">
+        <operate_type>会员删除</operate_type>
+        <template>会员 %s 批量删除</template>
+    </register> -->
+
+    <register module="member" ctl="admin_member" act="to_export" param="member_id">
+        <operate_type>会员批量导出</operate_type>
+        <template>会员 %s 批量导出</template>
+    </register>
+
+
+<!-- 模块：会员管理(member) -->
+    <!-- 会员等级 -->
+<!--     <register module="member" ctl="admin_member_lv" act="dorecycle" param="member_lv_id">
+        <operate_type>批量删除会员等级</operate_type>
+        <template>批量删除会员等级 %s</template>
+    </register> -->
+
+
+<!-- 模块：会员管理(member) -->
+    <!-- 咨询评论论管理 -->
+    <register module="member" ctl="admin_member_gask" act="dorecycle" param="comment_id">
+        <operate_type>批量删除咨询</operate_type>
+        <template>批量删除咨询 %s</template>
+    </register>
+
+    <register module="member" ctl="admin_member_discuss" act="dorecycle" param="comment_id">
+        <operate_type>批量删除评论</operate_type>
+        <template>批量删除评论 %s</template>
+    </register>
+
+    <register module="member" ctl="admin_member_shopbbs" act="dorecycle" param="comment_id">
+        <operate_type>批量删除留言</operate_type>
+        <template>批量删除留言ID %s</template>
+    </register>
+
+    <register module="member" ctl="admin_member_msgbox" act="dorecycle" param="comment_id">
+        <operate_type>批量删除站内信</operate_type>
+        <template>批量删除站内信 %s</template>
+    </register>
+
+
+
+<!-- 模块：营销管理(sales) -->
+    <!-- 促销管理 -->
+    <register module="sales" ctl="admin_sales_goods" act="toAdd" param="rule.name" prk="rule.rule_id">
+        <operate_type>商品促销规则</operate_type>
+        <template>商品促销规则 %s</template>
+    </register>
+
+    <register module="sales" ctl="admin_sales_goods" act="apply" param="rule_id">
+        <operate_type>应用 商品促销规则</operate_type>
+        <template>应用 商品促销规则ID %s</template>
+    </register>
+
+    <register module="sales" ctl="admin_sales_order" act="toAdd" param="rule.name" prk="rule.rule_id">
+        <operate_type>订单促销规则</operate_type>
+        <template>订单促销规则 %s</template>
+    </register>
+
+<!--     <register module="sales" ctl="admin_sales_goods" act="dorecycle" param="rule_id">
+        <operate_type>删除 商品促销规则</operate_type>
+        <template>批量删除 商品促销规则 %s</template>
+    </register> -->
+
+<!--     <register module="sales" ctl="admin_sales_order" act="dorecycle" param="rule_id">
+        <operate_type>删除 订单促销规则</operate_type>
+        <template>批量删除 订单促销规则 %s</template>
+    </register> -->
+
+
+<!-- 模块：营销管理(sales) -->
+    <!-- 优惠券管理 -->
+    <register module="sales" ctl="admin_sales_coupon" act="toAdd" param="coupon.cpns_name" prk="cpns_id">
+        <operate_type>优惠券</operate_type>
+        <template>优惠券 %s</template>
+    </register>
+
+    <register module="sales" ctl="admin_sales_coupon" act="download" param="p.0" method="get">
+        <operate_type>下载 优惠券</operate_type>
+        <template>下载优惠券 %s</template>
+    </register>
+
+<!--     <register module="sales" ctl="admin_sales_coupon" act="dorecycle" param="cpns_id">
+        <operate_type>批量删除 优惠券</operate_type>
+        <template>批量删除 优惠券 %s</template>
+    </register> -->
+
+    <register module="sales" ctl="admin_sales_coupon_exchange" act="save" param="cpns_id" prk="cpns_id">
+        <operate_type>积分兑换优惠券规则</operate_type>
+        <template>积分兑换优惠券规则ID %s</template>
+    </register>
+
+    <register module="sales" ctl="admin_sales_coupon_exchange" act="delete" param="cpns_id">
+        <operate_type>批量删除 积分兑换优惠券规则</operate_type>
+        <template>批量删除 积分兑换优惠券规则ID %s</template>
+    </register>
+
+
+<!-- 模块：营销管理(sales) -->
+    <!-- 注册营销＠todo -->
+
+
+
+<!-- 模块：系统管理(system) -->
+    <!-- 配送设置 -->
+    <register module="system" ctl="admin_dlytype" act="saveDlType" param="dt_name" prk="dt_id">
+        <operate_type>配送方式</operate_type>
+        <template>配送方式 %s</template>
+    </register>
+
+<!--     <register module="system" ctl="admin_dlytype" act="dorecycle" param="dt_id">
+        <operate_type>删除 配送方式</operate_type>
+        <template>批量删除 配送方式 %s</template>
+    </register> -->
+
+    <register module="system" ctl="admin_dlycorp" act="addnew" param="name">
+        <operate_type>添加物流公司</operate_type>
+        <template>添加物流公司 %s</template>
+    </register>
+
+<!--     <register module="system" ctl="admin_dlycorp" act="dorecycle" param="corp_id">
+        <operate_type>删除物流公司</operate_type>
+        <template>批量删除物流公司 %s</template>
+    </register> -->
+
+    <register module="system" ctl="admin_dlycorp" act="detail" param="name">
+        <operate_type>编辑物流公司</operate_type>
+        <template>编辑物流公司 %s</template>
+    </register>
+
+
+<!-- 模块：系统管理(system) -->
+    <!-- 其他配置 -->
+    <register module="system" ctl="admin_shoprelation" act="addNew" param="shop.name" prk="shop.shop_id">
+      <operate_type>绑定关系</operate_type>
+        <template>绑定关系 %s</template>
+    </register>
+
+<!--     <register module="system" ctl="admin_shoprelation" act="dorecycle" param="shop_id">
+      <operate_type>删除绑定关系</operate_type>
+        <template>删除绑定关系ID %s</template>
+    </register> -->
+</root>

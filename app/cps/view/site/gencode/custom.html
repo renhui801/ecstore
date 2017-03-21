@@ -1,0 +1,110 @@
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span><a href="<{link app='cps' ctl='site_welcome' act='gencode'}>">获取代码</a></span>&gt;<span class="bold">自定义链接</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="mc_2box">
+<div class="m2_left">
+<ul id="m2left_nav">
+    <li><a href="<{link app=cps ctl=site_welcome act=adlink_image}>">快速获取代码</a></li>
+    <li class="curr bg_color1"><a href="<{link app=cps ctl=site_welcome act=adlink_customize}>">自定义链接</a></li>
+</ul>
+<div class="clear"></div>
+</div>
+<div class="m2_right">
+<div class="yj_search3">
+<form action="" method="get"><input type="hidden" name="union_str" id="union_str" value="<{$union_str}>">
+<table width="96%" border="0" cellspacing="0">
+    <tbody>
+        <tr>
+            <th width="13%" align="right" valign="middle">链接种类：</th>
+            <td valign="middle"><select name="adlink_type" id="adlink_type" class="logintext2">
+                <option value="0" selected>图片链接</option>
+                <option value="1">文字链接</option>
+            </select><span style="padding-left:10px;">提供图片和文字链两种自定义功能</span></td>
+        </tr>
+        <tr>
+            <th align="right" valign="middle"><span id="urlortext">图片URL：</span></th>
+            <td valign="middle"><input name="ad_content" type="text" class="logintext2" id="ad_content" value=""><span style="padding-left:10px;">请填写文字链内容或图片源链接</span></td>
+        </tr>
+        <tr>
+            <th align="right" valign="middle">目标URL：</th>
+            <td valign="middle"><input name="destination" type="text" class="logintext2" id="destination" value=""><span style="padding-left:10px;">请填写用户点击广告后到达的页面</span><br/>
+              如http://www.baidu.com</td>
+            </tr>
+        <tr>
+            <th valign="middle" style=" height:30px;">&nbsp;</th>
+            <td valign="middle" style=" height:30px;"><label><input type="button" name="button" id="previewBtn" value="预览" class="but_bgred"></label></td>
+        </tr>
+    </tbody>
+</table>
+<table width="96%" border="0" cellspacing="0">
+    <tbody id="showDemoArea">
+    </tbody>
+</table>
+</form>
+<div class="clear"></div>
+</div>
+<!--yj_search--></div>
+<!--m2_right-->
+<div class="clear"></div>
+</div>
+<!--mc_2box-->
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+<script>
+    var change_adtype = function() {
+        if($('adlink_type').value == 0){
+            $('urlortext').set('html','图片URL：');
+        }else if ($('adlink_type').value == 1){
+            $('urlortext').set('html','文字内容：');
+        }
+    }
+    
+
+	function copyToClipboard(txt) {
+		if (window.clipboardData) {
+			window.clipboardData.clearData();
+			if (window.clipboardData.setData("Text", txt)) {
+                alert("复制成功！");
+            }
+		} else {
+			alert("您的浏览器不支持，请手工复制");
+		}
+	}
+
+	var showadlink = function() {
+		var adlink_url = '';
+		var adlink_content = '';
+
+		var ext_url = $('union_str').value;
+		var adlink_url = $('destination').value + ext_url;
+
+		var content = $('ad_content').value;
+
+		var adlink_type = $('adlink_type').value;
+		var areaPart_one = '<tr><td width="25%" style=" height:5px;" align="right"></td><td width="75%" style=" height:5px;"></td></tr>';
+		if (adlink_type == 0) {
+			adlink_content = '<a href="'+adlink_url+'"><img src="'+content+'" width="100" height="100" /></a>';
+			areaPart_one += '<tr><td>&nbsp;</td><td><div class="dama_m_tit bg_color1 bor_color1" style="padding:2px">图片预览区域</div></td></tr><tr><td style=" height:5px;"></td><td style=" height:5px;">'
+					+ adlink_content + '</td></tr>';
+		} else if (adlink_type == 1) {
+			adlink_content = '<a href="'+adlink_url+'">' + content + '</a>';
+			areaPart_one += '<tr><td>&nbsp;</td><td><div class="dama_m_tit bg_color1 bor_color1" style="padding:2px">预览区域</div></td></tr><tr><td style=" height:5px;"></td><td style=" height:5px;">'
+					+ adlink_content + '</td></tr>';
+		}
+
+		var areaPart_two = '<tr><td>&nbsp;</td><td><textarea style="width:100%; height:150px; background:none; border:solid 1px #ccc; margin-bottom: 10px;" id="showAreaContent" name="showAreaContent">'
+				+ adlink_content + '</textarea></td></tr>';
+		var areaPart_three = '<tr><td>&nbsp;</td><td><input type="button" name="button" id="cpBtn" value="复制广告代码" class="but_bgred" onclick="copyToClipboard($(\'showAreaContent\').value)">&nbsp;&nbsp;广告尺寸为:100*100&nbsp;&nbsp;&nbsp;&nbsp;复制后，黏贴至你的网站、博客即可实现</td>';
+
+		var showArea = areaPart_one + areaPart_two + areaPart_three;
+
+		$('showDemoArea').set('html', showArea);
+	}
+
+	$('adlink_type').addEvent('change', change_adtype);
+	$('previewBtn').addEvent('click', showadlink);
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

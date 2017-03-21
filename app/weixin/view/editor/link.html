@@ -1,0 +1,129 @@
+<div class="tableform">
+  <div class="division">
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <th><label for="title"><{t}>链接到:<{/t}></label></th>
+          <td id="curl_type">
+            <input type='radio' class="act-switch" name=url_type  value='url' checked > <{t}>自定义链接<{/t}>
+            <input type='radio' class="act-switch" name=url_type  value='auth_module' ><{t}>需授权页<{/t}>
+            <input type='radio' class="act-switch" name=url_type  value='product' > <{t}>商品详情页<{/t}>
+            <input type='radio' class="act-switch" name=url_type  value='gallery'> <{t}>商品列表页<{/t}>
+            <input type='radio' class="act-switch" name=url_type  value='article_nodes' ><{t}>文章列表页<{/t}>
+            <input type='radio' class="act-switch" name=url_type  value='article' ><{t}>文章页<{/t}>
+          </td>
+        </tr>
+        <tr class="switch-cont url" >
+          <th><label for="title"><{t}>自定义链接:<{/t}></label></th>
+          <td>
+            <{input type="text" id="url" name='url' vtype='url' size=80 placeholder='http://'}>
+          </td>
+        </tr>
+        <tr class="switch-cont auth_module"  style="display:none;">
+          <th><label for="title"><{t}>需授权页:<{/t}></label></th>
+          <td>
+            <{input type='select' required=true name='auth_module' rows=$auth_module valueColumn="url" labelColumn="label" }>
+          </td>
+        </tr>
+        <tr class="switch-cont product"  style="display:none;">
+          <th><label for="title"><{t}>商品详情页:<{/t}></label></th>
+          <td>
+            <{input type="object" id='product' name='product' cols='name' textcol="name" object="products@b2c" select='radio'}>
+          </td>
+        </tr>
+        <tr class="switch-cont gallery"  style="display:none;">
+          <th><label for="title"><{t}>商品列表页:<{/t}></label></th>
+          <td>
+            <{input type="object" id='gallery' name='gallery' cols='cat_name' textcol="cat_name" object="goods_cat@b2c" select='radio'}>
+          </td>
+        </tr>
+        <tr class="switch-cont article_nodes"  style="display:none;">
+          <th><label for="title"><{t}>文章列表页:<{/t}></label></th>
+          <td>
+            <{input type='select' id='article_nodes' name='article_nodes' value=1 rows=$article_nodes valueColumn="node_id" labelColumn="node_name" }>
+          </td>
+        </tr>
+        <tr class="switch-cont article"  style="display:none;">
+          <th><label for="title"><{t}>文章页:<{/t}></label></th>
+          <td>
+            <{input type="object" id='article' name='article' cols='title' textcol="title" object="article_indexs@content" select='radio' }>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="table-action">
+    <table width="100%" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <{button class="close-btn" type="button" label=$___weixin="保存"|t:'weixin'}>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<script>
+  $$(".act-switch").addEvent('change', function(e) {
+    var val = this.value;
+    if(this.checked) {
+      this.getParent('tbody').getElement('.' + val).show().getSiblings('.switch-cont').hide();
+    }
+  })
+
+  $E('.close-btn').addEvent('click',function(){
+    var dialog=this.getParent('.dialog');
+    if(!dialog)return;
+
+    var data = {};
+    dialog.getElements('input,select,textarea').each(function(el){
+        if((el.type=='radio' || el.type == 'checkbox') && !el.checked) return;
+        if(el.value) data[el.name] = el.value;
+    });
+
+    var val = data[data.url_type];
+    var url = '';
+    var separator = "<{$env.conf.site.base.site_params_separator}>"
+    var enable_site_uri_expanded="<{$env.conf.site.base.enable_site_uri_expanded}>"
+
+    uri_expanded_name = '';
+    if( enable_site_uri_expanded == 'true' ){
+        uri_expanded_name = '.' + "<{$env.conf.site.base.site_uri_expanded_name}>"
+    } 
+
+    if (!val ){
+      alert('请选择链接或填写自定义链接');
+      return ;
+    }
+
+    switch(data.url_type){
+        case 'product':
+            url = "<{$env.base_full_url}>/index.php/wap/product"+ separator + val + uri_expanded_name 
+            break;
+        case 'url':
+            if(/^http[s]?\:\/\//i.test(val))
+            {
+              url = val;
+            }else{
+              alert('请输入正确的URL地址');
+              return ;
+            }
+            break;
+        case 'auth_module':
+            url = val;
+            break;
+        case 'article':
+            url = "<{$env.base_full_url}>/index.php/wap/article-l" + separator + val + uri_expanded_name
+            break;
+        case 'gallery':
+            url = "<{$env.base_full_url}>/index.php/wap/gallery-"+ separator + val + uri_expanded_name
+            break;
+        case 'article_nodes':
+            url = "<{$env.base_full_url}>/index.php/wap/article-l-"+ separator + val + uri_expanded_name
+            break;
+    }
+    dialog.retrieve('callback')(url);
+    dialog.getElement('.btn-close').fireEvent('click');
+  });
+</script>

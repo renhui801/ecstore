@@ -1,0 +1,24 @@
+
+<form action="index.php?app=giftpackage&ctl=admin_giftpackage&act=toAdd" method="post" id="giftpackage_form" name="giftpackage_form">
+  <input type="hidden" name="giftpackage[id]" value="<{$giftpackage.id}>"/>
+  <div>
+     <{include file="admin/page.html" app=giftpackage}>
+  </div>
+</form>
+<script>
+$('giftpackage_form').retrieve('setTabs',function(){
+		 var gtabs=$$('#menu-desktop .spage-side-nav li.l-handle');
+		 new ItemAgg(gtabs,$$('giftpackage_form .spage-main-box'),{
+			activeName:'cur',
+			onActive:function(tab,item){
+				 var anotherItems=$$(Array.from(this.items).remove(item));
+                  if(tab.hasClass('all')){
+                     anotherItems.show();
+                  }else{
+                     anotherItems.hide();
+                  }
+        	}
+		 });
+}());
+
+</script>

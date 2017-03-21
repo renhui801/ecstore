@@ -1,0 +1,24 @@
+<h3 class="head-title"><{t}>初始化联想词库<{/t}></h3>
+<div style="text-align:right;padding:3px 18px"></div>
+<div style="content-main" id="main">
+  <div class="notice">
+    <{t}>
+      初始化联想词库，将会覆盖以前的词库！
+      初始化词库会将商品分类，商品关键中的词进行词库初始化。
+    <{/t}>
+  </div>
+  <div class="location">
+    <div class="division division-bottom">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <th>&nbsp;</th>
+          <td style="padding:5px 0">
+            <{assign var="message2" value=$___search="恢复后现在的地区信息将会完全被覆盖，确定要恢复吗？"|t:'search'}>
+            <{assign var="message3" value=$___search="恢复中..."|t:'search'}>
+            <{button label=$___search="恢复初始数据"|t:'search' onclick="new Event(event).stop();if(!confirm('{$message2}'))return false;this.innerHTML='{$message3}';W.page('index.php?app=search&ctl=search&act=init');"}>
+          </td>
+        </tr>
+      </div>
+    </table>
+  </div>
+</div>

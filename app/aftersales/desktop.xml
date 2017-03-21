@@ -1,0 +1,19 @@
+<desktop>
+
+    <permissions>
+        <permission id="aftersales" display='true' workground='ectools.wrokground.order'>售后服务管理</permission>
+    </permissions>
+
+     <workground name="订单" id="ectools.wrokground.order">
+        <menugroup name="订单列表">
+            <menu controller='admin_returnproduct' action='index' permission='aftersales' display='true' order='50'>售后单</menu>
+        </menugroup>
+    </workground>
+
+    <workground name="站点" id="site.wrokground.theme">
+        <menugroup name="站点管理">
+            <menu controller='admin_returnproduct' action='settings' permission='aftersales' display='true' order='130'>售后服务配置</menu>
+        </menugroup>
+    </workground>
+
+</desktop>

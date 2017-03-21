@@ -1,0 +1,37 @@
+<style>
+.signup-activation { height: 348px; }
+.activation { width: 498px; padding: 38px 0 0 0; margin: 0 auto; }
+.activation .window-main { width: auto; height: 180px; float: none; padding: 30px 58px 0px; border: 1px solid #CCD7EC; margin: 0 0 25px 0;font-size:14px }
+.activation-input { border: 1px solid #91A7D5; width: 200px; height: 22px; line-height: 160%; }
+.activation .btn { float: left; padding: 0 0 0 168px; }
+</style>
+
+<div class="passport-bd">
+  <form action=<{$post_url}>  method="post">
+    <div class="activation">
+      <div class="window-main">
+        <ul>
+          <{if $url}>
+          <li style="padding-bottom:12px;">
+              生成证书绑定的URL地址和当前URL不一致,激活地址请使用绑定域名：<{$url}>
+          </li>
+          <li style="padding-bottom:12px;">
+            <font color="red">
+              如果要用该域名激活请先解除绑定，重新登录绑定shopexId再激活
+            </font>
+          </li>
+          <{else}>
+          <li style="padding-bottom:12px;"><font color="red"><{$auth_error_msg}></font></li>
+          <li style="padding-bottom:12px;">
+            您的站点不存在激活信息或者未在中心未激活，请您重新输入激活码以便正常使用。
+          </li>
+          <li><label for="auth_code">激活码：</label><input class="activation-input" type="text" required="true" name="auth_code" id="auth_code" value=""/></li>
+          <{/if}>
+        </ul>
+      </div>
+      <{if !$url}>
+      <div><input class="btn-login" type="submit" value="提&nbsp;交" /></div>
+      <{/if}>
+    </div>
+  </form>
+</div>

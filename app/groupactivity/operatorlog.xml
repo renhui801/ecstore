@@ -1,0 +1,13 @@
+<root>
+<!-- 模块：营销管理(sales) -->
+    <!-- 团购管理 -->
+    <register module="sales" ctl="admin_purchase" act="toAdd" param="act_id" prk="act_id">
+        <operate_type>团购</operate_type>
+        <template>团购ID %s</template>
+    </register>
+
+<!--     <register module="sales" ctl="admin_purchase" act="dorecycle" param="act_id">
+        <operate_type>删除团购</operate_type>
+        <template>批量删除团购 %s</template>
+    </register> -->
+</root>

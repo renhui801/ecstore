@@ -1,0 +1,19 @@
+<div>
+<div class="tabs-wrap clearfix">
+<ul>
+    <li class="tab current"><span>联盟协议设置</span></li>
+</ul>
+</div>
+<form action="index.php?app=cps&ctl=admin_agreement&act=save" method="post">
+<input type="hidden" name="agree_id" value="<{$data.agree_id}>">
+<div class="tableform clearfix" style="padding: 10px 0;">
+<table>
+    <tr>
+        <th valign="top">联盟协议：</th>
+        <td style="width:600px; float:left;"><{input type="html" name="agreement" class="textarea-auto" value=$data.agreement includeBase=true}></td>
+    </tr>
+</table>
+</div>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确定设置"}></div>
+</form>
+</div>

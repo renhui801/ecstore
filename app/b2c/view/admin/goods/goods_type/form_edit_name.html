@@ -1,0 +1,33 @@
+<div class="division" style=" padding:3px; margin:0;">
+<table>
+<tr>
+  <th align="right"><em class="red">*</em><{t}>类型名称:<{/t}></th>
+  <td><input type="text" class="_x_ipt" vtype="required" name="gtype[name]" value="<{$gtype.name|escape:html}>"></td>
+</tr>
+<tr>
+  <th align="right"><{t}>类型别名:<{/t}></th>
+  <td><input type="gtype[text]" value="<{$gtype.alias|escape:html}>" name="gtype[alias]" size="40"/><br /><{t}>（以"|"分隔，以"|"开头与结尾，如：“|T恤|T恤衫|”）<{/t}></td>
+</tr>
+<{if $brands && $gtype.setting.use_brand}>
+<tr>
+  <th align="right"><{t}>关联品牌:<{/t}></th>
+  <td>
+    <{foreach from=$brands item=item key=key}>
+        <input type="checkbox" name="gtype[brand][<{$key}>][brand_id]" value="<{$item.brand_id}>" <{if $gtype.brand[$item.brand_id]}>checked='checked'<{/if}> /><{$item.brand_name}>
+    <{/foreach}>
+  </td>
+</tr>
+<{/if}>
+<!--
+<tr>
+
+<th align="right"><{t}>是否启用小数类型库存:<{/t}></th>
+
+  <td >
+        <label><input type="radio" value="1" name="gtype[floatstore]"<{if $gtype.floatstore eq 1}> checked="checked"<{/if}>><{t}>是<{/t}></label> &nbsp; &nbsp;
+        <label><input type="radio" value="0" name="gtype[floatstore]"<{if $gtype.floatstore eq 0}> checked="checked"<{/if}>><{t}>否<{/t}></label>
+    </td>
+</tr>
+-->
+</table>
+</div>

@@ -1,0 +1,82 @@
+<script>
+    /*设置浏览过的商品*/
+    window.addEvent('domready', function(){
+
+        /*Tab的处理*/
+        try{
+            var viewTabsContainer=$('goods-viewer').getElement('.goods-detail-tab');
+            var viewTabs=[];
+            var viewSections=$$('#goods-viewer .section');
+
+            viewSections.each(function(se){
+                var type = se.get('data-sync-type');
+                var t=new Element('li.goodsDetailTab',{'data-tab-type':type,'html':'<a>'+se.get('tab')+'</a>'});
+                viewTabs.push(t);
+            });
+
+
+            viewTabsContainer.adopt(viewTabs);
+            new Tabs('goods-viewer',{
+                panels:'.pdtdetail',
+                eventType:'click',
+                triggers:'.goodsDetailTab',
+                content:'.goodsDetailContent',
+                onInit:function(){
+                    this.panels.each(function(el,i){
+                        el.show().getElements('.displaydiv').hide();
+                        el.getElements('.allnum').addEvent('click',function(e){
+                            this.triggers[i].fireEvent('click');
+                            try{this.panels[i].getElement('textarea:enabled').focus();}catch(e){}
+                        }.bind(this));
+                    },this);
+                },
+                onSwitch:function(index){
+                    this.panels.each(function(el,i){
+                        if(!this.activeIndex){
+                            el.show().getElements('.displaydiv').hide();
+                            el.getElements('.all_link').show();
+                            }else{
+                            if(this.activeIndex!=i)el.hide();
+                            el.getElements('.displaydiv').show();
+                            el.getElements('.all_link').hide();
+
+                        }
+                    },this);
+                }
+            });
+        }catch(e){}
+    });
+    /*验证码刷新*/
+    function changeimg(id,type){
+        if(type == 'discuss'){
+            $(id).set('src','<{link app="b2c" ctl="site_comment" act="gen_dissvcode" arg0="s"}>?'+(new Date()));
+        }
+        else if(type == 'ask'){
+            $(id).set('src','<{link app="b2c" ctl="site_comment" act="gen_askvcode" arg0="s"}>?'+(new Date()));
+        }
+    }
+</script>
+<div class="GoodsInfoWrap">
+    <div class="group-buy itemsList clearfix" id="goods-viewer" product="<{$goods.goods_id}>">
+        <form action="<{link app=b2c ctl=site_cart act=addToCart}>" class="fastbuy-form" id="fastbuy-form" method="post"></form>
+        <form name="name" class="clearfix" id="add-to-cart-from" action="<{$jump_to_cart_url}>" method="post">
+            <div class="group-name">
+                <{$goodshtml.name}>
+            </div>
+            <div class="<{if $purchase.state eq 1}>group-coming-soon-pic<{else}>group-product-pic<{/if}>" style="width:<{$goods.pic_width}>px;height:<{$goods.pic_height}>px;">
+                <{$goodshtml.pic}>
+            </div>
+            <div class="group-info" style="margin-right:<{$goods.margin_right}>px;">
+                <div class="fixbox">
+                    <{include file="site/group_ing.html"}>
+                </div>
+            </div>
+        </form>
+        <div style="clear:both"></div>
+    </div>
+    <!------------------------------------ 购买区域 结束 -------------------------------->
+    <!--页面body page start -->
+    <p style="padding:10px"><{$purchase.intro}></p>
+
+    <!--页面body page end -->
+</div>

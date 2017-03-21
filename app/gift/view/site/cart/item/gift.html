@@ -1,0 +1,71 @@
+<{if $aCart.object.gift.cart}>
+<!-- 积分兑换赠品 -->
+<tbody class="cart-exchange" id="cart_exchange">
+<tr class="cart-subtitle">
+  <th colspan="8"><{t}>积分兑换赠品<{/t}></th>
+</tr>
+<{foreach from=$aCart.object.gift.cart item=cart_gift}>
+<tr class="cart-item">
+  <input type="hidden" name="obj_type" value="gift">
+  <input type="hidden" name="min" value="1"/>
+  <input type="hidden" name="max" value="<{$cart_gift.params.real}>"/>
+  <input type="hidden" name="stock" value="<{$cart_gift.params.store.store}>"/>
+  <td>
+    <div class="p-pic">
+      <a target="_blank" href="<{link app=gift ctl=site_gift arg0=$cart_gift.product_id}>"><img src="<{$cart_gift.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt=""></a>
+    </div>
+  </td>
+  <td class="p-info">
+    <div class="p-title"><a target="_blank" href="<{link app=gift ctl=site_gift arg0=$cart_gift.product_id}>"><{$cart_gift.name}></a></div>
+    <div class="p-spec"><{$cart_gift.spec_info}></div>
+  </td>
+  <td class="p-price"><{$cart_gift.price.price|cur_odr}></td>
+  <td>
+    <div class="p-quantity">
+      <a href="javascript:void(0);" class="btn-decrease">-</a>
+      <input type="text" name="modify_quantity[<{$cart_gift.obj_ident}>]" value="<{$cart_gift.quantity}>">
+      <a href="javascript:void(0);" class="btn-increase">+</a>
+    </div>
+    <{if $cart_gift.params.store.store <= 5}><span class="warn-message">余量有限</span><{/if}>
+  </td>
+  <td class="p-discount">-</td>
+  <td class="p-integral">-<{$cart_gift.consume_score*$cart_gift.quantity}></td>
+  <td>-</td>
+  <td class="p-action">
+    <{if $login=='nologin'}>
+    <a href="<{link app=b2c ctl=site_passport act=login}>" class="btn-fav">收藏</a>
+    <{else}>
+    <a href="javascript:void(0);" class="btn-fav" rel="_addfav_" data-gid="<{$cart_gift.product_id}>">收藏</a>
+    <{/if}>
+    <i>|</i>
+    <a href="javascript:void(0);" class="btn-delete">移除</a>
+  </td>
+</tr>
+<{/foreach}>
+</tbody>
+<{/if}>
+
+<!-- 订单赠品 -->
+<tbody class="order-gift" id="order_gift"<{if !$aCart.object.gift.order}> style="display:none;"<{/if}>>
+<tr class="cart-subtitle">
+  <th colspan="8">订单赠品</th>
+</tr>
+<{foreach from=$aCart.object.gift.order item=order_gift}>
+<tr class="cart-item">
+  <td>
+    <div class="p-pic">
+      <a target="_blank" href="<{link app=gift ctl=site_gift arg0=$order_gift.product_id}>">
+        <img src="<{$order_gift.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="">
+      </a>
+    </div>
+  </td>
+  <td class="p-info">
+    <div class="p-title"><a target="_blank" href="<{link app=gift ctl=site_gift arg0=$order_gift.product_id}>"><{$order_gift.name}></a></div>
+    <div class="p-spec"><{$order_gift.spec_info}></div>
+  </td>
+  <td class="p-price"><{$order_gift.price.price|cur_odr}></td>
+  <td class="p-num"><{$order_gift.quantity}></td>
+  <td colspan="4"></td>
+</tr>
+<{/foreach}>
+</tbody>

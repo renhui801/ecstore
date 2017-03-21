@@ -1,0 +1,16 @@
+<div class="signup-article">
+  <div id="page_signup" class="signupin-content signup">
+    <div class="sign-title">
+      <h2>用户注册</h2>
+    </div>
+    <{include file="site/passport/signup/member-signup.html"}>
+  </div>
+</div>
+<div class="signup-aside">
+  <span class="descrip">已经有会员帐号请直接登录</span><a href="<{link app=b2c ctl=site_passport act=login}>" class="btn btn-import btn-huge"><span><span>转到登录页</span></span></a>
+</div>
+<script>
+Module = new Module('page', ['signup']);
+var modname = 'page.signup';
+</script>
+

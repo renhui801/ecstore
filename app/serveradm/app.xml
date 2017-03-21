@@ -1,0 +1,18 @@
+<app version="0.1">
+    <name>服务器管理</name>
+
+    <description>提供基础的服务器信息查看和调试工具</description>
+
+    <author>
+        <name>shopex开发团队</name>
+        <email>dev@shopex.cn</email>
+        <url>http://www.shopex.cn</url>
+    </author>
+
+    <version>0.1</version>
+    <license>shopex license</license>
+
+	<depends>
+		<app>base</app>
+	</depends>
+</app>

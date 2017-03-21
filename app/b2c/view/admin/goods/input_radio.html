@@ -1,0 +1,67 @@
+<div id="handle_<{$params.domid}>" class="object-select clearfix" <{$addons}> >
+  <div class="label" id="<{$id}>" rel="<{$string}>">请选择商品</div>
+  <div class="handle">&nbsp;</div>
+  <input type="hidden" name="<{$params.pdt_name|default:$params.name}>" class="product-ids" vtype="<{$params.vtype}>" value="<{$params.pdt_value|default:$params.linkid}>" />
+  <{if $params.isgroupbuy=='true'}>
+  <input type="hidden" id="isgroupbuy" name="isgroupbuy"  value="<{$params.isgroupbuy}>" />
+  <{/if}>
+  <{if $params.istimedbuy=='true'}>
+  <input type="hidden" id="istimedbuy" name="istimedbuy"  value="<{$params.istimedbuy}>" />
+  <{/if}>
+  <input type="hidden" name="<{$params.obj_name|default:'goods'}>" class="params-obj" value='<{$params.obj_value|default:$params.value}>' />
+  <div class="object-select-tip">
+    共选择<span class="goods-count num" style="color:#ff3300;font-weight:bold;">0</span>件商品
+</div>
+</div>
+
+<script>
+  (function(){
+    var goodsCount = $E('input.product-ids','handle_<{$params.domid}>').value;
+          goodsCount = goodsCount==""?0:goodsCount.split(',').length;
+    $E('.goods-count','handle_<{$params.domid}>').set('text',goodsCount);
+    $('handle_<{$params.domid}>').getElements('.label,.handle').addEvent('click', function(e){
+      var v = $E('input.product-ids','handle_<{$params.domid}>').value;
+      var _widgets = $E('input.params-obj','handle_<{$params.domid}>').value;
+      if($('isgroupbuy')){
+          var isgroupbuy = $('isgroupbuy').value;
+      }else{
+          var isgroupbuy = 'false';
+      }
+      if($('istimedbuy')){
+          var istimedbuy = $('istimedbuy').value;
+      }else{
+          var istimedbuy = 'false';
+      }
+      var url = '<{$url}>';
+      if(v) url = url+'&ids='+v;
+
+      new Dialog(url, {
+        width:780,
+        height:510,
+        title:'添加商品',
+        resizeable:false,
+        handle:'handle_<{$params.domid}>',
+        onCallback:function(rs){<{if $callback}><{$callback}>(rs);<{/if}>$('handle_<{$params.domid}>').show();},
+        _callback:function(){
+          var item = $ES('.selected-content .product-item',this.dialog_body),ids = [], obj = [];
+          item.each(function(el){
+            var name= el.getElement('input[name=name]').value,
+                id =el.get('data-id'),
+                pic = el.getElement('input[name=pic]').value;
+            ids.push(id);
+            obj.push({id:id,pic:pic,nice:name});
+          });
+
+          $('handle_<{$params.domid}>').getElement('.num').set('text',item.length);
+          $E('.params-obj','handle_<{$params.domid}>').value = JSON.encode(obj);
+          $E('.product-ids','handle_<{$params.domid}>').value = ids;
+        },
+        ajaxoptions:{
+          method: 'post',
+          data:'widgets='+_widgets+'&isgroupbuy='+isgroupbuy+'&istimedbuy='+istimedbuy
+        }
+      });
+
+    });
+  })();
+</script>

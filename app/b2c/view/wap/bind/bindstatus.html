@@ -1,0 +1,56 @@
+<{css src='styles/style.css' rel="stylesheet"}>
+<{css src='styles/expand.css' rel="stylesheet"}>
+<{script  src="scripts/shop.min.js"}>
+<{script  src="scripts/event.js"}>
+
+<script type="text/javascript">
+  $(function () {
+    var event = new MyEvent('unbind.click', function (e) {
+      new Dialog('.unbind-panel', {type: 'confirm'});
+    });
+
+    //注册绑定的元素的处理事件
+    event.on('#cancel.click', function (e) {
+      $('.dialog').data('close')();
+    })
+
+    event.bind('unbind.click');
+    event.bind('#cancel.click');
+  })
+
+
+</script>
+<div class="full-screen">
+  <!--账号管理 start-->
+  <div class="account-manager">
+    <div class="check-bar clearfix">
+      <span class="option fl">
+        <input type="radio" name="option-name" checked/><{$name}> 
+      </span>
+      <button class="unbind fr"><span>解除绑定</span></button>
+    </div>	
+
+    <div class="btn change">
+      <a href="<{link app=b2c ctl=wap_passport act=unbindweixin arg0=newbind}>"><span class="cff">更换账号</span></a>
+    </div>
+  </div>
+  <!--账号管理 end-->
+
+  <!--解除绑定 start -->
+  <div class="unbind-panel" style="display: none">
+    <div class="unbind-content">
+      <div class="confirm">
+        <p class="msg"><{t}>是否解除绑定<{/t}></p>
+        <div class="col2 btn-bar">
+          <div class="col true">
+            <a href="<{link app=b2c ctl=wap_passport act=unbindweixin}>" class="btn red"><{t}>确定<{/t}></a>
+          </div>
+          <div class="col false">
+            <a href="#" class="btn" id="cancel"><{t}>取消<{/t}></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--解除绑定 end-->
+</div>

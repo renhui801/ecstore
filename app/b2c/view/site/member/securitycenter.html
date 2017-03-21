@@ -1,0 +1,71 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 个人信息 -->
+  <div id="member_security" class="member-security">
+    <div class="member-title">
+      <h2><{t}>安全中心<{/t}></h2> <p><{t}>建议您开启全部安全设置，以保障账户及资金安全<{/t}></p>
+    </div>
+
+    <div class="member-mod">
+      <form action="<{link app=b2c ctl=site_member act=save_setting}>" method="post" class="signupin-content">
+        <ul class="security-list">
+          <li>
+            <span class="security-title">
+              <i class="icon icon-success">%</i><b>登录密码</b>
+            </span>
+            <span class="security-actions">
+              <a href="<{link app=b2c ctl=site_member act=security}>">修改</a>
+            </span>
+            <span class="security-content">
+              <em>请经常更换您的登录密码，且不要和其他账号共用一个密码</em>
+            </span>
+          </li>
+
+          <li>
+            <{if $verify.mobile}>
+            <span class="security-title">
+              <i class="icon icon-success">%</i><b>手机验证</b>
+            </span>
+            <span class="security-actions"><a href="<{link app=b2c ctl=site_member act=verify arg0=setmobile}>">修改</a></span>
+            <span class="security-content"><em>您的验证手机：<{$data.mobile}></em></span>
+            <{else}>
+            <span class="security-title">
+              <i class="icon icon-warning">$</i><b>手机验证</b>
+            </span>
+            <span class="security-actions">
+              <a href="<{link app=b2c ctl=site_member act=verify arg0=verifymobile}>" class="btn btn-caution"><span><span>立即验证</span></span></a>
+            </span>
+            <span class="security-content">
+              <em>进行手机验证后，可以用户快速找回账号密码和身份验证操作，保护您的账号安全，以及及时获取订单发货等通知类信息 </em>
+            </span>
+            <{/if}>
+          </li>
+          <li>
+            <{if $verify.email}>
+            <span class="security-title">
+              <i class="icon icon-success">%</i><b>邮箱验证</b>
+            </span>
+            <span class="security-actions">
+              <a href="<{link app=b2c ctl=site_member act=verify arg0=setemail}>">修改</a>
+            </span>
+            <span class="security-content">
+              <em>您的验证邮箱：<{$data.email}></em>
+            </span>
+            <{else}>
+            <span class="security-title">
+              <i class="icon icon-warning">$</i><b>邮箱验证</b>
+            </span>
+            <span class="security-actions">
+              <a href="<{link app=b2c ctl=site_member act=verify arg0=verifyemail}>" class="btn btn-caution"><span><span>立即验证</span></span></a>
+            </span>
+            <span class="security-content">
+              <em>进行邮箱验证后，可以用户快速找回账号密码和身份验证操作，保护您的账号安全 </em>
+            </span>
+            <{/if}>
+          </li>
+
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>

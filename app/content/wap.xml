@@ -1,0 +1,9 @@
+<site>
+
+    <module id='b2c' controller='wap_article' >
+        <name>article</name>
+        <title>文章</title>
+        <disable>false</disable>
+    </module>
+
+</site>

@@ -1,0 +1,7 @@
+<site>
+    <module controller='site_emailaddr' >
+        <name>emailaddr</name>
+        <title>邮件地址</title>
+        <disable>false</disable>
+    </module>
+</site>

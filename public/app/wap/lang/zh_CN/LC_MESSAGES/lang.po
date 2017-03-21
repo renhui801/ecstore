@@ -1,0 +1,1188 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:37
+msgid "后台禁用强制SSL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:37
+msgid "后台启用强制SSL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:39
+msgid "系统模块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:42
+msgid "启用SSL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:43
+msgid "禁用SSL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:49
+msgid "添加自定义模块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:62
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:91
+msgid "您的服务器不支持SSL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:66
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:77
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:126
+msgid "更新成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:68
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:79
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:128
+msgid "更新失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:95
+msgid "更新成功,请刷新页面。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:132
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:169
+msgid "添加成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:134
+msgid "添加失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:143
+msgid "路径标识只能由字母和数字组成"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/module.php:150
+msgid "路径标识不得重复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/setting.php:26
+msgid "基本设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/setting.php:127
+msgid "当前配置修改成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:22
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:22
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:13
+msgid "上传模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:23
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:53
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:42
+msgid "删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:23
+msgid "确定删除选中项？删除后不可从回收站恢复"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:26
+msgid "模板管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:55
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/file/fsfile.php:97
+msgid "缺少参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:60
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/file/fsfile.php:102
+msgid "非法操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:74
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/tmpl.php:120
+msgid "删除成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:76
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/tmpl.php:122
+msgid "删除失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:87
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/tmpl.php:73
+msgid "设置成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:89
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/tmpl.php:76
+msgid "设置失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:103
+msgid "备份成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:105
+msgid "备份失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:129
+msgid "还原成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/manage.php:131
+msgid "还原失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/admin/theme/widget.php:36
+msgid "模板可视化编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//controller/default.php:5
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:246
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:253
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:15
+msgid "首页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/explorers.php:18
+msgid "site地图表ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/explorers.php:25
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:34
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:25
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:18
+msgid "程序目录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/explorers.php:29
+msgid "应用(app)名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/explorers.php:36
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:66
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:49
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_tmpl.php:30
+msgid "名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/explorers.php:46
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:20
+msgid "目录"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/explorers.php:50
+msgid "路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/explorers.php:53
+msgid "site地图表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:18
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:112
+msgid "导航菜单表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:25
+msgid "标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:42
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:36
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:29
+msgid "控制器"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:50
+msgid "动作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:58
+msgid "自定义链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:69
+msgid "排序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:78
+msgid "是否新开窗口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:88
+msgid "在菜单上隐藏"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:97
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:64
+msgid "参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:103
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:58
+msgid "配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/menus.php:109
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:116
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:70
+msgid "更新时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:18
+msgid "模块ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:29
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:22
+msgid "应用(app)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:46
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:39
+msgid "路径标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:56
+msgid "扩展名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:76
+msgid "允许菜单"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:86
+msgid "原生模块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:96
+msgid "启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:106
+msgid "HTTPS"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:110
+msgid "是否使用SSL"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/modules.php:119
+msgid "前台模块表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:11
+msgid "ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/seo.php:73
+msgid "前台SEO配置表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:24
+msgid "主题唯一英文名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:31
+msgid "模板名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:35
+msgid "主题名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:41
+msgid "开始使用时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:47
+msgid "作者"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:56
+msgid "作者网址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:65
+msgid "版本"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:74
+msgid "详细说明"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:80
+msgid "配置信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:86
+msgid "更新网址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:93
+msgid "是否启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes.php:98
+msgid "模板表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:12
+msgid "模板文件ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:17
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:12
+msgid "文件名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:22
+msgid "文件扩展名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:27
+msgid "文件路径标识,包括模板名. [theme name]:[filename]"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:33
+msgid "版本号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:38
+msgid "模板名标识"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:49
+msgid "备注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:54
+msgid "文件内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_file.php:59
+msgid "模板文件表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_tmpl.php:18
+msgid "页面模板ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_tmpl.php:24
+msgid "对应前台页面标示符"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_tmpl.php:36
+msgid "页面路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_tmpl.php:47
+msgid "对应模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_tmpl.php:57
+msgid "关联模板文件表:sdb_wap_themes_file"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/themes_tmpl.php:62
+msgid "页面模板表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets.php:18
+msgid "挂件ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets.php:25
+msgid "如果是系统挂件, 此字段为应用名. 如果是模板挂件此字段为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets.php:32
+msgid "如果是模板级挂件, 此字段为模板名. 如果是系统挂件此字段为空"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets.php:39
+msgid "挂件名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets.php:54
+msgid "挂件表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:19
+msgid "挂件实例ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:28
+msgid "挂件挂在模版的页面"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:36
+msgid "模版中提供给挂件位置序号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:42
+msgid "位置的ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:50
+msgid "所属挂件的名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:57
+msgid "所属的应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:64
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:102
+msgid "模版的名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:72
+msgid "挂件顺序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:78
+msgid "挂件自定义标题"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:84
+msgid "挂件id"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:90
+msgid "css border页面路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:96
+msgid "css class name"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:108
+msgid "配置参数"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:114
+msgid "修改时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//dbschema/widgets_instance.php:140
+msgid "挂件实例表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/controller.php:508
+msgid "操作失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/controller.php:541
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/controller.php:553
+msgid "操作成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/controller.php:576
+msgid "执行成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/controller.php:576
+msgid "执行失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/finder/theme.php:39
+msgid "已启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/finder/theme.php:41
+msgid "启用此模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/finder/theme.php:50
+msgid "模板目录已被移除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/finder/theme.php:83
+msgid "默认"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/finder/theme.php:86
+msgid "最近一次备份"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/frontpage.php:91
+msgid "订单无效！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/alipay/server.php:42
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:379
+msgid "手机支付宝"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/alipay/server.php:43
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:380
+msgid "付款帐号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/alipay/server.php:93
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:423
+msgid "支付单号："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/alipay/server.php:93
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:423
+msgid "签名验证不通过，请确认！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/alipay/server.php:94
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:424
+msgid "本地产生的加密串："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/alipay/server.php:95
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:425
+msgid "手机支付宝传递打过来的签名串："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:127
+msgid "支付方式名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:132
+msgid "合作者身份(parterID)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:137
+msgid "交易安全校验码(key)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:142
+msgid "支付宝账号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:147
+msgid "支持币种"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:152
+msgid "描述"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:157
+msgid "支付类型(是否在线支付)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:159
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:165
+msgid "否"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:159
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:165
+msgid "是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:163
+msgid "是否开启此支付方式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:177
+msgid "支付宝（中国）网络技术有限公司是国内领先的独立第三方支付平台，由阿里巴巴集团创办。支付宝致力于为中国电子商务提供“简单、安全、快速”的在线支付解决方案。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/payment/plugin/malipay.php:178
+msgid "如何使用支付宝支付？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/file/fsfile.php:107
+msgid "路径不存在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/file/fsfile.php:173
+msgid "目标文件不可写"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "编辑此挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "另存为样例"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "添加挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "添加到此挂件上方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "添加到上方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "添加到此挂件下方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:51
+msgid "添加到下方"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:52
+msgid "上移"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:52
+msgid "下移"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/helper.php:53
+msgid "删除此挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:107
+msgid "权限不允许"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:123
+msgid "shopEx模板包创建失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:139
+msgid "不是标准的shopEx模板包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:143
+msgid "模板包已损坏，不是标准的shopEx模板包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:349
+msgid "因权限原因，模板文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:349
+msgid "无法删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:433
+msgid "模板文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:434
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:435
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:436
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:437
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:438
+msgid "图片文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:439
+msgid "样式表文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:440
+msgid "脚本文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:441
+msgid "theme.xml"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/install.php:442
+msgid "模板挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:143
+msgid "文件名称重复,请检查!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:247
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:254
+msgid "商品列表页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:248
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:255
+msgid "商品详细页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:249
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:256
+msgid "商品评论/咨询页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:250
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:257
+msgid "文章页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:251
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:258
+msgid "文章列表页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:252
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:259
+msgid "赠品页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:253
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:260
+msgid "捆绑商品页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:254
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:261
+msgid "品牌专区页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:255
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:262
+msgid "品牌商品展示页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:256
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:263
+msgid "购物车页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:257
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:264
+msgid "高级搜索页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:258
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:265
+msgid "注册/登录页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:259
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:266
+msgid "会员中心页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:260
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:267
+msgid "站点栏目单独页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:261
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:268
+msgid "订单详细页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:262
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:269
+msgid "订单确认页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:263
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:270
+msgid "信息提示页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/dbsave.php:264
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/tmpl/fssave.php:271
+msgid "默认页"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/widget.php:323
+msgid "版块"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/widget.php:323
+msgid "不存在."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/theme/widget.php:433
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:28
+msgid "无边框"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/view/helper.php:91
+msgid "目前正在预览模式"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//lib/view/helper.php:91
+msgid "退出预览"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//model/explorers.php:15
+msgid "此数据不能人为删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//model/modules.php:86
+msgid "该模块是系统的基础模块，无法删除"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//model/route/statics.php:16
+msgid "URL规则"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//model/route/statics.php:17
+msgid "目标链接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//model/themes.php:20
+msgid "默认模板不能删除，请重新选择。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:10
+msgid "手机商城Logo"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:10
+msgid "Logo宽度标准为197px高度为56px"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:11
+msgid "苹果桌面图标"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:11
+msgid "图片为正方形。可为苹果用户在桌面建立一个图标，是一个快速进入商城的途径。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:12
+msgid "手机商城名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:13
+msgid "是否开启手机商城："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:13
+msgid "手机平台开启状态下，访客使用手机访问网站域名直接跳转至手机平台。手机平台关闭状态下，访客使用手机访问网站域名直接跳转至商城官网"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:14
+msgid "注册协议"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:15
+msgid "网页底部信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:16
+msgid "修改本区域内容，请到"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:16
+msgid "商店管理后台"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:16
+msgid "触屏版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:16
+msgid "基本配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:16
+msgid "进行编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:18
+msgid "本商店顾客个人信息将不会被泄漏给其他任何机构和个人"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:18
+msgid "本商店logo和图片都已经申请保护，未经授权不得使用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//setting.php:18
+msgid "有任何购物问题请联系我们在线客服 | 电话：800-800-8000 | 工作时间：周一至周五 8:00－18:00"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//task.php:14
+#: /Users/bryant/codes/ecstore-release/app/wap//task.php:41
+msgid "前台会员系统"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap//task.php:80
+msgid "wap详细介绍"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:3
+msgid "下载模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:6
+msgid "维护"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:9
+msgid "备份模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:13
+msgid "模板还原"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:14
+msgid "还原至"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:31
+msgid "确定还原至"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:45
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:5
+msgid "清除模板缓存"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:53
+msgid "名称:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:58
+msgid "作者:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:63
+msgid "站点:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:68
+msgid "版本:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:73
+msgid "介绍:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:85
+msgid "自定义模版:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/detail/info.html:108
+msgid "模板级挂件:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:5
+msgid "批量上传模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:6
+msgid "浏览本地模板文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:8
+msgid "无法打开模板选择窗口？点此"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:23
+msgid "本次上传的模版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:23
+msgid "个"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:31
+msgid "确定"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:63
+msgid "nn文件超出大小"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:70
+msgid "文件超出大小限制"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:89
+msgid "正在连接..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:97
+msgid "文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/manage/swf_upload.html:97
+msgid "上传失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:14
+msgid "当前页面类型："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:18
+msgid "名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:22
+msgid "文件名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:23
+msgid "留白系统自动生成，只允许英语及数字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:26
+msgid "页面源码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:33
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_add_widgets.html:4
+msgid "添加"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/add.html:34
+msgid "取消"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:11
+msgid "页面"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:13
+msgid "操作"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:37
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/pagehead.html:20
+msgid "可视化编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:58
+msgid "确定要删除吗?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:67
+msgid "确定要添加吗?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:79
+msgid "添加模版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:84
+msgid "确定要将此页面设为默认？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/index.html:93
+msgid "添加新页面"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/pagehead.html:17
+msgid "模板编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/tmpl/template_filter.html:2
+msgid "默认模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page.html:19
+msgid "友情提示：为保持页面美观，请尽量在“挂件槽”内添加相同宽度的挂件。"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page.html:19
+msgid "我知道了"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page.html:21
+msgid "常用版块:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page.html:31
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page_extend.html:10
+msgid "<{$widgets.description}>"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page.html:33
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page_extend.html:12
+msgid "更多"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/add_widgets_page.html:140
+msgid "正在载入板块信息..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_add_widgets.html:11
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_edit_widgets.html:11
+msgid "指向框架内对象"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_add_widgets.html:12
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_edit_widgets.html:12
+msgid "验证输入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_add_widgets.html:13
+msgid "暂时不验证"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_edit_widgets.html:4
+msgid "保存修改"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/do_edit_widgets.html:30
+msgid "使新版块可拖动摆放"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/editor.html:30
+msgid "选择挂件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/editor.html:47
+msgid "确定保存您对当前页面的修改吗？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/editor.html:54
+msgid "当前页面暂未保存，是否现在保存？"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:8
+msgid "版块标题："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:9
+msgid "版块模板："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:14
+msgid "版块边框："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:16
+msgid "边框属性"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:20
+msgid "自定义边框id："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:21
+msgid "自定义边框class："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/wap/view/admin/theme/widget/widget_header.html:36
+msgid "此挂件暂无配置"
+msgstr ""
+

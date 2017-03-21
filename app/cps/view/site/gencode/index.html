@@ -1,0 +1,31 @@
+<div class="main2_head">
+<div class="m2head_7"><span><a href="<{link app=cps ctl=site_welcome act=showUser}>">我的账户</a></span>&gt;<span class="bold">获取代码</span></div>
+<div class="acc_sz"><span>会员：<label id="cpsBarUser"></label> <a href="<{link app=cps ctl=site_user act=logout}>"> [退出]</a></span></div>
+</div>
+<div class="main2_content">
+<div class="myacc_box">
+<div class="myacc_line">
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">快速获取代码</div>
+<div class="myacclist_main">
+<div class="myacclist_text">您可以找到适合自己网站尺寸的图片广告，将代码黏贴到自己网站即可。</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app=cps ctl=site_welcome act=adlink_image}>">选择我的快速代码</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="myacclist2">
+<div class="myacclist_top bg_color1">自定义链接</div>
+<div class="myacclist_main">
+<div class="myacclist_text">如果在轻松链里您没有找到适合的图片广告，或者想制作一个的文字链接，那么就来制作自定义的链接吧</div>
+<div class="myacclist_but"><a class="text_color1" href="<{link app=cps ctl=site_welcome act=adlink_customize}>">制作我的自定义链接</a></div>
+</div>
+</div>
+<!--myacclist-->
+<div class="clear"></div>
+</div>
+<!--myacc_line--></div>
+</div>
+<div class="clear"></div>
+<script>
+	$('cpsBarUser').set('html', Cookie.read('cps[uname]'));
+</script>

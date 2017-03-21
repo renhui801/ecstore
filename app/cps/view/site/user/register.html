@@ -1,0 +1,131 @@
+<div class="main2_head">
+<div class="m2head_2">(以下信息为必填选项)</div>
+</div>
+<div class="main2_content">
+<div class="login_box">
+<form method="post" action="<{link app='cps' ctl='site_user' act='create'}>">
+<table width="96%" border="0" align="center" cellspacing="0">
+    <tbody>
+        <tr>
+            <td width="26%" height="40" align="right" valign="middle">
+            <p>账户类型：</p>
+            </td>
+            <td width="22%" height="40" valign="middle"><select name="user[u_type]" class="logintext3">
+                <{foreach from=$userTypes item=val key=key}>
+                <option value="<{$key}>"><{$val}></option>
+                <{/foreach}>
+            </select></td>
+            <td width="52%" height="40" valign="middle">
+            <p>提供个人会员和公司会员两种类型合作伙伴，请按照详实信息填写</p>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">
+            <p>创建用户名：</p>
+            </td>
+            <td height="40" valign="middle"><input type="text" vtype="required" name="user[u_name]" class="logintext3"></td>
+            <td height="40" valign="middle">
+            <p>长度大于5~16位，由字母开头，可由字母和数字组成</p>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">
+            <p>密码：</p>
+            </td>
+            <td height="40" valign="middle"><input type="password" vtype="required" name="user[password]" class="logintext3"></td>
+            <td height="40" valign="middle">
+            <p>长度需6~16位</p>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">
+            <p>确认密码：</p>
+            </td>
+            <td height="40" valign="middle"><input type="password" vtype="required" name="user[passwd_confirm]" class="logintext3"></td>
+            <td height="40" valign="middle">
+            <p>与密码相同</p>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">
+            <p>联系人姓名：</p>
+            </td>
+            <td height="40" valign="middle"><input type="text" vtype="required" name="user[realname]" class="logintext3"></td>
+            <td height="40" valign="middle">&nbsp;</td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">
+            <p>联系电话：</p>
+            </td>
+            <td height="40" valign="middle"><input type="text" vtype="required" name="user[mobile]" class="logintext3"></td>
+            <td height="40" valign="middle">
+            <p>手机、座机（格式：021-88888888）均可</p>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">
+            <p>联系邮箱：</p>
+            </td>
+            <td height="40" valign="middle"><input type="text" vtype="required&&email" name="user[email]" class="logintext3"></td>
+            <td height="40" valign="middle">
+            <p>如忘记密码，便于找回密码</p>
+            </td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">
+            <p>网站连接：</p>
+            </td>
+            <td height="40" valign="middle"><input type="text" vtype="required" name="web[weburl]" value="http://" class="logintext3"></td>
+            <td height="40" valign="middle">例如：http://www.baidu.com</td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">网站类型：</td>
+            <td height="40" valign="middle"><select name="web[webtype]" class="logintext3">
+                <{foreach from=$webTypes key=key item=val}>
+                <option value="<{$key}>"><{$val}></option>
+                <{/foreach}>
+            </select></td>
+            <td height="40" valign="middle">&nbsp;</td>
+        </tr>
+        <tr>
+            <td height="50" align="right" valign="middle">
+            <p>验证码：</p>
+            </td>
+            <td height="50" valign="middle">
+            <div class="floatdiv"><span id='verifyCodebox'> <{input vtype="required&&number" style='background:none; border:solid 1px #ccc' size="4" maxlength="4" name="verifycode" id="iptlogin"}> <span id="vcodeSpan" class="verifyCode" style="display: none"><img id="vcode" title="看不清楚？换个图片" src="#" border="1" /></span></span></div>
+            </td>
+            <td height="50" valign="middle"></td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">&nbsp;</td>
+            <td height="40" colspan="2" valign="middle"><input name="license" type="checkbox" style="display: inline;" value="agree" checked="checked">
+             我已阅读并同意联盟协议内容</td>
+        </tr>
+        <tr>
+            <td height="40" align="right" valign="middle">&nbsp;</td>
+            <td height="40" valign="middle">
+            <button type="submit" rel="_request" class="login_but2 common-btn"><span><span><{t}><{/t}></span></span></button>
+            </td>
+            <td height="40" valign="middle">&nbsp;</td>
+        </tr>
+    </tbody>
+</table>
+</form>
+</div>
+</div>
+<div class="clear"></div>
+<script>
+    var vcodeShow = false;
+    
+    $('iptlogin').addEvent('focus', function() {
+        if (!vcodeShow){
+            $('vcodeSpan').setStyle('display', '');
+            $('vcode').set('src', '<{link app="cps" ctl="site_user" act="verifyCode"}>#'	+ $time());
+            vcodeShow = true;
+        }
+    });
+    
+    $('vcode').addEvent('click', function() {
+        $('vcode').set('src', '<{link app="cps" ctl="site_user" act="verifyCode"}>#'	+ $time());
+    });
+</script>

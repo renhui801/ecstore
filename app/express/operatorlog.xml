@@ -1,0 +1,33 @@
+<root>
+<!-- 模块：订单管理(order) -->
+    <!-- 模块：快递单管理 -->
+    <register module="order" ctl="admin_delivery_printer" act="add_save" param="name">
+        <operate_type>快递单模板添加</operate_type>
+        <template>添加快递单模板 %s</template>
+    </register>
+
+    <register module="order" ctl="admin_delivery_printer" act="modify_save" param="name">
+        <operate_type>快递单模板编辑</operate_type>
+        <template>编辑快递单模板 %s</template>
+    </register>
+
+<!--     <register module="order" ctl="admin_delivery_printer" act="dorecycle" param="prt_tmpl_id">
+        <operate_type>批量删除快递单</operate_type>
+        <template>批量删除快递单 %s</template>
+    </register> -->
+
+    <register module="order" ctl="admin_delivery_center" act="create" param="delivery_center.name">
+        <operate_type>发货信息添加</operate_type>
+        <template>添加发货信息 %s</template>
+    </register>
+
+    <register module="order" ctl="admin_delivery_center" act="modify" param="delivery_center.name">
+        <operate_type>发货信息编辑</operate_type>
+        <template>编辑发货信息 %s</template>
+    </register>
+
+<!--     <register module="order" ctl="admin_delivery_center" act="dorecycle" param="dly_center_id">
+        <operate_type>发货信息批量删除</operate_type>
+        <template>批量删除发货信息 %s</template>
+    </register> -->
+</root>

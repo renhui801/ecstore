@@ -1,0 +1,17 @@
+<!--购买按钮-->
+
+<{if $page_product_basic.goods_marketable=='true' && $page_product_basic.product_marketable == 'true'}>
+    <{foreach from=$btn_page_list item=item}>
+        <{include file=$item.file app=$item.app}>
+    <{/foreach}>
+<{else}>
+   <a href="#" class="btn  red"> 商品已下架</a>
+<{/if}>
+
+<{if $login=='nologin'}>
+    <a href="<{link app=b2c ctl=wap_passport act=login}>" class="btn">收藏</a>
+<{else}>
+    <a class="btn btn-addfav favlist" type="button" data-gid="<{$page_product_basic.goods_id}>" href="#">收藏</a>
+<{/if}>
+
+

@@ -1,0 +1,52 @@
+<div class="notice"><{t}>ShopEx企业账号是客户享受ShopEx服务的唯一标识，它记录了您的商家信息，购买服务记录等重要信息。
+您还可以通过登录my.shopex.cn，进行自助服务。请妥善保管好的密码。在你的系统遇到问题时，可以通过此平台和我们进行在线交流。<{/t}></div>
+
+<div class="tableform">
+<{tabber}>
+    <{tab name=$___entermembercenter="企业帐号下载备份"|t:'entermembercenter'}>
+        <{if $entid}>
+        <div class="clear division">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <th><{t}>当前企业帐号:<{/t}></th>
+                <td><{$entid}></td>
+              </tr>
+			  <tr>
+                <th><{t}>当前企业邮箱:<{/t}></th>
+                <td><{$ent_email}></td>
+              </tr>
+            </table>
+            </div>
+            <div class="table-action">
+				<{assign var=___dc value=$___confirm_delete='如果删除企业帐号，则无法恢复，确定要删除企业帐号吗?'|t:'entermembercenter'}>
+                <{button label=$___entermembercenter="下载企业帐号"|t:'entermembercenter' class="btn-primary"  onclick="window.open('index.php?app=entermembercenter&ctl=enterprise&act=download')" type="submit"}>
+			</div>
+
+        <{else}>
+            <div class="notice">
+			<{t}>
+            提示：只有在网络服务器安装的ShopEx商店系统才拥有证书功能，您的商店系统由于是在本地安装，所以无ShopEx证书，无法使用ShopEx证书下载和上传功能。如果您将本地的商店系统迁移至服务器，则会自动获得ShopEx证书。<{/t}>
+            </div>
+        <{/if}>
+    <{/tab}>
+    
+    <{tab name=$___entermembercenter="企业帐号上传恢复"|t:'entermembercenter'}>
+        <form action="index.php?app=entermembercenter&ctl=enterprise&act=upLicense" method="POST" enctype="multipart/form-data">
+        <div class="division">
+
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <th><{t}>请选择企业帐号：<{/t}></th>
+            <td><input name="enterprise" type="file"></td>
+          </tr>
+
+        </table>
+        </div>
+
+        <div class="table-action">
+              <{button class="btn-primary" type="submit"  label=$___entermembercenter="上传恢复"|t:'entermembercenter' }>
+          </div>
+        </form>
+    <{/tab}>
+<{/tabber}>
+</div>

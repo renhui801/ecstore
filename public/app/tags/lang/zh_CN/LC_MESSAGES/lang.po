@@ -1,0 +1,65 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/tags//controller/admin/tags.php:15
+msgid "标签管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags//controller/admin/tags.php:18
+#: /Users/bryant/codes/ecstore-release/app/tags//controller/admin/tags.php:20
+msgid "新建普通标签"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags//controller/admin/tags.php:48
+msgid "标签名不能为空,保存失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags//controller/admin/tags.php:53
+#: /Users/bryant/codes/ecstore-release/app/tags//controller/admin/tags.php:57
+msgid "标签名'.$_POST['tag_name'].'已存在,保存失败"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags//controller/admin/tags.php:74
+msgid "保存成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags/view/edittag.html:24
+msgid "显示到前台"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags/view/edittag.html:53
+msgid "左上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags/view/edittag.html:54
+msgid "右上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags/view/edittag.html:57
+msgid "左下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags/view/edittag.html:58
+msgid "右下"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/tags/view/edittag.html:70
+msgid "确定"
+msgstr ""
+

@@ -1,0 +1,7 @@
+<cronentries>                                                                                                                                                           
+    <cron id="apiactionlog_tasks_cleanexpiredapilog">
+        <description>删除一个月之前的api日志信息</description>
+        <schedule>0 4 */1 * *</schedule>
+        <enabled>true</enabled>
+    </cron>
+</cronentries>

@@ -1,0 +1,83 @@
+<div id='mce_handle_htmledit_<{$id}>'  class='mce_style_1' style="width:<{$params.width}>;">
+  <ul >
+    <li class='returnwyswyg' style="cursor:pointer">
+      <span  htmltp='link'>
+        <img src="<{$img_src}>/bundle/mceico_33.gif">
+        <{t}><{$params.title}><{/t}>
+      </span>
+    </li>
+  </ul>
+</div>
+<script>
+  void function(){
+    var textareaEditor_<{$id}>=new Abstract({
+      element:$E('#mce_body_<{$id}> textarea'),
+        getRange:function(){
+          if(!!document.selection){
+            return document.selection.createRange();
+          }
+          return false;
+        },
+        getSelection:function () {
+          if(!!document.selection){
+            if(this.range){
+              return this.range.text;
+            }
+            return document.selection.createRange().text;
+          }else if(!!this.element.setSelectionRange){
+            return this.element.value.substring(this.element.selectionStart,this.element.selectionEnd);
+          }else{return false};
+        },replaceSelection:function (text) {
+          var scrollTop=this.element.scrollTop;
+          if(!!document.selection) {
+            this.element.focus();
+            var old=document.selection.createRange().text;
+            var range=this.range||document.selection.createRange();
+            range.text=text;
+            range-=old.length-text.length;
+          }else if(!!this.element.setSelectionRange) {
+            var selection_start=this.element.selectionStart;
+            this.element.value=this.element.value.substring(0,selection_start)+text+this.element.value.substring(this.element.selectionEnd);            this.element.setSelectionRange(selection_start+text.length,selection_start+text.length);
+          }
+          this.element.focus();
+          this.element.scrollTop=scrollTop;
+        },wrapSelection:function (before,after) {
+          if( this.getSelection() ){
+              hrefName = this.getSelection();
+          }else{
+              hrefName = "<{$params.hrefName}>";
+          }
+          this.replaceSelection(before+hrefName+after);
+          this.range=null;
+        }
+    });
+    $$('#mce_body_<{$id}> textarea').addEvent('mouseup',function(){
+      textareaEditor_<{$id}>.range=textareaEditor_<{$id}>.getRange();
+    });
+    $$('#mce_handle_htmledit_<{$id}> span[htmltp]').addEvent('click',function(e){
+      var htmltp=this.get('htmltp');
+      var B="";var A="";
+      var link = "<{$params.link}>";
+      var customurl = "<{$params.url}>";
+      if( customurl ){
+          B="<a href='"+ customurl +"' target='_blank'>";
+          A="</a>";
+          textareaEditor_<{$id}>.wrapSelection(B,A);
+      }else{
+        new Dialog(link,{title:'<{t}><{$params.title}><{/t}>',height:200,
+          onShow:function(){
+            this.dialog.store('callback',function(url){
+              B="<a href='"+ url +"' target='_blank'>";
+              A="</a>";
+              textareaEditor_<{$id}>.wrapSelection(B,A);
+            });
+          }
+        })
+      }
+    });
+  }();
+</script>
+<div id="mce_body_<{$id}>" class='wysiwyg_body' style="height:<{$params.height}>;width:<{$params.width}>;">
+  <textarea name="<{$params.name}>"  style="height:<{$params.height}>;width:<{$params.width}>;"><{$params.value}></textarea>
+  <div id='mce_body_<{$id}>_frm_container'></div>
+</div>

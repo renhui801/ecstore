@@ -1,0 +1,39 @@
+<{if $goodsData}>
+<input type="hidden" class="action-pagedata" value="{total:<{$total}>, pagecurrent:<{$page}>, pagetotal:<{$pagetotal}>}">
+<ul class="pt-list">
+  <{foreach from=$goodsData key=key item=goods_row}>
+  <li class="pt-h-item c-fix">
+    <a href="<{link app=b2c ctl=wap_product arg0=$goods_row.products.product_id}>" class="pt-h-link">
+        <div href="<{$goods_row.image_default_id|storager:'s'}>" class="pt-h-img"><img src="<{$goods_row.image_default_id|storager:'s'}>"></div>
+        <div class="pt-h-info">
+            <div class="pt-h-name">
+                <{$goods_row.name|cut:'90'}>
+            </div>
+            <div class="pt-h-price price">
+                <{$goods_row.products.price|cur_odr}>
+            </div>
+            <{if $point_status == 'on'}>
+            <{if $goods_row.comments_count > 0}>
+            <div class="pt-h-other">
+                <div class="star"><b style="width:<{$goods_row.goods_point.avg_num*20}>%;"></b></div>
+                <{$goods_row.comments_count}> 条评论
+            </div>
+            <{else}>
+            <div class="pt-h-other">
+              暂无评价
+            </div>
+            <{/if}>
+            <{/if}>
+        </div>
+    </a>
+  </li>
+  <{/foreach}>
+</ul>
+<{wap_pagers ajax=true data=$pager}>
+
+<{else}>
+<div class="no-data">
+    <p class="warn">抱歉！没有符合条件的商品</p>
+    <p>您可以更改关键字重新查找</p>
+</div>
+<{/if}>

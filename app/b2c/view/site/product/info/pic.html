@@ -1,0 +1,33 @@
+<!-- 商品相册 -->
+<div id="product_album" class="product-album">
+  <div class="product-album-preview clearfix">
+    <div class="product-album-pic" style="width:<{$setting.imageDefault.M.width}>px;height:<{$setting.imageDefault.M.height}>px;line-height:<{$setting.imageDefault.M.height-2}>px;*font-size:<{$setting.imageDefault.M.height * 0.9}>px;">
+      <a href="<{$page_product_basic.image_default_id|default:$setting.imageDefault.M.default_image|storager:'l'}>" class="album-preview-container" id="op_product_zoom"><img src="<{$page_product_basic.image_default_id|default:$setting.imageDefault.M.default_image|storager:'m'}>" alt="<{$page_product_basic.goods_name}>" class="small-pic" style="max-width:<{$setting.imageDefault.M.width}>px;max-height:<{$setting.imageDefault.M.height}>px;"></a>
+    </div>
+    <{if $page_product_basic.image_default_id}>
+    <{img class="loading" app="b2c" src="images/loading.gif" alt="正在加载大图..." style="display:none;"}>
+    <div class="product-album-zoom"><a href="<{link app=b2c ctl=site_product act=albums arg0=$page_product_basic.goods_id}>" title="<{t}>点击查看大图<{/t}>" target="_blank" class="icon">&#x4a;</a></div>
+    <{/if}>
+  </div>
+  <div class="product-album-thumb product-album-thumb-bottom">
+    <div class="flip prev forward over"><a href="javascript:void(0);" class="icon">&#x34;</a></div>
+    <div class="thumbnail-list" style="width:<{$setting.imageDefault.M.width-32}>px;">
+      <ul class="clearfix">
+        <{if $page_product_basic.images}>
+          <{foreach from=$page_product_basic.images item=image}>
+          <li <{if $page_product_basic.image_default_id == $image.image_id}>class="active"<{/if}>>
+            <div class="arrow arrow-top"><i class="below"></i></div>
+            <div class="thumbnail"><a href="<{$image.image_id|storager:'l'}>" rel="op_product_zoom" rev="<{$image.image_id|storager:'m'}>"><img src="<{$image.image_id|storager:'s'}>" alt="<{$page_product_basic.goods_name}>" width="60" height="60"></a></div>
+          </li>
+          <{/foreach}>
+        <{else}>
+          <li class="active">
+            <div class="arrow arrow-top"><i class="below"></i></div>
+            <div class="thumbnail"><img src="<{$setting.imageDefault.M.default_image|storager}>" alt="<{$page_product_basic.goods_name}>" width="60" height="60"></div>
+          </li>
+        <{/if}>
+      </ul>
+    </div>
+    <div class="flip next backward over"><a href="javascript:void(0);" class="icon">&#x35;</a></div>
+  </div>
+</div>

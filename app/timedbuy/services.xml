@@ -1,0 +1,33 @@
+<services>
+    <service id="b2c_addtocart_check">
+        <class>timedbuy_cart_object_goods</class>
+    </service>
+    
+    <service id="b2c_promotion_solution_tpl_apps">
+        <class>timedbuy_promotion_solution_timedbuy</class>
+    </service>
+     
+    <service id="b2c_products_index_btn">
+        <class>timedbuy_site_product_btn_timedbuy</class>
+    </service>
+    
+    <service id="b2c_order.create">
+        <class>timedbuy_order_create</class>
+    </service>
+    
+    <service id="b2c.order_payment_extend.options">
+        <class>timedbuy_order_pay</class>
+    </service>
+    
+    <service id="b2c_order_cancel_finish">
+        <class>timedbuy_order_cancel</class>
+    </service>
+	
+  <service id="order_pay_operation">
+        <class>timedbuy_order_pay</class>
+  </service>
+	<service id="site_view_helper">   
+        <class orderby="23">timedbuy_site_view_helper</class>
+    </service>
+    
+</services>

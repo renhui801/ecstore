@@ -1,0 +1,101 @@
+<div class="virtual-category-wrap" id="vcat_<{$widgets_id}>">
+  <ul class="<{if $setting.showCatDepth == '1'}>vcat-only<{else}>vcat-depth-1 clearfix<{/if}>">
+    <{foreach from=$data item=parent key=parentId name=name}>
+    <li>
+    <{if $setting.showCatDepth == '1'}>
+      <a href="<{$parent.url}>"><{$parent.label}></a><{if !$smarty.foreach.name.last}> |<{/if}>
+    <{else}>
+      <span><a href="<{$parent.url}>"><{$parent.label}></a></span>
+      <ul class="vcat-depth-2 clearfix">
+        <{foreach from=$parent.sub item=child key=childId}>
+        <{if $child.sub}>
+        <li>
+          <span><a href="<{$child.url}>"><{$child.label}><{if $setting.showCatDepth == '3'}> <i class="icon down">&#x36;</i><i class="icon up">&#x37;</i><{/if}></a></span>
+          <{if $setting.showCatDepth == '3'}>
+          <ul class="vcat-dropdown clearfix">
+            <{foreach from=$child.sub item=gChild key=gChildId}>
+            <li><a href="<{$gChild.url}>"><{$gChild.label}></a></li>
+            <{/foreach}>
+          </ul>
+          <{/if}>
+        </li>
+        <{else}>
+        <li>
+          <a href="<{$child.url}>"><{$child.label}></a>
+        </li>
+        <{/if}>
+        <{/foreach}>
+      </ul>
+    <{/if}>
+    </li>
+    <{/foreach}>
+  </ul>
+</div>
+<script>
+var CatDropDown = new Class({
+  initialize: function(){
+    this.handlers = $('vcat_<{$widgets_id}>').getElements('.vcat-depth-2 span');
+    this.handlers.length && this.handlers.each(function(handler, index){
+      var view = handler.getNext();
+      var section = handler.getParent();
+      var parent = handler.getParent('ul');
+      var top = section.getSize().y;
+      var width = parent.getSize().x - view.getPatch('padding', 'border').x;
+      view.setStyles({
+        'left': 0,
+        'width': width
+      });
+      section.addEvents({
+        'mouseenter': function(e){
+            this.stopTimer(section);
+            section.timer = this.show.delay(500, this, [view, section]);
+        }.bind(this),
+        'mouseleave': function(e){
+            this.stopTimer(section);
+            this.hide(view, section);
+        }.bind(this)
+      }).getParent().setStyle('position', 'relative');
+    },this);
+  },
+  toggle: function(view, el) {
+    this[view.isDisplayed() ? 'hide' : 'show'](view, el);
+    return false;
+  },
+  show: function(view,el){
+    el.addClass('active');
+    view.setStyle('display','block');
+    if(Browser.ie) this.addFix(view);
+  },
+  hide: function(view, el){
+    el.removeClass('active');
+    view.setStyle('display','none');
+    if(Browser.ie) this.removeFix(view);
+  },
+  stopTimer: function(el) {
+      if(el.timer) clearTimeout(el.timer);
+  },
+  addFix: function(el){
+    if(!this.fix){
+      this.fix = new Element('iframe', {
+        frameborder: '0',
+        scrolling: 'no',
+        src: 'about:blank',
+        styles: {
+          position: 'absolute',
+          border: 'none',
+          filter: 'progid:DXImageTransform.Microsoft.Alpha(opacity=0)',
+          zIndex: (el.getStyle('zIndex') || 1) - 1
+        }
+      }).injectAfter(el);
+    }
+    this.fix.setStyles(Object.append(el.getCoordinates(),{
+      display: 'block'
+    }));
+  },
+  removeFix: function(el){
+    this.fix.setStyle('display','none');
+  }
+});
+
+new CatDropDown();
+</script>

@@ -1,0 +1,5 @@
+<services>
+    <service id="desktop_finder.apiactionlog_mdl_apilog">
+        <class>apiactionlog_finder_apilog</class>
+    </service>
+</services>

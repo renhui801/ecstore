@@ -1,0 +1,14 @@
+<dl class="content-list">
+  <dt class="content-title">
+  <{if !$data.__stripparenturl}>
+  <a class="link" href="<{$data.node_url}>"><{$data.node_name}></a>
+  <{else}>
+  <{$data.node_name}>
+  <{/if}>
+  </dt>
+  <{foreach from=$data.indexs item=item}>
+    <dd class="node-index content-item">
+    <a href="<{link app=content ctl=site_article act=index arg0=$item.article_id}>" title=<{$item.title}>><{$item.title}></a>
+    </dd>
+  <{/foreach}>
+</dl>

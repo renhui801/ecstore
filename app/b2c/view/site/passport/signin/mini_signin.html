@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title><{t}>已注册用户，请登录<{/t}></title>
+<{if defined("DEBUG_CSS") && DEBUG_CSS}>
+<{css src="base.css" app="b2c"}>
+<{css src="theme.css" app="b2c"}>
+<{else}>
+<{css src="basic.min.css" app="b2c" pdir="css_mini"}>
+<{/if}>
+<{lang_script src="lang.js" app="site"}>
+<{lang_script src="lang.js" app="b2c"}>
+<script>
+var Shop = <{$shopDefine|default:'null'}>;
+</script>
+<{if defined("DEBUG_JS") && DEBUG_JS}>
+<{script src="mootools.js" app="site"}>
+<{script src="jstools.js" app="site"}>
+<{script src="formplus.js" app="site"}>
+<{script src="shoptools.js" app="b2c"}>
+<{else}>
+<{script src="moo.min.js" app="site" pdir="js_mini"}>
+<{script src="ui.min.js" app="site" pdir="js_mini"}>
+<{script src="shop.min.js" app="b2c" pdir="js_mini"}>
+<{/if}>
+</head>
+<body>
+<div id="signupin_tags" class="signupin-tags clearfix">
+  <ul>
+    <li class="active"><a href="<{if $cart_buy}><{link app=b2c ctl=site_cart act=loginBuy}><{else}><{link app=b2c ctl=site_passport act=login}><{/if}>?mini_passport=1">登录</a></li>
+    <li><a href="<{link app=b2c ctl=site_passport act=signup}>?mini_passport=1">注册</a></li>
+  </ul>
+</div>
+<div id="mini_signin" class="signupin-content mini-signin">
+  <{include file='site/passport/signin/member-signin.html'}>
+
+  <{if $login_image_url.0}>
+  <div id="trust_signin" class="trust-signin">
+    <{foreach from=$login_image_url item=login_image_url}>
+    <{$login_image_url}>
+    <{/foreach}>
+  </div>
+  <{/if}>
+</div>
+<script>
+Module = new Module('mini', ['signin']);
+var modname = 'mini.signin';
+var showVcode = <{$show_varycode}>;
+
+if((Browser.ie6 || Browser.ie7) && module.getElement('form').getOuterSize().y > module.getSize().y - module.getPatch('border', 'padding').y) {
+    module.setStyle('position', 'relative');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+<{assign var=mapp value=$env.conf.base.system.main_app}>
+<iframe id="x-advertisement" name="x-advertisement" style="visibility:hidden;"  width="100%" scrolling="auto" height="100%" frameborder="0" src="http://top.shopex.cn/ecos/desktop.php?cross_call_url=<{$cross_call_url}>&f=<{$mapp.app_id}>&pid=<{if $env.conf.desktop.product_id}><{$env.conf.desktop.product_id}><{else}><{$product_key}><{/if}>" allowtransparency="true"></iframe>

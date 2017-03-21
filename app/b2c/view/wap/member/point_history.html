@@ -1,0 +1,55 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            历史积分
+        </div>
+    </div>
+    </header>
+    <div class="integral">
+        <div class="count">当前有效积分：<em class="f-red"><{$total}></em></div>
+        <div class="count">消费冻结：<em class="f-red"><{if $expense_point}><{$expense_point}><{else}>0<{/if}></em></div>
+        <div class="count">获取冻结：<em class="f-red"><{if $obtained_point}><{$obtained_point}><{else}>0<{/if}></em></div>
+        <{if count($historys)>0}>
+        <table>
+            <tr>
+                <th>事件/时间</th>
+                <th>积分变动</th>
+                <th>积分有效期</th>
+            </tr>
+            <{foreach from=$historys item="logs"}>
+            <tr>
+                <td><{$logs.reason|escape:'html'}><br /><{$logs.addtime|cdate:FDATE_STIME}></td>
+                <td <{if $logs.change_point>0}>class="trade"<{else}>class="f-red"<{/if}>>
+                    <{if ($logs.change_point) > 0}>+<{/if}><{$logs.change_point}>
+                </td>
+                <td>
+                    <{if ($logs.change_point) > 0}>
+                        <{if $logs.expiretime==0}>
+                        <{t}>永久有效<{/t}>
+                        <{else}>
+                        <{if $logs.expiretime - $smarty.now >= 0}>
+                        <{$logs.expiretime|cdate:FDATE_STIME}>
+                        <{else}><{t}>已过期<{/t}><{/if}>
+                        <{/if}>
+                    <{else}>
+                        -
+                    <{/if}>
+                </td>
+            </tr>
+            <{/foreach}>
+        </table>
+        <{else}>
+        <div>尚无积分历史</div>
+        <{/if}>
+    </div>
+</div>
+<{wap_pagers data=$pager}>
+
+
+
+

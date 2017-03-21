@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" style="*height:100%;*overflow:hidden;">
+<head>
+<meta charset="UTF-8">
+<title><{t}>用户注册<{/t}></title>
+<{if defined("DEBUG_CSS") && DEBUG_CSS}>
+<{css src="base.css" app="b2c"}>
+<{css src="theme.css" app="b2c"}>
+<{else}>
+<{css src="basic.min.css" app="b2c" pdir="css_mini"}>
+<{/if}>
+<{lang_script src="lang.js" app="site"}>
+<{lang_script src="lang.js" app="b2c"}>
+<script>
+var Shop = <{$shopDefine|default:'null'}>;
+</script>
+<{if defined("DEBUG_JS") && DEBUG_JS}>
+<{script src="lab.js" app="site"}>
+<{script src="mootools.js" app="site"}>
+<{script src="jstools.js" app="site"}>
+<{script src="formplus.js" app="site"}>
+<{script src="shoptools.js" app="b2c"}>
+<{script src="goodscupcake.js" app="b2c"}>
+<{else}>
+<{script src="moo.min.js" app="site" pdir="js_mini"}>
+<{script src="ui.min.js" app="site" pdir="js_mini"}>
+<{script src="shop.min.js" app="b2c" pdir="js_mini"}>
+<{/if}>
+</head>
+<body style="*height:100%;*overflow:hidden;">
+  <div id="signupin_tags" class="signupin-tags clearfix">
+    <ul>
+      <li><a href="<{link app=b2c ctl=site_passport act=login}>?mini_passport=1">登录</a></li>
+      <li class="active"><a href="<{link app=b2c ctl=site_passport act=signup}>?mini_passport=1">注册</a></li>
+    </ul>
+  </div>
+  <div id="mini_signup" class="signupin-content mini-signup">
+    <!-- 注册表单 -->
+    <{include file="site/passport/signup/member-signup.html"}>
+    <!-- / 注册表单 -->
+  </div>
+<script>
+Module = new Module('mini', ['signup']);
+var modname = 'mini.signup';
+</script>
+</body>
+</html>

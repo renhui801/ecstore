@@ -1,0 +1,454 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/dev//controller/project.php:6
+msgid "新建项目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//controller/project.php:20
+msgid "创建新项目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:31
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/controller.php:10
+msgid "应用程序"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:36
+msgid "web应用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:36
+msgid "完整的web应用, MVC风格, 有desktop组件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:37
+msgid "控制界面扩展"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:37
+msgid "控制界面扩展展展展展展展展"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:38
+msgid "文件存储插件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:38
+msgid "文件存储插件件件件件件件件件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:39
+msgid "缓存插件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:39
+msgid "缓存插件件件件件件件件件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:40
+msgid "登录方式接口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/apptmpl.php:46
+msgid "打包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:15
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:15
+msgid "php版本是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:15
+msgid "->符合要求..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:15
+msgid "->不符合要求，请安装php5以上的版本..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:33
+msgid "目录不可写..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:35
+msgid "目录可写性检测通过..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:42
+msgid "php可以解析xml文件..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:42
+msgid "php不支持解析xml文件..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:57
+msgid "GD库正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:57
+msgid "GD库不正常 (将影响部分功能)..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:69
+msgid "kvstore存取正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:69
+msgid "kvstore存取不正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:74
+msgid "MySQL函数库可用..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:74
+msgid "MySQL函数库未安装..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:79
+msgid "MySQL函数库连接出错..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:148
+msgid "Mysql创建测试表正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:150
+msgid "Mysql创建测试表不正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:154
+msgid "Mysql插入数据正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:156
+msgid "Mysql插入数据不正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:160
+msgid "Mysql读取数据正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:162
+msgid "Mysql读取数据不正常..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:251
+msgid " ｝未注册..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/detect.php:254
+msgid "常用service存在，但仍可能有service未注册..."
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:19
+msgid "用法是： dev:generate new 应用名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:24
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:23
+msgid "生成目录结构"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:27
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:26
+msgid "拷贝文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:29
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:28
+msgid "更新配置文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:33
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:32
+msgid "app简短的介绍，请在"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:33
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:32
+msgid "中修改这段信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:34
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:33
+msgid "app作者的信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:38
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:37
+msgid "安装app"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:46
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:160
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:45
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:159
+msgid "参数不能为空n"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:47
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:46
+msgid "用法是： dev:generate controller app名(必须)：控制器文件夹名：控制器名（必须）：方法名：前台或者后台(site/desktop)(必须)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:53
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:52
+msgid "为空的值也必须占位，格式强制为：ndev:generate controller app名(必须)：控制器文件夹名：控制器名（必须）：方法名：前台或者后台(site/desktop)(必须)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:57
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:56
+msgid "查找不到对应的app，请检查app名称输入是否正确"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:62
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:61
+msgid "控制器名不能为空，请重新输入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:71
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:70
+msgid "继承类不能为空，请重新输入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:89
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:199
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:88
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:198
+msgid "找不到 名为  $app_name 的app "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:104
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:103
+msgid "控制器  $ctl_name.php 已经存在 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:161
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:160
+msgid "用法是： dev:generate model app名(必须)：模型层文件夹名：模型层类名（必须）：方法名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:167
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:166
+msgid "为空的值也必须占位，格式强制为：n dev:generate model app名(必须)：模型层文件夹名：模型层类名（必须）：方法名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:171
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:170
+msgid "app名不能为空，请重新输入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:176
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:175
+msgid "模型层类名不能为空，请重新输入"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/generate.php:208
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:207
+msgid "模型层类  $mdl_name.php 已经存在 "
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:14
+msgid "用法是： dev:new app 应用名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/new.php:20
+msgid "app $app_id 已经存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/test.php:15
+msgid "使用方法: dev:test do app的id 测试文件名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/test.php:15
+msgid "例子: dev:test do dev sample.php"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/command/test.php:21
+msgid "找不到测试文件"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/controller.php:8
+msgid "项目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/controller.php:11
+msgid "文档"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/controller.php:12
+msgid "系统设置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/desktop/docs.php:18
+msgid "开发文档"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/finder/apps.php:50
+msgid "查看"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:79
+msgid "(安全模式)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:89
+msgid "服务器基本信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:112
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:480
+msgid "无"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:113
+msgid "php基本信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:143
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:152
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:241
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:348
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:356
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:366
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:377
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:388
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:399
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:410
+msgid "支持"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:143
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:152
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:241
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:330
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:348
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:356
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:366
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:377
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:388
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:399
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:410
+msgid "不支持"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:161
+msgid "未安装"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:205
+msgid "无法连接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:214
+msgid "无法识别"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:223
+msgid "数据库Mysql 4.1以上"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:225
+msgid "MySQL主机"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:225
+msgid "连接"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:244
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:265
+msgid "基本需求"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:254
+msgid "可用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:254
+msgid "不可用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:261
+msgid "成功"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:261
+msgid "失败 (将影响部分功能)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:430
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:451
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:462
+msgid "开启"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:430
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:451
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:462
+msgid "已关闭"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//lib/serverinfo.php:488
+msgid "推荐配置"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//model/project.php:7
+msgid "项目名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//model/project.php:8
+msgid "类型"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//model/project.php:9
+msgid "创建时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev//model/project.php:10
+msgid "路径"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev/view/project/create.html:11
+msgid "请选择项目模板:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev/view/project/create.html:33
+msgid "项目id:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev/view/project/create.html:34
+msgid "创建项目"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev/view/setting.html:15
+msgid "svn 命令路径:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev/view/setting.html:18
+msgid "zendenc 命令路径:"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/dev/view/setting.html:22
+msgid "保存设置"
+msgstr ""
+

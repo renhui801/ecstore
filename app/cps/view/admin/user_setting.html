@@ -1,0 +1,19 @@
+<div>
+<div class="tabs-wrap clearfix">
+<ul>
+    <li class="tab current"><span>注册审核设置</span></li>
+</ul>
+</div>
+<form action="index.php?app=cps&ctl=admin_users&act=setting" method="post">
+<div class="tableform clearfix" style="padding: 10px 0;">
+<table>
+    <tr>
+        <th valign="top">注册审核：</th>
+        <td style="width:600px; float:left;"> <input name="check" type="radio" value="false" <{if $chk == 'false'}>checked="checked"<{/if}> />无需审核 &nbsp;&nbsp; <input name="check" type="radio" value="true" <{if $chk == 'true'}>checked="checked"<{/if}> />需审核
+        <p>审核联盟商的资质，无需审核表示联盟商注册后享有站内功能，需审核表示联盟商只有通过审核后才享有站内功能。</p></td>
+    </tr>
+</table>
+</div>
+<div class="table-action" style="padding-top: 10px;"><{button class="btn-primary" type="submit" label="确定设置"}></div>
+</form>
+ </div>

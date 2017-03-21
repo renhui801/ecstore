@@ -1,0 +1,32 @@
+<div class="flip prev over"><a href="javascript:void(0);" class="icon">&#x39;</a></div>
+<div class="wrapper" id="cart_fororder_wrapper">
+  <table class="lists switchable-content">
+    <tbody>
+      <tr>
+      <{foreach from=$goods_list.before item=goods key=_key name=nums}>
+        <td class="item" product="<{$goods.goods_id}>">
+          <div class="p-pic"><a href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>" target="_blank"><img src="<{($goods.image_default_id?$goods.image_default_id:$defaultImage)|storager:'s'}>" alt="<{$goods.name}>"></a></div>
+          <div class="p-info">
+            <h3><a href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>" target="_blank" class="p-name" title="<{$goods.name}>"><{$goods.name}></a></h3>
+            <p class="p-price"><b><{$goods.price|cur_odr}></b></p>
+            <a href="<{link app=b2c ctl=site_cart act=add arg0=goods arg1=$goods.goods_id arg3=$goods.product_id arg4=1}>" target="_dialog_minicart" class="btn btn-major"><span><span>加入购物车</span></span></a>
+          </div>
+        </td>
+      <{/foreach}>
+      </tr>
+      <tr>
+        <{foreach from=$goods_list.last item=goods key=_key name=nums}>
+        <td class="item" product="<{$goods.goods_id}>">
+          <div class="p-pic"><a href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>" target="_blank"><img src="<{($goods.image_default_id?$goods.image_default_id:$defaultImage)|storager:'s'}>" alt="<{$goods.name}>"></a></div>
+          <div class="p-info">
+            <h3><a href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>" target="_blank" class="p-name" title="<{$goods.name}>"><{$goods.name}></a></h3>
+            <p class="p-price"><b><{$goods.price|cur_odr}></b></p>
+            <a href="<{link app=b2c ctl=site_cart act=add arg0=goods arg1=$goods.goods_id arg3=$goods.product_id arg4=1}>" target="_dialog_minicart" class="btn btn-major"><span><span>加入购物车</span></span></a>
+          </div>
+        </td>
+        <{/foreach}>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="flip next"><a href="javascript:void(0);" class="icon">&#x3a;</a></div>

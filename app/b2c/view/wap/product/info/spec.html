@@ -1,0 +1,40 @@
+<!-- 商品规格 -->
+
+<div class="sel-sku" id="J_sel_sku">
+    <{foreach from=$page_product_basic.spec.goods key=key item=spec}>
+    <div class="sku">
+        <{$page_product_basic.spec.specification.spec_name.$key}>:
+            <{foreach from=$spec key=item_key item=item}>
+            <{if $item_key==$page_product_basic.spec.product.$key}>
+                <{$item.spec_value}>
+            <{/if}>
+            <{/foreach}>
+        <b class="arr down"></b>
+    </div>
+    <{/foreach}>
+</div>
+<div class="sel-sku-box hide" id="J_all_sku">
+    <ul class="sku-list">
+        <{foreach from=$page_product_basic.spec.goods key=key item=spec}>
+        <li class="sku-item c-fix">
+            <div class="k"><{$page_product_basic.spec.specification.spec_name.$key}>：</div>
+            <div class="v">
+            <{foreach from=$spec key=item_key item=item}>
+            <{if $item_key==$page_product_basic.spec.product.$key}>
+                <a class="sku sel" href="#"><{$item.spec_value}></a>
+            <{else}>
+                <{if $item.product_id}>
+                    <a class="sku" href="<{link app=b2c ctl=wap_product act=index arg0=$item.product_id}>"><{$item.spec_value}></a>
+                <{/if}>
+            <{/if}>
+            <{/foreach}>
+            </div>
+        </li>
+        <{/foreach}>
+    </ul>
+    <div class="close-bar">
+        <div class="close">
+            <b class="arr top"></b>
+        </div>
+    </div>
+</div>

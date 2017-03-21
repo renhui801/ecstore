@@ -1,0 +1,3 @@
+<desktop>
+    <adminpanel group="b2c_shipment" controller="admin_tracker" action="index" permission="shipment" display="true" order='30'>物流跟踪设置</adminpanel>
+</desktop>

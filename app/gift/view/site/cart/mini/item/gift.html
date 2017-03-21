@@ -1,0 +1,21 @@
+<{if $aCart.object.gift}>
+<{foreach from=$aCart.object.gift key=key item=gift}>
+  <{foreach from=$gift item=goods}>
+    <{if $goods.disabled==='true'}><{continue;}><{/if}>
+    <li class="goods-item">
+      <div class="goods-pic">
+        <a href="<{link app=gift ctl=site_gift arg0=$goods.product_id}>"><img src="<{$goods.default_image.thumbnail|default:$defaultImage|storager:'s'}>" alt="<{$goods.name|escape:html}>" data-img-zoom="true"></a>
+      </div>
+      <div class="goods-info">
+        <h3 class="goods-name"><a href="<{link app=gift ctl=site_gift arg0=$goods.product_id}>"><{$goods.name}> <{$goods.spec_info|spec_desc}><{if $key=='order'}> <span class="addition">订单赠送</span><{/if}></a></h3>
+        <div class="goods-price">
+          <p>销售价：<span class="p-price"><{$goods.price|cur_odr}></span></p>
+          <p>数量：<span class="p-quantity"><{$goods.quantity}></span><{if $key!='order'}><a href="<{link app=b2c ctl=site_cart act=removeMiniCart arg0=gift arg1=$goods.obj_ident}>" class="action-delete">移除</a><{/if}></p>
+        </div>
+      </div>
+    </li>
+   <{/foreach}>
+ <{/foreach}>
+<{/if}>
+
+

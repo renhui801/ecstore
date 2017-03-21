@@ -1,0 +1,44 @@
+
+<h3 class="head-title">日志详情</h3>
+<div class="tableform">
+    <div class="division">
+        <table width="100%" cellspacing="0" cellpadding="0" border="0" >
+            <tbody>
+                <{if $apilog.api_type == 'request'}>
+                <tr>
+                    <th>msg_id：</th>
+                    <td><{$apilog.msg_id}></td>
+                </tr>
+                <{/if}>
+                <tr>
+                    <th>log_id：</th>
+                    <td><{$apilog.apilog}></td>
+                </tr>
+                <{if $apilog.all_list_quantity}>
+                <tr>
+                    <th>更新成功的货号：</th>
+                    <td><{$apilog.all_list_quantity}></td>
+                </tr>
+                <{/if}>
+                <tr>
+                    <th>同步类型：</th>
+                    <td><{if $apilog.api_type == 'request'}>发起<{else}>响应<{/if}></td>
+                </tr>
+                <tr>
+                    <th>任务数据：</th>
+                    <td>
+                        <{if $apilog.send_api_name}>接口名：<{$apilog.send_api_name}><br/><{/if}>
+                        参数：<br/><{$apilog.send_api_params}>
+                    </td>
+                </tr>
+                <tr>
+                    <th >返回：</th>
+                    <td>
+                        <{$apilog.msg}>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

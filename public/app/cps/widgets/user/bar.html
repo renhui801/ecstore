@@ -1,0 +1,56 @@
+<span id="loginBar_<{$widgets_id}>" style="" class="ie-bug">
+<{foreach from=$data.login_content item=login}>
+<{$login}>
+<{/foreach}>
+  <a href="<{link app=b2c ctl=site_passport act=login}>"><{t app='cps'}>[请登录]<{/t}></a>&nbsp;&nbsp;
+  <{if $data.open_id_open == 'true'}>
+      [<a  class="trustlogin trust__login" href="javascript:void(0)"><{t}>信任登录<{/t}></a>]&nbsp;&nbsp;
+	  <div id="accountlogin" ><h5>您还可以使用以下帐号登录：</h5><div class="logoimg"><span><img src="<{$data.res_url}>/accountlogos/trustlogo1_small.gif" /></span><span><img src="<{$data.res_url}>/accountlogos/trustlogo2_small.gif" /></span><span><img src="<{$data.res_url}>/accountlogos/trustlogo3_small.gif" /></span><span><img src="<{$data.res_url}>/accountlogos/trustlogo4_small.gif" /></span><span><img src="<{$data.res_url}>/accountlogos/trustlogo5_small.gif" /></span></div><div class="more"><a href="#">更多»</a></div>
+	  </div>
+	  <{/if}>
+  <a href="<{link app=b2c ctl=site_passport act=signup}>"><{t app='cps'}>[免费注册]<{/t}></a>
+</span>
+<span id="memberBar_<{$widgets_id}>" style="display:none">
+    <{t app='cps'}>您好<{/t}><span id="uname_<{$widgets_id}>"></span>！
+  <a href="<{link app=cps ctl=site_member act=index}>"><{t app='cps'}>[会员中心]<{/t}></a>&nbsp;&nbsp;
+  <a href="<{link app=cps ctl=site_passport act=logout}>"><{t app='cps'}>[退出]<{/t}></a>
+</span>
+
+<{if $data.open_id_open=='true' && !$env.cookie.MEMBER}>
+<{css src="style/modify.css" app="cps"}>
+<script>
+(function(){
+    var loginBtn=$('loginBar_<{$widgets_id}>').getElements('.trust__login'),timer;
+	$$(loginBtn,$('accountlogin')).addEvents({'mouseenter':function(){
+			if(timer)clearTimeout(timer);
+			$('accountlogin').setStyles({'visibility':'visible','top':'20','left':'10'});
+		},'mouseleave':function(){
+			timer=function(){$('accountlogin').setStyle('visibility','hidden')}.delay(200);
+		}
+	});
+	$('accountlogin').addEvent('click',function(e){loginBtn.fireEvent('click');})
+})();
+</script>
+<{/if}>
+<script>
+	new Request({
+		url:'<{link app=cps ctl=site_passport act=getuname}>',
+		method:'post',
+		onComplete:function(e){
+			if(e){
+				$("uname_<{$widgets_id}>").innerHTML = e;
+				$("memberBar_<{$widgets_id}>").setStyle('display','block');
+				if($("loginBar_<{$widgets_id}>"))
+				$("loginBar_<{$widgets_id}>").setStyle('display','none');
+			}
+			else{
+				$("loginBar_<{$widgets_id}>").setStyle('display','block');
+				if($("memberBar_<{$widgets_id}>"))
+				$("memberBar_<{$widgets_id}>").setStyle('display','none');
+			}
+		},
+		data:''
+		}).send();
+</script>
+
+

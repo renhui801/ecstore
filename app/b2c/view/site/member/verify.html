@@ -1,0 +1,163 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <div id="member_security" class="member-security">
+    <div class="member-title">
+      <h2><{t}>身份验证<{/t}></h2> <{if !$verify.mobile && !$verify.email}><p><{t}>（未绑定手机和邮箱）<{/t}></p><{/if}>
+    </div>
+    <!-- 步骤图 -->
+    <div id="verify_steps" class="steps steps-three">
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td class="step-item step-1 active"><span><q class="icon">&#x50;</q><i>1</i><{t}>身份验证<{/t}></span></td>
+            <td class="icon step-arrow">&#x28;</td>
+            <td class="step-item step-2"><span><q class="icon">&#x50;</q><i>2</i><{t}>设置验证信息<{/t}></span></td>
+            <td class="icon step-arrow">&#x28;</td>
+            <td class="step-item step-3"><span><q class="icon">&#x50;</q><i>3</i><{t}>完成<{/t}></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="verify_content" class="signupin-content verify-content">
+      <form action="<{link app=b2c ctl=site_member act=verify_vcode}>" method="post">
+        <input name="forward" type="hidden" value="<{$options.url}>">
+        <input type="hidden" name="verifyType" value="<{$verifyType}>"> 
+        <div class="msg"><{t}>为保障您的账户安全，请先验证您的身份<{/t}></div>
+        <ul>
+          <{if !$verify.mobile && !$verify.email}>
+          <li class="form-item">
+            <label for="" class="form-label">填写登录密码：</label>
+            <span class="form-act"><{input type="password" name="password" id="" autofocus vtype="required" data-caution="请填写您的登录密码"}></span>
+            <span class="caution-content"><{$msg}></span>
+          </li>
+          <li class="form-item-normal">
+            <span class="form-act"><{button type="submit" label=$___b2c="提交"|t:'b2c' class="btn-caution btn-big" rel="_request" data-ajax-config="{onSuccess:function(rs){changeStep(rs, 2);}}"}></span>
+          </li>
+          <{else}>
+          <li class="form-item">
+            <label for="" class="form-label">选择验证方式：</label>
+            <span class="form-act">
+              <{if $verify.mobile}>
+              <label for="for_verify_mobile" class="form-sub-label">
+                <input type="radio" name="send_type" checked id="for_verify_mobile" class="action-verify-method" value="mobile"> 
+                手机验证
+              </label>
+              <{/if}>
+              <{if $verify.email}>
+              <label for="for_verify_email" class="form-sub-label">
+                <input type="radio" name="send_type" <{if !$verify.mobile}>checked<{/if}> id="for_verify_email" class="action-verify-method" value="email"> 
+                邮箱验证
+              </label>
+              <{/if}>
+            </span>
+          </li>
+          <{if $verify.mobile}>
+          <li class="form-item op-verify-mobile  ">
+            <label for="" class="form-label">手机号码：</label>
+            <input type="hidden" name="mobile" value="<{$data.mobile}>"> 
+            <span class="form-act"><{$data.mobile}><a href="<{link app=b2c ctl=site_passport act=send_vcode_sms}>" data-mobile="<{$data.mobile}>" class="btn btn-caution action-get-verifycode"><span><span>获取验证码</span></span></a></span>
+          </li>
+          <li class="form-item op-verify-mobile">
+            <label for="" class="form-label">填写验证码：</label>
+            <span class="form-act"><{input type="text" name="vcode[mobile]" id="" vtype="required"}></span>
+            <span class="caution-content"><{$msg}></span>
+          </li>
+          <{/if}>
+          <{if $verify.email}>
+          <li class="form-item op-verify-email <{if $verify.mobile}>hide<{/if}>">
+            <label for="" class="form-label">邮箱地址：</label>
+            <input type="hidden" name="email" value="<{$data.email}>"> 
+            <span class="form-act"><{$data.email}> <a href="<{link app=b2c ctl=site_passport act=send_vcode_email}>" class="btn btn-caution action-resend-email" rel="_request" data-params="{uname:'<{$data.email}>',type:'activation'}" data-ajax-config="{loadtip:'发送中...'}"><span><span>发送验证邮件</span></span></a></span>
+          </li>
+          <li class="form-item op-verify-email <{if $verify.mobile}>hide<{/if}>">
+            <label for="" class="form-label">填写验证码：</label>
+            <span class="form-act"><{input type="text" name="vcode[email]" id="" vtype="required"}></span>
+            <span class="caution-content"><{$msg}></span>
+          </li>
+          <{/if}>
+          <li class="form-item-normal">
+            <span class="form-act"><{button type="submit" label=$___b2c="提交"|t:'b2c' class="btn-caution btn-big" rel="_request" data-ajax-config="{onSuccess:function(rs){changeStep(rs, 3, function(e){passwordStrength.init($$('form .auto-password-check-handle'));});}}"}></span>
+          </li>
+        <{/if}>
+        </ul>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+var module = $('verify_content');
+var Query = {
+    send: function(url, data, fn){
+        new Request({
+            url: url,
+            link: 'cancel',
+            onSuccess: function(rs) {
+                try{
+                    rs = JSON.decode(rs);
+                }catch(e){}
+                if(typeof rs.error === 'string') Message.error(rs.error);
+                else if(typeof rs.success === 'string') Message.success(rs.success);
+                fn && fn.call(this, rs);
+            }
+        }).post(data);
+    }
+};
+
+function changeStep(rs, x, fn) {
+    if(rs && rs[0]) {
+        if(typeOf(rs[0]) === 'string') {
+            module.innerHTML = rs[0];
+            if(x) $('verify_steps').getElement('.active').removeClass('active').getSiblings('.step-' + x).addClass('active');
+        }
+        else if(typeOf(rs[0]) === 'object') {
+            if(rs[0].error) return Message.error(rs[0].error);
+        }
+        fn && fn.call(this);
+    }
+}
+module.addEvents({
+    'change:relay(.action-verify-method)': function(e) {
+        var form = this.getParent('form');
+        form.getElements('.op-verify-mobile, .op-verify-email').addClass('hide');
+        form.getElements('.op-verify-' + this.value).removeClass('hide');
+    },
+    'click:relay(.action-resend-email)':function(e) {
+        e.stop();
+        var url = this.href;
+        var data = JSON.decode(this.get('data-params'));
+        Query.send(url, data, changeStep, function(rs){
+            if(rs.success) Message.success(rs.success);
+        });
+    },
+    'click:relay(.action-get-verifycode)': function(e) {
+        e.stop();
+        if(this.hasClass('disabled')) return false;
+        var el = module.getElement('.action-account-check');
+        if(this.hasClass('disabled')) return false;
+        sendVerify(this, 'uname=' + this.get('data-mobile') + '&type=activation');
+    }
+});
+
+function sendVerify(el, data) {
+    var url = el.href;
+    el.addClass('disabled');
+    var textCont = el.getElement('span span');
+    textCont.innerHTML = el.get('text') + '(<i>0</i>)';
+    var cd = new countdown(textCont.getElement('i'), {
+        start: 120,
+        secondOnly: true,
+        callback: function(e) {
+            el.removeClass('disabled');
+            textCont.innerHTML = '重发验证码';
+        }
+    });
+    Query.send(url, data, function(rs) {
+        if(rs.error) {
+            cd.stop();
+            el.removeClass('disabled');
+            textCont.innerHTML = '重发验证码';
+        }
+    });
+}
+</script>

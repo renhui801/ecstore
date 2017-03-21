@@ -1,0 +1,59 @@
+<div class="tabs-wrap">
+  <ul>
+    <li class="tab current"><span><{t}>FTP配置<{/t}></span></li>
+  </ul>
+</div>
+  <form method="post" action="index.php?app=importexport&ctl=admin_system&act=save" id="whitelist">
+    <input type="hidden" name="policy" value=<{$policy}> >
+    <div style="text-align:right;padding:3px 30px"></div>
+    <div class="notice">
+      <{t}>
+      ECstore系统需要用户配置FTP服务器用来存放批量导出的数据以及批量导入的结果，如果没有配置正确的FTP信息，则无法正确的进行导入和导出操作。<br>
+      <{/t}>
+      <{if !$params.support_ftp}>
+      <{t}>
+      <br>
+      注意：PHP未安装FTP扩展，将使用http协议进行FTP连接，强烈建议安装FTP扩展<br>
+      <{/t}>
+      <{/if}>
+    </div>
+
+  <table class="tableform" style="width:99%;">
+    <tbody>
+      <tr>
+        <th><{t}>FTP地址：<{/t}></th>
+        <td><{input type="text" name='host' value=$ftp_server.host size="40"}>      
+          <span class="notice-inline">例：192.168.45.123</span>
+        </td>
+      </tr>
+      <tr>
+        <th><{t}>FTP端口：<{/t}></th>
+        <td><{input type="text" name='port' value=$ftp_server.port size="5"}>
+          <span class="notice-inline">FTP默认端口为21</span>
+        </td>
+      </tr>
+      <tr>
+        <th><{t}>FTP用户名：<{/t}></th>
+        <td><{input type=text name='name' value=$ftp_server.name}></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th><{t}>FTP密码：<{/t}></th>
+        <td><{input type=password name='pass' value=$ftp_server.pass}></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th><{t}>FTP路径：<{/t}></th>
+        <td><{input type=text name='dir' value=$ftp_server.dir size="40"}>
+            <span class="notice-inline">此路径必须在服务器上已存在并且需要读写权限(/data/ftp)</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="table-action">
+    <{button label=$___importexport="测试配置"|t:'importexport' onclick="new Event(event).stop();W.page('index.php?app=importexport&ctl=admin_system&act=check&'+$('whitelist').toQueryString());"}>
+    <{button type="submit"  label=$___importexport="保存"|t:'site'}>
+  </div>
+  </form>
+
+

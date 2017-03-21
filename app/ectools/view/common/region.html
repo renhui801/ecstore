@@ -1,0 +1,45 @@
+<span class="region" vtype="<{$params.vtype}>" id="<{$params.id}>">
+<input name="<{$params.name}>" package="<{$params.package}>" type="hidden" value="<{$params.value}>" />
+<{foreach from=$area_depth item=item}>
+<{if $item === 0}>
+<select data-level-index="<{$item}>" class="x-select"><option value="_NULL_">请选择</option></select>
+<{else}>
+<select data-level-index="<{$item}>" class="x-select" style="display:none;"></select>
+<{/if}>
+<{/foreach}>
+</span>
+
+<script>
+(function() {
+//var isDebug = '<{if defined("DEBUG_JS") && DEBUG_JS}>js<{else}>js_mini<{/if}>/',
+var path ='<{$env.statics_host_url}>/ectools/statics/js/';
+var data_path ='<{$env.base_url}>/data/misc/';
+var container = $('<{$params.id}>');
+var callback = '<{$params.callback}>';
+var str = container.getElement('input').value;
+var sels = container.getElements('select');
+// var validate_area;
+var loadRegion = function(region){
+    region.init(container, callback, region_Data);
+    if(str) {
+        str = str.split(':')[1].split('/');
+        str.each(function(s,i){
+            var sel = sels[i];
+            var opt = sel.getChildren().filter(function(el){return el.get('text')==s;});
+            if(sel) region.changeResponse(sel,opt[0]);
+        });
+    }
+};
+<{if $env.const.ECAE_MODE}>
+<{$region_data}>
+<{/if}>
+try {
+    $LAB.script(<{if !$env.const.ECAE_MODE}>data_path + 'region_data.js', <{/if}>path + 'region.js').wait(function(){loadRegion(region_sel);});
+    // validate_area = LANG_formplus['validate']['area'];
+}
+catch(e) {
+    Ex_Loader(<{if !$env.const.ECAE_MODE}>data_path + 'region_data.js', <{/if}>path + 'region.js', function(){loadRegion(region_sel);});
+    // validate_area = LANG_Validate['area'];
+}
+})();
+</script>

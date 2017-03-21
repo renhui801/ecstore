@@ -1,0 +1,7 @@
+<services>
+
+    <service id="app_content_detector">
+        <class>archive_application_partition</class>
+    </service>
+
+</services>

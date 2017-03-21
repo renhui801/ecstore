@@ -1,0 +1,60 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 站内信：发送管理员 -->
+  <div id="member_messagebox" class="member-messagebox">
+    <div class="member-tabs">
+      <a href="<{link app=b2c ctl=site_member act=send}>" class="active"><em><{t}>发消息<{/t}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=inbox}>"><em><{t}>收件箱<{/t}><{if $inbox_num!=0}>(<{$inbox_num}>)<{/if}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=track}>"><em><{t}>发件箱<{/t}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=outbox}>"><em><{t}>草稿箱<{/t}><{if $outbox_num!=0}>(<{$outbox_num}>)<{/if}></em></a>
+      <a href="<{link app=b2c ctl=site_member act=message}>"><em><{t}>给管理员发消息<{/t}></em></a>
+    </div>
+    <div class="member-mod member-messagebox-list">
+      <div class="post-message">
+        <form action="<{link app=b2c ctl=site_member full=1 act=send_msg}>" method="post">
+          <ul>
+            <li class="form-item"><label for="" class="form-label"><{t}>收件人<{/t}>：</label><span class="form-act"><input type="text" name="msg_to" value="<{$init.to_uname|escape:'html'}>" id="" class="x-input" vtype="required"></span></li>
+            <li class="form-item"><label for="" class="form-label"><{t}>标题<{/t}>：</label>
+              <span class="form-act">
+                <input type="text" name="subject" value="<{$init.subject|escape:'html'}>" id="" class="x-input" vtype="required">
+              </span>
+            </li>
+            <li class="form-item"><label for="" class="form-label"><{t}>内容<{/t}>：</label>
+              <span class="form-act">
+                <textarea name="comment" id="" class="x-input" cols="50" rows="5" vtype="required" ><{$init.comment|escape:'html'}></textarea>
+              </span>
+            </li>
+            <li class="form-item">
+              <span class="form-act">
+                <button type="submit" class="btn btn-caution action-sendmsg" rel="_request"><span><span><{t}>发送<{/t}></span></span></button>
+                <button type="submit" class="btn btn-simple action-savetodrafts" name="has_sent" value="false" rel="_request"><span><span><{t}>保存到草稿箱<{/t}></span></span></button>
+              </span>
+            </li>
+          </ul>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('member_messagebox').addEvents({
+    'click:relay(.action-sendmsg)': function (e) {
+        var hidden = $('action_submit_save');
+        if(hidden) hidden.value = '';
+    },
+    'click:relay(.action-savetodrafts)': function (e) {
+        $('action_submit_save') || new Element('input#action_submit_save[type=hidden]', {name: this.name, value: getValue(this)}).inject(this, 'after');
+    }
+});
+
+function getValue(el) {
+    /* <ltIE9> */
+    var pollutesGetAttribute = (function(div){
+      div.random = 'attribute';
+      return (div.getAttribute('random') == 'attribute');
+    })(document.createElement('div'));
+    /* </ltIE9> */
+    return pollutesGetAttribute ? el.getAttributeNode('value').nodeValue : el.get('value');
+}
+</script>

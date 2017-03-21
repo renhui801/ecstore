@@ -1,0 +1,28 @@
+<app>
+    <name>移动商城2.0</name>
+    <description>移动商城2.0</description>
+
+    <author>
+        <name>shopex开发团队</name>
+        <email>dev@shopex.cn</email>
+        <url>http://www.shopex.cn</url>
+    </author>
+
+    <version>2.1</version>
+    <license>shopex license</license>
+
+    <check>
+        <extension_library show_name="检测php所需扩展库" logogram="el">
+            <list name="shmop" status="active"/>
+            <list name="simplexml" status="active"/>
+        </extension_library>
+        <common_function show_name="检测php必启函数" logogram="cf">
+            <list name="proc_open" description="ecsote2.0 queue must be used"/>
+            <list name="fsockopen" description="When api interface and must be used to activate" exec_function="base_system_composite@check_web_ping" />
+        </common_function>
+    </check>
+
+    <depends>
+        <app>b2c</app>
+    </depends>
+</app>

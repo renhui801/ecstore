@@ -1,0 +1,113 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 欢迎中心 -->
+  <div id="member_welcome" class="member-welcome">
+    <div class="member-welcome-content">
+      <div class="member-welcome-tips"><{t}>您好<{/t}> <em><{$member.uname}></em>，<{t}>欢迎进入会员中心<{/t}><{if !$member.local_uname}>，<a href="<{link app=b2c ctl=site_member act=setting}>"><em>您还没有设置用户名，点此设置</em></a><{/if}></div>
+      <ul class="member-welcome-desc">
+        <li><{t}>您目前是<{/t}>：<b>[<{$member.levelname}>]</b><{if $switch_lv.switch_type == 0 && $switch_lv.show eq 'YES'}>（<{t}>积分累积到<{/t}><i><{$switch_lv.lv_data}></i><{t}>可成为<{/t}><{$switch_lv.lv_name}>）<{/if}></li>
+        <li><{t}>经验值是<{/t}>：<i><{$member.experience}></i><{if $switch_lv.switch_type == 1 && $switch_lv.show eq 'YES'}>（<{t}>经验值累积到<{/t}><i><{$switch_lv.lv_data}></i><{t}>可成为<{/t}><{$switch_lv.lv_name}>）<{/if}></li>
+        <{if $point_usaged == 'true'}>
+        <li><{t}>账户总积分<{/t}>：<strong><{$member.point}></strong><{t}>分<{/t}> <a href="<{link app=pointprofessional ctl='site_point'  full='1' act='point_detail'}>"><{t}>查看积分记录<{/t}> &raquo;</a></li>
+        <{/if}>
+		    <{if $deposit_status == 'true'}>
+        <li><{t}>预存款余额<{/t}>：<strong><{$member.advance|cur_odr}></strong> <a href="<{link app=b2c ctl='site_member'  full='1' act='deposit'}>"><{t}>预存款充值<{/t}> &raquo;</a></li>
+        <{/if}>
+      </ul>
+    </div>
+    <div class="member-welcome-alert">
+      <{t}>交易提醒<{/t}>：
+      <a class="item" href="<{link app=b2c ctl=site_member act=orders arg0=nopayed}>"><{t}>未付款订单<{/t}><span class="label-<{if $member.un_pay_orders == '0'}>disabled<{else}>alert<{/if}>"><{$member.un_pay_orders}></span></a>
+      <a class="item" href="<{link app=b2c ctl=site_member act=notify}>"><{t}>到货通知<{/t}><span class="label-<{if $member.sto_goods_num == '0'}>disabled<{else}>alert<{/if}>"><{$member.sto_goods_num}></span></a>
+      <{if $comment_switch_discuss == 'on'}>
+      <a class="item" href="<{link app=b2c ctl=site_member act=comment}>"><{t}>评论回复<{/t}><span class="label-<{if $member.un_readDiscussMsg == '0'}>disabled<{else}>alert<{/if}>"><{$member.un_readDiscussMsg}></span></a>
+      <{/if}>
+      <{if $comment_switch_ask == 'on'}>
+      <a class="item" href="<{link app=b2c ctl=site_member act=ask}>"><{t}>咨询回复<{/t}><span class="label-<{if $member.un_readAskMsg == '0'}>disabled<{else}>alert<{/if}>"><{$member.un_readAskMsg}></span></a>
+      <{/if}>
+    </div>
+  </div>
+
+  <!-- 最近的订单 -->
+  <div id="member_orders" class="member-mod">
+    <div class="member-mod-title">
+      <h2>最近的订单</h2>
+      <{if $orders}>
+      <span class="member-mod-more"><a href="<{link app=b2c ctl=site_member act=orders}>"><{t}>所有订单<{/t}> &raquo;</a></span>
+      <{/if}>
+    </div>
+    <div class="member-mod-content">
+      <{include file='site/member/order_item.html'}>
+    </div>
+  </div>
+
+  <!-- 最新收藏 -->
+  <div id="member_fav" class="member-mod">
+    <div class="member-mod-title">
+      <h2>最新收藏</h2>
+      <{if $favorite}>
+      <span class="member-mod-more"><a href="<{link app=b2c ctl=site_member act=favorite}>">所有收藏 &raquo;</a></span>
+      <{/if}>
+    </div>
+    <div class="memeber-mod-content">
+      <{if $favorite}>
+      <ul class="member-goods-list">
+        <{foreach from=$favorite item="favorite" name=favorite}>
+        <li class="goods-item">
+          <div class="goods-pic"><{if !$favorite.goods_name}><a href="<{link app=b2c ctl=site_product arg0=$favorite.spec_desc_info.0.product_id}>"><{/if}><img src="<{if $favorite.udfimg == 'true'}><{$favorite.thumbnail_pic|default:$defaultImage|storager:'s'}><{else}><{$favorite.image_default_id|default:$defaultImage|storager:'s'}><{/if}>" alt="<{$favorite.name|default:$favorite.goods_name}>"></a></div>
+          <h3 class="goods-name"><{if !$favorite.goods_name}><a href="<{link app=b2c ctl=site_product arg0=$favorite.spec_desc_info.0.product_id}>"><{/if}><{$favorite.name|default:$favorite.goods_name}></a></h3>
+          <div class="price"><{$favorite.price|default:$favorite.goods_price|cur_odr}></div>
+        </li>
+        <{if $smarty.foreach.favorite.iteration == 4}>
+        <li class="last"></li>
+        <{break}>
+        <{/if}>
+        <{/foreach}>
+      </ul>
+      <{else}>
+      <div class="no-information"><{t}>暂无收藏<{/t}></div>
+      <{/if}>
+    </div>
+  </div>
+</div>
+
+<{if $orders}>
+<script>
+// Module = new Module('member', ['orders']);
+$('member_orders').addEvents({
+    'click:relay(.action-view-goods)':function (e) {
+        var parent = this.getParent('tbody');
+        var actions = parent.getElement('.actions');
+        if(parent.hasClass('fold')) {
+            actions.set('rowspan', 2);
+            parent.removeClass('fold').addClass('unfold');
+        }
+        else {
+            actions.set('rowspan', 1);
+            parent.removeClass('unfold').addClass('fold');
+        }
+    }
+});
+
+window.addEvent('domready', function(){
+    var tipsHandle = $$('[data-tips]');
+    if(tipsHandle.length) {
+        var tips = new Tips({
+            type: 'tooltip',
+            'class': 'xtooltip',
+            arrow: false,
+            offset:{y:-1},
+            position: 'bl'
+        });
+        tipsHandle.addEvents({
+            'mouseenter': function(){
+                tips.show(null, this);
+            },
+            'mouseleave': function(){
+                tips.hide();
+            }
+        });
+    }
+});
+</script>
+<{/if}>

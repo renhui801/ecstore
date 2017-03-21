@@ -1,0 +1,115 @@
+<div class="groupbuy-concerns">
+    <div class="groupbuy-ident clearfix">
+        <div class="price"><ins><{$goodsdata.price|cur_odr}></ins></div>
+        <div class="actions">
+
+            <{if $goodsdata.release_time < $nowtime && $nowtime < $goodsdata.begin_time}>
+            <{if !$goodsdata.remind_time}>
+            <button type="button" disabled class="btn btn-groupbuy disabled"><span><span>未开始</span></span></button>
+            <{elseif $goodsdata.msgbox_remind && $member_id == 0 }>
+            <a href="<{link app=b2c ctl=site_passport act=login}>"><button type="button" class="btn btn-groupbuy"><span><span>开售提醒</span></span></button></a>
+            <{else}>
+            <button type="button" class="btn btn-groupbuy btn-remind"><span><span>开售提醒</span></span></button>
+            <!--
+            <button type="button" disabled class="btn btn-groupbuy disabled" style="display:none;"><span><span><i class="icon">&#x70;</i><i class="text"> 已订阅</i></span></span></button>
+            -->
+            <{/if}>
+            <{elseif $goodsdata.begin_time <= $nowtime && $nowtime < $goodsdata.end_time && $goodsdata.store-$goodsdata.freez > 0}>
+                <a href="<{link app=b2c ctl=site_product act=index arg0=$goodsdata.product_id arg1=starbuy}>" class="btn btn-groupbuy"><span><span>马上抢</span></span></a>
+            <{elseif $goodsdata.end_time <= $nowtime || $goodsdata.store-$goodsdata.freez==0 || $goodsdata.marketable=="false"}>
+            <{if $goodsdata.store-$goodsdata.freez == 0 }>
+            <button type="button" disabled class="btn btn-groupbuy disabled"><span><span>已抢光</span></span></button>
+            <{else}>
+            <button type="button" disabled class="btn btn-groupbuy disabled"><span><span>已结束</span></span></button>
+            <{/if}>
+            <{/if}>
+            <{if !$member_id}>
+            <!-- favarite -->
+            <a href="<{link app=b2c ctl=site_passport act=login}>" class="btn btn-addfav"><i class="icon icon-fav">&#x2e;</i> <{t}>收藏<{/t}></a>
+            <{else}>
+            <a href="javascript:void(0);" class="btn btn-addfav" rel="_favbtn_" data-gid="<{$goodsdata.goods.goods_id}>" <{if $page_product_basic.is_fav}> style="display:none;"<{/if}>><i class="icon icon-fav">&#x2e;</i> <{t}>收藏<{/t}></a>
+            <a href="javascript:void(0);" class="btn btn-faved" rev="_favbtn_" <{if !$page_product_basic.is_fav}> style="display:none;"<{/if}>><i class="icon"></i> <{t}>已收藏<{/t}></a>
+            <{/if}>
+        </div>
+        <span class="arrow arrow-left"><i class="above"></i></span>
+    </div>
+
+    <{if $setting.mktprice == 'true'}>
+    <ul class="groupbuy-discount clearfix">
+        <li>
+        <div class="separate-left">
+            市场价：<b><{$goodsdata.mktprice|cur_odr}></b>
+        </div>
+        </li>
+        <li>
+        <div class="separate">
+            折扣：<b><{$goodsdata.discount_rate}></b>
+        </div>
+        </li>
+        <li>
+        <div class="separate-right">
+            节省：<b><{$goodsdata.mktprice-$goodsdata.price|cur_odr}></b>
+        </div>
+        </li>
+    </ul>
+    <{/if}>
+    <{if $nowtime < $goodsdata.end_time && $nowtime >= $goodsdata.begin_time}>
+    <div class="groupbuy-traffic">已购买人数：<b><{$goodsdata.initial_num}></b></div>
+    <{/if}>
+
+        <input type="hidden" name="" id="start_time" value="<{$goodsdata.begin_time}>">
+        <input type="hidden" name="" id="end_time" value="<{$goodsdata.end_time}>">
+    <{if $goodsdata.cdown == 'true'}>
+    <div class="groupbuy-timed">
+        <{if $goodsdata.begin_time <= $nowtime }>
+        距离活动结束还有：
+        <span class="time" id="timer">
+            <span><i class="date">0</i>天</span>
+            <span><i class="hours">0</i>时</span>
+            <span><i class="minutes">0</i>分</span>
+            <span><i class="seconds">0</i>秒</span>
+        </span>
+        <{elseif $nowtime <= $goodsdata.begin_time}>
+        距离开售还有：
+        <span class="time" id="timer">
+            <span><i class="date">0</i>天</span>
+            <span><i class="hours">0</i>时</span>
+            <span><i class="minutes">0</i>分</span>
+            <span><i class="seconds">0</i>秒</span>
+        </span>
+        <{/if}>
+    </div>
+    <{else}>
+    <div class="groupbuy-timed" style="display:none">
+        <{if $goodsdata.begin_time <= $nowtime }>
+        距离团购结束还有：
+        <span class="time" id="timer">
+            <span><i class="date">0</i>天</span>
+            <span><i class="hours">0</i>时</span>
+            <span><i class="minutes">0</i>分</span>
+            <span><i class="seconds">0</i>秒</span>
+        </span>
+        <{elseif $nowtime <= $goodsdata.begin_time}>
+        距离开售还有：
+        <span class="time" id="timer">
+            <span><i class="date">0</i>天</span>
+            <span><i class="hours">0</i>时</span>
+            <span><i class="minutes">0</i>分</span>
+            <span><i class="seconds">0</i>秒</span>
+        </span>
+        <{/if}>
+    </div>
+    <{/if}>
+</div>
+
+<{if $goods_share}>
+<!-- share -->
+<div id="groupbuy_share" class="groupbuy-share">
+    <i class="text"><{t}>分享<{/t}></i>
+    <span class="share-icons">
+        <{foreach from=$goods_share item=row}>
+        <a href="<{$row.url}>" target="_blank" class="<{$row.key}>" title="<{$row.name}>"><i class="icon"></i></a>
+        <{/foreach}>
+    </span>
+</div>
+<{/if}>

@@ -1,0 +1,274 @@
+<!-- 会员中心主内容区 -->
+<div class="page-article">
+  <!-- 我的订单 -->
+  <div id="member_fav" class="member-fav">
+    <div class="member-title">
+      <h2><{t}>商品收藏<{/t}></h2>
+    </div>
+    <div class="member-mod">
+      <table class="member-grid">
+        <thead>
+          <tr>
+            <th colspan="2"><{t}>商品名称<{/t}></th>
+            <th><{t}>金额<{/t}></th>
+            <th><{t}>状态<{/t}></th>
+            <th><{t}>操作<{/t}></th>
+          </tr>
+        </thead>
+        <tbody<{if !($browser.name=="IE" && ($brower.ver == 6 || $browser.ver == 7))}> class="first"<{/if}>>
+          <{if $favorite}>
+          <{foreach from=$favorite item=goods name=name}>
+          <tr<{if $smarty.foreach.name.iteration == 1}> class="first"<{/if}>>
+            <td><div class="goods-pic"><{if !$goods.goods_name}><a href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>" target="_blank"><{/if}><img src="<{$goods.image_default_id|default:$defaultImage|storager:'s'}>" alt="<{$goods.name|default:$goods.goods_name}>"></a></div></td>
+            <td class="goods-name"><{if !$goods.goods_name}><a href="<{link app=b2c ctl=site_product arg0=$goods.product_id}>" target="_blank"><{/if}><{$goods.name|default:$goods.goods_name}><{$goods.spec_info|spec_desc}></a></td>
+            <td class="price"><{$goods.price|default:$goods.goods_price|cur_odr}></td>
+            <td class="status"><{if $goods.marketable == 'true'}><{if $goods.store}><{t}>有货<{/t}><{else}><span class="text-disabled"><{t}>缺货<{/t}></span><{/if}><{elseif $goods.marketable == 'false'}><{t}>下架<{/t}><{else}><{t}>已删除<{/t}><{/if}></td>
+            <td class="actions">
+              <{if $goods.marketable == 'false'}>
+               <span><{t}>商品已下架<{/t}></span> <span class="text-separator">|</span><a href="<{link app=b2c ctl=site_member act=ajax_del_fav arg0=$goods.goods_id}>" class="action-delete" rel="<{$goods.goods_id}>"><{t}>移除<{/t}></a>
+              <{elseif $goods.goods_name}>
+               <span><{t}>商品已删除<{/t}></span> <span class="text-separator">|</span><a href="<{link app=b2c ctl=site_member act=ajax_del_fav arg0=$goods.goods_id}>" class="action-delete" rel="<{$goods.goods_id}>"><{t}>移除<{/t}></a>
+              <{elseif $goods.goods_name}>
+              <{else}>
+              <{if $goods.store > 0}>
+                <{if $env.conf.b2c.site.buy.target == '2'}>
+                  <{assign var='buytarget' value='_blank_cart'}>
+                <{elseif $env.conf.b2c.site.buy.target == '3'}>
+                  <{assign var='buytarget' value='_dialog_minicart'}>
+                <{/if}>
+              <a href="<{link app=b2c ctl=site_cart act=add arg0=goods arg1=$goods.goods_id arg2=$goods.product_id arg3=1}>" class="btn btn-major action-addtocart" <{if $buytarget}> target="<{$buytarget}>"<{/if}>><span><span><{t}>加入购物车<{/t}></span></span></a>
+              <{else}>
+              <button type="button" class="btn btn-caution action-notify" rel="<{$goods.goods_id}>::<{$goods.product_id}>"><span><span><{t}>到货通知<{/t}></span></span></button>
+              <{/if}>
+              <i class="separator"></i>
+              <a href="javascript:void(0);" class="action-compare" data-compare='{type_id:"<{$goods.type_id}>",goods_id:"<{$goods.goods_id}>",img:"<{$goods.image_default_id|storager:'s'}>",name:"<{$goods.name}>",price:"<{$goods.price|cur_odr}>"}'><{t}>商品对比<{/t}></a><span class="text-separator">|</span><a href="<{link app=b2c ctl=site_member act=ajax_del_fav arg0=$goods.goods_id}>" class="action-delete" rel="<{$goods.goods_id}>"><{t}>移除<{/t}></a>
+              <{/if}>
+            </td>
+          </tr>
+          <{/foreach}>
+          <{else}>
+          <tr class="first"><td colspan="5" class="no-information"><{t}>暂无收藏<{/t}></td></tr>
+          <{/if}>
+        </tbody>
+      </table>
+    </div>
+    <{pagers data=$pager}>
+  </div>
+</div>
+
+<div id="gallery_compare" class="gallery-compare">
+  <div class="fold"><a href="javascript:void(0);" class="handle-expan action-unfold-compare"><{t}>展开<{/t}></a><{t}>商品对比<{/t}></div>
+  <div class="unfold">
+    <form action="<{link app=b2c ctl=site_gallery act=diff}>" method="post" target="_blank" async="false">
+      <div class="header clearfix">
+        <h3><{t}>商品对比<{/t}></h3>
+        <span class="handle-collapse action-fold-compare"><a href="javascript:void(0);"><{t}>收起<{/t}></a><i class="icon">6</i></span>
+      </div>
+      <div class="content">
+        <div class="none-compare">
+          <{t}>无对比商品<{/t}><br><{t}>最多可对比<{/t}><i>5</i><{t}>个商品<{/t}>
+        </div>
+      </div>
+      <div class="footer hide"><button type="submit" class="btn btn-simple action-goods-compare"><span><span><{t}>对　比<{/t}></span></span></button><a href="javascript:void(0);" class="action-clear-compare"><{t}>清空<{/t}></a></div>
+    </form>
+  </div>
+  <script type="text/plain" class="compare-template">
+    <li class="compare-item clearfix">
+      <input type="hidden" name="type_id" value="{type_id}">
+      <input type="hidden" name="goods_id[]" value="{goods_id}">
+      <div class="goods-pic"><img class="action-goods-img" src="{img}" alt="{name}"></div>
+      <div class="goods-intro clearfix">
+        <h3 class="goods-name">{name}</h3>
+        <div class="goods-price">{price}</div>
+        <div class="goods-action"><a href="javascript:void(0);" class="action-del-compare">删除</a></div>
+      </div>
+    </li>
+  </script>
+  <script type="text/plain" class="none-template">
+    <div class="none-compare">
+      无对比商品<br>最多可对比<i>5</i>个商品
+    </div>
+  </script>
+</div>
+
+<!-- 缺货通知 -->
+<div id="product_notify" class="product-notify" style="display:none;">
+  <p class="desc"><{t}>该货品暂时缺货，请在下面输入您的邮箱地址或手机号码，当我们有现货供应时，我们会发送邮件通知您！<{/t}></p>
+  <form class="form" method="post" action="<{link app=b2c ctl=site_product act=toNotify}>">
+    <input type="hidden" name="item[0][goods_id]" value="">
+    <input type="hidden" name="item[0][product_id]" value="">
+    <ul>
+      <li class="form-item">
+        <label for="" class="form-label"><{t}>邮箱地址<{/t}>：</label>
+        <span class="form-act">
+          <{input type="text" name="email" id="" size="30" vtype="required&&email"}>
+        </span>
+      </li>
+      <li class="form-item">
+        <label for="" class="form-label"><{t}>手机号码<{/t}>：</label>
+        <span class="form-act">
+          <{input type="text" name="cellphone" id="" size="30" vtype="required"}>
+        </span>
+      </li>
+      <li class="form-item form-item-last">
+        <label for="" class="form-label"></label>
+        <span class="form-act">
+          <{button type="submit" class="btn-caution" label=$___b2c="提交"|t:'b2c' rel="_request"}>
+        </span>
+      </li>
+    </ul>
+  </form>
+</div>
+
+<script>
+var fav = $('member_fav');
+var compare = $('gallery_compare');
+fav.addEvents({
+    'click:relay(.action-compare)': function(e) {
+        if(compare.timer) clearTimeout(compare.timer);
+        addCompare(this);
+        openCompare();
+        foldCompare(3000);
+    },
+    'click:relay(.action-delete)': function(e) {
+        e.stop();
+        var self = this;
+        // var gid = this.rel;
+        Dialog.tips('确定移出收藏夹？',this, function(e) {
+            if(!e) return;
+            async(self, {
+                progress: function(rs) {
+                    if (rs.error) return Message.error(rs.error);
+                    // if (rs.success) Message.success(rs.success);
+                    // self.getParent('.member-mod').innerHTML = rs.data;
+                    // var MEMBER = Memory.get('member');
+                    // var FAVCOOKIE = new Memory('gfav.' + MEMBER, 365);
+                    // var re = new RegExp('(?:,)?' + gid + '(?:,)?');
+                    // FAVCOOKIE.write(FAVCOOKIE.read().replace(re, ','));
+                    location.reload();
+                }
+            });
+        });
+    },
+    'click:relay(.action-notify)': function(e) {
+        var id = this.get('rel').split('::');
+        var dialog = new Dialog($('product_notify').wrapped(), {
+            title:'到货通知',
+            width: 400,
+            modal: {
+                'class': 'cover'
+            },
+            onLoad: function(){
+                var content = this.content;
+                var holder = content.getElements('input[type=hidden]');
+                var handle = content.getElement('[rel=_request]');
+                holder[0].value = id[0];
+                holder[1].value = id[1];
+                handle && handle.store('_ajax_config',{
+                    onSuccess:function(rs){
+                        if(rs && rs[0]) {
+                            if(rs[0]['true']) {
+                                content.getElement('.product-notify').innerHTML = '<div class="success"><i class="icon">&#x25;</i>联系方式已经成功提交，到货后会立刻通知您。</div>';
+                                dialog.hide.delay(3000, dialog);
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    }
+})
+if(compare) {
+    compare.addEvents({
+        'click:relay(.action-unfold-compare)': function(e) {
+            openCompare();
+        },
+        'click:relay(.action-fold-compare)': function(e) {
+            foldCompare();
+        },
+        'click:relay(.action-del-compare)': function(e) {
+            e.preventDefault();
+            var ul = this.getParent('ul');
+            if(ul.getChildren().length > 1) {
+                this.getParent('.compare-item').destroy();
+            }
+            else clearCompare();
+        },
+        'click:relay(.action-goods-compare)':function(e) {
+            var item = compare.getElements('.compare-item');
+            if(item.length < 2) {
+                e.stop();
+                new Tips(this, '对比最少需要有2件商品');
+            }
+        },
+        'click:relay(.action-clear-compare)': function(e) {
+            e.preventDefault();
+            clearCompare();
+        },
+        'mouseleave': function(e) {
+            foldCompare(3000);
+        }
+    });
+}
+
+function addCompare(handle) {
+    var tpl = compare.getElement('.compare-template').innerHTML;
+    var data = JSON.decode(handle.get('data-compare'));
+    var html = tpl.substitute(data);
+    var content = compare.getElement('.content');
+    var ul = content.getElement('ul');
+    if(ul) {
+        if (checkCompare(data, ul.getElements('li'), handle)) {
+            html = ul.innerHTML + html;
+        }
+        else return;
+    }
+    else {
+        showCompareFoot();
+    }
+    content.innerHTML = '<ul>' + html + '</ul>';
+    if(Browser.ie6) {
+      content.getElements('.action-goods-img').zoomImg(60, 60);
+    }
+}
+function checkCompare(data, item, handle) {
+    var tips = new Tips(handle);
+    var i = 0, j = item.length;
+
+    if(j == 5) {
+        tips.show('最多只能对比5个商品，请删除之后再添加。');
+        return false;
+    }
+    if (data.type_id != item[0].getElement('input[name=type_id]').value) {
+        tips.show('只能对比同类商品！');
+        return false;
+    }
+    for(;i < j; i++) {
+        if(data.goods_id == item[i].getElement('input[name^=goods_id]').value) {
+            tips.show('该商品已加入对比栏。');
+            return false;
+        }
+    }
+    return tips.hide();
+}
+function openCompare() {
+    compare.addClass('gallery-compare-unfold');
+}
+function foldCompare(delay) {
+    if(delay && compare.hasClass('gallery-compare-unfold')) {
+        compare.timer = foldCompare.delay(delay);
+    }
+    else compare.removeClass('gallery-compare-unfold');
+}
+function clearCompare() {
+    var content = compare.getElement('.content');
+    content.innerHTML = compare.getElement('.none-template').innerHTML;
+    hideCompareFoot();
+}
+function showCompareFoot() {
+    compare.getElement('.footer').removeClass('hide');
+}
+function hideCompareFoot() {
+    compare.getElement('.footer').addClass('hide');
+}
+</script>

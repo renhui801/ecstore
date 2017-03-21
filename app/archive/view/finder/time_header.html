@@ -1,0 +1,110 @@
+<div class="gridlist-action data-action" id="dataAction" style="margin-bottom:10px;padding:5px; border:0;">
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <td nowrap="nowrap">
+        <label><{t}><{$extra_search_info.key.label}><{/t}></label><input type="text" name="<{$extra_search_info.key.column}>" value="">&nbsp;
+        <label><{t}>时间范围<{/t}></label>
+        <select id="from_year" class="date_select" data-selected="<{$from_selected[0]}>">
+          <{foreach from=$year item=item}>
+            <option value="<{$item}>" <{if $from_selected[0] == $item}>selected="selected"<{/if}>><{$item}></option>
+          <{/foreach}>
+        </select><{t}>年<{/t}>
+        <select id="from_month" class="date_select" data-selected="<{$from_selected[1]}>">
+          <{foreach from=$from_month item=item}>
+            <option value="<{$item}>" <{if $from_selected[1] == $item}>selected="selected"<{/if}>><{$item}></option>
+          <{/foreach}>
+        </select><{t}>月 <{/t}><{t}>至<{/t}>
+
+        <select id="to_year" class="date_select" data-selected="<{$to_selected[0]}>">
+          <{foreach from=$year item=item}>
+            <option value="<{$item}>" <{if $to_selected[0] == $item}>selected="selected"<{/if}>><{$item}></option>
+          <{/foreach}>
+        </select><{t}>年<{/t}>
+        <select id="to_month" class="date_select" data-selected="<{$to_selected[1]}>">
+          <{foreach from=$to_month item=item}>
+            <option value="<{$item}>" <{if $to_selected[1] == $item}>selected="selected"<{/if}>><{$item}></option>
+          <{/foreach}>
+        </select><{t}>月<{/t}>
+        <input type="hidden" name="time_from" value="<{$time_from}>">
+        <input type="hidden" name="time_to" value="<{$time_to}>">
+
+        <{button class="filterBtn btn-secondary" label=$___archive="确定"|t:'archive'}>&nbsp;
+        <!-- <{button class="btn-secondary" id="filter-archive-reset" label=$___archive="取消"|t:'archive'}> -->
+
+      </td>
+    </tr>
+  </table>
+</div>
+
+<script>
+  (function(){
+
+    var _finder = finderGroup['<{$name}>'],
+        dataAction= $('dataAction'),
+        data_ipt=$$(dataAction.getElements('input[name^=time_]'),dataAction.getElements('select')),
+        from=dataAction.getElement('input[name=time_from]'),
+        to=dataAction.getElement('input[name=time_to]');
+
+    if(_finder&&_finder.form){
+      fdoc = document.createDocumentFragment();
+      data_ipt.each(function(ipt){
+        fdoc.appendChild(new Element('input[type=hidden]', {'name': ipt.name, value: ipt.value}));
+      });
+      _finder.form.appendChild(fdoc);
+    }
+
+    data_ipt.addEvent('change',function(e){
+      if(_finder&&_finder.form){
+        var ipt=$E('input[name='+this.name+']',_finder.form);
+        if(ipt)ipt.value=this.value;
+      }
+    });
+
+    var today=new Date();
+    $$('select.date_select').each(function(item){
+      item.addEvent('change',function(){
+        setDate(this.get('id').split('_')[0]);
+      });
+    });
+
+    setDate();
+
+    function setDate(){
+      var arguments=arguments.length===0 ? ['from','to'] : arguments;
+      $A(arguments).each(function(item){
+        dataAction.getElement('input[name=time_'+item+']').value=$(item+'_year').options[$(item+'_year').selectedIndex].text+'-'+$(item+'_month').options[$(item+'_month').selectedIndex].text+'-01';
+      });
+    }
+
+
+    function setChartData(flag,e){
+      if(!check_data(from,to))return;
+      var params=dataAction.toQueryString();
+      if(flag) url='index.php?app=<{$env.get.app}>&ctl=<{$env.get.ctl}>&act=<{$env.get.act}>';
+      else url=e.target.href||e.target.getParent().href;
+      W.page(url, {data:params, method:'post',onComplete:function(){
+          if(_finder) _finder.filter.value=params;
+      }});
+    }
+
+    dataAction.getElement('.filterBtn').addEvent('click',function(e){setChartData(true);});
+
+    function check_data(from,to){
+      if(Date.parse(to.value.replace(/-/gi,"/"))<Date.parse(from.value.replace(/-/gi,"/"))){
+        return MessageBox.error('<{t}>选择开始时间必须早于结束时间<{/t}>');
+      }
+      return true;
+    }
+
+/*    $('filter-archive-reset').addEvent('click',function(){
+      $$('input').each(function(item){
+        item.value='';
+      });
+      $$('select').each(function(item){
+        item.value = item.get('data-selected');
+      });
+    });*/
+
+  })();
+
+</script>

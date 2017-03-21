@@ -1,0 +1,19 @@
+<!-- 订单价格 -->
+<td colspan="4" class="order-price" id="order_price">
+  <ul>
+    <li class="goods">
+      <span class="label"><em>商品金额：</em></span>
+      <span class="price"><b><{$aCart.subtotal_prefilter_after|cur_odr}></b></span>
+    </li>
+    <{if $aCart.discount_amount_order > 0}>
+    <li class="discount">
+      <span class="label"><em><{t}>优惠金额<{/t}>：</em></span>
+      <span class="price"><b><{$aCart.discount_amount_order|cur_odr}></b></span>
+    </li>
+    <{/if}>
+    <li class="total">
+      <span class="label"><{if $aCart.subtotal_gain_score>0}><i>(订单可得积分<span class="subtotal-integral"><{$aCart.subtotal_gain_score}></span>)</i> <{/if}><em><{t}>总金额：<{/t}></em></span>
+      <span class="price"><b><{$aCart.promotion_subtotal|cur_odr}></b></span>
+    </li>
+  </ul>
+</td>

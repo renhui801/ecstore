@@ -1,0 +1,29 @@
+<div class="tableform">
+  <form action="<{link app=search ctl='search' act=index_setting}>" method="post">
+    <{foreach from=$tables item=item}>
+    <h3>索引名称:<{$item.Index}></h3>
+    <table cellpadding="0" class="gridlist" cellspacing="0" width="100%" border="0">
+        <tr>
+		    <td>排序模式</td>
+        <td><{input type="select"  name='[ranker]'|paddingleft:1:$item.Index value=$setting.[$item.Index].ranker options=$search_ranker}></td>
+        <tr>
+        <td>搜索默认排序字段</td>
+        <td>
+          <{input type="select" name='[order_value]'|paddingleft:1:$item.Index  value=$setting.[$item.Index].order_value options=$column.[$item.Index]}>
+          <{if $setting.[$item.Index].order_type =='desc' || !$setting.[$item.Index].order_type}>
+          <input type="radio" value='desc' name='<{$item.Index}>[order_type]' checked='checked'>降序
+          <input type="radio" value='asc' name='<{$item.Index}>[order_type]' >升序
+          <{else}>
+          <input type="radio" value='desc' name='<{$item.Index}>[order_type]' >降序
+          <input type="radio" value='asc' name='<{$item.Index}>[order_type]' checked='checked'>升序
+          <{/if}>
+        </td>
+        </tr>
+        <tr>
+        <td>搜索最多条目</td>
+        <td><{input type="text" vtype='unsignedint'  name='[max_limit]'|paddingleft:1:$item.Index value=$setting.[$item.Index].max_limit  }></td>
+        </tr>
+    </table>
+    <{/foreach}>
+	  <div class="table-action"><{button type="submit" label=$___b2c="保存"|t:'b2c' }></div>
+</div>

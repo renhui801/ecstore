@@ -1,0 +1,28 @@
+<{if $env.conf.search.associate_enabled == '1'}>
+<{assign var=associate value="true"}>
+<{/if}>
+<form action="<{link app=b2c ctl=wap_search act=result }>" method="post" id="searchbar_<{$widgets_id}>">
+  <div class="search">
+    <input type="text" name="search_keywords" placeholder="<{$data.search_key}>" data-autocompleter="<{link app=b2c ctl=wap_search act=associate}>" class="key" />
+    <button class="submit" type="submit"></button>
+  </div>
+</form>
+<{if $associate == 'true'}>
+<{script src="autocompleter.js" app="wap" pdir="js_mini"}>
+<{/if}>
+<script>
+(function(e){
+    $('#searchbar_<{$widgets_id}>').on('submit',function(){
+        if($.trim($(this).find('.key').val()) == ''){
+            return false;
+        }
+    });
+
+    <{if $associate == 'true'}>
+    $('[data-autocompleter]').attr('autocomplete', 'off').autocompletion({
+        source: $('[data-autocompleter]').attr('data-autocompleter'),  // Also it can be a function.
+        postVar: 'value'
+    });
+    <{/if}>
+})();
+</script>

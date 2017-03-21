@@ -1,0 +1,17 @@
+<cronentries>
+  <cron id="b2c_tasks_cleancartobject">
+    <description>清除用户购物车数据</description>
+    <schedule>0 2 1 * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+<!--   <cron id="b2c_tasks_archive">
+  <description>归档订单相关单据</description>
+  <schedule>*/5 * * * *</schedule>
+  <enabled>true</enabled>
+</cron>
+<cron id="b2c_tasks_order_finish">
+  <description>每天完成符合条件的订单</description>
+  <schedule>0 5 * * *</schedule>
+  <enabled>true</enabled>
+</cron> -->
+</cronentries>

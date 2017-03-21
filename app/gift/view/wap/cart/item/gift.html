@@ -1,0 +1,91 @@
+
+<{if $aCart.object.gift.cart}>
+<ul class="pt-list">
+  <li class="label">积分兑换赠品</li>
+  <{foreach from=$aCart.object.gift.cart item=cart_gift}>
+  <li class="pt-h-item c-fix">
+    <input type="hidden" name="obj_type" value="gift">
+    <input type="hidden" name="min" value="1"/>
+    <input type="hidden" name="max" value="<{$cart_gift.params.real}>"/>
+    <input type="hidden" name="stock" value="<{$cart_gift.params.store.store}>"/>
+    <div class="pt-h-img">
+      <a href="#">
+        <img src="<{$cart_gift.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="">
+      </a>
+    </div>
+    <div class="pt-h-info">
+      <div class="pt-h-name">
+        <{$cart_gift.name}>
+      </div>
+      <div class="pt-h-other">
+        <{$cart_gift.spec_info}>
+      </div>
+      <div class="pt-h-price">
+        <div class="col2">
+          <div class="col price">
+            <{$cart_gift.price.price|cur_odr}>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-h-bar c-fix">
+      <div class="pt-num J-pt-num">
+        <span class="minus btn gray">-</span>
+        <div class="num">
+          <input type="text" name="modify_quantity[<{$cart_gift.obj_ident}>]" value="<{$cart_gift.quantity}>">
+        </div>
+        <span class="plus btn gray">+</span><{if $cart_gift.params.store.store <= 5}><span class="warn-message">余量有限</span><{/if}>
+      </div>
+      <div class="pt-h-fav">
+      <{if $login=='nologin'}>
+        <a href="<{link app=b2c ctl=wap_passport act=login}>" class="btn">收藏</a>
+      <{else}>
+        <{if !$goods.obj_items.products.0.is_fav}>
+        <a class="btn btn-addfav" data-gid="<{$goods.obj_items.products.0.goods_id}>" href="javascript:void(0);">收藏</a>
+        <a type="button" class="btn btn-faved" style="display:none;">已收藏</a>
+        <{else}>
+        <a href="javascript:void(0);" class="btn btn-addfav" data-gid="<{$goods.obj_items.products.0.goods_id}>" style="display:none;">收藏</a>
+        <a href="javascript:void(0);" class="btn btn-faved">已收藏</a>
+        <{/if}>
+      <{/if}>
+      </div>
+      <div class="pt-h-del">
+        <a href="<{link app=b2c ctl='wap_cart' act='remove' arg0='goods'}>" class="btn gray J-remove">
+          删除
+        </a>
+      </div>
+    </div>
+  </li>
+  <{/foreach}>
+</ul>
+<{/if}>
+
+<!-- 订单赠品 -->
+<ul class="pt-list" <{if !$aCart.object.gift.order}> style="display:none;"<{/if}>>
+  <li class="label">订单赠品</li>
+  <{foreach from=$aCart.object.gift.order item=order_gift}>
+  <li class="pt-h-item c-fix">
+    <div class="pt-h-img">
+      <a href="#">
+        <img src="<{$order_gift.default_image.thumbnail|default:$env.conf.site.default_thumbnail_pic|storager:'s'}>" alt="">
+      </a>
+    </div>
+    <div class="pt-h-info">
+      <div class="pt-h-name">
+        <{$order_gift.name}>
+      </div>
+      <div class="pt-h-other">
+        <{$order_gift.spec_info}>
+      </div>
+      <div class="pt-h-price">
+        <div class="col2">
+          <div class="col price">
+            <{$order_gift.price.price|cur_odr}>
+          </div>
+          <div class="right">数量:<{$order_gift.quantity}></div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <{/foreach}>
+</ul>

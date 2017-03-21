@@ -1,0 +1,152 @@
+<div class="full-screen">
+    <header>
+    <div class="a-bar">
+        <a href="javascript:history.back()" class="a-back">
+            <i class="arr left"></i>
+            返回
+        </a>
+        <div class="a-name">
+            未评价商品
+        </div>
+        <div class="a-right">
+            <div class="a-search"></div>
+        </div>
+    </div>
+    </header>
+  <div id="member_nocomment">
+    <{if $list}>
+    <table class="mem-comment-list" width="100%">
+      <thead>
+        <tr>
+          <th colspan="2"><{t}>商品<{/t}></th>
+          <th><{t}>购买时间<{/t}></th>
+          <th><{t}>操作<{/t}></th>
+        </tr>
+      </thead>
+      <tbody>
+      <{foreach from=$list item=item name=name}>
+        <tr <{if $smarty.foreach.name.iteration == '1'}>class="first"<{/if}>>
+          <td class="goods-pic">
+            <a href="<{link app=b2c ctl=wap_product arg0=$item.product_id}>">
+              <img src="<{$goods.[$item.goods_id].image_default_id|storager:'s'}>" alt="<{$goods.[$item.goods_id].name}>">
+            </a>
+          </td>
+          <td class="goods-name">
+            <a href="<{link app=b2c ctl=wap_product arg0=$item.product_id}>"><{$goods.[$item.goods_id].name}></a>
+          </td>
+          <td class="datetime"><{$item.createtime|cdate:SDATE_STIME}></td>
+          <td class="actions">
+          <a href="#" class="action-show-comment active" rel='{"goods_id":"<{$item.goods_id}>","order_id":"<{$item.order_id}>","product_id":"<{$item.product_id}>" }'><{t}>评论<{/t}></a>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" class="comment-cell"></td>
+        </tr>
+      <{/foreach}>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" class="comment-cell">
+            <form action="<{link app=b2c ctl=wap_comment act=toComment arg0=discuss}>" method="post" id="post_comment" class="post-comment hide" data-type="ajax">
+              <input type="hidden" name="goods_id">
+              <input type="hidden" name="product_id">
+              <input type="hidden" name="order_id">
+              <div class="publish_comment">
+                  <{foreach from=$comment_goods_type item=comment_goods_type}>
+                  <div class="grades">
+                    <span class="tag"><{$comment_goods_type.name}>：</span>
+                    <div class="star big s_5"></div>
+                    <input type="hidden" class="action-score" name="point_type[<{$comment_goods_type.type_id}>][point]" value="5">
+                  </div>
+                  <{/foreach}>
+                  <div class="sub-label-side"><{$submit_comment_notice}></div>
+                  <div class="textarea">
+                      <textarea class="action-fill-textarea" name="comment" placeholder="欢迎发表回复，最多1000字。"></textarea>
+                      <span class="current">还可以输入<b>1000</b>字</span>
+                  </div>
+                  <{if $verifyCode == 'on'}>
+                  <div class="item">
+                      <label>验证码</label>
+                       <{input type="vcode" class="verify-input" id="discuss_verifycode" name="discussverifyCode" size="4" key="DISSVCODE" placeholder="填写验证码" label="换一个"}>
+                  </div>
+                  <{/if}>
+                  <div class="mt10"><input type="checkbox" name="hidden_name" value="YES"  id=""> <{t}>匿名发表<{/t}>&nbsp;&nbsp;</div>
+                  <button type="submit" class="btn" rel="_request">发表评论</button>
+              </div>
+            </form>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <{wap_pagers data=$pager}>
+    <{else}>
+    <table class="member-grid">
+      <tbody class="first">
+        <tr><td colspan="4" class="no-information"><{t}>暂无未评论商品<{/t}></td></tr>
+      </tbody>
+    </table>
+    <{/if}>
+    <!--
+    说明：由于三个月后的订单将被归档，所以请在下单三个月内对完成订单的商品进行评价，超过三个月将无法进行评价！
+    -->
+  </div>
+</div>
+<{if $list}>
+<script>
+var container = $('#member_nocomment');
+// var content = container.getElement('tbody');
+// if(content) {
+//     post.setStyle('width', post.getSize().x - post.getPatch('padding', 'border').x);
+//     openComment(content, content.getElement('.action-show-comment'));
+//     starGrade('scores_list');
+// }
+container.find('.action-show-comment').on('click',function(){
+  var form = container.find('.post-comment');
+  var tr = $(this).parents('tr');
+  var id = $.parseJSON(this.getAttribute('rel'));
+  tr.next().find('td').append( form.removeClass('hide') );
+  if(id){
+    form.find('input[name=goods_id]').val( id.goods_id );
+    form.find('input[name=product_id]').val( id.product_id );
+    form.find('input[name=order_id]').val( id.order_id );
+  }
+});
+$('.action-fill-textarea').on('input',function(){
+  var cur = $(this).next().find('b'), max = 1000;
+  if(this.value.length > max) {
+      this.value = this.value.substr(0, max);
+      alert('内容超限，最多输入 ' + max + ' 字');
+  }
+  cur.text(1000 - this.value.length);
+});
+
+$('.star').on('click',function(event){
+    var x = event.offsetX;
+    if(x<25){
+        this.className = 'star big s_1';
+        $(this).next().val(1);
+        return;
+    }
+    if(x<50){
+        this.className = 'star big s_2';
+        $(this).next().val(2);
+        return;
+    }
+    if(x<75){
+        this.className = 'star big s_3';
+        $(this).next().val(3);
+        return;
+    }
+    if(x<100){
+        this.className = 'star big s_4';
+        $(this).next().val(4);
+        return;
+    }
+    if(x<125){
+        this.className = 'star big s_5';
+        $(this).next().val(5);
+        return;
+    }
+});
+</script>
+<{/if}>

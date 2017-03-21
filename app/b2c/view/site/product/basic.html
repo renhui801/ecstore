@@ -1,0 +1,78 @@
+<!-- 标题简介 -->
+<div class="product-titles">
+  <h2><{$page_product_basic.title}></h2>
+  <{if $page_product_basic.brief}><p><{$page_product_basic.brief}></p><{/if}>
+</div>
+<{if $setting.buytarget == '2'}>
+<{assign var='buytarget' value='target="_blank_cart"'}>
+<{elseif $setting.buytarget == '3'}>
+<{assign var='buytarget' value='target="_dialog_minicart"'}>
+<{/if}>
+<form action="<{link app=b2c ctl=site_cart act=add arg0=goods}>" method="post" <{$buytarget}>>
+  <input type="hidden" name="btype">
+  <input type="hidden" name="goods[goods_id]" value="<{$page_product_basic.goods_id}>">
+  <input type="hidden" name="goods[product_id]" value="<{$page_product_basic.product_id}>">
+  <div class="product-side" style="width:<{$setting.imageDefault.M.width+2}>px;">
+    <{include file='site/product/info/pic.html'}>
+    <!-- 分享推荐收藏 -->
+    <{include file='site/product/info/share.html'}>
+  </div>
+  <div class="product-main clearfix" style="margin-left:<{$setting.imageDefault.M.width+20}>px;">
+    <!-- 商品基本信息 -->
+    <div id="product_information" class="product-information">
+      <!--商品价格 and 商品评分-->
+      <{include file='site/product/info/price.html' app=$app_name}>
+      <!-- 赠品和促销 -->
+      <{include file='site/product/info/promotion.html'}>
+      <!-- 扩展属性 -->
+      <{include file='site/product/info/props.html'}>
+      <!-- 购买区 -->
+      <div class="product-buy">
+        <!-- 商品规格 -->
+        <{if $page_product_basic.spec.goods && $page_product_basic.goods_marketable == 'true'}>
+        <{include file='site/product/info/spec.html'}>
+        <{/if}>
+        <div class="product-action">
+          <ul>
+            <!--商品库存-->
+            <{include file='site/product/info/store.html'}>
+            <!--购买按钮-->
+            <{include file='site/product/info/btn.html'}>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+<img src="<{link app=b2c ctl=site_product act=cron arg=$page_product_basic.goods_id }>" width="1" border="none" height="1">
+
+<{*if $product_store.store <= 0*}>
+<div id="product_notify" class="product-notify" style="display:none;">
+  <p class="desc"><{t}>该货品暂时缺货，请在下面输入您的邮箱地址或手机号码，当我们有现货供应时，我们会发送邮件通知您！<{/t}></p>
+  <form class="form" method="post" action="<{link app=b2c ctl=site_product act=toNotify}>">
+    <input type="hidden" name="item[0][goods_id]" value="<{$page_product_basic.goods_id}>">
+    <input type="hidden" name="item[0][product_id]" value="<{$page_product_basic.product_id}>">
+    <ul>
+      <li class="form-item">
+        <label for="" class="form-label"><{t}>邮箱地址<{/t}>：</label>
+        <span class="form-act">
+          <{input type="text" name="email" id="" size="30" vtype="required&&email"}>
+        </span>
+      </li>
+      <li class="form-item">
+        <label for="" class="form-label"><{t}>手机号码<{/t}>：</label>
+        <span class="form-act">
+          <{input type="text" name="cellphone" id="" size="30" vtype="required"}>
+        </span>
+      </li>
+      <li class="form-item form-item-last">
+        <label for="" class="form-label"></label>
+        <span class="form-act">
+          <{button type="submit" class="btn-caution" label=$___b2c="提交"|t:'b2c' rel="_request"}>
+        </span>
+      </li>
+    </ul>
+  </form>
+</div>
+<{*/if*}>

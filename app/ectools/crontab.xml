@@ -1,0 +1,12 @@
+<cronentries>
+  <cron id="ectools_tasks_statistic_hour">
+    <description>分析统计更新每小时数据</description>
+    <schedule>10 * * * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+  <cron id="ectools_tasks_statistic_day">
+    <description>分析统计更新每天数据</description>
+    <schedule>10 2 */1 * *</schedule>
+    <enabled>true</enabled>
+  </cron>
+</cronentries>

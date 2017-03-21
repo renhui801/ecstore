@@ -1,0 +1,90 @@
+<style type="text/css">
+  .store-area-list li{margin-bottom: 10px;}
+  .store-area-list li q{display: inline-block;width: 120px;}
+  .store-area-list .error{position: absolute;}
+</style>
+<form method="post" action="<{link app=b2c ctl=admin_goods_storePrompt act=save}>" class="tableform" id="store_prompt">
+    <{input type='hidden' name='prompt_id' value=$prompt.prompt_id}>
+  <table>
+    <tbody>
+      <tr>
+          <th><{t}>规则名称<{/t}></th>
+        <td colspan="2"><{input type="text" name="name" id="" size="30" value=$prompt.name}></td>
+      </tr>
+      <tr>
+          <th><{t}>规则排序<{/t}></th>
+        <td colspan="2"><{input type="text" name="order_by" id="" size="2" value=$prompt.order_by}></td>
+      </tr>
+      <tr>
+          <th><{t}>是否默认<{/t}></th>
+        <td colspan="2"><{input type='intbool'  id='bool' name='default' value=$prompt.default|default:0}></td>
+      </tr>
+      <tr>
+          <th><{t}>提示规则<{/t}></th>
+        <td>
+          <ul class="store-area-list" id="store_area">
+              <li class="title"><q><{t}>库存区间<{/t}></q><i><{t}>库存提示文字<{/t}></i></li>
+            <{foreach from=$prompt.values item=item key=key name=name}>
+            <li class="item">
+              <q>
+                  <{input type="text"  name="values[{$key}][min]" id="" size="2" value=$item.min }> -
+                  <{input type="text"  name="values[{$key}][max]" id="" size="2" value=$item.max }>
+              </q>
+              <i><{input type="text" vtype="required" name="values[{$key}][title]" id="" maxlength="10" value=$item.title }>
+              <{if $smarty.foreach.name.iteration>3}>
+              <a href="javascript:void(0);" class="del">删除</a>
+              <{/if}>
+              </i>
+            </li>
+            <{/foreach}>
+            <{assign var='value_num' value=count($prompt.values)}>
+          </ul>
+          <div><{button class="btn" label="添加自定义状态" icon="add_icon.gif" id="add_store"}></div>
+        </td>
+        <td>
+          <h5>说明：</h5>
+          <p>
+            提示文字必须10字以内
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th></th>
+        <td><{button class="btn btn-primary" type="submit" label="保存"}></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+<script type="text/javascript">
+(function(){
+    $('store_prompt').getElements('.del').addEvent('click', function(){
+      this.getParent('.item').destroy();
+    });
+
+  var id = 1;
+  function tpl(id) {
+      var tpl = '';
+      tpl+='  <q>';
+      tpl+='   <{input type="text"  name="values[new_' + id + '][min]" id="" size="2"}> -';
+      tpl+='   <{input type="text"  name="values[new_' + id + '][max]" id="" size="2"}>';
+      tpl+='  </q>';
+      tpl+='  <i><{input type="text" vtype="required" name="values[new_' + id + '][title]" id="" maxlength="10"}> <a href="javascript:void(0);" class="del">删除</a></i>';
+      return tpl;
+  }
+  $('add_store').addEvent('click', function(){
+      var el = new Element('li.item', {html: tpl(id++)}).inject($('store_area'));
+      el.getElement('.del').addEvent('click', function(){
+          this.getParent('.item').destroy();
+      });
+  });
+
+  $('store_prompt').store('target', {
+    onComplete: function(rs){
+        rs = JSON.decode(rs);
+        if(rs.success)
+        $('store_prompt').getParent('.dialog').retrieve('instance').close();
+    }
+  });
+
+})()
+</script>

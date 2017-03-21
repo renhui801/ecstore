@@ -1,0 +1,146 @@
+<{if $minfo}>
+<{foreach from=$minfo item="product" key=product_id}>
+<div class='FormWrap'>
+	<h5 style="border-bottom:1px solid #ccc; padding:3px 0"><{t}>填写购买<{/t}>&nbsp;&nbsp;<{$product.name}><{if $product.nums>1}> x <{$product.nums}><{/if }>&nbsp;&nbsp;<{t}>时所需信息<{/t}></h5>
+	<div class="field section" >
+		<div>
+		  <table width="100%" cellspacing="0" cellpadding="0" border="0" class="liststyle data">
+			  <col class="span-5"></col>
+			  <col></col>
+			  <tbody>
+					 <{foreach key=key from=$product.minfo item="info"}>
+					  <{assign var="infokey" value=$info.name}>
+					  <tr>
+					  <th>
+						<em class="c-red">*</em><label for="misc_<{$key}>"><{$info.label}>：</label>
+						<input type="hidden" name="minfo[<{$product_id}>][<{$info.name}>][label]" value="<{$info.label}>">
+					  </th>
+					  <td>
+						<{if $info.type=='select'}>
+						<select class="inputstyle x-input" name="minfo[<{$product_id}>][<{$info.name}>][value]">
+						<{foreach from=$info.options item=opt}>
+						<option value="<{$opt}>"><{$opt}></option>
+						<{/foreach}>
+						</select>
+						<{elseif $info.type=='text'}>
+						<{input class="inputstyle x-input" type="textarea" rows="3" cols="40" id="misc_{$key}" name="minfo[{$product_id}][{$infokey}][value]" vtype="required"}>
+						<{else}>
+						<{input class="inputstyle" id="misc_{$key}" size="30" name="minfo[{$product_id}][{$infokey}][value]" type='required' }>
+						<{/if}>
+					  </td>
+					  </tr>
+					  <{/foreach}>
+			  </tbody>
+		  </table>
+
+		  </div>
+	</div>
+</div>
+<{/foreach}>
+<{/if}>
+
+<div class="FormWrap checkoutbase" >
+  <div class="section">
+    <div class="form-title">
+      <h5>
+      <span>1</span>
+      <{t}>收货信息确认<{/t}>
+      <em class="c-red">*</em>
+      </h5>
+    </div>
+    <div class="form-body">
+      <{include file="admin/order/receiver.html" app=b2c}>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="form-title">
+      <h5>
+      <span>2</span>
+      <{t}>配送方式确认<{/t}>
+      <em class="c-red">*</em>
+      </h5>
+    </div>
+    <div class="form-body">
+      <div id="shipping">
+        <{if $delivery_html}>
+          <{$delivery_html}>
+        <{else}>
+          <div class="notice" >
+          <{t}>请先“在收货人信息”中选择“收货地区”<{/t}>
+          </div>
+        <{/if}>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="form-title">
+      <h5>
+        <span>3</span>
+        <{t}>支付方式确认<{/t}>
+        <em class="c-red">*</em>
+      </h5>
+    </div>
+    <div class="form-body">
+      <!--
+      <div id="_payment_currency" style="margin:0 0 10px;">
+      <{t}>货币类型：<{/t}>
+      <{input type="select" id="payment-cur" name="payment[currency]" rows=$currencys valueColumn="cur_code" labelColumn="cur_name" value=$current_currency class="inputstyle" required="true"}>
+      </div>
+      -->
+      <div id='payment'>
+          <{$payment_html}>
+      </div>
+  </div>
+  </div>
+  <{if $tax_setting.trigger_tax}>
+  <div class="section">
+      <div class="form-title">
+          <h5>
+              <span>4</span>
+              <{t}>发票信息确认<{/t}>
+              <em class="c-red">*</em>
+          </h5>
+      </div>
+      <div class="form-body">
+          <table>
+              <tbody>
+                  <tr>
+                      <td>
+                          <ul>
+                              <li><input type="radio" name="payment[tax_type]" id="for_invoice_false" value="false" class="action-select-invoice" checked="checked"> <label for="for_invoice_false">不需要发票</label></li>
+                              <li><input type="radio" name="payment[tax_type]" id="for_invoice_personal" value="personal" class="action-select-invoice"> 
+                              <label for="for_invoice_personal">个人发票 
+                                  <{if $tax_setting.personal_tax_ratio}>(税率<{$tax_setting.personal_tax_ratio*100}>%)<{/if}>
+                              </label></li>
+                              <li><input type="radio" name="payment[tax_type]" id="for_invoice_company" value="company" class="action-select-invoice">
+                              <label for="for_invoice_company">公司发票 
+                                  <{if $tax_setting.company_tax_ratio}>(税率<{$tax_setting.company_tax_ratio*100}>%)<{/if}>
+                              </label></li>
+                              </ul>
+                          </td>
+                      </tr>
+                      <tr class="fold" style="display:none">
+                          <td><input type="hidden" name="payment[is_tax]" value="false">
+                              <label for="for_tax_company"><{t}>发票抬头<{/t}>：</label> 
+                              <input type="text" name="payment[tax_company]" id="for_tax_company" vtype="required" data-caution="请填写发票抬头"></td>
+                      </tr>
+                      <{if $tax_setting.tax_content}>
+                      <tr class="fold" style="display:none">
+                          <td><label for="for_tax_content"><{t}>发票内容<{/t}>：</label>
+                              <{input type='select' options=$tax_setting.tax_content name="payment[tax_content]" id="for_tax_content" vtype="required" data-caution="请选择发票内容"}>
+                          </td>
+                      </tr>
+                      <{/if}>
+                  </tbody>
+              </table>
+      </div>
+  </div>
+  <{/if}>
+</div>
+<script>
+  $$('.checkoutbase .action-select-invoice').addEvent('click', function(){
+      Order.selectInvoice(this);
+  });
+</script>

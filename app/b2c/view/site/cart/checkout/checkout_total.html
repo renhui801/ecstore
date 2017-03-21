@@ -1,0 +1,52 @@
+<div class="inner">
+<ul>
+  <li class="goods">
+  <span class="label"><em><{t}>商品金额<{/t}>：</em></span>
+    <span class="price"><b><{$order_detail.cost_item|cur_odr:$order_detail.currency}></b></span>
+  </li>
+  <li class="">
+    <span class="label"><em><{t}>运费<{/t}>：</em></span>
+    <span class="price"><{$order_detail.cost_freight|cur_odr:$order_detail.currency}></span>
+  </li>
+  <{if $order_detail.cost_protect > 0}>
+  <li class="">
+  <span class="label"><em><{t}>配送保价费<{/t}>：</em></span>
+  <span class="price"><{$order_detail.cost_protect|cur_odr:$order_detail.currency}></span>
+  </li>
+  <{/if}>
+  <{if $order_detail.pmt_order}>
+  <li class="discount">
+  <span class="label"><em><{t}>优惠金额<{/t}>：</em></span>
+  <span class="price"><b><{if $order_detail.pmt_order < 0}>+<{(0-$order_detail.pmt_order)|cur_odr:$order_detail.currency}><{else}>-<{$order_detail.pmt_order|cur_odr:$order_detail.currency}><{/if}></b></span>
+  </li>
+  <{/if}>
+  <{if $order_detail.cost_payment > 0}>
+  <li class="">
+  <span class="label"><em><{t}>客户承担支付手续费<{/t}>：</em></span>
+  <span class="price"><{$order_detail.cost_payment|cur_odr:$order_detail.currency}></span>
+  </li>
+  <{/if}>
+  <{if $order_detail.cost_tax>0}>
+  <li class="">
+  <span class="label"><em><{t}>开发票所需税金<{/t}>：</em></span>
+  <span class="price"><{$order_detail.cost_tax|cur_odr:$order_detail.currency}></span>
+  </li>
+  <{/if}>
+  <{if $order_detail.totalConsumeScore <> 0}>
+  <li class="">
+  <span class="label"><em><{t}>消费积分<{/t}>：</em></span>
+  <span class="price"><{$order_detail.totalConsumeScore}></span>
+  </li>
+  <{/if}>
+  <li class="total">
+  <span class="label">
+      <{if $order_detail.totalGainScore <> 0}>
+      <i>(订单可得积分<{$order_detail.totalGainScore}>)</i>
+      <{/if}>
+      <em>总金额：</em></span>
+    <span class="price"><b><{$order_detail.total_amount|cur_odr:$order_detail.currency}></b></span>
+  </li>
+</ul>
+<{if $order_detail.cost_freight == 0}><span class="message">未包含运费</span><{/if}>
+<p class="btnarea"><{if !$is_fastbuy}><a href="<{link app=b2c ctl=site_cart}>" class="btn-link">返回购物车 »</a><{/if}><{button type="submit" rel="_request" class="btn-import btn-big action-submit-order" label=$___b2c="提交订单"|t:'b2c'}></p>
+</div>

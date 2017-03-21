@@ -1,0 +1,579 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-30 18:59+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:43
+msgid "发货信息管理"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:45
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:46
+msgid "添加发货信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:79
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:121
+msgid "出货点名称不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:85
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:127
+msgid "出货点地址不能为空！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:96
+msgid "添加成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:100
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:142
+msgid "出货信息不正确！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:138
+msgid "修改成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/center.php:152
+msgid "发货地址不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:31
+msgid "快递单模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:33
+msgid "添加模版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:34
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:34
+msgid "导入模版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:259
+msgid "非会员顾客!"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:266
+msgid "非会员顾客"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:399
+msgid "需要添加的信息不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:411
+msgid "添加快递单模版失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:428
+msgid "添加快递单模版背景失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:431
+msgid "添加快递单模版成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:446
+msgid "要修改的快递单模版不存在！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:479
+msgid "修改快递单模版背景失败！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:482
+msgid "修改快递单模版成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:661
+msgid "无法读取结构信息,模板包可能已损坏！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:683
+msgid "模板包中图片有误！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:688
+msgid "上传成功！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:696
+msgid "无法解压缩,模板包可能已损坏！"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//controller/admin/delivery/printer.php:702
+msgid "必须是shopex快递单模板包(.dtp)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:20
+msgid "发货地址ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:30
+msgid "发货地址名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:39
+msgid "发货地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:47
+msgid "地区"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:55
+msgid "邮编"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:63
+msgid "电话"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:71
+msgid "姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:79
+msgid "手机"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:85
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:42
+msgid "女性"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:86
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:43
+msgid "男性"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:92
+msgid "性别"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:98
+msgid "备注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/dly_center.php:110
+msgid "发货地址表"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:20
+msgid "打印快递单模板ID"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:30
+msgid "单据名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:36
+msgid "是"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:37
+msgid "否"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:43
+msgid "是否启用"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:52
+msgid "单据宽度(mm)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:61
+msgid "单据高度(mm)"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:67
+msgid "打印偏移(左)mm"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:77
+msgid "打印偏移(右)mm"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:87
+msgid "数据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//dbschema/print_tmpl.php:99
+msgid "打印快递单模版"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//lib/finder/dly/center.php:16
+#: /Users/bryant/codes/ecstore-release/app/express//lib/finder/dly/center.php:16
+#: /Users/bryant/codes/ecstore-release/app/express//lib/finder/print/tmpl.php:14
+msgid "编辑"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//lib/finder/print/tmpl.php:15
+msgid "添加相似单据"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//lib/finder/print/tmpl.php:16
+msgid "下载模板"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:29
+msgid "收货人-姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:31
+msgid "收货人-地区1级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:32
+msgid "收货人-地区2级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:33
+msgid "收货人-地区3级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:35
+msgid "收货人-地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:36
+msgid "收货人-电话"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:37
+msgid "收货人-手机"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:38
+msgid "收货人-邮编"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:39
+msgid "发货人-姓名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:40
+msgid "收货人-地区+详细地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:42
+msgid "发货人-地区1级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:43
+msgid "发货人-地区2级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:44
+msgid "发货人-地区3级"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:46
+msgid "发货人-地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:47
+msgid "发货人-电话"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:48
+msgid "发货人-手机"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:49
+msgid "发货人-邮编"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:50
+msgid "当日日期-年"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:51
+msgid "当日日期-月"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:52
+msgid "当日日期-日"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:53
+msgid "订单条码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:54
+msgid "订单-订单号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:55
+msgid "订单总金额"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:56
+msgid "订单物品总重量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:57
+msgid "订单-物品数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:58
+msgid "订单-备注"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:59
+msgid "订单-送货时间"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:60
+msgid "网店名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:61
+msgid "对号 - √"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:62
+msgid "自定义内容"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:63
+msgid "会员用户名"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:65
+msgid "订单商品名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:66
+msgid "订单商品名称+数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:67
+msgid "订单商品名称+规格+数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:68
+msgid "订单商品名称+货号+数量"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:69
+msgid "订单打印编号"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express//model/print/tmpl.php:70
+msgid "订单打印编号-条形码"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:3
+msgid "请输入出货点信息"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:10
+msgid "请输入出货点名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:14
+msgid "请输入出货点地址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:18
+msgid "请输入出货点所在地区："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:22
+msgid "请输入出货点邮编："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:26
+msgid "请输入出货点电话："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:30
+msgid "请输入姓名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:34
+msgid "请输入手机号码："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:38
+msgid "请选择您性别："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:41
+msgid "请选择"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/detail.html:48
+msgid "请输入备注："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/page.html:50
+msgid "确定退出?"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/page.html:51
+msgid "保存并关闭窗口"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/center/page.html:52
+msgid "保存当前"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:14
+msgid "发货点名称："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:20
+msgid "发货人姓名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:24
+msgid "性别："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:29
+msgid "先生"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:31
+msgid "女士"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:35
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/dly_center.html:4
+msgid "地区："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:39
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/dly_center.html:7
+msgid "邮编："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:44
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/dly_center.html:8
+msgid "地址："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:48
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/dly_center.html:11
+msgid "手机："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:50
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/dly_center.html:12
+msgid "电话："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:56
+msgid "设置为默认地址"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:59
+msgid "备注："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/delivery_edit.html:68
+msgid "提交"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/delivery/dly_center.html:3
+msgid "姓名："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:160
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:63
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:66
+msgid "请填写单据名称"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:164
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:67
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:70
+msgid "请填写快递单模版宽度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:167
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:70
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:73
+msgid "模板宽度只能是0-255数值范围之内"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:171
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:74
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:77
+msgid "请填写快递单模版高度"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:174
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:77
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:80
+msgid "模板高度只能是0-255数值范围之内"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:179
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:86
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:85
+msgid "模板横向偏移数只能"-127 和 128"数值范围之内"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:182
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:81
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:88
+msgid "模板横向偏移数只能是数字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:187
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:95
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:93
+msgid "模板纵向偏移数只能"-127 和 128"数值范围之内"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_print_test.html:190
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_editor.html:90
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:96
+msgid "模板纵向偏移数只能是数字"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_import.html:3
+msgid ".dtp格式的快递单模板包"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_import.html:8
+msgid "模板包："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_import.html:15
+msgid "上传"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_uploadbg.html:3
+msgid "注意："
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/dly_printer_uploadbg.html:3
+msgid "扫描图片分辨率请调整为 96 dpi，图片格式 jpg"
+msgstr ""
+
+#: /Users/bryant/codes/ecstore-release/app/express/view/admin/printer/print_dly_job.html:3
+msgid "打印"
+msgstr ""
+

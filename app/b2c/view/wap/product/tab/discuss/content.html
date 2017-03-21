@@ -1,0 +1,56 @@
+
+<!-- 评分列表 -->
+<{if $page_type=='init'}>
+<div class="count">
+    <a href="<{link app=b2c ctl=wap_product act=goodsDiscuss arg0=$goods_id arg1=$product_id}>">全部<{$comments.discussCount|default:'0'}>条评论<i class="arr right"></i></a>
+</div>
+<{/if}>
+
+<{if $comments.list.discuss}>
+    <div class="list active">
+        <{foreach from=$comments.list.discuss item=comlist name=discusslist}>
+        <input type="hidden" name="id" value="<{$comlist.comment_id}>">
+        <div class="item">
+            <div class="anthor">
+                <div class="person">
+                    <div class="level"><{if $comments.setting.display_lv == 'on'}><{$comlist.member_lv_name}><{/if}></div>
+                    <div class="pic">
+                      <{if $comlist.member_lv_logo!=''}>
+                        <img src="<{$comlist.member_lv_logo|storager:'s'}>">
+                      <{else}>
+                        <{img src="sprites/default-avatar.png" alt=""}>
+                      <{/if}>
+                    </div>
+                    <div class="name"><{if $comlist.addon.hidden_name =='YES' && ($comlist.author_id !=0 || $comlist.author_id !=1)}><{t}>匿名<{/t}><{else}><{$comlist.author}><{/if}></div>
+                </div>
+                <div class="time"><{$comlist.time|cdate:'SDATE_STIME'}></div>
+                <div class="content"><{$comlist.comment|nl2br}></div>
+            </div>
+            <{if $comments.setting.switch_reply == 'on'}>
+            <{if $comlist.items}>
+            <div class="reply">
+                <ul class="reply-list">
+                    <{foreach from=$comlist.items item=item}>
+                    <li class="reply-item">
+                        <span class="n"><{$key+1}></span>
+                        <span class="c"><{$item.comment|nl2br}></span>
+                        <span class="p"><{if $item.author==='管理员'}>answer-admin <{else}><{$item.author}><{/if}></span>
+                        <span class="t"><{$item.time|cdate:'SDATE_STIME'}></span>
+                        <i class="arr left"></i>
+                    </li>
+                    <{/foreach}>
+                </ul>
+            </div>
+            <{/if}>
+            <{/if}>
+        </div>
+        <{if $comments.setting.switch_reply == 'on'}>
+        <a href="<{link app=b2c ctl=wap_product act=toDiscussReply arg0=$comlist.comment_id arg1=$goods_id arg2=$product_id}>" class="btn">+回复</a>
+        <{/if}>
+        <{/foreach}>
+    </div>
+    
+    
+    <{wap_pagers ajax="true" data=$pager}>
+
+<{/if}>
