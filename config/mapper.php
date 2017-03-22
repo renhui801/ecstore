@@ -12,4 +12,5 @@ $urlmap = array(
     '/shopadmin'=> array('app'=>'desktop'),
     '/'=> array('app'=>'site'),
     '/wap'=> array('app'=>'wap'),
+    '/front'=>array('app'=>'notebook')
 );
